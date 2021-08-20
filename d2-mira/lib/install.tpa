@@ -1,4 +1,4 @@
-ACTION_IF (GAME_INCLUDES ~iwd2~) BEGIN										// IWD2
+ACTION_IF (GAME_INCLUDES ~iwd2~) BEGIN				// IWD2
 COPY ~%MOD_FOLDER%/iwd2~ ~override~
   
 COPY_EXISTING ~d2mira01.ITM~ ~override~							
@@ -21,8 +21,8 @@ SAY NAME1 @105 SAY NAME2 @105 SAY UNIDENTIFIED_DESC @51 SAY DESC @51
 
 END
 
-ELSE BEGIN																	// other IE games
-COPY ~%MOD_FOLDER%/data~ ~override~				
+ELSE BEGIN											// other IE games
+COPY ~%MOD_FOLDER%/data~ ~override~
 
 COPY_EXISTING ~SECRET01.ITM~ ~override~
 SAY NAME1 @100 SAY NAME2 @100 SAY UNIDENTIFIED_DESC @200 SAY DESC @200
