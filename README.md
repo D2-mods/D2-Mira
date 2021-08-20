@@ -25,29 +25,8 @@ ITEM LIST:
 
 NOTE: As in BG2, the Big Metal Rod is just a crossbow without any bonus to hit/damage and usable by all classes (but with a unique icon that sets it apart).
 
-Item locations/resource: link
+Item locations/resource: https://github.com/D2-mods/D2-BIG-METAL/blob/main/d2-mira/Item%20locations%20(spoilers).txt
 
 Pulse Ammunition (prototype): This is a version of the in-development Pulse Ammunition that was stolen and sold at the Carnival, before finding its way to Baldur's Gate. "FOR TESTING PURPOSES ONLY", the label reads. Allows you to shoot small balls of pure energy from the Big Metal Rod.
 
 IWD2 note: A side effect of the animation change (with the armor) is that selection sounds when clicking the character will change to a creature sound. This change in sound will persist even after removing the armor. I couldn't figure out a workaround, but saving and reloading will return selection sounds back to normal.
-
-
-CREDITS:
-
-Coding, Testing: Dan_P
-
-Tools used:
-- WeiDU v247 https://github.com/WeiDUorg/weidu
-- NearInfinity v2.2-20210501 https://github.com/Argent77/NearInfinity
-- Notepad++ https://notepad-plus-plus.org/
-- Git Bash https://git-scm.com/downloads
-- Infinity Auto Packager https://github.com/InfinityTools/InfinityAutoPackager
-- IESDP https://gibberlings3.github.io/iesdp/index.htm
-
-I don't own any files here and anyone is free to re-use any part of this mod for their own projects.
-
-
-VERSION HISTORY:
-
-v1.0
--initial release

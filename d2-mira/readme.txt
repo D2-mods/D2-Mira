@@ -25,7 +25,7 @@ ITEM LIST:
 
 NOTE: As in BG2, the Big Metal Rod is just a crossbow without any bonus to hit/damage and usable by all classes (but with a unique icon that sets it apart).
 
-Item locations/resource: link
+Item locations/resource: https://github.com/D2-mods/D2-BIG-METAL/blob/main/d2-mira/Item%20locations%20(spoilers).txt
 
 Pulse Ammunition (prototype): This is a version of the in-development Pulse Ammunition that was stolen and sold at the Carnival, before finding its way to Baldur's Gate. "FOR TESTING PURPOSES ONLY", the label reads. Allows you to shoot small balls of pure energy from the Big Metal Rod.
 
@@ -50,4 +50,4 @@ I don't own any files here and anyone is free to re-use any part of this mod for
 VERSION HISTORY:
 
 v1.0
--initial release
+- initial release
