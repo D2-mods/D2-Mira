@@ -1,0 +1,118 @@
+ACTION_IF (GAME_INCLUDES ~bg1~) BEGIN				// BG1 stores
+
+COPY_EXISTING ~STOCHEAP.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = SECRET01
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~STOBLACK.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pulse
+  position = ~LAST~
+  END
+  
+END
+  
+  
+ACTION_IF (GAME_INCLUDES ~iwd~) BEGIN				// IWD stores
+
+COPY_EXISTING ~EHPOMAB.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = SECRET01
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~KUOSWALD.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pulse
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~KUORK3.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = SECRET02
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~LDD_NYM.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = SECRET03
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~KIERAN2.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = SECRET04
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~TIERNON.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = SECRET05
+  position = ~LAST~
+  END
+  
+END
+
+
+ACTION_IF (GAME_INCLUDES ~iwd2~) BEGIN				// IWD2 stores
+
+COPY_EXISTING ~11OSWALD.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2mira01
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~50NYM.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2mira06
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~50NYM2.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2mira06
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~52BERED.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2mira02
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~53MYRVEK.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2mira03
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~60SPELLS.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2mira04
+  position = ~LAST~
+  END
+
+COPY_EXISTING ~63RIKI.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2mira05
+  position = ~LAST~
+  END
+
+END

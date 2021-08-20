@@ -1,6 +1,6 @@
-# D2-BIG-METAL
-GitHub: https://github.com/D2-mods/D2-BIG-METAL  
-Forum:  
+D2-BIG-METAL
+GitHub: https://github.com/D2-mods/D2-BIG-METAL
+Forum: 
 Game version: BG:EE, IWD:EE, IWD2, untested with non-EE BG1/IWD
 
 

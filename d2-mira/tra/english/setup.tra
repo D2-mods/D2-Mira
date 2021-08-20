@@ -1,0 +1,99 @@
+//Setup
+@1 = ~Add Big Metal items, and patch in text~
+@2 = ~Add items to stores~
+@3 = ~Must install Big Metal files before adding to stores~
+
+
+//Item text
+@100 = ~Big Metal Rod~
+@200 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
+
+STATISTICS:
+
+Weight: 4~
+
+@101 = ~Pulse Ammunition~
+@201 = ~This Pulse Ammunition allows you to shoot small balls of pure energy at a frightening pace from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0~
+
+@102 = ~Frag Grenade~
+@202 = ~This skull can be launched at your enemies via the Big Metal Rod. It will explode into fragments when an enemy approaches it and damage everyone within the radius of the explosion.
+
+STATISTICS:
+
+Weight: 1~
+
+@103 = ~Scorcher Ammunition~
+@203 = ~This ammunition for the Big Metal Rod will allow you to shoot a jet of flame at an enemy.
+
+STATISTICS:
+
+Weight: 1~
+
+@104 = ~Big Metal Unit~
+@204 = ~Found within a long-forgotten pocket of our collected pantology, herein tales the lie of the Metal "Unit." 
+
+Gargantua was self-proclaimed lord of his immeasurable lower regions until his son, Pantagruel, questioned the accuracy of the ruler. With his shortcomings exposed, great Gargantua lay prostrate upon the ground while Pantagruel sought to cover his cuirass in case his now governing body lost its sway. He was warned that the people would cut him no slacks, but he never listened, and had burned his britches behind him. Undaunted, he fulfilled his animus with the robes of his father, as uncomfortable as that might sound, and shaped the Metal "Unit" with his own hands. 
+
+The rule of Pantagruel was a discommoding morass, his armor eventually suffering a breach in the breech that proved his undoing. As his basket left the pantry, so to speak, his regime fell to insurrection, and so complete was the sacking that not even his Metal "Unit" could be found. The component pieces, a pantaloon triumvirate, were lost in the annals of time. 
+
+You now bear the awesome responsibility of the Metal "Unit." Gussets of wind, seams like reality, pockets of resistance, the seat of power, and legs as flared as your temper. Polish it well; the onus is now on you.
+
+STATISTICS:
+
+Equipped abilities:
+– Immunity to backstab
+– Magic Resistance: +5%
+– Spellcasting, stealth, and thieving abilities disabled
+
+Armor Class: -10 (-14 vs. slashing, -13 vs. piercing and missile)
+Requires:
+ 15 Strength
+
+Weight: 45~
+
+@105 = ~Pulse Ammunition (prototype)~
+@205 = ~This is a version of the in-development Pulse Ammunition that was stolen and sold at the Carnival, before finding its way to Baldur's Gate. "FOR TESTING PURPOSES ONLY", the label reads. Allows you to shoot small balls of pure energy from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0~
+
+
+// alt text for IWD
+@50 = ~This is an early prototype of "Pulse Ammunition". Oswald has asked you to do some field testing for an unnamed client. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0~
+
+
+// alt text for IWD2
+@51 = ~This is an early prototype of "Pulse Ammunition". It was last seen being used by a band of adventurers near Kuldahar around 30 years ago. At some point, the prototype was lost, and picked up by a traveling caravan, before finding its way to Nym, as such items have a habit of doing. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0~
+
+@52 = ~Found within a long-forgotten pocket of our collected pantology, herein tales the lie of the Metal "Unit." 
+
+Gargantua was self-proclaimed lord of his immeasurable lower regions until his son, Pantagruel, questioned the accuracy of the ruler. With his shortcomings exposed, great Gargantua lay prostrate upon the ground while Pantagruel sought to cover his cuirass in case his now governing body lost its sway. He was warned that the people would cut him no slacks, but he never listened, and had burned his britches behind him. Undaunted, he fulfilled his animus with the robes of his father, as uncomfortable as that might sound, and shaped the Metal "Unit" with his own hands. 
+
+The rule of Pantagruel was a discommoding morass, his armor eventually suffering a breach in the breech that proved his undoing. As his basket left the pantry, so to speak, his regime fell to insurrection, and so complete was the sacking that not even his Metal "Unit" could be found. The component pieces, a pantaloon triumvirate, were lost in the annals of time. 
+
+You now bear the awesome responsibility of the Metal "Unit." Gussets of wind, seams like reality, pockets of resistance, the seat of power, and legs as flared as your temper. Polish it well; the onus is now on you.
+
+STATISTICS:
+
+Heavy Armor
+Armor Bonus: +15
+Max Dex Bonus:  +0
+Armor Check Penalty:  -6
+Arcane Spell Failure:  40%
+Special:  
+  Immunity to Sneak Attack
+  Resistance: 5/- Spell Resistance
+Weight: 45 lb.~

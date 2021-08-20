@@ -1,0 +1,40 @@
+ITEM LOCATIONS
+
+BG1:
+- Lucky Aello: Big Metal Rod
+- Black Lily: Pulse Ammunition (prototype)
+
+IWD:
+- Pomab: Big Metal Rod
+- Oswald: Pulse Ammunition (prototype)
+- Orrick (chapter 4): Pulse Ammunition
+- Nym: Frag Grenade
+- Kieran Nye: Scorcher Ammunition
+- Tiernon: Big Metal Unit
+
+IWD2
+- Oswald: Big Metal Rod
+- Nym: Pulse Ammunition (prototype)
+- Bered (monastery): Pulse Ammunition
+- Myrvek: Frag Grenade
+- Sheemish: Scorcher Ammunition
+- Riki: Big Metal Unit
+
+
+ITEM RESOURCE
+
+BG1/IWD:
+SECRET01 - Big Metal Rod
+SECRET02 - Pulse Ammunition
+SECRET03 - Frag Grenade
+SECRET04 - Scorcher Ammunition
+SECRET05 - Big Metal Unit
+d2pulse - Pulse Ammunition (prototype)
+
+IWD2:
+d2mira01 - Big Metal Rod
+d2mira02 - Pulse Ammunition
+d2mira03 - Frag Grenade
+d2mira04 - Scorcher Ammunition
+d2mira05 - Big Metal Unit
+d2mira06 - Pulse Ammunition (prototype)
