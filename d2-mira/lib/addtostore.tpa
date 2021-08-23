@@ -54,10 +54,45 @@ COPY_EXISTING ~KIERAN2.STO~ ~override~
   position = ~LAST~
   END
 
-COPY_EXISTING ~TIERNON.STO~ ~override~
+COPY_EXISTING ~HOBART.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
   item_name = SECRET05
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~LDD_DL1.STO~ ~override~				// pantaloons
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant01
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~LDD_DL2.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant01
+  position = ~LAST~
+  END
+    
+COPY_EXISTING ~LDD_DL3.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant01
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~KUTEMPLE.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant02
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~TIERNON.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant03
   position = ~LAST~
   END
   
@@ -115,4 +150,39 @@ COPY_EXISTING ~63RIKI.STO~ ~override~
   position = ~LAST~
   END
 
+COPY_EXISTING ~41ZACK1.STO~ ~override~				// pantaloons
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant01
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~41ZACK2.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant01
+  position = ~LAST~
+  END
+    
+COPY_EXISTING ~41ZACK3.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant01
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~53MALAVO.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant02
+  position = ~LAST~
+  END
+  
+COPY_EXISTING ~60SHEEMI.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX
+  STR_VAR
+  item_name = d2pant03
+  position = ~LAST~
+  END
+  
 END

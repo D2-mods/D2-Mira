@@ -10,7 +10,7 @@ IWD:
 - Orrick (chapter 4): Pulse Ammunition
 - Nym: Frag Grenade
 - Kieran Nye: Scorcher Ammunition
-- Tiernon: Big Metal Unit
+- Hobart: Big Metal Unit
 
 IWD2
 - Oswald: Big Metal Rod

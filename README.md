@@ -1,7 +1,4 @@
 # D2-BIG-METAL
-2021-08-22: Just adding a note in case anyone actually sees this. The test release basically works 100% as stated in the readme. I'm still working on some things with this mod, so no idea when a v1.0 will be ready.
-
-
 GitHub: https://github.com/D2-mods/D2-BIG-METAL  
 Forum:  
 Game version: BG:EE, IWD:EE, IWD2, untested with non-EE BG1/IWD
@@ -25,6 +22,8 @@ ITEM LIST:
 - Scorcher Ammunition
 - Big Metal Unit
 - Pulse Ammunition (prototype)
+
+Item resource/locations (spoilers): https://raw.githubusercontent.com/D2-mods/D2-BIG-METAL/main/d2-mira/Item%20locations%20(spoilers).txt
 
 NOTE: As in BG2, the Big Metal Rod is just a crossbow without any bonus to hit/damage and usable by all classes (but with a unique icon that sets it apart).
 

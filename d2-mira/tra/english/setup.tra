@@ -4,7 +4,7 @@
 @3 = ~Must install Big Metal files before adding to stores~
 
 
-//Item text
+// Item text
 @100 = ~Big Metal Rod~
 @200 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
 
@@ -62,16 +62,55 @@ STATISTICS:
 
 Weight: 0~
 
+@106 = ~Bronze Pantalettes~
+@206 = ~The pinnacle of style and the epitome of fashion, those of discerning taste would rather wear nothing at all than substitute inferior apparel for the bronze pantalettes.
 
-// alt text for IWD
-@50 = ~This is an early prototype of "Pulse Ammunition". Oswald has asked you to do some field testing for an unnamed client. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+STATISTICS:
+
+Weight: 1~
+
+@107 = ~Silver Pantaloons~
+@207 = ~A high-quality pair of silver pantaloons. Simply by donning these exquisite trousers, one sees visions of the future, a party of buffoons, a ransom paid in pants. Certain questions are better left unasked.
+
+STATISTICS:
+
+Weight: 1~
+
+@108 = ~Golden Pantaloons~
+@208 = ~The Golden Pantaloons did surely see the very beginnings of our realm, though I must press that they "saw" this formative time by their simple presence, and not through some vestigial eyes that might have erupted through a rear pocket perhaps concealing teeth and other improbable extremities. I am sure that the various owners of the pantaloons can attest to the general lack of animated digits or ocular sensors, as evidenced by the continued sanctity and privacy maintained by their respective buttocks.
+
+Lyric pantoums of an age long since out of print speak of "trousers that were as metal, though soft about the shanks." While it might be easy to jump to the seemingly inevitable conclusion that the trousers rose while Netheril fell, it is doubtful that the Pantaloons were the garments of which they speak. One must clarify these oft misquoted verses with knowledge of the Pantechnicon, an ancient bazaar once prized for Silver Pantalettes. Fine these may have been, but golden they were not. Nickel Panties are also said to be currently available, though the dockside establishments that claim to offer these products are beyond my meager experience, and thus I can make no report.
+
+The purpose of the Pantaloons is as mysterious as ever, and will likely remain so until the Pantocrator himself returns, though some properties can be divined though intimate observation. The "uplifting" properties of the gusset very nearly defy gravity, shaping quite nicely both the front and rear. This improved contour would likely increase self-esteem for a wearer of either sex. I would hazard a guess, however, that this continuing self delusion might actually hamper cognitive functions, and care should be taken in the wearing of any pantaloons of golden nature.
 
 STATISTICS:
 
 Weight: 0~
 
 
-// alt text for IWD2
+// Unidentified text
+@900 = ~Pantaloons of a quality heretofore unseen by the eyes of either man or beast. Dynamic styling and comfort that cradles, cuddles, and coddles. Seduce your thighs, cajole your calves, enjoy Golden Pantaloons... TODAY!
+
+Trousers you would be proud to take home to mother, if mother rode fast and fought hard.
+
+STATISTICS:
+
+Weight: 0~
+
+@901 = ~Long has the world marveled at the Golden Pantaloons, the Silver Pantaloons, and to a lesser extent, the Bronze Pantalettes. Revealed here for the first time are the secrets of their gregariously girding gussets that so softly shield your shanks. Ye gods! Get to identifyin' already! Now it can be told!
+
+STATISTICS:
+
+Weight: 45~
+
+
+// alt text for IWD games
+@50 = ~This is an early prototype of "Pulse Ammunition". Oswald has asked you to do some field testing for an unnamed client. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0~
+
 @51 = ~This is an early prototype of "Pulse Ammunition". It was last seen being used by a band of adventurers near Kuldahar around 30 years ago. At some point, the prototype was lost, and picked up by a traveling caravan, before finding its way to Nym, as such items have a habit of doing. It allows you to shoot small balls of pure energy from the Big Metal Rod.
 
 STATISTICS:
