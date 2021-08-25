@@ -1,6 +1,6 @@
 BACKUP ~d2-mira\backup~
 AUTHOR ~Dan_P, check the readme for forum link~
-VERSION ~0.5~
+VERSION ~0.6~
 
 AUTO_TRA ~d2-mira/tra/%s~
 LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
