@@ -6,7 +6,7 @@ Game version: BG:EE, IWD:EE, IWD2, untested on other games
 
 WHAT THIS MOD DOES:
 
-Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in-game in Icewind Dale 1 and 2. The Big Metal Rod and Pulse Ammunition (prototype) are obtainable in BG1. The items are "purchased" (1 gold) from various stores. This actually works pretty well, even though it sounds a bit wierd. The stronger items are only obtainable later in the IWD games. I think they're placed at good locations balance-wise, but obviously, this isn't the mod to use if you're concerned about purity of the game balance.
+Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in-game in Icewind Dale 1 and 2. The Big Metal Rod and Pulse Ammunition (prototype) are obtainable in BG1. The items are "purchased" (1 gold) from various stores. This actually works pretty well, even though it sounds a bit weird. The stronger items are only obtainable later in the IWD games. I think they're placed at good locations balance-wise, but obviously, this isn't the mod to use if you're concerned about purity of the game balance.
 
 Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both IWD games. They are extremely expensive and have no purpose at all other than taking up inventory space, but they're there if you want them.
 
