@@ -105,71 +105,91 @@ ACTION_IF (GAME_INCLUDES ~iwd2~) BEGIN				// IWD2 stores
 COPY_EXISTING ~11OSWALD.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2mira01
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~50NYM.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2mira06
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~50NYM2.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2mira06
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~52BERED.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2mira02
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~53MYRVEK.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2mira03
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~60SPELLS.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2mira04
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~63RIKI.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2mira05
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~11ELYTHA.STO~ ~override~				// pantaloons
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2pant01
   position = ~LAST~
+  flags = identified
   END
   
 COPY_EXISTING ~53MALAVO.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2pant02
   position = ~LAST~
+  flags = identified
   END
   
 COPY_EXISTING ~60SHEEMI.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
+  charge1 = 1
   item_name = d2pant03
   position = ~LAST~
+  flags = identified
   END
   
 END

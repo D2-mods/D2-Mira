@@ -56,7 +56,7 @@ Requires:
 Weight: 45~
 
 @105 = ~Pulse Ammunition (prototype)~
-@205 = ~This is an early prototype of the Pulse Ammunition. Oswald has asked you to do some field testing for an unnamed client. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+@205 = ~This is an early prototype of the Pulse Ammunition, designed to be used with the Big Metal Rod (though usable with any crossbow). Oswald is willing to lend it to you... for a small fee. It allows you to shoot small balls of pure energy from the Big Metal Rod.
 
 STATISTICS:
 
@@ -120,7 +120,7 @@ Weight: 0~
 
 
 // alt text for iwd2
-@700 = ~This is an early prototype of the Pulse Ammunition. It was last seen being used by a band of mercenaries near Kuldahar around 30 years ago. At some point, the prototype was lost, and picked up by a traveling caravan, before finding its way to Nym, as such items have a habit of doing. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+@700 = ~This is an early prototype of the Pulse Ammunition. It was last seen in possession of a band of mercenaries near Kuldahar some 30 years ago. At some point, the prototype was lost, and picked up by a traveling caravan, before finding its way to Nym, as such items have a habit of doing. It allows you to shoot small balls of pure energy from the Big Metal Rod.
 
 STATISTICS:
 
