@@ -8,7 +8,7 @@ LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
 //Installing
 	 
 BEGIN @1 DESIGNATED 0									//add items
-LABEL ~D2-BIG-METAL~
+LABEL ~D2-MIRA-TEC~
 INCLUDE ~%MOD_FOLDER%/lib/install.tpa~
 
 BEGIN @2 DESIGNATED 1									//add to stores
