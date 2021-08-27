@@ -1,7 +1,7 @@
-D2-MIRA - Get the Big Metal Unit in other IE games
+D2-MIRA - Bringing the Big Metal Unit to IWD:EE and IWD2
 GitHub: https://github.com/D2-mods/D2-MIRA
 Forum: 
-Game version: BG:EE, IWD:EE, IWD2 (tested on BGEE v2.6 and IWDEE v2.5)
+Game version: BG:EE, IWD:EE, IWD2 (EEs tested on v2.5/v2.6, IWD2 tested with Almateria's fixpack)
 
 
 WHAT THIS MOD DOES:
@@ -58,10 +58,13 @@ I don't own any files here and anyone is free to re-use any part of this mod for
 
 VERSION HISTORY:
 
+v1.0
+- release version
+
 v0.7
 - fix crash when buying Golden Pantaloons (apparently, buying an unidentified item locks up IWD2)
 - items updated with higher prices
-- items given lore values to get the "magical item" border around the icon
+- items given lore values to get the "magical item" border around the icon in IWD2
 
 v0.6
 - reorganization of files/folders

@@ -1,7 +1,6 @@
-# D2-MIRA - Get the Big Metal Unit in other IE games
-GitHub: https://github.com/D2-mods/D2-MIRA
-Forum:  
-Game version: BG:EE, IWD:EE, IWD2 (tested on BGEE v2.6 and IWDEE v2.5)
+# D2-MIRA - Bringing the Big Metal Unit to IWD:EE and IWD2
+Download: https://github.com/D2-mods/D2-MIRA/releases  
+Game version: BG:EE, IWD:EE, IWD2 (EEs tested on v2.5/v2.6, IWD2 tested with Almateria's fixpack)
 
 
 WHAT THIS MOD DOES:
