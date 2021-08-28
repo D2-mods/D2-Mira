@@ -8,7 +8,7 @@ WHAT THIS MOD DOES:
 
 Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are obtainable in BG:EE. All items are purchased, and get added to various stores. Overall, I think the item prices and locations are well-balanced, but obviously, this isn't the mod to use if you're concerned about purity of the game balance.
 
-Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both IWD games. They are extremely expensive and have no purpose at all other than taking up inventory space, but they're there if you want them.
+Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both IWD games. They are extremely expensive and have no purpose at all other than taking up inventory space, but they are there if you want them.
 
 
 INSTALLATION:
@@ -57,9 +57,6 @@ I don't own any files here and anyone is free to re-use any part of this mod for
 
 
 VERSION HISTORY:
-
-v1.0
-- release version
 
 v0.7
 - fix crash when buying Golden Pantaloons (apparently, buying an unidentified item locks up IWD2)

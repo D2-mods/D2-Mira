@@ -1,6 +1,6 @@
 BACKUP ~d2-mira\backup~
 AUTHOR ~Dan_P, check the readme for forum link~
-VERSION ~1.0~
+VERSION ~0.8~
 
 AUTO_TRA ~d2-mira/tra/%s~
 LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
@@ -8,9 +8,11 @@ LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
 //Installing
 	 
 BEGIN @1 DESIGNATED 0									//add items
+REQUIRE_PREDICATE GAME_IS ~bgee eet iwdee iwd2~ @4
 LABEL ~D2-MIRA-TEC~
 INCLUDE ~%MOD_FOLDER%/lib/install.tpa~
 
 BEGIN @2 DESIGNATED 1									//add to stores
+REQUIRE_PREDICATE GAME_IS ~bgee eet iwdee iwd2~ @4
 REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @3
 INCLUDE ~%MOD_FOLDER%/lib/addtostore.tpa~

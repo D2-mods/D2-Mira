@@ -1,4 +1,4 @@
-ACTION_IF (GAME_INCLUDES ~bg1~) BEGIN				// BG1 stores
+ACTION_IF (GAME_IS ~bgee eet~) BEGIN				// BG1 stores
 
 COPY_EXISTING ~STOCHEAP.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
@@ -17,7 +17,7 @@ COPY_EXISTING ~STOBLACK.STO~ ~override~
 END
   
   
-ACTION_IF (GAME_INCLUDES ~iwd~) BEGIN				// IWD stores
+ACTION_IF (GAME_IS ~iwdee~) BEGIN				// IWD stores
 
 COPY_EXISTING ~EHPOMAB.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
@@ -100,7 +100,7 @@ COPY_EXISTING ~TIERNON.STO~ ~override~
 END
 
 
-ACTION_IF (GAME_INCLUDES ~iwd2~) BEGIN				// IWD2 stores
+ACTION_IF (GAME_IS ~iwd2~) BEGIN				// IWD2 stores
 
 COPY_EXISTING ~11OSWALD.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
