@@ -1,6 +1,6 @@
 D2-MIRA - Bringing the Big Metal Unit to IWD:EE and IWD2
 GitHub: https://github.com/D2-mods/D2-MIRA
-Forum: 
+Forum: https://forums.beamdog.com/discussion/82755/mod-d2-mira-bringing-the-big-metal-unit-to-iwd-ee-and-iwd2-also-bg-ee/p1?new=1
 Game version: BG:EE, IWD:EE, IWD2 (EEs tested on v2.5/v2.6, IWD2 tested with Almateria's fixpack)
 
 
@@ -57,6 +57,10 @@ I don't own any files here and anyone is free to re-use any part of this mod for
 
 
 VERSION HISTORY:
+
+v1.0
+- release version
+- tightened parameters for installation
 
 v0.7
 - fix crash when buying Golden Pantaloons (apparently, buying an unidentified item locks up IWD2)
