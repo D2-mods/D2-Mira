@@ -1,7 +1,7 @@
 # D2-MIRA - Bringing the Big Metal Unit to IWD:EE and IWD2
 Download: https://github.com/D2-mods/D2-MIRA/releases  
-Forum: [Beamdog forums](https://forums.beamdog.com/discussion/82755/mod-d2-mira-bringing-the-big-metal-unit-to-iwd-ee-and-iwd2-also-bg-ee/p1?new=1)  
-Game version: BG:EE, IWD:EE, IWD2 (EEs tested on v2.5/v2.6, IWD2 tested with Almateria's fixpack)
+Forum: [Beamdog forums](https://forums.beamdog.com/discussion/82755/mod-d2-mira-bringing-the-big-metal-unit-to-iwd-ee-and-iwd2-also-bg-ee/)  
+Game version: BG:EE, EET, IWD:EE, IWD2 (EEs tested on v2.5/v2.6, IWD2 tested with Almateria's fixpack)
 
 
 WHAT THIS MOD DOES:
