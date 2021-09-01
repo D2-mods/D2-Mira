@@ -45,7 +45,7 @@ Additional info:
 - Big Metal Rod (EE): As in BG2, this is just a crossbow without any bonus to hit/damage and usable by all classes. It does not give classes the ability to equip regular bolts, if they are not already able to.
 - Pulse Ammunition (prototype): Similar to the regular Pulse Ammunition, but lower APR (2 instead of 5) and lower enchantment (+1 instead of +3).
 - Big Metal Rod (IWD2): A few things to note about the crossbows in this game:
-1. They are set to 1 attack per round, and only increase if hasted or if the crossbow or the bolt sets APR higher.
+1. They are set to 1 attack per round, and only increase if hasted or if the crossbow or another equip increases APR higher.
 2. Every class can equip any weapon type, so usability isn't an advantage.
 3. Even low level crossbows have big bonuses. A non-magical Heavy Crossbow gives +2 to hit/damage, and is pretty cheap to buy.
 4. So to make the Big Metal Rod not completely useless, as well as giving it some scalability, I remove the APR restriction. At level 1, it will still attack only once per round, but attacks will increase with character growth, same as bows and other weapons. No bonus to hit or damage (for now).
