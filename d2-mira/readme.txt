@@ -6,14 +6,25 @@ Game version: BG:EE, EET, IWD:EE, IWD2 (EEs tested on v2.5/v2.6, IWD2 tested wit
 
 WHAT THIS MOD DOES:
 
-Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are obtainable in BG:EE. All items are purchased, and get added to various stores. Overall, I think the item prices and locations are well-balanced, but obviously, this isn't the mod to use if you're concerned about purity of the game balance.
+Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are obtainable in BG:EE. All items are purchased, and get added to various stores. I may expand on certain things in the future. As of v2.0, this mod also rebalances the ammunitions for the IWD games.
 
 Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both IWD games. They are extremely expensive and have no purpose at all other than taking up inventory space, but they are there if you want them.
 
 
+UPDATE:
+v2.0
+- rebalances the ammunitions (optional for IWD:EE)
+- see <here> for details
+
+
 INSTALLATION:
 
-Copy zipped files to game directory, and run setup-d2-mira to install or uninstall. Component 1 installs the items and component 2 adds them to stores. I made adding to stores a separate component so people who might want to just import the items at the start can skip this step. Mod packages are cross-platform, and were made using ALIEN's Infinity Auto Packager. I don't use Mac/Linux, but installing should be the same as with other mods.
+Copy zipped files to game directory, and run setup-d2-mira.exe to install or uninstall. Mod packages are cross-platform, and were made using ALIEN's Infinity Auto Packager. I don't use Mac/Linux, but installing should be the same as with other mods.
+
+This mod has 3 components:
+1. Installs the items.
+2. Adds items to stores. I made adding to stores a separate component so people who might want to just import the items at the start can skip this step.
+3. IWD:EE only: Choose Revised or vanilla BG2 stats for the ammunitions (default is revised)
 
 
 ITEM LIST:
@@ -58,15 +69,14 @@ I don't own any files here and anyone is free to re-use any part of this mod for
 
 VERSION HISTORY:
 
+v2.0
+- rebalances the ammunitions (optional for IWD:EE)
+- see <here> for details
+
 v1.0
 - release version
-- tightened parameters for installation
 
 v0.7
 - fix crash when buying Golden Pantaloons (apparently, buying an unidentified item locks up IWD2)
 - items updated with higher prices
 - items given lore values to get the "magical item" border around the icon in IWD2
-
-v0.6
-- reorganization of files/folders
-- reordered/renumbered tra file

@@ -3,6 +3,11 @@
 @2 = ~Add items to stores~
 @3 = ~Must install Big Metal files before adding to stores~
 @4 = ~Hint: Try installing on BG:EE, EET, IWD:EE or IWD2~
+@5 = ~Use Revised ammunitions (default)~
+@6 = ~Use vanilla BG2:EE ammunitions~
+@7 = ~This component is only for IWD:EE~
+@8 = ~Must install Big Metal files before patching items~
+@9 = ~Choose Revised or vanilla BG2 ammunitions~
 
 
 // Item text
