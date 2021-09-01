@@ -14,7 +14,7 @@ Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both 
 UPDATE:
 v2.0
 - rebalances the ammunitions (optional for IWD:EE)
-- details: https://raw.githubusercontent.com/D2-mods/D2-MIRA/main/d2-mira/v2.0%20-%20Revised%20ammunition.txt
+- details: https://forums.beamdog.com/discussion/comment/1176211/#Comment_1176211
 
 
 INSTALLATION:
