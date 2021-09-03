@@ -25,7 +25,7 @@ END
 
 
 ACTION_IF (GAME_IS ~iwd2~) BEGIN				// IWD2
-COPY ~%MOD_FOLDER%/iwd2~ ~override~
+COPY ~%MOD_FOLDER%/data2~ ~override~
 COPY_EXISTING ~d2mira01.ITM~ ~override~							
   SAY NAME1 @100 SAY NAME2 @100 SAY UNIDENTIFIED_DESC @200 SAY DESC @200
 COPY_EXISTING ~d2mira02.ITM~ ~override~			

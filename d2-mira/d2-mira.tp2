@@ -1,6 +1,6 @@
 BACKUP ~d2-mira\backup~
 AUTHOR ~Dan_P, check the readme for forum link~
-VERSION ~2.0~
+VERSION ~2.1~
 
 AUTO_TRA ~d2-mira/tra/%s~
 LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
@@ -10,20 +10,21 @@ LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
 BEGIN @1 DESIGNATED 0									//add items
 REQUIRE_PREDICATE GAME_IS ~bgee eet iwdee iwd2~ @4
 LABEL ~D2-MIRA-TEC~
-INCLUDE ~%MOD_FOLDER%/lib/install.tpa~
+INCLUDE ~%MOD_FOLDER%/install/install.tpa~
 
 BEGIN @2 DESIGNATED 1									//add to stores
 REQUIRE_PREDICATE GAME_IS ~bgee eet iwdee iwd2~ @4
 REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @3
-INCLUDE ~%MOD_FOLDER%/lib/addtostore.tpa~
+INCLUDE ~%MOD_FOLDER%/install/addtostore.tpa~
 
 BEGIN @5 DESIGNATED 2									//Revised ammunitions
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @7
 REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @8
 SUBCOMPONENT @9
-INCLUDE ~%MOD_FOLDER%/lib/ammorev.tpa~
+INCLUDE ~%MOD_FOLDER%/install/ammorev.tpa~
 
 BEGIN @6 DESIGNATED 3									//BG2EE ammunitions
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @7
 REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @8
 SUBCOMPONENT @9
-INCLUDE ~%MOD_FOLDER%/lib/ammobg2.tpa~
+INCLUDE ~%MOD_FOLDER%/install/ammobg2.tpa~
