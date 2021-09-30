@@ -1,32 +1,24 @@
 Revised ammunition - Summary of changes
 
 IWDEE (v1.0, vanilla BG2)
-- Rod: usable by all classes
 - Pulse: 1d4+1 (magic), 1 missile, 5 APR, +3 enchantment
 - Frag: 1d12 (fire), 5 APR, +1 enchantment
 - Scorcher: 2d12 (fire, save for half), 5 APR, +1 enchantment
-- Unit: -10 AC (+20 bonus)
 
 IWDEE (v2.0, revised)
-- Rod: usable by all classes
 - Pulse: 1d4+1 (magic), 3 missiles, 3 APR, +3 enchantment
 - Frag: 2d6 (fire), 3 APR, +3 enchantment
 - Scorcher: 2d12 (fire, save for half), 3 APR, +3 enchantment
-- Unit: -10 AC (+20 bonus)
 
 IWD2 (v1.0)
-- Rod: unlocked APR
 - Pulse: 1d4+1 (magic), 1 missile, 5 APR, +3 enchantment
 - Frag: 1d12 (fire), 5 APR, +1 enchantment
 - Scorcher: 3d6 (fire) to main target, 5 APR, +1 enchantment
-- Unit: +15 AC
 
 IWD2 (v2.0)
-- Rod: unlocked APR
 - Pulse: 1d4+1 (magic), 3 missiles, +1 APR, +3 enchantment
 - Frag: 2d6 (fire), +1 APR, +3 enchantment
 - Scorcher: 3d6 (fire) to main target, +1 APR, +3 enchantment
-- Unit: +15 AC
 
 
 For IWD:EE, the revision is optional. I added a 3rd component to the install that lets you choose between revised or vanilla ammunition. It's a patching component, that only affects 3 files added by the mod, so you can install it even mid-game, even if the items are already in your inventory. Notably, APR is lowered, but enchantment level is higher, and Pulse Ammunition is much stronger than vanilla. Also note that the ammo types set APR to 3, instead of adding +1 or +2, so that they won't stack with speed crossbows.

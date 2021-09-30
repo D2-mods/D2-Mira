@@ -1,7 +1,7 @@
-D2-MIRA - Bringing the Big Metal Unit to IWD:EE and IWD2
-GitHub: https://github.com/D2-mods/D2-MIRA
+D2-Mira - Bringing the Big Metal Unit to IWD:EE and IWD2
+GitHub: https://github.com/D2-mods/D2-Mira
 Forum: https://forums.beamdog.com/discussion/82755/mod-d2-mira-bringing-the-big-metal-unit-to-iwd-ee-and-iwd2-also-bg-ee/
-Game version: BG:EE, EET, IWD:EE, IWD2 (EEs tested on v2.5/v2.6, IWD2 tested with Almateria's fixpack)
+Game version: IWD:EE, IWD2, BG:EE, EET (EEs tested on v2.5/v2.6, IWD2 tested with Almateria's fixpack)
 
 
 WHAT THIS MOD DOES:
@@ -21,10 +21,9 @@ INSTALLATION:
 
 Copy zipped files to game directory, and run setup-d2-mira.exe to install or uninstall. Mod packages are cross-platform, and were made using ALIEN's Infinity Auto Packager. I don't use Mac/Linux, but installing should be the same as with other mods.
 
-This mod has 3 components:
+This mod has 2 components:
 1. Installs the items.
-2. Adds items to stores. I made adding to stores a separate component so people who might want to just import the items at the start can skip this step.
-3. IWD:EE only: Choose Revised or vanilla BG2 stats for the ammunitions (default is revised)
+2. IWD:EE only: Choose Revised or vanilla BG2 ammo (default is Revised)
 
 
 ITEM LIST:
@@ -39,7 +38,7 @@ ITEM LIST:
 - Silver Pantaloons
 - Golden Pantaloons
 
-Item resource/locations (spoilers): https://raw.githubusercontent.com/D2-mods/D2-MIRA/main/d2-mira/Item%20locations%20(spoilers).txt
+Item resource/locations (spoilers): https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/Item%20locations%20(spoilers).txt
 
 Additional info:
 - Big Metal Rod (EE): As in BG2, this is just a crossbow without any bonus to hit/damage and usable by all classes. It does not give classes the ability to equip regular bolts, if they are not already able to.
@@ -69,9 +68,12 @@ I don't own any files here and anyone is free to re-use any part of this mod for
 
 VERSION HISTORY:
 
+v2.2
+- removed adding to stores as a separate component (it's part of the main component now); too many clicks to install, plus this is prep for a potential future update
+
 v2.0
 - rebalances the ammunitions (optional for IWD:EE)
-- details: https://raw.githubusercontent.com/D2-mods/D2-MIRA/main/d2-mira/v2.0%20-%20Revised%20ammunition.txt
+- details: https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/v2.0%20-%20Revised%20ammunition.txt
 
 v1.0
 - release version
