@@ -1,4 +1,4 @@
-ACTION_IF (GAME_IS ~bgee eet~) BEGIN				// BG1 stores
+ACTION_IF (GAME_IS ~bgee eet~) BEGIN    // BG1 stores
 
 COPY_EXISTING ~STOCHEAP.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
@@ -17,7 +17,7 @@ COPY_EXISTING ~STOBLACK.STO~ ~override~
 END
   
   
-ACTION_IF (GAME_IS ~iwdee~) BEGIN				// IWD stores
+ACTION_IF (GAME_IS ~iwdee~) BEGIN    // IWD stores
 
 COPY_EXISTING ~EHPOMAB.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
@@ -62,7 +62,7 @@ COPY_EXISTING ~HOBART.STO~ ~override~
   flags = identified
   END
   
-COPY_EXISTING ~LDD_DL1.STO~ ~override~				// pantaloons
+COPY_EXISTING ~LDD_DL1.STO~ ~override~    // pantaloons
   LPF ADD_STORE_ITEM_EX
   STR_VAR
   item_name = d2pant01
@@ -100,7 +100,7 @@ COPY_EXISTING ~TIERNON.STO~ ~override~
 END
 
 
-ACTION_IF (GAME_IS ~iwd2~) BEGIN				// IWD2 stores
+ACTION_IF (GAME_IS ~iwd2~) BEGIN    // IWD2 stores
 
 COPY_EXISTING ~11OSWALD.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
@@ -165,7 +165,7 @@ COPY_EXISTING ~63RIKI.STO~ ~override~
   flags = identified
   END
 
-COPY_EXISTING ~11ELYTHA.STO~ ~override~				// pantaloons
+COPY_EXISTING ~11ELYTHA.STO~ ~override~    // pantaloons
   LPF ADD_STORE_ITEM_EX
   STR_VAR
   charge1 = 1

@@ -1,4 +1,4 @@
-ACTION_IF (GAME_IS ~bgee eet~) BEGIN				// BGEE
+ACTION_IF (GAME_IS ~bgee eet~) BEGIN    // BGEE
 COPY ~%MOD_FOLDER%/bgee~ ~override~
 COPY_EXISTING ~d2tec01b.ITM~ ~override~
   SAY NAME2 @100 SAY DESC @500
@@ -7,7 +7,7 @@ COPY_EXISTING ~d2tec06b.ITM~ ~override~
 END
 
 
-ACTION_IF (GAME_IS ~iwdee~) BEGIN				// IWDEE
+ACTION_IF (GAME_IS ~iwdee~) BEGIN    // IWDEE
 COPY ~%MOD_FOLDER%/data~ ~override~
 COPY_EXISTING ~d2tec01.ITM~ ~override~
   SAY NAME1 @100 SAY NAME2 @100 SAY UNIDENTIFIED_DESC @200 SAY DESC @200
@@ -24,7 +24,7 @@ COPY_EXISTING ~d2tec06.ITM~ ~override~
 END
 
 
-ACTION_IF (GAME_IS ~iwd2~) BEGIN				// IWD2
+ACTION_IF (GAME_IS ~iwd2~) BEGIN    // IWD2
 COPY ~%MOD_FOLDER%/iwd2~ ~override~
 COPY_EXISTING ~d2mira01.ITM~ ~override~							
   SAY NAME1 @100 SAY NAME2 @100 SAY UNIDENTIFIED_DESC @200 SAY DESC @200
@@ -41,7 +41,7 @@ COPY_EXISTING ~d2mira06.ITM~ ~override~
 END
 
 
-ACTION_IF (GAME_IS ~iwdee iwd2~) BEGIN			// add pantaloons
+ACTION_IF (GAME_IS ~iwdee iwd2~) BEGIN    // add pantaloons
 COPY ~%MOD_FOLDER%/extra~ ~override~
 COPY_EXISTING ~d2pant01.ITM~ ~override~							
   SAY NAME1 @106 SAY NAME2 @106 SAY UNIDENTIFIED_DESC @206 SAY DESC @206

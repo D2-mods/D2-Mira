@@ -3,22 +3,22 @@ AUTHOR ~Dan_P, check the readme for forum link~
 VERSION ~2.2~
 
 LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
-	 
+
 //Installing
-	 
-BEGIN @1 												//Main Component
+
+BEGIN @1    // Main Component
 REQUIRE_PREDICATE GAME_IS ~bgee eet iwdee iwd2~ @4
 LABEL ~D2-MIRA-TEC~
 INCLUDE ~%MOD_FOLDER%/install/install.tpa~
 INCLUDE ~%MOD_FOLDER%/install/addtostore.tpa~
 
-BEGIN @2 												//Revised ammunitions
+BEGIN @2    // Revised ammunitions
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @5
 REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6
 SUBCOMPONENT @7
 INCLUDE ~%MOD_FOLDER%/install/ammorev.tpa~
 
-BEGIN @3 												//vanilla BG2EE ammo
+BEGIN @3    // vanilla BG2EE ammo
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @5
 REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6
 SUBCOMPONENT @7

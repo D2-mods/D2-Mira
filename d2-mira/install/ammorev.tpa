@@ -1,4 +1,4 @@
-COPY_EXISTING ~d2tec02.ITM~ ~override~			// Revised ammunition
+COPY_EXISTING ~d2tec02.ITM~ ~override~    // Revised ammunition
   LPF ALTER_ITEM_HEADER 
   INT_VAR 
   header_type = 2
