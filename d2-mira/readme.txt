@@ -1,6 +1,5 @@
 D2-Mira
 GitHub: https://github.com/D2-mods/D2-Mira
-Forum: https://forums.beamdog.com/discussion/82755/mod-d2-mira-bringing-the-big-metal-unit-to-iwd-ee-and-iwd2-also-bg-ee/
 Game version: IWD:EE, IWD2, BG:EE, EET (EEs tested on v2.5/v2.6)
 
 

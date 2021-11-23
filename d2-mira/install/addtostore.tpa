@@ -5,6 +5,7 @@ COPY_EXISTING ~STOCHEAP.STO~ ~override~
   STR_VAR
   item_name = d2tec01b
   position = ~LAST~
+  flags = identified
   END
   
 COPY_EXISTING ~STOBLACK.STO~ ~override~
@@ -12,6 +13,7 @@ COPY_EXISTING ~STOBLACK.STO~ ~override~
   STR_VAR
   item_name = d2tec06b
   position = ~LAST~
+  flags = identified
   END
   
 END
@@ -24,6 +26,7 @@ COPY_EXISTING ~EHPOMAB.STO~ ~override~
   STR_VAR
   item_name = d2tec01
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~KUOSWALD.STO~ ~override~
@@ -31,6 +34,7 @@ COPY_EXISTING ~KUOSWALD.STO~ ~override~
   STR_VAR
   item_name = d2tec06
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~KUORK3.STO~ ~override~
@@ -38,6 +42,7 @@ COPY_EXISTING ~KUORK3.STO~ ~override~
   STR_VAR
   item_name = d2tec02
   position = ~LAST~
+  flags = identified
   END
   
 COPY_EXISTING ~LDD_NYM.STO~ ~override~
@@ -45,6 +50,7 @@ COPY_EXISTING ~LDD_NYM.STO~ ~override~
   STR_VAR
   item_name = d2tec03
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~KIERAN2.STO~ ~override~
@@ -52,6 +58,7 @@ COPY_EXISTING ~KIERAN2.STO~ ~override~
   STR_VAR
   item_name = d2tec04
   position = ~LAST~
+  flags = identified
   END
 
 COPY_EXISTING ~HOBART.STO~ ~override~
@@ -67,6 +74,7 @@ COPY_EXISTING ~LDD_DL1.STO~ ~override~    // pantaloons
   STR_VAR
   item_name = d2pant01
   position = ~LAST~
+  flags = identified
   END
   
 COPY_EXISTING ~LDD_DL2.STO~ ~override~
@@ -74,6 +82,7 @@ COPY_EXISTING ~LDD_DL2.STO~ ~override~
   STR_VAR
   item_name = d2pant01
   position = ~LAST~
+  flags = identified
   END
     
 COPY_EXISTING ~LDD_DL3.STO~ ~override~
@@ -81,6 +90,7 @@ COPY_EXISTING ~LDD_DL3.STO~ ~override~
   STR_VAR
   item_name = d2pant01
   position = ~LAST~
+  flags = identified
   END
   
 COPY_EXISTING ~KUTEMPLE.STO~ ~override~
@@ -88,6 +98,7 @@ COPY_EXISTING ~KUTEMPLE.STO~ ~override~
   STR_VAR
   item_name = d2pant02
   position = ~LAST~
+  flags = identified
   END
   
 COPY_EXISTING ~TIERNON.STO~ ~override~
@@ -95,6 +106,7 @@ COPY_EXISTING ~TIERNON.STO~ ~override~
   STR_VAR
   item_name = d2pant03
   position = ~LAST~
+  flags = identified
   END
   
 END
@@ -104,8 +116,9 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN    // IWD2 stores
 
 COPY_EXISTING ~11OSWALD.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2mira01
   position = ~LAST~
   flags = identified
@@ -113,8 +126,9 @@ COPY_EXISTING ~11OSWALD.STO~ ~override~
 
 COPY_EXISTING ~50NYM.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2mira06
   position = ~LAST~
   flags = identified
@@ -122,8 +136,9 @@ COPY_EXISTING ~50NYM.STO~ ~override~
 
 COPY_EXISTING ~50NYM2.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2mira06
   position = ~LAST~
   flags = identified
@@ -131,8 +146,9 @@ COPY_EXISTING ~50NYM2.STO~ ~override~
 
 COPY_EXISTING ~52BERED.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2mira02
   position = ~LAST~
   flags = identified
@@ -140,8 +156,9 @@ COPY_EXISTING ~52BERED.STO~ ~override~
 
 COPY_EXISTING ~53MYRVEK.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2mira03
   position = ~LAST~
   flags = identified
@@ -149,8 +166,9 @@ COPY_EXISTING ~53MYRVEK.STO~ ~override~
 
 COPY_EXISTING ~60SPELLS.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2mira04
   position = ~LAST~
   flags = identified
@@ -158,8 +176,9 @@ COPY_EXISTING ~60SPELLS.STO~ ~override~
 
 COPY_EXISTING ~63RIKI.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2mira05
   position = ~LAST~
   flags = identified
@@ -167,8 +186,9 @@ COPY_EXISTING ~63RIKI.STO~ ~override~
 
 COPY_EXISTING ~11ELYTHA.STO~ ~override~    // pantaloons
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2pant01
   position = ~LAST~
   flags = identified
@@ -176,8 +196,9 @@ COPY_EXISTING ~11ELYTHA.STO~ ~override~    // pantaloons
   
 COPY_EXISTING ~53MALAVO.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2pant02
   position = ~LAST~
   flags = identified
@@ -185,8 +206,9 @@ COPY_EXISTING ~53MALAVO.STO~ ~override~
   
 COPY_EXISTING ~60SHEEMI.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
-  STR_VAR
+  INT_VAR
   charge1 = 1
+  STR_VAR
   item_name = d2pant03
   position = ~LAST~
   flags = identified

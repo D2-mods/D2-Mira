@@ -1,5 +1,6 @@
+==================================================
 ITEM LOCATIONS
-
+==================================================
 BG1:
 - Lucky Aello: Big Metal Rod
 - Black Lily: Pulse Ammunition (prototype)
@@ -22,9 +23,9 @@ IWD2
 
 Pantaloons: Search every store far and wide, early game and late, and you'll find them all.
 
-
+==================================================
 ITEM RESOURCE
-
+==================================================
 BG1:
 d2tec01b - Big Metal Rod
 d2tec06b - Pulse Ammunition (prototype)

@@ -1,5 +1,5 @@
-BACKUP ~d2-mira\backup~
-AUTHOR ~Dan_P, check the readme for forum link~
+BACKUP ~d2-mira/backup~
+AUTHOR ~Dan_P~
 VERSION ~2.2~
 
 LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
@@ -14,12 +14,12 @@ INCLUDE ~%MOD_FOLDER%/install/addtostore.tpa~
 
 BEGIN @2    // Revised ammunitions
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @5
-REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6
+REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6    // check for main component
 SUBCOMPONENT @7
 INCLUDE ~%MOD_FOLDER%/install/ammorev.tpa~
 
 BEGIN @3    // vanilla BG2EE ammo
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @5
-REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6
+REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6    // check for main component
 SUBCOMPONENT @7
 INCLUDE ~%MOD_FOLDER%/install/ammobg2.tpa~

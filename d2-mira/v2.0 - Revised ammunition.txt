@@ -1,5 +1,6 @@
+==================================================
 v2.0 Revised ammunition
-
+==================================================
 IWDEE (v1.0, vanilla BG2)
 - Pulse: 1d4+1 (magic), 1 missile, 5 APR, +3 enchantment
 - Frag: 1d12 (fire), 5 APR, strikes as magical
