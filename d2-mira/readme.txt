@@ -10,9 +10,7 @@ Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable i
 
 Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both IWD games. They are extremely expensive and have no purpose at all other than taking up inventory space, but they are there if you want them.
 
-
-UPDATE:
-v2.0
+UPDATE v2.0:
 - rebalances the ammunitions (optional for IWD:EE)
 - details: https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/v2.0%20-%20Revised%20ammunition.txt
 
@@ -55,7 +53,7 @@ CREDITS
 Coding, Testing: Dan_P
 
 Tools used:
-- WeiDU v247 https://github.com/WeiDUorg/weidu
+- WeiDU v249 https://github.com/WeiDUorg/weidu
 - NearInfinity v2.2-20210501 https://github.com/Argent77/NearInfinity
 - Notepad++ https://notepad-plus-plus.org/
 - Git Bash https://git-scm.com/downloads
@@ -66,8 +64,10 @@ Tools used:
 ==================================================
 VERSION HISTORY
 ==================================================
-v2.3/v3.0
-- 
+v2.3
+- update WeiDU version to v249
+- update some things with the installation
+- no changes to items
 
 v2.2
 - removed adding to stores as a separate component (it's part of the main component now); too many clicks to install, plus this is prep for a potential future update

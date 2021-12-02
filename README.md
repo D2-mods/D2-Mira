@@ -9,12 +9,9 @@ Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable i
 
 Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both IWD games. They are extremely expensive and have no purpose at all other than taking up inventory space, but they are there if you want them.
 
-
-UPDATE:
-v2.0
-- rebalances the ammunitions (optional for IWD:EE)
-- see [here](https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/v2.0%20-%20Revised%20ammunition.txt) for details
-
+UPDATE: v2.0
+> - rebalances the ammunitions (optional for IWD:EE)
+> - see [here](https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/v2.0%20-%20Revised%20ammunition.txt) for details
 
 #### INSTALLATION:
 
@@ -26,7 +23,7 @@ This mod has 2 components:
 
 
 #### ITEM LIST:
-
+```
 - Big Metal Rod
 - Pulse Ammunition
 - Frag Grenade
@@ -36,7 +33,7 @@ This mod has 2 components:
 - Bronze Pantalettes
 - Silver Pantaloons
 - Golden Pantaloons
-
+```
 Item resource/locations (spoilers): [Link](https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/Item%20locations%20(spoilers).txt)
 
 Additional info:
