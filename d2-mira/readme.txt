@@ -6,13 +6,7 @@ Game version: IWD:EE, IWD2, BG:EE, EET (EEs tested on v2.5/v2.6)
 ==================================================
 WHAT THIS MOD DOES
 ==================================================
-Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are obtainable in BG:EE. All items are purchased, and get added to various stores. I may expand on certain things in the future. As of v2.0, this mod also rebalances the ammunitions for the IWD games.
-
-Bonus: I also added the Golden/Silver Pantaloons and Bronze Pantalettes to both IWD games. They are extremely expensive and have no purpose at all other than taking up inventory space, but they are there if you want them.
-
-UPDATE v2.0:
-- rebalances the ammunitions (optional for IWD:EE)
-- details: https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/v2.0%20-%20Revised%20ammunition.txt
+Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are added to BG:EE. Some items are sold by merchants and some can be found in various places. The pantaloons are also in the IWD games, but (as of now) aren't needed for getting the Big Metal Unit.
 
 
 ==================================================
@@ -20,9 +14,11 @@ INSTALLATION
 ==================================================
 Extract to game folder and run the setup to install or uninstall. I'm not familiar with Mac/Linux, but installing should be the same as other mods (mod packages are cross-platform).
 
-This mod has 2 components:
-1. Installs the items.
-2. IWD:EE only: Choose Revised or vanilla BG2 ammo (default is Revised)
+Components:
+1. Main Component
+	- Option 1: Standard Installation - all items are added to stores or containers
+	- Option 2: Start with the core "Big Metal" items
+2. IWD:EE: Choose revised or vanilla BG2 ammo (default is Revised)
 
 
 ==================================================
@@ -34,11 +30,12 @@ ITEM LIST
 - Scorcher Ammunition
 - Big Metal Unit
 - Pulse Ammunition (prototype)
+- Pulse III Ammunition
 - Bronze Pantalettes
 - Silver Pantaloons
 - Golden Pantaloons
 
-Item resource/locations (spoilers): https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/Item%20locations%20(spoilers).txt
+Item resource/locations (spoilers): https://raw.githubusercontent.com/D2-mods/D2-Mira/main/d2-mira/v3.0%20-%20Ammo%20info.txt
 
 Additional info:
 - Pulse Ammunition (prototype): Similar to the normal Pulse Ammunition, but lower APR (2 instead of 5) and lower enchantment (+1 instead of +3).
@@ -54,7 +51,7 @@ Coding, Testing: Dan_P
 
 Tools used:
 - WeiDU v249 https://github.com/WeiDUorg/weidu
-- NearInfinity v2.2-20210501 https://github.com/Argent77/NearInfinity
+- NearInfinity v2.2-20211218 https://github.com/Argent77/NearInfinity
 - Notepad++ https://notepad-plus-plus.org/
 - Git Bash https://git-scm.com/downloads
 - Infinity Auto Packager https://github.com/InfinityTools/InfinityAutoPackager
@@ -64,6 +61,19 @@ Tools used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v3.0
+- added component: Start with the core "Big Metal" items. With this option, you start with a bag containing the 5 main Big Metal items. Other ammo types, as well as the pantaloons, are still obtainable during the game.
+- changed some prices (armor is not as insanely expensive). I haven't implemented it yet, but plan is to make some items require trade-ins of other items to obtain.
+- moved some items around; some to different merchants + a couple are in containers now (so free)
+
+Pulse Ammunition
+- IWDEE: Identical to BG2 version again. The 3 missile variant is moved to later in the game. Scorcher and Frag ammo still have revised and vanilla versions.
+- IWD2: Fires one missile per shot again (like BG2). The 3 missile variant is moved to a later merchant.
+
+- BGEE: Big Metal Rod has a better description image
+- IWDEE: changed location of Metal Rod, Metal Unit, Bronze Pantalettes, and Golden Pantaloons
+- IWD2: changed location of Metal Rod, Scorcher, and Golden Pantaloons
+
 v2.3
 - update WeiDU version to v249
 - update some things with the installation

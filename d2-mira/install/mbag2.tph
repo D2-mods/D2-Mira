@@ -1,0 +1,30 @@
+//Start with the core "Big Metal" items
+
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+  COPY ~%MOD_FOLDER%/mbag/d2hbee0.ITM~ ~override/d2#mbag.ITM~
+    SAY NAME1 @120
+    SAY NAME2 @120 SAY DESC @220
+    WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
+	
+  COPY ~%MOD_FOLDER%/mbag/d2hbee0.STO~ ~override/d2#mbag.STO~
+    SAY 0xc @120  /* Delivery Bag */
+    LPF cannot_add_items END    // make it so items cannot be placed in the bag
+	
+  COPY ~%MOD_FOLDER%/mbag/mbag-ee0.BAM~ ~override/d2#mbag.BAM~
+END
+
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+  COPY ~%MOD_FOLDER%/mbag/d2hbid2.ITM~ ~override/d2#mbag.ITM~
+    SAY NAME1 @120
+    SAY NAME2 @120 SAY DESC @220
+    WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
+	
+  COPY ~%MOD_FOLDER%/mbag/d2hbid2.STO~ ~override/d2#mbag.STO~
+    SAY 0xc @120  /* Delivery Bag */
+    LPF cannot_add_items END    // make it so items cannot be placed in the bag
+	
+  COPY ~%MOD_FOLDER%/mbag/mbag-id2.BAM~ ~override/d2#mbag.BAM~
+END
+
+EXTEND_TOP ~BALDUR.BCS~ ~%MOD_FOLDER%/mbag/d2#mbag.BAF~
+INCLUDE ~%MOD_FOLDER%/install/mbagfill.tph~

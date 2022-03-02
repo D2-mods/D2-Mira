@@ -1,11 +1,14 @@
 //Setup
 @1 = ~D2-Mira - Main Component~
-@2 = ~Use Revised ammunitions (default)~
-@3 = ~Use vanilla BG2:EE ammunitions~
+@2 = ~Standard Installation~
+@3 = ~Start with the core "Big Metal" items~
 @4 = ~Installs on IWD:EE, IWD2, BG:EE and EET~
-@5 = ~This component is only for IWD:EE~
-@6 = ~Requires Main Component~
-@7 = ~Choose Revised or vanilla BG2 ammunitions~
+@5 = ~This component is only for IWD:EE and IWD2~
+@6 = ~Choose revised or vanilla BG2 ammo~
+@7 = ~Use revised Scorcher and Frag Grenade (default)~
+@8 = ~Use vanilla Scorcher and Frag Grenade~
+@9 = ~This component is only for IWD:EE~
+@10 = ~Requires Main Component~
 
 
 //Item text
@@ -74,7 +77,7 @@ STATISTICS:
 Weight: 1~
 
 @107 = ~Silver Pantaloons~
-@207 = ~A high-quality pair of silver pantaloons. Simply by donning these exquisite trousers, one sees visions of the future, a party of buffoons, a ransom paid in pants. Certain questions are better left unasked.
+@207 = ~A stainless, silver pair of trousers. Said to be one-third of a set, along with the Golden Pantaloons and the Bronze Pantalettes. Only one of maximum taste would have their hands on these pants.
 
 STATISTICS:
 
@@ -90,6 +93,27 @@ The purpose of the Pantaloons is as mysterious as ever, and will likely remain s
 STATISTICS:
 
 Weight: 0~
+
+@109 = ~Pulse III Ammunition~
+@209 = ~Rapid advancement has led to the development of the Pulse III Ammunition, able to fire 3 balls of pure energy at once from the Big Metal Rod. As this is a prototype for gathering data, it has a reduced rate of fire compared to the standard Pulse Ammunition.
+
+STATISTICS:
+
+Weight: 0~
+
+@110 = ~Goddess Ammunition~
+@210 = ~Rapid development has led to the creation of the Pulse III Ammunition, able to fire 3 balls of pure energy at once. As this is a prototype for gathering data, it has a reduced rate of fire compared to the standard Pulse Ammunition.
+
+STATISTICS:
+
+Weight: 0~
+
+@120 = ~Delivery Bag~
+@220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal Unit" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
+
+STATISTICS:
+
+Weight: 5~
 
 
 //Unidentified text

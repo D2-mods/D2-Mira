@@ -1,25 +1,54 @@
 BACKUP ~d2-mira/backup~
 AUTHOR ~Dan_P~
-VERSION ~2.3~
+VERSION ~3.0~
 
-LANGUAGE ~English~ ~english~ ~d2-mira/tra/english/setup.tra~
+ALWAYS
+  INCLUDE ~%MOD_FOLDER%/lib/d2_store_functions.tpa~
+END
 
-//Installing
+LANGUAGE ~English~
+         ~english~
+         ~d2-mira/tra/english/setup.tra~
 
-BEGIN @1    // Main Component
-REQUIRE_PREDICATE GAME_IS ~bgee eet iwdee iwd2~ @4
+
+////////////////////////////////////////////////////////////
+
+//D2 Mira - Main Component
+
+BEGIN @2    // Standard Installation
+REQUIRE_PREDICATE GAME_IS ~iwdee iwd2 bgee eet~ @4
+SUBCOMPONENT @1
 LABEL ~D2-MIRA-TEC~
-INCLUDE ~%MOD_FOLDER%/install/install.tpa~
-INCLUDE ~%MOD_FOLDER%/install/addtostore.tpa~
+INCLUDE ~%MOD_FOLDER%/install/install.tph~
+INCLUDE ~%MOD_FOLDER%/install/addtostore1.tph~
+INCLUDE ~%MOD_FOLDER%/install/mbag1.tph~
 
-BEGIN @2    // Revised ammunitions
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @5
-REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6    // check for main component
-SUBCOMPONENT @7
-INCLUDE ~%MOD_FOLDER%/install/ammorev.tpa~
+BEGIN @3    // Start with the core "Big Metal" items
+REQUIRE_PREDICATE GAME_IS ~iwdee iwd2~ @5
+SUBCOMPONENT @1
+LABEL ~D2-MIRA-BAG~
+INCLUDE ~%MOD_FOLDER%/install/install.tph~
+INCLUDE ~%MOD_FOLDER%/install/addtostore2.tph~
+INCLUDE ~%MOD_FOLDER%/install/mbag2.tph~
 
-BEGIN @3    // vanilla BG2EE ammo
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @5
-REQUIRE_COMPONENT ~d2-mira.tp2~ 0 @6    // check for main component
-SUBCOMPONENT @7
-INCLUDE ~%MOD_FOLDER%/install/ammobg2.tpa~
+////////////////////////////////////////////////////////////
+
+//Choose revised or vanilla BG2 ammo
+
+BEGIN @7    // Use revised Scorcher and Frag Grenade (default)
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @9
+REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for main component
+                   (FILE_EXISTS ~override/d2tec04.ITM~)) @10
+SUBCOMPONENT @6
+LABEL ~D2-MIRA-AMMOREV~
+INCLUDE ~%MOD_FOLDER%/install/ammorev.tph~
+
+BEGIN @8    // Use vanilla Scorcher and Frag Grenade
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @9
+REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for main component
+                   (FILE_EXISTS ~override/d2tec04.ITM~)) @10
+SUBCOMPONENT @6
+LABEL ~D2-MIRA-AMMOBG2~
+INCLUDE ~%MOD_FOLDER%/install/ammobg2.tph~
+
+////////////////////////////////////////////////////////////

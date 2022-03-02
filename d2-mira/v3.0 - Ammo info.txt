@@ -1,0 +1,92 @@
+==================================================
+v3.0 - Ammo types
+==================================================
+Pulse
+- IWDEE: 1d4+1 (magic), 1 missile, 5 APR, +3 enchantment
+- IWD2: 1d4+1 (magic), 1 missile, +2 APR, +3 enchantment
+==================================================
+Frag
+- IWDEE: 3d4 (fire), 3 APR, +3 enchantment
+- IWD2: 3d4 (fire), +1 APR, +3 enchantment
+==================================================
+Scorcher
+- IWDEE: 2d12 (fire, save for half), 3 APR, +3 enchantment
+- IWD2: 3d6 (fire) to main target, +1 APR, +3 enchantment
+==================================================
+Pulse (prototype)
+- IWDEE: 1d4+1 (magic), 1 missile, 2 APR, +1 enchantment
+- IWD2: 1d4+1 (magic), 1 missile, +1 APR, +1 enchantment
+==================================================
+Pulse III
+- IWDEE: 1d4+1 (magic), 3 missiles, 3 APR, +5 enchantment
+- IWD2: 1d4+1 (magic), 3 missiles, +1 APR, +5 enchantment
+==================================================
+vanilla BG2 stats
+- Frag: 1d12 (fire), 5 APR, strikes as magical
+- Scorcher: 2d12 (fire, save for half), 5 APR, strikes as magical
+==================================================
+
+For IWD:EE, you can choose between revised or vanilla stats for the Frag Grenade and Scorcher. This is safe to change during an ongoing game, even if the items are already in your inventory. Default is revised (if you skip this component). The revised Pulse from the v2.0 is split off into its own ammo type, the Pulse III, and moved much later in the IWD games.
+
+
+==================================================
+ITEM RESOURCE
+==================================================
+BGEE:
+d2tec01 - Big Metal Rod
+d2tec06 - Pulse Ammunition (prototype)
+
+IWDEE:
+d2tec01 - Big Metal Rod
+d2tec02 - Pulse Ammunition
+d2tec03 - Frag Grenade
+d2tec04 - Scorcher Ammunition
+d2tec05 - Big Metal Unit
+d2tec06 - Pulse Ammunition (prototype)
+d2tec07 - Pulse III Ammunition
+
+IWD2:
+d2mira01 - Big Metal Rod
+d2mira02 - Pulse Ammunition
+d2mira03 - Frag Grenade
+d2mira04 - Scorcher Ammunition
+d2mira05 - Big Metal Unit
+d2mira06 - Pulse Ammunition (prototype)
+d2mira07 - Pulse III Ammunition
+
+IWDEE/IWD2
+d2pant01 - Bronze Pantalettes
+d2pant02 - Silver Pantaloons
+d2pant03 - Golden Pantaloons
+d2#mbag - a bag containing the core "Big Metal" items
+
+
+==================================================
+ITEM LOCATIONS
+==================================================
+BGEE:
+- Lucky Aello: Big Metal Rod
+- Black Lily: Pulse Ammunition (prototype)
+
+IWDEE:
+- Pomab: Big Metal Rod (on shelf)
+- Oswald: Pulse Ammunition (prototype)
+- Orrick (chapter 4): Pulse Ammunition
+- Nym: Frag Grenade
+- Kieran Nye: Scorcher Ammunition
+- Tiernon: Big Metal Unit
+- Hobart: Pulse III Ammunition
+
+IWD2
+- Oswald: Big Metal Rod (loot after crash)
+- Nym: Pulse Ammunition (prototype)
+- Bered: Pulse Ammunition
+- Myrvek: Frag Grenade
+- Sheemish: Pulse III Ammunition
+- Dragon's Eye: Scorcher Ammunition (alchemy room)
+- Riki: Big Metal Unit
+
+Pantaloons
+- IWDEE: Divine worshippers are said to seek out these pants
+- IWD2: These collector's items belong to 3 leaders of their communities
+

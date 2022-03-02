@@ -1,0 +1,21 @@
+//Use to add items to d2#mbag (empty by default)
+
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+  COPY_EXISTING ~d2#mbag.STO~ ~override~
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2tec05~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2tec04~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2tec03~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2tec02~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2tec01~ flags = ~identified~ END
+  BUT_ONLY
+END
+
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+  COPY_EXISTING ~d2#mbag.STO~ ~override~
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2mira05~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2mira04~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2mira03~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2mira02~ flags = ~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~d2mira01~ flags = ~identified~ END
+  BUT_ONLY
+END
