@@ -2,7 +2,7 @@
 
 ACTION_IF (GAME_IS ~iwdee~) BEGIN
   COPY ~%MOD_FOLDER%/mbag/d2hbee0.ITM~ ~override/d2#mbag.ITM~
-    SAY NAME1 @120
+    SAY NAME1 @120 SAY UNIDENTIFIED_DESC @220
     SAY NAME2 @120 SAY DESC @220
     WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
 	
@@ -15,8 +15,8 @@ END
 
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
   COPY ~%MOD_FOLDER%/mbag/d2hbid2.ITM~ ~override/d2#mbag.ITM~
-    SAY NAME1 @120
-    SAY NAME2 @120 SAY DESC @220
+    SAY NAME1 @120 SAY UNIDENTIFIED_DESC @720
+    SAY NAME2 @120 SAY DESC @720
     WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
 	
   COPY ~%MOD_FOLDER%/mbag/d2hbid2.STO~ ~override/d2#mbag.STO~

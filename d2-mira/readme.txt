@@ -61,6 +61,10 @@ Tools used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v3.1
+- IWD2: added unidentified text for the bag
+- IWDEE: fixed enchantment level of Pulse III
+
 v3.0
 - added component: Start with the core "Big Metal" items. With this option, you start with a bag containing the 5 main Big Metal items. Other ammo types, as well as the pantaloons, are still obtainable during the game.
 - changed some prices (armor is not as insanely expensive). I haven't implemented it yet, but plan is to make some items require trade-ins of other items to obtain.

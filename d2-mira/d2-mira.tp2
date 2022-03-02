@@ -1,6 +1,6 @@
 BACKUP ~d2-mira/backup~
 AUTHOR ~Dan_P~
-VERSION ~3.0~
+VERSION ~3.1~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_store_functions.tpa~
