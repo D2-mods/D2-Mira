@@ -47,20 +47,25 @@ Additional info:
 ==================================================
 CREDITS
 ==================================================
-Coding, Testing: Dan_P
+Mod Author: Dan_P
 
-Tools used:
-- WeiDU v249 https://github.com/WeiDUorg/weidu
-- NearInfinity v2.2-20211218 https://github.com/Argent77/NearInfinity
-- Notepad++ https://notepad-plus-plus.org/
-- Git Bash https://git-scm.com/downloads
-- Infinity Auto Packager https://github.com/InfinityTools/InfinityAutoPackager
-- IESDP https://gibberlings3.github.io/iesdp/index.htm
+Tools and Resources used:
+- WeiDU (https://github.com/WeiDUorg/weidu)
+- NearInfinity (https://github.com/Argent77/NearInfinity)
+- Notepad++ (https://notepad-plus-plus.org/)
+- Git Bash (https://git-scm.com/downloads)
+- Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
+- IESDP (https://gibberlings3.github.io/iesdp/main.htm)
+- LibIconv for Windows (http://gnuwin32.sourceforge.net/packages/libiconv.htm)
 
 
 ==================================================
 VERSION HISTORY
 ==================================================
+v3.2
+- changed backup folder to weidu_external (instead of mod folder)
+- added HANDLE_CHARSETS function for installing on non-EE games
+
 v3.1
 - IWD2: added unidentified text for the bag
 - IWDEE: fixed enchantment level of Pulse III
