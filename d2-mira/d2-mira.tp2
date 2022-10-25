@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~3.2~
+VERSION ~3.3~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_store_functions.tpa~

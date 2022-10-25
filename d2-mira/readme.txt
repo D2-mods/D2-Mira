@@ -62,6 +62,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v3.3
+- fixed Orrick's store (chapter 4) not gaining Pulse Ammunition
+
 v3.2
 - changed backup folder to weidu_external (instead of mod folder)
 - added HANDLE_CHARSETS function for installing on non-EE games

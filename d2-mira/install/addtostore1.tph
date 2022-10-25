@@ -39,6 +39,15 @@ COPY_EXISTING ~KUOSWALD.STO~ ~override~
   flags = identified
   END
 
+COPY_EXISTING ~ar2100.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY 
+      ~AddStoreItem("KUORK0","OGI",1,1)~  
+      ~AddStoreItem("KUORK0","OGI",1,1) AddStoreItem("KUORK0","d2tec02",1,1)~
+  END
+BUT_ONLY
+
+/*replaced with above
 COPY_EXISTING ~KUORK3.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
@@ -46,7 +55,8 @@ COPY_EXISTING ~KUORK3.STO~ ~override~
   position = ~LAST~
   flags = identified
   END
-  
+*/
+
 COPY_EXISTING ~LDD_NYM.STO~ ~override~
   LPF ADD_STORE_ITEM_EX
   STR_VAR
