@@ -1,11 +1,11 @@
 ==================================================
-v3.0 - Ammo types
+Ammo types (v3.0+)
 ==================================================
-Pulse
+Pulse Ammunition
 - IWDEE: 1d4+1 (magic), 1 missile, 5 APR, +3 enchantment
 - IWD2: 1d4+1 (magic), 1 missile, +2 APR, +3 enchantment
 ==================================================
-Frag
+Frag Grenade
 - IWDEE: 3d4 (fire), 3 APR, +3 enchantment
 - IWD2: 3d4 (fire), +1 APR, +3 enchantment
 ==================================================
@@ -13,20 +13,20 @@ Scorcher
 - IWDEE: 2d12 (fire, save for half), 3 APR, +3 enchantment
 - IWD2: 3d6 (fire) to main target, +1 APR, +3 enchantment
 ==================================================
-Pulse (prototype)
+Pulse Ammunition (prototype)
 - IWDEE: 1d4+1 (magic), 1 missile, 2 APR, +1 enchantment
 - IWD2: 1d4+1 (magic), 1 missile, +1 APR, +1 enchantment
 ==================================================
-Pulse III
+Pulse III Ammunition
 - IWDEE: 1d4+1 (magic), 3 missiles, 3 APR, +5 enchantment
 - IWD2: 1d4+1 (magic), 3 missiles, +1 APR, +5 enchantment
 ==================================================
 vanilla BG2 stats
-- Frag: 1d12 (fire), 5 APR, strikes as magical
-- Scorcher: 2d12 (fire, save for half), 5 APR, strikes as magical
+- Frag Grenade: 1d12 (fire), 5 APR, magical +0/+1
+- Scorcher: 2d12 (fire, save for half), 5 APR, magical +0/+1
 ==================================================
 
-For IWD:EE, you can choose between revised or vanilla stats for the Frag Grenade and Scorcher. This is safe to change during an ongoing game, even if the items are already in your inventory. Default is revised (if you skip this component). The revised Pulse from the v2.0 is split off into its own ammo type, the Pulse III, and moved much later in the IWD games.
+For IWD:EE, you can choose between revised or vanilla stats for the Frag Grenade and Scorcher. This is safe to change during an ongoing game, even if the items are already in your inventory. Default is revised (if you skip this component).
 
 
 ==================================================

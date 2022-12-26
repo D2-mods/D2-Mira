@@ -1,20 +1,18 @@
-D2-Mira
+D2 Mira
 GitHub: https://github.com/D2-mods/D2-Mira
-Game version: IWD:EE, IWD2, BG:EE, EET (EEs tested on v2.5/v2.6)
+Download: https://github.com/D2-mods/D2-Mira/releases
+Installs on: IWD:EE, IWD2, BG:EE, EET
 
 
 ==================================================
 WHAT THIS MOD DOES
 ==================================================
-Adds the Big Metal Unit from BG2 to other IE games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are added to BG:EE. Some items are sold by merchants and some can be found in various places. The pantaloons are also in the IWD games, but (as of now) aren't needed for getting the Big Metal Unit.
+Adds the Big Metal items from BG2 to other Infinity Engine games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are added to BG:EE. Some items are sold by merchants and some can be found in various places. The pantaloons are also in the IWD games, but (as of now) aren't needed for getting the Big Metal Unit.
 
 
 ==================================================
-INSTALLATION
+Components
 ==================================================
-Extract to game folder and run the setup to install or uninstall. I'm not familiar with Mac/Linux, but installing should be the same as other mods (mod packages are cross-platform).
-
-Components:
 1. Main Component
 	- Option 1: Standard Installation - all items are added to stores or containers
 	- Option 2: Start with the core "Big Metal" items
@@ -62,6 +60,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v3.4
+- BGEE/IWDEE: All ammo types given Silver and Cold Iron properties. For BGEE, this means that Pulse Ammunition (prototype) will be able to hit all the different werewolf enemies. Doesn't affect anything in IWDEE (unmodded).
+
 v3.3
 - fixed Orrick's store (chapter 4) not gaining Pulse Ammunition
 

@@ -3,47 +3,47 @@
 /*removed
 COPY_EXISTING ~d2tec02.ITM~ ~override~    // revised Pulse (separated into different ammo)
   LPF ALTER_ITEM_HEADER 
-  INT_VAR 
-  header_type = 2
-  projectile = 70
+    INT_VAR 
+      header_type = 2
+      projectile  = 70
   END
   
   LPF ALTER_EFFECT
-  INT_VAR 
-  match_opcode = 1
-  parameter1 = 3
+    INT_VAR 
+      match_opcode = 1
+      parameter1   = 3
   END
 BUT_ONLY
 */
 
 COPY_EXISTING ~d2tec03.ITM~ ~override~    // frag
   LPF ALTER_EFFECT
-  INT_VAR 
-  header_type = 2
-  match_opcode = 12
-  dicenumber = 3
-  dicesize = 4
+    INT_VAR 
+      header_type  = 2
+      match_opcode = 12
+      dicenumber   = 3
+      dicesize     = 4
   END
   
   LPF ALTER_EFFECT
-  INT_VAR 
-  match_opcode = 1
-  parameter1 = 3
+    INT_VAR 
+      match_opcode = 1
+      parameter1   = 3
   END
 
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-  WRITE_LONG 0x60 3
+    WRITE_LONG 0x60 3
   END
 BUT_ONLY
   
 COPY_EXISTING ~d2tec04.ITM~ ~override~    // scorcher
   LPF ALTER_EFFECT
-  INT_VAR 
-  match_opcode = 1
-  parameter1 = 3
+    INT_VAR 
+      match_opcode = 1
+      parameter1   = 3
   END
   
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-  WRITE_LONG 0x60 3
+    WRITE_LONG 0x60 3
   END
 BUT_ONLY

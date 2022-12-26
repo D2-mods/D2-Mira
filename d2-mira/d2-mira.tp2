@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~3.3~
+VERSION ~3.4~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_store_functions.tpa~
@@ -26,12 +26,12 @@ LANGUAGE ~English~
          ~d2-mira/tra/english/main.tra~
 
 
-////////////////////////////////////////////////////////////
-
-//D2 Mira - Main Component
+/*
+D2 Mira - Main Component
+*/
 
 BEGIN @2    // Standard Installation
-REQUIRE_PREDICATE GAME_IS ~iwdee iwd2 bgee eet~ @4
+REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2 bgee eet~) ~Game not supported~
 SUBCOMPONENT @1
 LABEL ~D2-MIRA-TEC~
 INCLUDE ~%MOD_FOLDER%/install/install.tph~
@@ -39,31 +39,38 @@ INCLUDE ~%MOD_FOLDER%/install/addtostore1.tph~
 INCLUDE ~%MOD_FOLDER%/install/mbag1.tph~
 
 BEGIN @3    // Start with the core "Big Metal" items
-REQUIRE_PREDICATE GAME_IS ~iwdee iwd2~ @5
+REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2~) ~~
 SUBCOMPONENT @1
 LABEL ~D2-MIRA-BAG~
 INCLUDE ~%MOD_FOLDER%/install/install.tph~
 INCLUDE ~%MOD_FOLDER%/install/addtostore2.tph~
 INCLUDE ~%MOD_FOLDER%/install/mbag2.tph~
 
-////////////////////////////////////////////////////////////
 
-//Choose revised or vanilla BG2 ammo
+/*
+Choose revised or vanilla BG2 ammo
+*/
 
 BEGIN @7    // Use revised Scorcher and Frag Grenade (default)
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @9
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~~
 REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for main component
-                   (FILE_EXISTS ~override/d2tec04.ITM~)) @10
+                   (FILE_EXISTS ~override/d2tec04.ITM~)) ~~
 SUBCOMPONENT @6
 LABEL ~D2-MIRA-AMMOREV~
 INCLUDE ~%MOD_FOLDER%/install/ammorev.tph~
 
 BEGIN @8    // Use vanilla Scorcher and Frag Grenade
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @9
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~~
 REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for main component
-                   (FILE_EXISTS ~override/d2tec04.ITM~)) @10
+                   (FILE_EXISTS ~override/d2tec04.ITM~)) ~~
 SUBCOMPONENT @6
 LABEL ~D2-MIRA-AMMOBG2~
 INCLUDE ~%MOD_FOLDER%/install/ammobg2.tph~
 
+
+
 ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+/*
+*/

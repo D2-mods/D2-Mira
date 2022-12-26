@@ -92,11 +92,12 @@ Weight: 0~
 @210 = ~~
 
 @120 = ~Delivery Bag~
-@220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal Unit" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
+@220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
 
 STATISTICS:
 
 Weight: 5~
+
 
 
 //Unidentified text (iwdee)
@@ -116,6 +117,7 @@ STATISTICS:
 Weight: 45~
 
 
+
 //Unidentified text (iwd2)
 @910 = ~Pantaloons of a quality heretofore unseen by the eyes of either man or beast. Dynamic styling and comfort that cradles, cuddles, and coddles. Seduce your thighs, cajole your calves, enjoy Golden Pantaloons... TODAY!
 
@@ -133,7 +135,8 @@ STATISTICS:
 Weight: 45 lb.~
 
 
-//alt text for bg1
+
+//alt text for bgee
 @500 = ~The "Big Metal Rod" was designed to be used with the "Big Metal Unit", a one-of-a-kind device, which Lucky Aello happily tells you the details of. A likely tall tale, unless...
 
 STATISTICS:
@@ -145,6 +148,7 @@ Weight: 4~
 STATISTICS:
 
 Weight: 0~
+
 
 
 //alt text for iwd2
@@ -226,7 +230,7 @@ STATISTICS:
 
 Weight: 0 lb.~
 
-@720 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal Unit" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
+@720 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
 
 STATISTICS:
 
