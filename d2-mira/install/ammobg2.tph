@@ -1,22 +1,8 @@
-// vanilla ammunition (from BG2:EE)
+//vanilla ammunition (same as BG2)
 
-/*removed
-COPY_EXISTING ~d2tec02.ITM~ ~override~    // vanilla Pulse (patch isn't needed anymore)
-  LPF ALTER_ITEM_HEADER 
-    INT_VAR 
-      header_type = 2
-      projectile  = 37
-  END
-  
-  LPF ALTER_EFFECT
-    INT_VAR 
-      match_opcode = 1
-      parameter1   = 5
-  END
-BUT_ONLY
-*/
 
-COPY_EXISTING ~d2tec03.ITM~ ~override~    // frag
+//Frag Grenade
+COPY_EXISTING ~d2tec03.ITM~ ~override~
   LPF ALTER_EFFECT
     INT_VAR 
       header_type  = 2
@@ -36,7 +22,9 @@ COPY_EXISTING ~d2tec03.ITM~ ~override~    // frag
   END
 BUT_ONLY
 
-COPY_EXISTING ~d2tec04.ITM~ ~override~    // scorcher
+
+//Scorcher
+COPY_EXISTING ~d2tec04.ITM~ ~override~
   LPF ALTER_EFFECT
     INT_VAR 
       match_opcode = 1

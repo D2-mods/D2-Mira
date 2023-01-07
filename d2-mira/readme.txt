@@ -1,22 +1,42 @@
-D2 Mira
+D2-Mira
 GitHub: https://github.com/D2-mods/D2-Mira
 Download: https://github.com/D2-mods/D2-Mira/releases
 Installs on: IWD:EE, IWD2, BG:EE, EET
 
 
 ==================================================
-WHAT THIS MOD DOES
+OVERVIEW
 ==================================================
-Adds the Big Metal items from BG2 to other Infinity Engine games. The full set is obtainable in IWD:EE and IWD2. The Rod and Pulse Ammunition (prototype) are added to BG:EE. Some items are sold by merchants and some can be found in various places. The pantaloons are also in the IWD games, but (as of now) aren't needed for getting the Big Metal Unit.
+Adds the Big Metal items from BG2 to other IE games. All items are obtainable in IWD:EE and IWD2 (including pantaloons). The Rod and Pulse Ammunition (prototype) are added to BG:EE. See components section for details.
+
+v4.0:
+- IWDEE/IWD2: The pantaloons are now required for gaining the Big Metal Unit.
+- IWDEE/IWD2: Pulse Ammos are now gained through trades/dialogue.
+- BGEE: Pulse (prototype) given Silver and Cold Iron properties (can hit all the werewolf enemies).
 
 
 ==================================================
-Components
+COMPONENTS
 ==================================================
 1. Main Component
-	- Option 1: Standard Installation - all items are added to stores or containers
+	- Option 1: Standard Installation
 	- Option 2: Start with the core "Big Metal" items
-2. IWD:EE: Choose revised or vanilla BG2 ammo (default is Revised)
+2. IWDEE: Choose revised or vanilla BG2 ammo (default is Revised)
+
+
+Additional info:
+- Option 1: All items are added to the game world. Some are gained through trades/dialogue, some are sold by merchants, and some can be found in various places.
+- Option 2: Party starts with a bag, containing the core Big Metal items. Other items not in the bag can still be obtained during the game.
+
+Trades info (v4.0+):
+- Big Metal Unit: requires the 3 pantaloons
+- Pulse Ammunition: requires the Pulse (prototype)
+- Pulse III: requires the Pulse Ammunition
+NOTE: You need to have the Big Metal Rod to get the Pulse Ammo dialogues.
+
+Game-specific info:
+- IWDEE: If you reach Lonelywood (expansion area) without certain items, they will be obtainable somewhere in town. This includes starting a new game in HoW.
+- IWD2: Some ammo types can be given by more than 1 NPC. You can only gain an ammo once per playthrough.
 
 
 ==================================================
@@ -45,7 +65,7 @@ Additional info:
 ==================================================
 CREDITS
 ==================================================
-Mod Author: Dan_P
+Modder: Dan_P
 
 Tools and Resources used:
 - WeiDU (https://github.com/WeiDUorg/weidu)
@@ -60,8 +80,16 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
-v3.4
-- BGEE/IWDEE: All ammo types given Silver and Cold Iron properties. For BGEE, this means that Pulse Ammunition (prototype) will be able to hit all the different werewolf enemies. Doesn't affect anything in IWDEE (unmodded).
+v4.0
+- Rewrote chunks of the install files.
+- Changes for IWDEE and IWD2:
+	- The Big Metal Unit now requires trading in the 3 pantaloons (does not cost gold).
+	- The Pulse Ammunitions are now gained through dialogue. The better versions also require trading in an earlier Pulse Ammo. NOTE: Party must have the Big Metal Rod to get the Pulse Ammo dialogues.
+	- IWDEE: Some items will be added to Lonelywood (expansion area) if you reach it without ever getting them. This includes starting a new game in HoW.
+	- IWD2: If you reach Kuldahar without the Rod or the Pulse Ammo, then both can be obtained very quickly.
+	- The other items are unchanged. They're still found or purchased from various places.
+- BGEE/IWDEE:
+	- All ammo types given Silver and Cold Iron properties. For BGEE, this means that Pulse Ammunition (prototype) will be able to hit all the different werewolf enemies. Doesn't affect anything in IWDEE (unmodded).
 
 v3.3
 - fixed Orrick's store (chapter 4) not gaining Pulse Ammunition

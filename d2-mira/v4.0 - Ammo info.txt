@@ -26,7 +26,7 @@ vanilla BG2 stats
 - Scorcher: 2d12 (fire, save for half), 5 APR, magical +0/+1
 ==================================================
 
-For IWD:EE, you can choose between revised or vanilla stats for the Frag Grenade and Scorcher. This is safe to change during an ongoing game, even if the items are already in your inventory. Default is revised (if you skip this component).
+For IWD:EE, you can choose between revised or vanilla stats for the Frag Grenade and Scorcher. This is safe to change during an ongoing game, even if the items are already in your inventory. Default is revised (if component is skipped).
 
 
 ==================================================
@@ -62,31 +62,32 @@ d2#mbag - a bag containing the core "Big Metal" items
 
 
 ==================================================
-ITEM LOCATIONS
+ITEM LOCATIONS (v4.0+)
 ==================================================
 BGEE:
-- Lucky Aello: Big Metal Rod
-- Black Lily: Pulse Ammunition (prototype)
+- Big Metal Rod					- Lucky Aello (store)
+- Pulse Ammunition (prototype)	- Black Lily (store)
 
 IWDEE:
-- Pomab: Big Metal Rod (on shelf)
-- Oswald: Pulse Ammunition (prototype)
-- Orrick (chapter 4): Pulse Ammunition
-- Nym: Frag Grenade
-- Kieran Nye: Scorcher Ammunition
-- Tiernon: Big Metal Unit
-- Hobart: Pulse III Ammunition
+- Big Metal Rod					- Pomab (on shelf)
+- Pulse Ammunition (prototype)	- Oswald (talk)
+- Pulse Ammunition				- Orrick (talk)
+- Frag Grenade					- Nym (store)
+- Scorcher Ammunition			- Kieran Nye (store)
+- Big Metal Unit				- Tiernon (talk)
+- Pulse III Ammunition			- Hobart (talk)
 
 IWD2
-- Oswald: Big Metal Rod (loot after crash)
-- Nym: Pulse Ammunition (prototype)
-- Bered: Pulse Ammunition
-- Myrvek: Frag Grenade
-- Sheemish: Pulse III Ammunition
-- Dragon's Eye: Scorcher Ammunition (alchemy room)
-- Riki: Big Metal Unit
+- Big Metal Rod					- Oswald (loot after crash)
+- Pulse Ammunition (prototype)	- Beodaewn or Zach (talk)
+- Pulse Ammunition				- Nym or Bered (talk)
+- Frag Grenade					- Myrvek (store)
+- Scorcher Ammunition			- Dragon's Eye (alchemy room)
+- Big Metal Unit				- Conlan (talk)
+- Pulse III Ammunition			- Riki (talk)
 
 Pantaloons
 - IWDEE: Divine worshippers are said to seek out these pants
 - IWD2: These collector's items belong to 3 leaders of their communities
+- v4.0: Pantaloons are now required to get the Big Metal Unit
 

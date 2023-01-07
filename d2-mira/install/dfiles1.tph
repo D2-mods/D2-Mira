@@ -1,0 +1,24 @@
+//Standard Installation
+
+
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+
+  COMPILE EVAL ~%dfiles%/ee_oswald.d~
+  COMPILE EVAL ~%dfiles%/ee_orrick.d~
+  COMPILE EVAL ~%dfiles%/ee_tiernon.d~
+  COMPILE EVAL ~%dfiles%/ee_hobart.d~
+
+END
+
+
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+
+  COMPILE EVAL ~%dfiles%/iwd2_oswald.d~
+  COMPILE EVAL ~%dfiles%/iwd2_beodaewn.d~
+  COMPILE EVAL ~%dfiles%/iwd2_zack.d~
+  COMPILE EVAL ~%dfiles%/iwd2_nym.d~
+  COMPILE EVAL ~%dfiles%/iwd2_bered.d~
+  COMPILE EVAL ~%dfiles%/iwd2_conlan.d~
+  COMPILE EVAL ~%dfiles%/iwd2_riki.d~
+
+END

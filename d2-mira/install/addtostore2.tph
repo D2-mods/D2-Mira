@@ -4,65 +4,43 @@
 //BGEE
 ACTION_IF (GAME_IS ~bgee eet~) BEGIN
   COPY_EXISTING ~STOCHEAP.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2tec01~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bigmetalrod%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
   
   COPY_EXISTING ~STOBLACK.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2tec06~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%prototype%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
 END
   
   
 //IWDEE
 ACTION_IF (GAME_IS ~iwdee~) BEGIN
-  COPY_EXISTING ~KUOSWALD.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2tec06~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
-
-  COPY_EXISTING ~HOBART.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2tec07~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
-
-//pantaloons
   COPY_EXISTING ~LDD_BEOR.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2pant01~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
   
   COPY_EXISTING ~KUTEMPLE.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2pant02~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
   
   COPY_EXISTING ~AR9103.ARE~ ~override~
-    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=1 STR_VAR item_to_add=~d2pant03~ END
+    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=1 STR_VAR item_to_add=~%gold%~ END
   BUT_ONLY
 END
 
 
 //IWD2
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
-  COPY_EXISTING ~50NYM.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2mira06~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
-
-  COPY_EXISTING ~50NYM2.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2mira06~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
-
-  COPY_EXISTING ~60SPELLS.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2mira07~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
-
-//pantaloons
   COPY_EXISTING ~11ELYTHA.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2pant01~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
   
   COPY_EXISTING ~53MALAVO.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~d2pant02~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
   
   COPY_EXISTING ~AR6006.ARE~ ~override~
-    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=1 STR_VAR item_to_add=~d2pant03~ END
+    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=1 STR_VAR item_to_add=~%gold%~ END
   BUT_ONLY
 END
 

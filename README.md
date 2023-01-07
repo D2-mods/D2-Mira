@@ -1,4 +1,4 @@
-# D2 Mira
+# D2-Mira
 Download: https://github.com/D2-mods/D2-Mira/releases  
 Installs on: IWD:EE, IWD2, BG:EE, EET
 
