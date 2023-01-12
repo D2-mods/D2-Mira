@@ -1,0 +1,62 @@
+//Standard Installation
+
+/*
+Sets some variables for IWD2
+Used for gaining some items (if you missed them earlier)
+*/
+
+
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+
+
+//Set Global variables (check if party has items)
+<<<<<<<< .../temp/variables
+IF
+	PartyHasItem("%bigmetalrod%")
+	!Global("d2HasBigMetalRod","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasBigMetalRod","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%pulse%")
+	!Global("d2HasPulseAmmo","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasPulseAmmo","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%silver%")
+	!Global("d2HasSilverPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasSilverPants","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%bronze%")
+	!Global("d2HasBronzePants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasBronzePants","GLOBAL",1)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
+  EVALUATE_BUFFER
+EXTEND_TOP ~AR4000.BCS~ ~%workspace%/variables.BAF~    // Western Pass
+EXTEND_TOP ~AR5300.BCS~ ~%workspace%/variables.BAF~    // Underdark
+EXTEND_TOP ~AR6000.BCS~ ~%workspace%/variables.BAF~    // Kuldahar valley
+
+
+END
+
+
+/*
+*/

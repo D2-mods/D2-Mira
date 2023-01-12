@@ -1,0 +1,128 @@
+//Standard Installation
+
+/*
+Add items to HoW stores if party never attained them.
+Lets you get upgrades if, for example, starting a new game in HoW.
+*/
+
+
+ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
+
+
+//Set Global variables (check if party has items)
+<<<<<<<< .../temp/variables
+IF
+	PartyHasItem("%bigmetalrod%")
+	!Global("d2HasBigMetalRod","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasBigMetalRod","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%pulse%")
+	!Global("d2HasPulseAmmo","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasPulseAmmo","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%silver%")
+	!Global("d2HasSilverPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasSilverPants","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%bronze%")
+	!Global("d2HasBronzePants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasBronzePants","GLOBAL",1)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/variables~   ~%workspace%/variables.BAF~
+  EVALUATE_BUFFER
+
+ACTION_FOR_EACH script IN ~AR2100~ ~AR9100~ BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.BCS~) BEGIN
+    EXTEND_TOP ~%script%.BCS~ ~%workspace%/variables.BAF~
+  END
+END
+
+
+END
+
+
+
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+
+
+//Add Rod and/or Pulse
+<<<<<<<< .../temp/RodPulse
+IF
+	!PartyHasItem("%bigmetalrod%")
+	!Global("d2HasBigMetalRod","GLOBAL",1)
+THEN
+	RESPONSE #100
+		AddStoreItem("EDION","%bigmetalrod%",1,1)
+		Continue()
+END
+
+IF
+	!PartyHasItem("%pulse%")
+	!PartyHasItem("%prototype%")
+	!Global("d2HasPulseAmmo","GLOBAL",1)
+THEN
+	RESPONSE #100
+		AddStoreItem("EDION","%pulse%",1,1)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/RodPulse~  ~%workspace%/RodPulse.BAF~
+  EVALUATE_BUFFER
+EXTEND_TOP ~AR9300.BCS~ ~%workspace%/RodPulse.BAF~    // add to Edion's store
+
+
+
+//Add Bronze/Silver Pants
+<<<<<<<< .../temp/BronzeSilver
+IF
+	!PartyHasItem("%silver%")
+	!PartyHasItem("%bigmetalunit%")
+	!Global("d2HasSilverPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		AddStoreItem("WAUKEEN","%silver%",1,1)
+		Continue()
+END
+
+IF
+	!PartyHasItem("%bronze%")
+	!PartyHasItem("%bigmetalunit%")
+	!Global("d2HasBronzePants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		AddStoreItem("WAUKEEN","%bronze%",1,1)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/BronzeSilver~  ~%workspace%/BronzeSilver.BAF~
+  EVALUATE_BUFFER
+EXTEND_TOP ~AR9103.BCS~ ~%workspace%/BronzeSilver.BAF~    // add to temple store
+
+
+END
+
+
+/*
+*/

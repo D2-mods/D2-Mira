@@ -33,7 +33,8 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @10241 = ~That sounds fair. Let's make the trade.~    // if 5000 gold
 @10242 = ~Perhaps another time.~
 
-	@10251 = ~Excellent. And here is the Pulse Ammunition. I will ensure the prototype gets back to Oswald once I am finished with it. I have heard one additional rumor that may be of interest to you. There is another version of this ammo in development, but one of the prototypes has been lost. Perhaps you may come upon it in your travels, some place, far away from Kuldahar.~
+	@10251 = ~Excellent. Here is the Pulse Ammunition. I will ensure the prototype gets back to Oswald once I am finished with it. Before you go, I have some news that may be of interest to you.~
+	@10252 = ~There is another version of this ammo in development, but one of the prototypes has been lost. Perhaps you may come upon it in your travels, some place, far away from Kuldahar.~
 
 
 //Tiernon (if party has all 3 pantaloons)
@@ -42,17 +43,17 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@10311 = ~What, ye have...?!. Hand it over. That thing, yer pantaloons.~
 
 @10321 = ~Well, if you insist...~
-@10322 = ~Hands off. These pantaloons are mine... and no one elses.~
+@10322 = ~Hands off. These pantaloons are mine... and no one else's.~
 
 	@10331 = ~Aye, I'm indebted to ye. Here. Take this. Do ye better than these old pantaloons, I'd reckon.~
 
 
 //Hobart (if party has any earlier Pulse Ammunition)
-@10401 = ~Hobart, maybe you'd know something about this. It's called a Pulse Ammunition. There's supposedly another prototype of this ammo that was lost some time ago...~
+@10401 = ~Hobart, maybe you'd know something about this. It's called a Pulse Ammunition. There's supposedly a prototype of this ammo that was lost some time ago...~
 
 	@10411 = ~Bah, what is it now. That, eh? Well, maybe I do, maybe I don't. Heh heh, but what's it worth to you. You're the legendary heroes, yes? Give me 15000 gold and that Pulse Ammunition and I'll hand over what I have.~
 
-@10421 = ~That sounds fair. Let's make the trade.~    // if 15000 gold
+@10421 = ~Alright, but this better be good.~    // if 15000 gold
 @10422 = ~Perhaps another time.~
 
 	@10431 = ~Eh, here it is. Don't ask me what it does. One of the orc-wits I brought here had it on her corpse, heh.~
@@ -61,11 +62,11 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 //Dialogue (IWD2)
 
-//Oswald, gives info
+//Oswald (crashed ship)
 @20101 = ~Oswald, we found this strange device in the wreckage.~
 @20102 = ~Oswald, could you repeat what you said about the Big Metal Rod?~
 
-	@20111 = ~Oh that. Why that's... the Big Metal Rod! Quite the story with that one. You see, it all started when...~
+	@20111 = ~Oh, that? Why that's... the Big Metal Rod! Quite the story with that one. You see, it all started when...~
 
 @20121 = ~Is it something we could make use of?~
 
@@ -131,23 +132,59 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Conlan (if 3 pantaloons)
 @20601 = ~Sorry, give me a moment. These things keep getting in the way. (Accidently show Conlan the pantaloons)~
 
-	@20611 = ~What, you have...?!. I may Hand it over. That thing, your pantaloons.~
+	@20611 = ~What, you have...?!. Hand it over. That thing, your pantaloons.~
 
 @20621 = ~Well, if you insist...~
-@20622 = ~Hands off. These pantaloons are mine... and no one elses.~
+@20622 = ~Hands off. These pantaloons are mine... and no one else's.~
 
 	@20631 = ~Aye, I'm indebted to you. Here. Take this. Do you better than these old pantaloons, I'd wager.~
 
 
 //Riki (15000), if has Rod + Pulse (normal or prototype)
-@20701 = ~Actually, I have something here called a Pulse Ammunition. You said you had powerful items? I've heard rumors of an advanced version of this ammo. Maybe you've come across something like that...~
+@20701 = ~Actually, I have something here called a Pulse Ammunition. I've heard rumors of an advanced version of this ammo. Perhaps you've come across something like that?~
 
 	@20711 = ~The Pulse III. That's what you're thinking of. Do I have something like that? Of course I do. If it will aid you, then give me that Pulse ammo, along with, let's say, 15000 gold and you can have it.~
 
 @20721 = ~That sounds fair. I'll take it.~  // if 15000 gold
-@20722 = ~Perhaps another time.~
+@20722 = ~Not right now. I'll come back for it.~
 
 	@20731 = ~It's agreed then, adventurer. And here's the Pulse III.~
+
+
+//Oswald (Kuldahar)
+@20801 = ~Oswald, what's that strange device on the table?~
+@20802 = ~Do you have any special weapons we could make use of? Anything would help.~
+
+	@20811 = ~I'm glad you asked. In fact, this is the Big Metal Rod! It may look odd, but... well never mind that for now. I know. Why don't you take it with you? I'm sure you could make better use of it than me or little Maralie.~
+	@20812 = ~I might have just the thing for you. No, no, not a potion this time. It's called a "Pulse Ammunition". You should try it out with the Big Metal Rod. I've even heard that a more advanced version of the ammo has already been invented...~
+
+
+//Nathaniel
+@20901 = ~Is that a pair of pantaloons? Can I buy it from you?~
+@20902 = ~I can't help but notice those pantalettes you're clutching...~
+
+	@20911 = ~Of course, but you must understand these are extremely valuable items. I would ask of you 15000 gold for these Silver Pantaloons.~
+	@20912 = ~Ah yes, the Bronze Pantalettes. There's not much to tell. These were sent as a gift from the Lord of Targos some time ago. If it can help you, perhaps 8000 gold will suffice.~
+
+@20921 = ~I've been looking for these. I'll take it.~
+@20922 = ~Thank you! I've been looking for these.~
+@20923 = ~Not right away. I'll come back for it, Nathaniel.~
+
+
+
+//Dialogue (BGEE)
+
+//Black Lily
+@30101 = ~~
+
+	@30111 = ~Before ye look, remember this. I won't be repeating it. If ye find the Big Metal Rod, bring it here. I'll have a special prototype that I can sell to ye then.~
+	@30112 = ~Before ye look, I have something for that Big Metal Rod. It's a prototype ammo. Ye'll not be finding another one. I'll need 10000 gold to cover the costs.~
+
+@30121 = ~Alright. I'll take it.~
+@30122 = ~Not right now. Can I look at your regular items?~
+
+	@30131 = ~It's agreed then. Now, what will ye need today?~
+
 
 
 
@@ -314,6 +351,108 @@ Weight: 4~
 STATISTICS:
 
 Weight: 0~
+
+
+
+//Alt text (IWD1)
+
+//Big Metal Rod
+@600 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
+
+STATISTICS:
+
+Weight: 4
+Not Usable By:~
+
+//Pulse Ammunition
+@601 = ~This Pulse Ammunition allows you to shoot small balls of pure energy at a frightening pace from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0
+Not Usable By:~
+
+//Frag Grenade
+@602 = ~This skull can be launched at your enemies via the Big Metal Rod. It will explode into fragments when an enemy approaches it and damage everyone within the radius of the explosion.
+
+STATISTICS:
+
+Weight: 1
+Not Usable By:~
+
+//Scorcher Ammunition
+@603 = ~This ammunition for the Big Metal Rod will allow you to shoot a jet of flame at an enemy.
+
+STATISTICS:
+
+Weight: 1
+Not Usable By:~
+
+//Big Metal Unit
+@604 = ~Found within a long-forgotten pocket of our collected pantology, herein tales the lie of the Metal "Unit." 
+
+Gargantua was self-proclaimed lord of his immeasurable lower regions until his son, Pantagruel, questioned the accuracy of the ruler. With his shortcomings exposed, great Gargantua lay prostrate upon the ground while Pantagruel sought to cover his cuirass in case his now governing body lost its sway. He was warned that the people would cut him no slacks, but he never listened, and had burned his britches behind him. Undaunted, he fulfilled his animus with the robes of his father, as uncomfortable as that might sound, and shaped the Metal "Unit" with his own hands. 
+
+The rule of Pantagruel was a discommoding morass, his armor eventually suffering a breach in the breech that proved his undoing. As his basket left the pantry, so to speak, his regime fell to insurrection, and so complete was the sacking that not even his Metal "Unit" could be found. The component pieces, a pantaloon triumvirate, were lost in the annals of time. 
+
+You now bear the awesome responsibility of the Metal "Unit." Gussets of wind, seams like reality, pockets of resistance, the seat of power, and legs as flared as your temper. Polish it well; the onus is now on you.
+
+STATISTICS:
+
+Armor Class: -10
+Magic Resistance: +5%
+Special:  Immune to backstab
+Weight: 45
+Not Usable By:~
+
+//Pulse Ammunition (prototype)
+@605 = ~This is an early prototype of the Pulse Ammunition, designed to be used with the Big Metal Rod (though usable with any crossbow). Oswald is willing to lend it to you... for a small fee. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0
+Not Usable By:~
+
+//Bronze Pantalettes
+@606 = ~The pinnacle of style and the epitome of fashion, those of discerning taste would rather wear nothing at all than substitute inferior apparel for the bronze pantalettes.
+
+STATISTICS:
+
+Weight: 1~
+
+//Silver Pantaloons
+@607 = ~A stainless, silver pair of trousers. Said to be one-third of a set, along with the Golden Pantaloons and the Bronze Pantalettes. Only one of maximum taste would have their hands on these pants.
+
+STATISTICS:
+
+Weight: 1~
+
+//Golden Pantaloons
+@608 = ~The Golden Pantaloons did surely see the very beginnings of our realm, though I must press that they "saw" this formative time by their simple presence, and not through some vestigial eyes that might have erupted through a rear pocket perhaps concealing teeth and other improbable extremities. I am sure that the various owners of the pantaloons can attest to the general lack of animated digits or ocular sensors, as evidenced by the continued sanctity and privacy maintained by their respective buttocks.
+
+Lyric pantoums of an age long since out of print speak of "trousers that were as metal, though soft about the shanks." While it might be easy to jump to the seemingly inevitable conclusion that the trousers rose while Netheril fell, it is doubtful that the Pantaloons were the garments of which they speak. One must clarify these oft misquoted verses with knowledge of the Pantechnicon, an ancient bazaar once prized for Silver Pantalettes. Fine these may have been, but golden they were not. Nickel Panties are also said to be currently available, though the dockside establishments that claim to offer these products are beyond my meager experience, and thus I can make no report.
+
+The purpose of the Pantaloons is as mysterious as ever, and will likely remain so until the Pantocrator himself returns, though some properties can be divined though intimate observation. The "uplifting" properties of the gusset very nearly defy gravity, shaping quite nicely both the front and rear. This improved contour would likely increase self-esteem for a wearer of either sex. I would hazard a guess, however, that this continuing self delusion might actually hamper cognitive functions, and care should be taken in the wearing of any pantaloons of golden nature.
+
+STATISTICS:
+
+Weight: 0~
+
+//Pulse III Ammunition
+@609 = ~Rapid advancement has led to the development of the Pulse III Ammunition, able to fire 3 balls of pure energy at once from the Big Metal Rod. As this is a prototype for gathering data, it has a reduced rate of fire compared to the standard Pulse Ammunition.
+
+STATISTICS:
+
+Weight: 0
+Not Usable By:~
+
+//Delivery Bag
+@620 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
+
+STATISTICS:
+
+Weight: 5
+Not Usable By:~
 
 
 

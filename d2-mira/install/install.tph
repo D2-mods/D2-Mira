@@ -1,18 +1,38 @@
-//BGEE
-ACTION_IF (GAME_IS ~bgee eet~) BEGIN
-  COPY ~%bgee%/d2tec01d.BAM~ ~override~
-  COPY ~%data%/d2tec01i.BAM~ ~override~
-  COPY ~%data%/d2tec01.ITM~  ~override~
-    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @500
-    SAY NAME2 @100 SAY DESC @500
-    WRITE_LONG 0x34 30       // base price = 30 gold
+//
+//
 
-  COPY ~%bgee%/d2tec02d.BAM~ ~override~
-  COPY ~%data%/d2tec02i.BAM~ ~override~
-  COPY ~%data%/d2tec06.ITM~  ~override~
-    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @505
+
+//BGEE
+ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
+  COPY ~%data%~  ~override~
+  COPY ~%bgee%~  ~override~
+
+  //Big Metal items
+  COPY_EXISTING ~d2tec01.ITM~ ~override~
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @200 
+    SAY NAME2 @100 SAY DESC @200
+  COPY_EXISTING ~d2tec02.ITM~ ~override~			
+    SAY NAME1 @101 SAY UNIDENTIFIED_DESC @201 
+    SAY NAME2 @101 SAY DESC @201
+  COPY_EXISTING ~d2tec03.ITM~ ~override~			
+    SAY NAME1 @102 SAY UNIDENTIFIED_DESC @202 
+    SAY NAME2 @102 SAY DESC @202
+  COPY_EXISTING ~d2tec04.ITM~ ~override~			
+    SAY NAME1 @103 SAY UNIDENTIFIED_DESC @203 
+    SAY NAME2 @103 SAY DESC @203
+  COPY_EXISTING ~d2tec05.ITM~ ~override~			
+    SAY NAME1 @901 SAY UNIDENTIFIED_DESC @902 
+    SAY NAME2 @104 SAY DESC @204
+  COPY_EXISTING ~d2tec06.ITM~ ~override~			
+    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @505 
     SAY NAME2 @105 SAY DESC @505
-    WRITE_LONG 0x34 10000    // base price = 10000 gold
+  COPY_EXISTING ~d2tec07.ITM~ ~override~			
+    SAY NAME1 @109 SAY UNIDENTIFIED_DESC @209 
+    SAY NAME2 @109 SAY DESC @209
+
+  COPY_EXISTING ~d2tec01.ITM~ ~override/d2tec01b.ITM~    // for BGEE (different text)
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @500 
+    SAY NAME2 @100 SAY DESC @500
 END
 
 
@@ -54,6 +74,47 @@ ACTION_IF (GAME_IS ~iwdee~) BEGIN
   COPY_EXISTING ~d2pant03.ITM~ ~override~							
     SAY NAME1 @108 SAY UNIDENTIFIED_DESC @900 
     SAY NAME2 @108 SAY DESC @208
+END
+
+
+//IWD1
+ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
+  COPY ~%iwd1%~  ~override~
+  COPY ~%extra%~ ~override~
+
+  //Big Metal items
+  COPY_EXISTING ~d2tec01.ITM~ ~override~
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @600 
+    SAY NAME2 @100 SAY DESC @600
+  COPY_EXISTING ~d2tec02.ITM~ ~override~			
+    SAY NAME1 @101 SAY UNIDENTIFIED_DESC @601 
+    SAY NAME2 @101 SAY DESC @601
+  COPY_EXISTING ~d2tec03.ITM~ ~override~			
+    SAY NAME1 @102 SAY UNIDENTIFIED_DESC @602 
+    SAY NAME2 @102 SAY DESC @602
+  COPY_EXISTING ~d2tec04.ITM~ ~override~			
+    SAY NAME1 @103 SAY UNIDENTIFIED_DESC @603 
+    SAY NAME2 @103 SAY DESC @603
+  COPY_EXISTING ~d2tec05.ITM~ ~override~			
+    SAY NAME1 @901 SAY UNIDENTIFIED_DESC @902 
+    SAY NAME2 @104 SAY DESC @604
+  COPY_EXISTING ~d2tec06.ITM~ ~override~			
+    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @605 
+    SAY NAME2 @105 SAY DESC @605
+  COPY_EXISTING ~d2tec07.ITM~ ~override~			
+    SAY NAME1 @109 SAY UNIDENTIFIED_DESC @609 
+    SAY NAME2 @109 SAY DESC @609
+  
+  //Pantaloons
+  COPY_EXISTING ~d2pant01.ITM~ ~override~							
+    SAY NAME1 @106 SAY UNIDENTIFIED_DESC @606 
+    SAY NAME2 @106 SAY DESC @606
+  COPY_EXISTING ~d2pant02.ITM~ ~override~							
+    SAY NAME1 @107 SAY UNIDENTIFIED_DESC @607 
+    SAY NAME2 @107 SAY DESC @607
+  COPY_EXISTING ~d2pant03.ITM~ ~override~							
+    SAY NAME1 @108 SAY UNIDENTIFIED_DESC @900 
+    SAY NAME2 @108 SAY DESC @608
 END
 
 
@@ -121,6 +182,7 @@ ELSE BEGIN
   OUTER_TEXT_SPRINT bigmetalunit ~d2tec05~
   OUTER_TEXT_SPRINT prototype    ~d2tec06~
   OUTER_TEXT_SPRINT pulseIII     ~d2tec07~
+  OUTER_TEXT_SPRINT metalrodb    ~d2tec01b~    // for BGEE (different text)
 
 END
 

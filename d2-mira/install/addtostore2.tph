@@ -1,31 +1,43 @@
 //Start with the core "Big Metal" items
 
 
-//BGEE
-ACTION_IF (GAME_IS ~bgee eet~) BEGIN
-  COPY_EXISTING ~STOCHEAP.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bigmetalrod%~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
+//IWD1, IWDEE
+ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~LDD_BEOR.STO~) BEGIN
+    COPY_EXISTING ~LDD_BEOR.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
+    BUT_ONLY
+  END
   
-  COPY_EXISTING ~STOBLACK.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%prototype%~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
+  ACTION_IF (FILE_EXISTS_IN_GAME ~KUTEMPLE.STO~) BEGIN
+    COPY_EXISTING ~KUTEMPLE.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~LAST~ flags=~identified~ END
+    BUT_ONLY
+  END
+  
+  ACTION_IF (FILE_EXISTS_IN_GAME ~AR9103.ARE~) BEGIN
+    COPY_EXISTING ~AR9103.ARE~ ~override~
+      LPF ADD_AREA_ITEM INT_VAR container_to_add_to=1 STR_VAR item_to_add=~%gold%~ END
+    BUT_ONLY
+  END
 END
-  
-  
-//IWDEE
-ACTION_IF (GAME_IS ~iwdee~) BEGIN
-  COPY_EXISTING ~LDD_BEOR.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
-  
-  COPY_EXISTING ~KUTEMPLE.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~LAST~ flags=~identified~ END
-  BUT_ONLY
-  
-  COPY_EXISTING ~AR9103.ARE~ ~override~
-    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=1 STR_VAR item_to_add=~%gold%~ END
-  BUT_ONLY
+
+
+//IWD1 (additional HoW items)
+ACTION_IF (GAME_IS ~how totlm~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~EDION.STO~) BEGIN
+    COPY_EXISTING ~EDION.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bigmetalrod%~ position=~LAST~ flags=~identified~ END
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%pulse%~ position=~LAST~ flags=~identified~ END
+    BUT_ONLY
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~WAUKEEN.STO~) BEGIN
+    COPY_EXISTING ~WAUKEEN.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~LAST~ flags=~identified~ END
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
+    BUT_ONLY
+  END
 END
 
 

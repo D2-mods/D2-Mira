@@ -1,12 +1,12 @@
 //Standard Installation
 
 
-ACTION_IF (GAME_IS ~iwdee~) BEGIN
+ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
 
-  COMPILE EVAL ~%dfiles%/ee_oswald.d~
-  COMPILE EVAL ~%dfiles%/ee_orrick.d~
-  COMPILE EVAL ~%dfiles%/ee_tiernon.d~
-  COMPILE EVAL ~%dfiles%/ee_hobart.d~
+  ACTION_IF (FILE_EXISTS_IN_GAME ~DOSWALD.DLG~)  BEGIN COMPILE EVAL ~%dfiles%/ee_oswald.d~ END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~DORRICK.DLG~)  BEGIN COMPILE EVAL ~%dfiles%/ee_orrick.d~ END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~DTIERNON.DLG~) BEGIN COMPILE EVAL ~%dfiles%/ee_tiernon.d~ END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~DHOBART.DLG~)  BEGIN COMPILE EVAL ~%dfiles%/ee_hobart.d~ END
 
 END
 
@@ -20,5 +20,14 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
   COMPILE EVAL ~%dfiles%/iwd2_bered.d~
   COMPILE EVAL ~%dfiles%/iwd2_conlan.d~
   COMPILE EVAL ~%dfiles%/iwd2_riki.d~
+  COMPILE EVAL ~%dfiles%/iwd2_oswald2.d~
+  COMPILE EVAL ~%dfiles%/iwd2_nathaniel.d~
+
+END
+
+
+ACTION_IF (GAME_IS ~bgee eet~) BEGIN
+
+  COMPILE EVAL ~%dfiles%/bgee_blacklily.d~
 
 END

@@ -59,6 +59,7 @@ END
 
 IF ~~ BEGIN OrrickPulse
   SAY @10251  // Orrick says stuff
+    = @10252
   IF ~~ DO ~ TakePartyGold(5000)
              TakePartyItem("%prototype%")
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 

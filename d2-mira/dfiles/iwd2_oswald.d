@@ -17,7 +17,6 @@ IF ~ PartyHasItem("%bigmetalrod%")
 END
 
 
-
 APPEND ~11OSWALD~
 
 IF ~~ BEGIN d2OswaldShowRod

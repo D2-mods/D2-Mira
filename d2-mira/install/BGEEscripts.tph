@@ -1,0 +1,89 @@
+//Standard Installation
+
+/*
+Sets some variables for BGEE
+*/
+
+
+ACTION_IF (GAME_IS ~bgee eet~) BEGIN
+
+
+//Set Global variables (check if party has items)
+<<<<<<<< .../temp/variables
+IF
+	OR(2)
+		PartyHasItem("%metalrodb%")
+		PartyHasItem("%bigmetalrod%")
+	!Global("d2HasBigMetalRod","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasBigMetalRod","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%prototype%")
+	!Global("d2HasPrototype","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasPrototype","GLOBAL",1)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
+  EVALUATE_BUFFER
+
+ACTION_IF !(GAME_IS ~eet~) BEGIN
+  EXTEND_TOP ~AR0800.BCS~    ~%workspace%/variables.BAF~    // for BGEE
+  EXTEND_TOP ~AR2600.BCS~    ~%workspace%/variables.BAF~
+END
+ELSE BEGIN
+  EXTEND_TOP ~BG0800.BCS~    ~%workspace%/variables.BAF~    // for EET
+  EXTEND_TOP ~BG2600.BCS~    ~%workspace%/variables.BAF~
+END
+
+
+
+//SoD: Add Rod and/or Pulse (prototype)
+<<<<<<<< .../temp/RodPulse
+IF
+	!PartyHasItem("%metalrodb%")
+	!PartyHasItem("%bigmetalrod%")
+	!Global("d2HasBigMetalRod","GLOBAL",1)
+THEN
+	RESPONSE #100
+		AddStoreItem("STORE","%bigmetalrod%",1,1)
+		Continue()
+END
+
+IF
+	!PartyHasItem("%prototype%")
+	!Global("d2HasPrototype","GLOBAL",1)
+THEN
+	RESPONSE #100
+		AddStoreItem("STORE","%prototype%",1,1)
+		Continue()
+END
+>>>>>>>>
+
+ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
+  COPY - ~.../temp/RodPulse~  ~%workspace%/sorcsund.BAF~
+    EVALUATE_BUFFER
+    REPLACE_TEXTUALLY ~"STORE"~ ~"bdsorcsc"~
+  EXTEND_TOP ~bd0020.BCS~     ~%workspace%/sorcsund.BAF~     // Sorcerous Sundries
+  EXTEND_TOP ~bd0020.BCS~     ~%workspace%/variables.BAF~
+
+  COPY - ~.../temp/RodPulse~  ~%workspace%/siegecamp.BAF~
+    EVALUATE_BUFFER
+    REPLACE_TEXTUALLY ~"STORE"~ ~"bdbelega"~
+  EXTEND_TOP ~bd3000.BCS~     ~%workspace%/siegecamp.BAF~    // Siege Camp
+  EXTEND_TOP ~bd3000.BCS~     ~%workspace%/variables.BAF~
+END
+
+
+END
+
+
+/*
+*/

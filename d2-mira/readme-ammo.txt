@@ -32,9 +32,10 @@ For IWD:EE, you can choose between revised or vanilla stats for the Frag Grenade
 ==================================================
 ITEM RESOURCE
 ==================================================
-BGEE:
-d2tec01 - Big Metal Rod
+BGEE/EET:
+d2tec01b - Big Metal Rod
 d2tec06 - Pulse Ammunition (prototype)
+These are the items that appear in the game.
 
 IWDEE:
 d2tec01 - Big Metal Rod
@@ -54,10 +55,12 @@ d2mira05 - Big Metal Unit
 d2mira06 - Pulse Ammunition (prototype)
 d2mira07 - Pulse III Ammunition
 
-IWDEE/IWD2
+Pantaloons (IWDEE/IWD2)
 d2pant01 - Bronze Pantalettes
 d2pant02 - Silver Pantaloons
 d2pant03 - Golden Pantaloons
+
+Other (all games)
 d2#mbag - a bag containing the core "Big Metal" items
 
 
@@ -65,22 +68,22 @@ d2#mbag - a bag containing the core "Big Metal" items
 ITEM LOCATIONS (v4.0+)
 ==================================================
 BGEE:
-- Big Metal Rod					- Lucky Aello (store)
-- Pulse Ammunition (prototype)	- Black Lily (store)
+- Big Metal Rod					- Lucky Aello (store), SoD (see below)
+- Pulse Ammunition (prototype)	- Black Lily (talk), SoD (see below)
 
 IWDEE:
-- Big Metal Rod					- Pomab (on shelf)
+- Big Metal Rod					- Pomab (on shelf), Edion (see below)
 - Pulse Ammunition (prototype)	- Oswald (talk)
-- Pulse Ammunition				- Orrick (talk)
+- Pulse Ammunition				- Orrick (talk), Edion (see below)
 - Frag Grenade					- Nym (store)
 - Scorcher Ammunition			- Kieran Nye (store)
 - Big Metal Unit				- Tiernon (talk)
 - Pulse III Ammunition			- Hobart (talk)
 
 IWD2
-- Big Metal Rod					- Oswald (loot after crash)
+- Big Metal Rod					- Oswald (after crash), Oswald (Kuldahar)
 - Pulse Ammunition (prototype)	- Beodaewn or Zach (talk)
-- Pulse Ammunition				- Nym or Bered (talk)
+- Pulse Ammunition				- Nym or Bered (talk), Oswald (Kuldahar)
 - Frag Grenade					- Myrvek (store)
 - Scorcher Ammunition			- Dragon's Eye (alchemy room)
 - Big Metal Unit				- Conlan (talk)
@@ -88,6 +91,11 @@ IWD2
 
 Pantaloons
 - IWDEE: Divine worshippers are said to seek out these pants
-- IWD2: These collector's items belong to 3 leaders of their communities
+- IWD2: These pricey items belong to 3 leaders of their communities
 - v4.0: Pantaloons are now required to get the Big Metal Unit
+
+Game-specific info:
+- IWDEE: Some items needed for upgrades may be added to HoW, but only if not previously obtained.
+- IWD2: Some items can be gained from more than 1 NPC. These are only obtainable once.
+- BGEE/EET: Rod and Pulse (prototype) are now in SoD as well, but only if not previously gained.
 

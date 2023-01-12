@@ -1,11 +1,9 @@
 //Use to add items to d2#mbag (empty by default)
 
-ACTION_IF (GAME_IS ~iwdee iwd2~) BEGIN
-  COPY_EXISTING ~d2#mbag.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%bigmetalunit%~ flags = ~identified~ END
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%scorcher%~     flags = ~identified~ END
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%frag%~         flags = ~identified~ END
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%pulse%~        flags = ~identified~ END
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%bigmetalrod%~  flags = ~identified~ END
-  BUT_ONLY
-END
+COPY_EXISTING ~d2#mbag.STO~ ~override~
+  LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%bigmetalunit%~ flags = ~identified~ END
+  LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%scorcher%~     flags = ~identified~ END
+  LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%frag%~         flags = ~identified~ END
+  LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%pulse%~        flags = ~identified~ END
+  LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%bigmetalrod%~  flags = ~identified~ END
+BUT_ONLY

@@ -1,30 +1,99 @@
 //Start with the core "Big Metal" items
 
+
+//Add and fill bag
+
+ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
+  COPY ~%mbag%/mbag-ee.BAM~  ~override/d2#mbag.BAM~
+  COPY ~%mbag%/d2hbee1.ITM~  ~override/d2#mbag.ITM~
+    SAY NAME1 @120 SAY UNIDENTIFIED_DESC @220
+    SAY NAME2 @120
+    WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
+	
+  COPY ~%mbag%/d2hbee1.STO~  ~override/d2#mbag.STO~
+    SAY 0xc @120  /* Delivery Bag */
+    LPF cannot_add_items END         // make it so items cannot be placed in the bag
+END
+
 ACTION_IF (GAME_IS ~iwdee~) BEGIN
-  COPY ~%mbag%/d2hbee0.ITM~ ~override/d2#mbag.ITM~
+  COPY ~%mbag%/mbag-ee.BAM~  ~override/d2#mbag.BAM~
+  COPY ~%mbag%/d2hbee0.ITM~  ~override/d2#mbag.ITM~
     SAY NAME1 @120 SAY UNIDENTIFIED_DESC @220
     SAY NAME2 @120 SAY DESC @220
     WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
 	
-  COPY ~%mbag%/d2hbee0.STO~ ~override/d2#mbag.STO~
+  COPY ~%mbag%/d2hbee0.STO~  ~override/d2#mbag.STO~
     SAY 0xc @120  /* Delivery Bag */
-    LPF cannot_add_items END    // make it so items cannot be placed in the bag
+    LPF cannot_add_items END         // make it so items cannot be placed in the bag
+END
+
+ACTION_IF (GAME_IS ~how totlm~) BEGIN
+  COPY ~%mbag%/mbag-id1.BAM~  ~override/d2#mbag.BAM~
+  COPY ~%mbag%/d2hbid1.ITM~   ~override/d2#mbag.ITM~
+    SAY NAME1 @120 SAY UNIDENTIFIED_DESC @620
+    SAY NAME2 @120 SAY DESC @620
+    WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
 	
-  COPY ~%mbag%/mbag-ee0.BAM~ ~override/d2#mbag.BAM~
+  COPY ~%mbag%/d2hbid1.STO~  ~override/d2#mbag.STO~
+    SAY 0xc @120  /* Delivery Bag */
+    LPF cannot_add_items END         // make it so items cannot be placed in the bag
 END
 
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
-  COPY ~%mbag%/d2hbid2.ITM~ ~override/d2#mbag.ITM~
+  COPY ~%mbag%/mbag-id2.BAM~  ~override/d2#mbag.BAM~
+  COPY ~%mbag%/d2hbid2.ITM~   ~override/d2#mbag.ITM~
     SAY NAME1 @120 SAY UNIDENTIFIED_DESC @720
     SAY NAME2 @120 SAY DESC @720
     WRITE_ASCII 0x3a ~d2#mbag~ #8    // set inventory icon
 	
-  COPY ~%mbag%/d2hbid2.STO~ ~override/d2#mbag.STO~
+  COPY ~%mbag%/d2hbid2.STO~  ~override/d2#mbag.STO~
     SAY 0xc @120  /* Delivery Bag */
-    LPF cannot_add_items END    // make it so items cannot be placed in the bag
-	
-  COPY ~%mbag%/mbag-id2.BAM~ ~override/d2#mbag.BAM~
+    LPF cannot_add_items END         // make it so items cannot be placed in the bag
 END
 
-EXTEND_TOP ~BALDUR.BCS~ ~%mbag%/d2#mbag.BAF~
 INCLUDE ~%MOD_FOLDER%/install/mbagfill.tph~
+
+
+
+//Add scripts
+
+ACTION_IF (GAME_IS ~bg2ee~) BEGIN
+  EXTEND_BOTTOM ~AR0602.BCS~  ~%mbag%/mbag-imoen.BAF~
+END
+  
+ACTION_IF (GAME_IS ~eet~) BEGIN
+  COPY - ~%mbag%/mbag-imoen.BAF~  ~%workspace%/mbag-imoen.BAF~
+    REPLACE_TEXTUALLY 
+      ~InParty("Imoen")~ 
+      ~InParty("Imoen2")~
+    REPLACE_TEXTUALLY 
+      ~"d2#mbag","Imoen"~ 
+      ~"d2#mbag","Imoen2"~
+  EXTEND_BOTTOM ~AR0602.BCS~  ~%workspace%/mbag-imoen.BAF~
+END
+  
+ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
+  COPY_EXISTING ~bd0120.BCS~  ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY 
+        ~GiveItemCreate("BDKEYR",Player1,0,0,0)~
+        ~GiveItemCreate("BDKEYR",Player1,0,0,0) GiveItemCreate("d2#mbag",Player1,0,0,0)~
+    END
+  BUT_ONLY
+END
+
+ACTION_FOR_EACH script IN ~BPHUB~ ~ohbhub~ BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.BCS~) BEGIN
+    EXTEND_TOP ~%script%.BCS~  ~%mbag%/mbag-bpscript.BAF~
+  END
+END
+
+ACTION_FOR_EACH script IN ~BALDUR~ ~BALDUR25~ BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.BCS~) BEGIN
+    EXTEND_TOP ~%script%.BCS~  ~%mbag%/mbag-script.BAF~
+  END
+END
+
+
+/*
+*/

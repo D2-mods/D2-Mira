@@ -25,6 +25,7 @@ ALWAYS
   OUTER_TEXT_SPRINT data     ~%MOD_FOLDER%/data~
   OUTER_TEXT_SPRINT dfiles   ~%MOD_FOLDER%/dfiles~
   OUTER_TEXT_SPRINT extra    ~%MOD_FOLDER%/extra~
+  OUTER_TEXT_SPRINT iwd1     ~%MOD_FOLDER%/iwd1~
   OUTER_TEXT_SPRINT iwd2     ~%MOD_FOLDER%/iwd2~
   OUTER_TEXT_SPRINT mbag     ~%MOD_FOLDER%/mbag~
 END
@@ -36,26 +37,32 @@ LANGUAGE ~English~
 
 
 /*
-D2-Mira - Main Component
+The Big Metal Unit mod
 */
 
 BEGIN @2    // Standard Installation
-REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2 bgee eet~) ~Game not supported~
+REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2 bgee bg2ee eet iwd how totlm~) ~Game not supported~
 SUBCOMPONENT @1
 LABEL ~D2-MIRA-TEC~
 INCLUDE ~%install%/install.tph~
 INCLUDE ~%install%/addtostore1.tph~
 INCLUDE ~%install%/dfiles1.tph~
 INCLUDE ~%install%/mbag1.tph~
+INCLUDE ~%install%/HoWscripts.tph~    // game-specific scripts
+INCLUDE ~%install%/IWD2scripts.tph~
+INCLUDE ~%install%/BGEEscripts.tph~
 
 BEGIN @3    // Start with the core "Big Metal" items
-REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2~) ~~
+REQUIRE_PREDICATE !(GAME_IS ~iwd~) ~~
 SUBCOMPONENT @1
 LABEL ~D2-MIRA-BAG~
 INCLUDE ~%install%/install.tph~
 INCLUDE ~%install%/addtostore2.tph~
 INCLUDE ~%install%/dfiles2.tph~
 INCLUDE ~%install%/mbag2.tph~
+INCLUDE ~%install%/HoWscripts.tph~    // game-specific scripts
+INCLUDE ~%install%/IWD2scripts.tph~
+INCLUDE ~%install%/BGEEscripts.tph~
 
 
 /*
@@ -63,16 +70,15 @@ Choose revised or vanilla BG2 ammo
 */
 
 BEGIN @7    // Use revised Scorcher and Frag Grenade (default)
-REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~~
-REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for main component
+REQUIRE_PREDICATE (GAME_IS ~iwdee bgee bg2ee eet~) ~~
+REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for mod items
                    (FILE_EXISTS ~override/d2tec04.ITM~)) ~~
 SUBCOMPONENT @6
 LABEL ~D2-MIRA-AMMOREV~
 INCLUDE ~%install%/ammorev.tph~
 
 BEGIN @8    // Use vanilla Scorcher and Frag Grenade
-REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~~
-REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for main component
+REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    //  check for mod items
                    (FILE_EXISTS ~override/d2tec04.ITM~)) ~~
 SUBCOMPONENT @6
 LABEL ~D2-MIRA-AMMOBG2~
