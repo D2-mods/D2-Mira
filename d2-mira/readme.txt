@@ -7,7 +7,7 @@ Installs on: IWD:EE, IWD1, IWD2, BG:EE, BG2:EE, EET
 ==================================================
 OVERVIEW
 ==================================================
-Adds the Big Metal items from BG2 to other IE games. All items are obtainable in IWDEE, IWD1, and IWD2 (including pantaloons). The Rod and Pulse Ammunition (prototype) are added to BGEE/SoD. There's also an option to start with a bag containing the core Big Metal items. See components section for more info.
+Adds the Big Metal items from BG2 to other IE games. All items are obtainable in IWDEE, IWD1, and IWD2 (including pantaloons). The Big Metal Rod and Pulse (prototype) are added to BGEE/SoD. For BG2EE, several items are added or revised. There's also an option to start with a bag containing the core Big Metal items. See components section for more info.
 
 
 v4.0:
@@ -15,7 +15,7 @@ v4.0:
 - IWDEE/IWD2: Pulse Ammos are now gained through trades/dialogue.
 - BGEE: Pulse (prototype) given Silver and Cold Iron properties (can hit all the werewolf enemies).
 - Added full support for classic IWD1
-- Added partial support for BG2EE (see components section)
+- Added support for BG2EE and Black Pits 1&2 (see components section)
 - All components are now installable on BGEE, BG2EE, and EET.
 
 
@@ -27,35 +27,26 @@ COMPONENTS
 	- Option 2: Start with the core "Big Metal" items
 2. EEs: Choose revised or vanilla BG2 ammo (default is Revised)
 
-NOTE: This is now installable on BG2EE and classic IWD (as of v4.0). Not compatible with classic BG1 or BG2 because I don't have time to test all of that right now.
-
-
-----------------------------------------------------------------------------------------------------
 
 Additional info:
+
 - Option 1:
-	- All items are obtainable in IWDEE, IWD1, and IWD2 (including pantaloons).
-	- The Rod and Pulse Ammunition (prototype) are added to BGEE/SoD.
+	- IWD games: All items are obtainable, including pantaloons.
+	- BGEE/SoD: Adds the Big Metal Rod and Pulse Ammunition (prototype).
+	- BG2EE: Several items are added or revised (see below)
 	- Some are gained through trades/dialogue, some are sold by merchants, and some can be found in various places.
+
 - Option 2: 
 	- Party starts with a bag, containing the core Big Metal items. 
 	- Other items not in the bag will still be obtainable in the game (if normally available with Option 1). 
 	- Also compatible with Black Pits 1 & 2.
 
-(not implemented yet)
 - BG2EE notes: 
+	- Core items are still gained the same way as in the unmodded game.
 	- Scorcher and Frag Grenade are changed to the revised versions, by default.
-	- Bronze Pantelettes, Rod and Pulse (prototype) will be obtainable (in SoA).
-	- Cespanar can craft the Pulse III once you have the regular Pulse Ammunition.
-
-
-Trades info (IWDEE, IWD2):
-- Big Metal Unit: requires the 3 pantaloons
-- Pulse Ammunition: requires the Pulse (prototype)
-- Pulse III: requires the Pulse Ammunition
-NOTE: You need to have the Big Metal Rod to get the Pulse Ammo dialogues.
-
-See readme-ammo.txt for location or other info.
+	- Pulse (prototype) and an extra Big Metal Rod are obtainable in SoA.
+	- Golden Pantaloons are in SoA, even if not importing from BG1.
+	- Pulse III is obtainable in ToB (requires a lesser Pulse Ammo).
 
 
 ==================================================
@@ -72,12 +63,18 @@ ITEM LIST
 - Silver Pantaloons
 - Golden Pantaloons
 
+See readme-ammo.txt for ammo stats (top of page) or location spoilers (bottom).
 
-Additional info:
-- Pulse Ammunition (prototype): Similar to the normal Pulse Ammunition, but lower APR (2 instead of 5) and lower enchantment (+1 instead of +3).
-- Big Metal Rod (EE): As in BG2, this is just a crossbow without any bonus to hit/damage and usable by all classes. It does not give classes the ability to equip regular bolts, if they are not already able to.
-- Big Metal Rod (IWD2): Has unlocked APR, but no bonus to hit/damage (so APR increases at higher levels). For comparison, standard crossbows in IWD2 do not gain higher APR with character growth, but even non-magical crossbows have big bonuses to hit/damage.
-- Big Metal Unit (IWD2): A side effect of the animation change is that selection sounds when clicking the character will change to a creature sound. This change in sound will persist even after removing the armor. I couldn't figure out a workaround, but saving and reloading (with the armor off) will return selection sounds back to normal.
+
+Trades info (IWDEE, IWD1, IWD2):
+- Big Metal Unit   : requires the 3 pantaloons
+- Pulse Ammunition : requires the Pulse (prototype)
+- Pulse III        : requires any lesser Pulse Ammo (regular or prototype)
+NOTE: You need to have the Big Metal Rod to get the Pulse Ammo dialogues.
+
+Known issues:
+- Big Metal Unit (classic IWD1): Does not change appearance. Will appear as a plate mail.
+- Big Metal Unit (IWD2): Selection sounds will change to a creature sound, even after removing the armor. Saving and reloading (with the armor off) will return selection sounds back to normal.
 
 
 ==================================================
@@ -100,25 +97,33 @@ VERSION HISTORY
 ==================================================
 v4.0
 - Rewrote chunks of the install files.
-- Several NPCs will have dialogue, related to gaining items from this mod. In total, 4 NPCs from IWDEE, 8 from IWD2, and 1 from BGEE will have additional lines.
-- Added full support for classic IWD1
-- Added support for BG2EE and Black Pits 1&2 (see components section)
+- Several NPCs will have dialogue, related to gaining items from this mod. In total, 2 NPCs from BGEE/SoD, 2 from BG2EE, 6 from IWDEE, and 8 from IWD2 will have additional lines.
+- Added a few Journal entries, where it makes sense.
+- Added full support for classic IWD1. Dialogue and gaining items are identical to IWDEE. A couple items are slightly different, due to engine differences (i.e. Big Metal Unit doesn't change animation).
+- Added support for BG2EE and Black Pits 1&2.
 - All components are now installable on BGEE, BG2EE, and EET.
 
 - Changes for IWDEE and IWD2:
 	- The Big Metal Unit now requires trading in the 3 pantaloons (does not cost gold).
-	- The Pulse Ammunitions are now gained through dialogue. The better versions also require trading in an earlier Pulse Ammo. NOTE: Party must have the Big Metal Rod to get the Pulse Ammo dialogues.
-	- IWDEE: Some items needed for upgrades may be added to HoW, but only if not previously obtained.
-	- IWD2: Some items are now obtainable from more than one NPC (can only get an item once).
+	- The Pulse Ammunitions are now gained through dialogue. The better versions also require trading in an earlier Pulse Ammo. (NOTE: Party must have the Big Metal Rod to get the Pulse Ammo dialogues.)
+	- Some items are now obtainable from more than one NPC (can only get an item once).
 	- Costs a lot less gold to get all items now (still expensive, but not as much as before).
 
 - Changes for BGEE:
 	- Pulse (prototype) is now gained through dialogue.
-	- Big Metal Rod and Pulse (prototype) are now in SoD as well, but only if not previously gained.
+	- Big Metal Rod is only available after you learn it exists.
+	- Rod and Pulse (prototype) will be in SoD if not already obtained.
+
+- Added BG2EE support: 
+	- Core items are still gained the same way as in the unmodded game.
+	- Scorcher and Frag Grenade are changed to the revised versions, by default.
+	- Pulse (prototype) and an extra Big Metal Rod are obtainable in SoA.
+	- Golden Pantaloons are in SoA, even if not importing from BG1.
+	- Pulse III is obtainable in ToB (requires a lesser Pulse Ammo).
 
 - Item changes:
-	- EEs: All ammo types given Silver and Cold Iron properties. For BGEE, this means that Pulse (prototype) will be able to hit all the different werewolf enemies. Doesn't affect anything in IWDEE (unmodded).
-	- Silver Pantaloons: Reduced base price from 20000 to 10000.
+	- EEs: All ammo types given Silver and Cold Iron properties. For BGEE, this means that Pulse (prototype) will be able to hit all the different werewolf enemies. Doesn't affect anything in IWDEE unmodded.
+	- Adjusted base price of several items.
 	- Big Metal Rod: Changed to +5 enchantment. This is only relevant if using a tweak that makes launcher enchantment apply to attacks.
 	- Minor text edits.
 

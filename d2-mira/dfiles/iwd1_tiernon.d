@@ -8,14 +8,14 @@ IF ~ PartyHasItem("%gold%")
      PartyHasItem("%silver%")
      PartyHasItem("%bronze%")
      Global("d2TiernonBigMetal","GLOBAL",0)
-   ~ REPLY @10301 GOTO d2TiernonShowPantaloons
+   ~ REPLY @10301 GOTO TiernonShowPantaloons
 
 END
 
 
 APPEND ~DTIERNON~
 
-IF ~~ BEGIN d2TiernonShowPantaloons
+IF ~~ BEGIN TiernonShowPantaloons
   SAY @10311  // Tiernon makes offer
   IF ~~ REPLY @10321 DO ~ SetGlobal("d2TiernonBigMetal","GLOBAL",1)  // accept offer
                        ~ GOTO TiernonBigMetalUnit

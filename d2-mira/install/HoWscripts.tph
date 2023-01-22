@@ -1,8 +1,7 @@
 //Standard Installation
 
 /*
-Add items to HoW stores if party never attained them.
-Lets you get upgrades if, for example, starting a new game in HoW.
+Sets some variables for IWDEE/IWD1
 */
 
 
@@ -48,7 +47,7 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/variables~   ~%workspace%/variables.BAF~
+COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
   EVALUATE_BUFFER
 
 ACTION_FOR_EACH script IN ~AR2100~ ~AR9100~ BEGIN
@@ -58,67 +57,33 @@ ACTION_FOR_EACH script IN ~AR2100~ ~AR9100~ BEGIN
 END
 
 
-END
 
-
-
-ACTION_IF (GAME_IS ~iwdee~) BEGIN
-
-
-//Add Rod and/or Pulse
-<<<<<<<< .../temp/RodPulse
+//Journal entry (got the rod)
+<<<<<<<< .../temp/pomabrod
 IF
 	!PartyHasItem("%bigmetalrod%")
-	!Global("d2HasBigMetalRod","GLOBAL",1)
+	Global("d2PomabBigMetal","GLOBAL",0)
 THEN
 	RESPONSE #100
-		AddStoreItem("EDION","%bigmetalrod%",1,1)
+		SetGlobal("d2PomabBigMetal","GLOBAL",1)
 		Continue()
 END
 
 IF
-	!PartyHasItem("%pulse%")
-	!PartyHasItem("%prototype%")
-	!Global("d2HasPulseAmmo","GLOBAL",1)
+	PartyHasItem("%bigmetalrod%")
+	Global("AR1016_visited","GLOBAL",1)
+	Global("d2PomabBigMetal","GLOBAL",1)
 THEN
 	RESPONSE #100
-		AddStoreItem("EDION","%pulse%",1,1)
+		SetGlobal("d2PomabBigMetal","GLOBAL",2)
+		AddJournalEntry(%iwdjour01%)
 		Continue()
 END
 >>>>>>>>
 
-COPY - ~.../temp/RodPulse~  ~%workspace%/RodPulse.BAF~
+COPY - ~.../temp/pomabrod~  ~%workspace%/pomabrod.BAF~
   EVALUATE_BUFFER
-EXTEND_TOP ~AR9300.BCS~ ~%workspace%/RodPulse.BAF~    // add to Edion's store
-
-
-
-//Add Bronze/Silver Pants
-<<<<<<<< .../temp/BronzeSilver
-IF
-	!PartyHasItem("%silver%")
-	!PartyHasItem("%bigmetalunit%")
-	!Global("d2HasSilverPants","GLOBAL",1)
-THEN
-	RESPONSE #100
-		AddStoreItem("WAUKEEN","%silver%",1,1)
-		Continue()
-END
-
-IF
-	!PartyHasItem("%bronze%")
-	!PartyHasItem("%bigmetalunit%")
-	!Global("d2HasBronzePants","GLOBAL",1)
-THEN
-	RESPONSE #100
-		AddStoreItem("WAUKEEN","%bronze%",1,1)
-		Continue()
-END
->>>>>>>>
-
-COPY - ~.../temp/BronzeSilver~  ~%workspace%/BronzeSilver.BAF~
-  EVALUATE_BUFFER
-EXTEND_TOP ~AR9103.BCS~ ~%workspace%/BronzeSilver.BAF~    // add to temple store
+EXTEND_TOP ~AR1000.BCS~  ~%workspace%/pomabrod.BAF~
 
 
 END

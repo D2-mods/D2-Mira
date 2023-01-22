@@ -4,7 +4,9 @@ VERSION ~4.0~
 AUTO_EVAL_STRINGS
 
 ALWAYS
-  INCLUDE ~%MOD_FOLDER%/lib/d2_store_functions.tpa~
+  ACTION_BASH_FOR ~%MOD_FOLDER%/lib~ ~.*\.tpa~ BEGIN    // function list
+    INCLUDE ~%BASH_FOR_FILESPEC%~
+  END
   
   ACTION_DEFINE_ARRAY d2noconvert BEGIN setup END
   ACTION_DEFINE_ARRAY d2reload BEGIN main END
@@ -25,9 +27,12 @@ ALWAYS
   OUTER_TEXT_SPRINT data     ~%MOD_FOLDER%/data~
   OUTER_TEXT_SPRINT dfiles   ~%MOD_FOLDER%/dfiles~
   OUTER_TEXT_SPRINT extra    ~%MOD_FOLDER%/extra~
+  OUTER_TEXT_SPRINT files    ~%MOD_FOLDER%/files~
   OUTER_TEXT_SPRINT iwd1     ~%MOD_FOLDER%/iwd1~
   OUTER_TEXT_SPRINT iwd2     ~%MOD_FOLDER%/iwd2~
   OUTER_TEXT_SPRINT mbag     ~%MOD_FOLDER%/mbag~
+
+  CLEAR_INLINED
 END
 
 LANGUAGE ~English~
@@ -45,24 +50,28 @@ REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2 bgee bg2ee eet iwd how totlm~) ~Game not 
 SUBCOMPONENT @1
 LABEL ~D2-MIRA-TEC~
 INCLUDE ~%install%/install.tph~
+INCLUDE ~%install%/journal.tph~
 INCLUDE ~%install%/addtostore1.tph~
 INCLUDE ~%install%/dfiles1.tph~
 INCLUDE ~%install%/mbag1.tph~
 INCLUDE ~%install%/HoWscripts.tph~    // game-specific scripts
 INCLUDE ~%install%/IWD2scripts.tph~
 INCLUDE ~%install%/BGEEscripts.tph~
+INCLUDE ~%install%/BG2scripts.tph~
 
 BEGIN @3    // Start with the core "Big Metal" items
 REQUIRE_PREDICATE !(GAME_IS ~iwd~) ~~
 SUBCOMPONENT @1
 LABEL ~D2-MIRA-BAG~
 INCLUDE ~%install%/install.tph~
+INCLUDE ~%install%/journal.tph~
 INCLUDE ~%install%/addtostore2.tph~
 INCLUDE ~%install%/dfiles2.tph~
 INCLUDE ~%install%/mbag2.tph~
 INCLUDE ~%install%/HoWscripts.tph~    // game-specific scripts
 INCLUDE ~%install%/IWD2scripts.tph~
 INCLUDE ~%install%/BGEEscripts.tph~
+INCLUDE ~%install%/BG2scripts.tph~
 
 
 /*

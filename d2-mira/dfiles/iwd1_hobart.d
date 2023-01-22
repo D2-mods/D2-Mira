@@ -9,14 +9,14 @@ IF ~ PartyHasItem("%bigmetalrod%")  // has Big Metal Rod
        PartyHasItem("%pulse%")      // has Pulse Ammunition
        PartyHasItem("%prototype%")  // or Pulse (prototype)
      Global("d2HobartBigMetal","GLOBAL",0)
-   ~ REPLY @10401 GOTO d2HobartShowPulse
+   ~ REPLY @10401 GOTO HobartShowPulse
 
 END
 
 
 APPEND ~DHOBART~
 
-IF ~~ BEGIN d2HobartShowPulse
+IF ~~ BEGIN HobartShowPulse
   SAY @10411  // Hobart makes offer
   IF ~ PartyGoldGT(14999)  // if 15000 gold
      ~ REPLY @10421 DO ~ SetGlobal("d2HobartBigMetal","GLOBAL",1)  // accept offer

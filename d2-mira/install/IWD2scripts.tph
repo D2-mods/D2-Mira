@@ -2,7 +2,6 @@
 
 /*
 Sets some variables for IWD2
-Used for gaining some items (if you missed them earlier)
 */
 
 
@@ -17,15 +16,6 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("d2HasBigMetalRod","GLOBAL",1)
-		Continue()
-END
-
-IF
-	PartyHasItem("%pulse%")
-	!Global("d2HasPulseAmmo","GLOBAL",1)
-THEN
-	RESPONSE #100
-		SetGlobal("d2HasPulseAmmo","GLOBAL",1)
 		Continue()
 END
 

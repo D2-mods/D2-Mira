@@ -5,7 +5,7 @@ Sets some variables for BGEE
 */
 
 
-ACTION_IF (GAME_IS ~bgee eet~) BEGIN
+ACTION_IF (GAME_INCLUDES ~bg1~) BEGIN
 
 
 //Set Global variables (check if party has items)
@@ -22,7 +22,9 @@ THEN
 END
 
 IF
-	PartyHasItem("%prototype%")
+	OR(2)
+		PartyHasItem("%prototypeb%")
+		PartyHasItem("%prototype%")
 	!Global("d2HasPrototype","GLOBAL",1)
 THEN
 	RESPONSE #100
@@ -34,13 +36,71 @@ END
 COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
   EVALUATE_BUFFER
 
-ACTION_IF !(GAME_IS ~eet~) BEGIN
-  EXTEND_TOP ~AR0800.BCS~    ~%workspace%/variables.BAF~    // for BGEE
-  EXTEND_TOP ~AR2600.BCS~    ~%workspace%/variables.BAF~
+EXTEND_TOP ~%bg1%0800.BCS~  ~%workspace%/variables.BAF~
+EXTEND_TOP ~%bg1%2600.BCS~  ~%workspace%/variables.BAF~
+
+
+
+//BGEE: Journal entry + add Rod to store
+<<<<<<<< .../temp/blacklily
+IF
+	Global("d2BlackLilyTalk","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2BlackLilyTalk","GLOBAL",2)
+		SetGlobalTimer("d2JournalDelay","GLOBAL",5)
+		AddStoreItem("STOCHEAP","%metalrodb%",1,1)
+		Continue()
 END
-ELSE BEGIN
-  EXTEND_TOP ~BG0800.BCS~    ~%workspace%/variables.BAF~    // for EET
-  EXTEND_TOP ~BG2600.BCS~    ~%workspace%/variables.BAF~
+
+IF
+	!PartyHasItem("%metalrodb%")
+	!Global("d2HasBigMetalRod","GLOBAL",1)
+	Global("d2BlackLilyTalk","GLOBAL",2)
+	!GlobalTimerNotExpired("d2JournalDelay","GLOBAL")
+THEN
+	RESPONSE #100
+		AddJournalEntry(@30001,INFO)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/blacklily~  ~%workspace%/blacklily.BAF~
+  EVALUATE_BUFFER
+
+EXTEND_TOP ~%bg1%0800.BCS~  ~%workspace%/blacklily.BAF~
+
+
+
+//SoD: Journal entry
+<<<<<<<< .../temp/sodhalbaz
+IF
+	Global("d2HalbazBigMetal","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HalbazBigMetal","GLOBAL",2)
+		SetGlobalTimer("d2JournalDelay","GLOBAL",5)
+		Continue()
+END
+
+IF
+	!PartyHasItem("%prototypeb%")
+	!Global("d2HasPrototype","GLOBAL",1)
+	Global("d2HalbazBigMetal","GLOBAL",2)
+	!GlobalTimerNotExpired("d2JournalDelay","GLOBAL")
+THEN
+	RESPONSE #100
+		AddJournalEntry(@30002,INFO)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/sodhalbaz~  ~%workspace%/sodhalbaz.BAF~
+  EVALUATE_BUFFER
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~bd0020.BCS~) BEGIN
+  EXTEND_TOP ~bd0020.BCS~  ~%workspace%/sodhalbaz.BAF~
+  EXTEND_TOP ~bd0020.BCS~  ~%workspace%/variables.BAF~
 END
 
 
@@ -51,34 +111,33 @@ IF
 	!PartyHasItem("%metalrodb%")
 	!PartyHasItem("%bigmetalrod%")
 	!Global("d2HasBigMetalRod","GLOBAL",1)
+	!Global("d2BelegarmBigMetal","GLOBAL",1)
 THEN
 	RESPONSE #100
-		AddStoreItem("STORE","%bigmetalrod%",1,1)
+		SetGlobal("d2BelegarmBigMetal","GLOBAL",1)
+		AddStoreItem("bdbelega","%bigmetalrod%",1,1)
 		Continue()
 END
 
 IF
+	!PartyHasItem("%prototypeb%")
 	!PartyHasItem("%prototype%")
 	!Global("d2HasPrototype","GLOBAL",1)
+	!Global("d2BelegarmPrototype","GLOBAL",1)
 THEN
 	RESPONSE #100
-		AddStoreItem("STORE","%prototype%",1,1)
+		SetGlobal("d2BelegarmPrototype","GLOBAL",1)
+		AddStoreItem("bdbelega","%prototype%",1,1)
 		Continue()
 END
 >>>>>>>>
 
-ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
-  COPY - ~.../temp/RodPulse~  ~%workspace%/sorcsund.BAF~
-    EVALUATE_BUFFER
-    REPLACE_TEXTUALLY ~"STORE"~ ~"bdsorcsc"~
-  EXTEND_TOP ~bd0020.BCS~     ~%workspace%/sorcsund.BAF~     // Sorcerous Sundries
-  EXTEND_TOP ~bd0020.BCS~     ~%workspace%/variables.BAF~
+COPY - ~.../temp/RodPulse~  ~%workspace%/siegecamp.BAF~
+  EVALUATE_BUFFER
 
-  COPY - ~.../temp/RodPulse~  ~%workspace%/siegecamp.BAF~
-    EVALUATE_BUFFER
-    REPLACE_TEXTUALLY ~"STORE"~ ~"bdbelega"~
-  EXTEND_TOP ~bd3000.BCS~     ~%workspace%/siegecamp.BAF~    // Siege Camp
-  EXTEND_TOP ~bd3000.BCS~     ~%workspace%/variables.BAF~
+ACTION_IF (FILE_EXISTS_IN_GAME ~bd3000.BCS~) BEGIN
+  EXTEND_TOP ~bd3000.BCS~ ~%workspace%/siegecamp.BAF~
+  EXTEND_TOP ~bd3000.BCS~ ~%workspace%/variables.BAF~
 END
 
 

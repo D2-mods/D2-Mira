@@ -1,0 +1,69 @@
+//Standard Installation
+
+/*
+Sets some variables for BG2EE
+*/
+
+
+ACTION_IF (GAME_INCLUDES ~bg2~) BEGIN
+
+
+//Set Global variables (check if party has items)
+<<<<<<<< .../temp/variables
+IF
+	OR(2)
+		PartyHasItem("%metalrodb%")
+		PartyHasItem("%bigmetalrod%")
+	!Global("d2HasBigMetalRod","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasBigMetalRod","GLOBAL",1)
+		Continue()
+END
+
+IF
+	PartyHasItem("%repairbook%")
+	Global("d2RibaldBigMetal","GLOBAL",1)
+	!Global("d2HasRepairManual","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasRepairManual","GLOBAL",1)
+		AddJournalEntry(@40002,QUEST)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
+  EVALUATE_BUFFER
+
+EXTEND_TOP ~AR0602.BCS~  ~%workspace%/variables.BAF~
+EXTEND_TOP ~AR0702.BCS~  ~%workspace%/variables.BAF~
+EXTEND_TOP ~AR0411.BCS~  ~%workspace%/variables.BAF~
+
+
+
+//Repairing the Big Metal Rod
+<<<<<<<< .../temp/d2tecfix
+IF
+	True()
+THEN
+	RESPONSE #100
+		Wait(1)
+		FadeToColor([45.0],0)
+		Wait(2)
+		FadeFromColor([45.0],0)
+		Wait(1)
+		ActionOverride("ribald",StartDialogueNoSet(LastTalkedToBy))
+END
+>>>>>>>>
+
+COPY - ~.../temp/d2tecfix~  ~%workspace%/d2tecfix.BAF~
+  EVALUATE_BUFFER
+COMPILE ~%workspace%/d2tecfix.BAF~
+
+
+END
+
+
+/*
+*/

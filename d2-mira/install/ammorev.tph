@@ -3,35 +3,28 @@
 
 //Frag Grenade
 COPY_EXISTING ~d2tec03.ITM~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR 
-      header_type  = 2
-      match_opcode = 12
-      dicenumber   = 3
-      dicesize     = 4
-  END
-  
-  LPF ALTER_EFFECT
-    INT_VAR 
-      match_opcode = 1
-      parameter1   = 3
-  END
-
-  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-    WRITE_LONG 0x60 3
-  END
+  LPF ALTER_EFFECT INT_VAR header_type=2 match_opcode=12 dicenumber=3 dicesize=4 END
+  LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter1=3 END
+  WRITE_LONG 0x60 3
 BUT_ONLY
   
 
 //Scorcher
 COPY_EXISTING ~d2tec04.ITM~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR 
-      match_opcode = 1
-      parameter1   = 3
-  END
-  
-  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-    WRITE_LONG 0x60 3
-  END
+  LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter1=3 END
+  WRITE_LONG 0x60 3
 BUT_ONLY
+
+
+//Update BG2 files
+ACTION_PHP_EACH d2mira AS mod => base BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
+    ACTION_IF (FILE_EXISTS ~override/%mod%.ITM~) BEGIN
+      COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
+    END
+  END
+END
+
+
+/*
+*/

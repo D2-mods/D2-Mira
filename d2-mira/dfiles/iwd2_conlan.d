@@ -8,14 +8,14 @@ IF ~ PartyHasItem("%gold%")
      PartyHasItem("%silver%")
      PartyHasItem("%bronze%")
      Global("d2ConlanBigMetal","GLOBAL",0)
-   ~ REPLY @20601 GOTO d2ConlanShowPantaloons
+   ~ REPLY @20601 GOTO ConlanShowPantaloons
 
 END
 
 
 APPEND ~60CONLA2~
 
-IF ~~ BEGIN d2ConlanShowPantaloons
+IF ~~ BEGIN ConlanShowPantaloons
   SAY @20611  // Conlan says stuff
   IF ~~ REPLY @20621 DO ~ SetGlobal("d2ConlanBigMetal","GLOBAL",1)  // accept offer
                        ~ GOTO ConlanBigMetalUnit

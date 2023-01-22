@@ -1,0 +1,37 @@
+//
+//
+
+
+//BG2 Item array
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira BEGIN    // mod => base
+  d2tec01 => secret01
+  d2tec02 => secret02
+  d2tec03 => secret03
+  d2tec04 => secret04
+  d2tec05 => secret05
+END
+
+
+//BG1 ARE files
+ACTION_IF (GAME_IS ~eet~) BEGIN
+  OUTER_TEXT_SPRINT bg1 ~BG~    // EET
+END
+ELSE BEGIN
+  OUTER_TEXT_SPRINT bg1 ~AR~    // BGEE
+END
+
+
+//IWD1 Journal entries
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+  OUTER_TEXT_SPRINT iwdjour01  ~@10001,INFO~
+  OUTER_TEXT_SPRINT iwdjour02  ~@10002,INFO~
+  OUTER_TEXT_SPRINT iwdjour03  ~@10003,INFO~
+  OUTER_TEXT_SPRINT iwdjour04  ~@10004,INFO~
+END
+
+ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
+  OUTER_TEXT_SPRINT iwdjour01  ~@10001~
+  OUTER_TEXT_SPRINT iwdjour02  ~@10002~
+  OUTER_TEXT_SPRINT iwdjour03  ~@10003~
+  OUTER_TEXT_SPRINT iwdjour04  ~@10004~
+END

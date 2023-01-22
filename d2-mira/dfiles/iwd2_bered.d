@@ -8,14 +8,14 @@ EXTEND_BOTTOM ~52BERED~ 0 1 2 3 13 17 18 19 20 21
 IF ~ PartyHasItem("%prototype%")
      PartyHasItem("%bigmetalrod%")
      Global("d2HasPulseAmmo","GLOBAL",0)
-   ~ REPLY @20501 GOTO d2BeredShowPrototype
+   ~ REPLY @20501 GOTO BeredShowPrototype
 
 END
 
 
 APPEND ~52BERED~
 
-IF ~~ BEGIN d2BeredShowPrototype
+IF ~~ BEGIN BeredShowPrototype
   SAY @20511  // Bered says stuff
     = @20512  // Bered makes offer
   IF ~ PartyGoldGT(4999)  // if 5000 gold

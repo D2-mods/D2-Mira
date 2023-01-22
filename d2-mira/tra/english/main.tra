@@ -4,31 +4,37 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 */
 
 
-//Dialogue (IWDEE)
+//Dialogue (IWD1, IWDEE)
 
-//Oswald (if party has Big Metal Rod)
+//Oswald (party has Big Metal Rod)
 @10101 = ~Actually, would you happen to know anything about this strange device? (Show Oswald the Big Metal Rod)~
 @10102 = ~Could I ask you about this strange device again? (Show Oswald the Big Metal Rod)~
 
 	@10111 = ~Oh? Why yes. I'm glad you asked. In fact, this is the Big Metal Rod! Quite the find, you know. Only half a dozen or so of these are in the wild. All of them stolen too.~
-	@10112 = ~Which reminds me, I happen to be holding a special prototype ammunition for an acquaintance. For the Big Metal Rod, of course. I can lend it to you... for a small fee, perhaps? How does 3000 gold sound?~
+	@10112 = ~Which reminds me, I happen to be holding a special prototype ammunition for an acquaintance. For the Big Metal Rod, of course. I can lend it to you... for a small fee, perhaps? How does 3,000 gold sound?~
 
 @10121 = ~That sounds fair. I'll take it.~    // if 3000 gold
 @10122 = ~Not right now, Oswald. Perhaps another time.~
 
 	@10131 = ~Thank you. Here you are then, the Pulse Ammunition (prototype). You know, I've heard that a more advanced version of this ammo has already been invented. Perhaps someone else in Kuldahar might know more about it.~
 
+//Oswald (no Big Metal Rod)
+@10141 = ~That object on the table. Is that a crossbow bolt?~
 
-//Orrick (if party has Pulse Ammunition (prototype))
+	@10151 = ~I'm glad you asked. Why, this is a special prototype ammunition. For the Big Metal Rod, of course. Oh! You don't have one of those. Well, that's rather unfortunate.~
+	@10152 = ~I had heard that a Big Metal Rod was spotted in Easthaven. But, well, with the pass being blocked off...~
+
+
+//Orrick (party has prototype from Oswald)
 @10201 = ~Oswald lent me this prototype ammo. Would you happen to know anything about it?~
 @10202 = ~So about that prototype ammo we were discussing earlier...~
 
 	@10211 = ~Well now, what have we here? How interesting. This is a Pulse Ammunition of some sort. Yes, I believe I can help you with this. I should be able to procure a production version. It could take some days, however. Return to me in the future. We may be able to make a trade then.~
 
 	@10221 = ~Let me take a look. Ah yes, this is a Pulse Ammunition of some sort. Yes, I can help you with this. Some time ago, I managed to procure a production version. As it is, I rarely leave this tower...~
-	@10222 = ~Perhaps, you'd be interested in some field testing? I could lend you the Pulse Ammunition for, let's say, 5000 gold. I would also like to take a closer examination of that prototype. Are these terms acceptable?~
+	@10222 = ~Perhaps, you'd be interested in some field testing? I could lend you the Pulse Ammunition for, let's say, 5,000 gold. I would also like to take a closer examination of that prototype. Are these terms acceptable?~
 
-	@10231 = ~Oh right, the Pulse Ammunition. Yes, I do have the production version in my possession. I can lend it to you for, let's say, 5000 gold. I would also like to take a closer examination of that prototype. Are these terms acceptable?~
+	@10231 = ~Oh right, the Pulse Ammunition. Yes, I do have the production version in my possession. I can lend it to you for, let's say, 5,000 gold. I would also like to take a closer examination of that prototype. Are these terms acceptable?~
 
 @10241 = ~That sounds fair. Let's make the trade.~    // if 5000 gold
 @10242 = ~Perhaps another time.~
@@ -37,10 +43,10 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@10252 = ~There is another version of this ammo in development, but one of the prototypes has been lost. Perhaps you may come upon it in your travels, some place, far away from Kuldahar.~
 
 
-//Tiernon (if party has all 3 pantaloons)
-@10301 = ~Sorry, give me a moment. These things keep getting in the way. (Accidently show Tiernon the pantaloons)~
+//Tiernon (party has all 3 pantaloons)
+@10301 = ~Sorry, give me a moment. These things keep getting in the way. (Take out the pantaloons)~
 
-	@10311 = ~What, ye have...?!. Hand it over. That thing, yer pantaloons.~
+	@10311 = ~What, ye have...?!. Pah! I can hear the damn things wailing in me ears. Hand it over. That thing, yer pantaloons.~
 
 @10321 = ~Well, if you insist...~
 @10322 = ~Hands off. These pantaloons are mine... and no one else's.~
@@ -48,15 +54,38 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@10331 = ~Aye, I'm indebted to ye. Here. Take this. Do ye better than these old pantaloons, I'd reckon.~
 
 
-//Hobart (if party has any earlier Pulse Ammunition)
+//Hobart (party has any earlier Pulse Ammunition)
 @10401 = ~Hobart, maybe you'd know something about this. It's called a Pulse Ammunition. There's supposedly a prototype of this ammo that was lost some time ago...~
 
-	@10411 = ~Bah, what is it now. That, eh? Well, maybe I do, maybe I don't. Heh heh, but what's it worth to you. You're the legendary heroes, yes? Give me 15000 gold and that Pulse Ammunition and I'll hand over what I have.~
+	@10411 = ~Bah, what is it now. That, eh? Well, maybe I do, maybe I don't. Heh heh, but what's it worth to you. You're the legendary heroes, yes? Give me 15,000 gold and that Pulse Ammunition and I'll hand over what I have.~
 
 @10421 = ~Alright, but this better be good.~    // if 15000 gold
 @10422 = ~Perhaps another time.~
 
 	@10431 = ~Eh, here it is. Don't ask me what it does. One of the orc-wits I brought here had it on her corpse, heh.~
+
+
+//Edion
+@10501 = ~Is that a pair of pantaloons? Can I buy it from you?~
+@10502 = ~I can't help but notice those pantalettes you're clutching...~
+
+	@10511 = ~Of course, but you must understand... *cough* these are extremely valuable items. I would ask of you 15,000 gold for these Silver Pantaloons.~
+	@10512 = ~Most perceptive. Yes, the Bronze Pantalettes. There's not much to tell... *cough* *cough* a memento from my younger years. If it can help you, perhaps 8,000 gold will suffice.~
+
+@10521 = ~I've been looking for these. I'll take it.~
+@10522 = ~Thank you! I've been looking for these.~
+@10523 = ~Not right away. I'll come back for it, Edion.~
+
+
+//Emmerich
+@10601 = ~What's that strange device on the table?~
+@10602 = ~By chance, have you come across any special weapons around here?~
+
+	@10611 = ~A good question, but there's little I can tell you. I found it several moons past, while walking the woods. It has a name inscribed on it, "Big Metal Rod". Why don't you take it with you? Perhaps you may find a use for it.~
+	@10612 = ~Ah yes, I did spot this oddly-shaped bolt while patrolling the forest. The label reads, "Pulse Ammunition". I had intended to sell it to a caravan for 5,000 gold, but since you're here...~
+
+@10621 = ~I'll take it.~
+@10622 = ~Please hold onto it. I'll come back for it later.~
 
 
 
@@ -84,7 +113,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Beodaewn (8000), if has Rod + Oswald info
 @20201 = ~Beodaewn, have you, by chance, come across this item? Here's a drawing of it. (Show drawing of prototype ammo)~
 
-	@20211 = ~Hmm? Yes, I recognize this item. My followers and I came upon it several moons past... 8000 gold and it's yours. Does this sound favorable?~
+	@20211 = ~Hmm? Yes, I recognize this item. My followers and I came upon it several moons past... 8,000 gold and it's yours. Does this sound favorable?~
 
 @20221 = ~That sounds fair. I'll take it.~  // if 8000 gold
 @20222 = ~Perhaps another time.~
@@ -95,7 +124,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Zack Boosenburry (3000), if has Rod + Oswald info
 @20301 = ~Zach, have you, by chance, come across this item? Here's a drawing of it. (Show drawing of prototype ammo)~
 
-	@20311 = ~Why yes, I recognize this item. I picked it up not too long ago. I've grown fond of the little thing... a prototype ammo, was it? How does 3000 gold sound? I'd be willing to part with it for that amount.~
+	@20311 = ~Why yes, I recognize this item. I picked it up not too long ago. I've grown fond of the little thing... a prototype ammo, was it? How does 3,000 gold sound? I'd be willing to part with it for that amount.~
 
 @20321 = ~That sounds fair. I'll take it.~  // if 3000 gold
 @20322 = ~Perhaps another time.~
@@ -108,7 +137,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@20411 = ~Ah - indeed, this is a Pulse Ammunition. It must be no coincidence, as I have searched for your prototype for some decades now. The previous owner must have been quite the cunning one.~
 	@20412 = ~Perhaps a trade is in order. I happen to have in my possession a production version. It is, how to put it, quite a bit more powerful than your prototype. You are interested, yes?~
-	@20413 = ~You may have it, if you would kindly give me the prototype, together with a small sum of 10000 gold - a very fair price, you can be assured.~
+	@20413 = ~You may have it, if you would kindly give me the prototype, together with a small sum of 10,000 gold - a very fair price, you can be assured.~
 
 @20421 = ~That sounds fair. I'll take it.~  // if 10000 gold
 @20422 = ~Perhaps another time.~
@@ -121,7 +150,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @20501 = ~Bered, perhaps you might know something about this. I have this prototype ammo...~
 
 	@20511 = ~Ah, I see... that is a Pulse Ammunition. A prototype, you say? I understand. Yes, we may have something that can be of use to you. Some time ago, we chanced upon a similar item.~
-	@20512 = ~I believe it is a production verson of the Pulse ammo. If you wish, traveler, you may have it. In return, I would ask you to leave that prototype with us, along with a payment of 5000 gold. Is this agreeable?~
+	@20512 = ~I believe it is a production verson of the Pulse ammo. If you wish, traveler, you may have it. In return, I would ask you to leave that prototype with us, along with a payment of 5,000 gold. Is this agreeable?~
 
 @20521 = ~That sounds fair. I'll take it.~  // if 5000 gold
 @20522 = ~Perhaps another time.~
@@ -143,7 +172,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Riki (15000), if has Rod + Pulse (normal or prototype)
 @20701 = ~Actually, I have something here called a Pulse Ammunition. I've heard rumors of an advanced version of this ammo. Perhaps you've come across something like that?~
 
-	@20711 = ~The Pulse III. That's what you're thinking of. Do I have something like that? Of course I do. If it will aid you, then give me that Pulse ammo, along with, let's say, 15000 gold and you can have it.~
+	@20711 = ~The Pulse III. That's what you're thinking of. Do I have something like that? Don't be daft. Of course I do. If it will aid you, then give me that Pulse ammo, along with, let's say, 15,000 gold and you can have it.~
 
 @20721 = ~That sounds fair. I'll take it.~  // if 15000 gold
 @20722 = ~Not right now. I'll come back for it.~
@@ -163,8 +192,8 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @20901 = ~Is that a pair of pantaloons? Can I buy it from you?~
 @20902 = ~I can't help but notice those pantalettes you're clutching...~
 
-	@20911 = ~Of course, but you must understand these are extremely valuable items. I would ask of you 15000 gold for these Silver Pantaloons.~
-	@20912 = ~Ah yes, the Bronze Pantalettes. There's not much to tell. These were sent as a gift from the Lord of Targos some time ago. If it can help you, perhaps 8000 gold will suffice.~
+	@20911 = ~Of course, but you must understand these are extremely valuable items. I would ask of you 15,000 gold for these Silver Pantaloons.~
+	@20912 = ~Ah yes, the Bronze Pantalettes. There's not much to tell. These were sent as a gift from the Lord of Targos some time ago. If it can help you, perhaps 8,000 gold will suffice.~
 
 @20921 = ~I've been looking for these. I'll take it.~
 @20922 = ~Thank you! I've been looking for these.~
@@ -178,18 +207,99 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @30101 = ~~
 
 	@30111 = ~Before ye look, remember this. I won't be repeating it. If ye find the Big Metal Rod, bring it here. I'll have a special prototype that I can sell to ye then.~
-	@30112 = ~Before ye look, I have something for that Big Metal Rod. It's a prototype ammo. Ye'll not be finding another one. I'll need 10000 gold to cover the costs.~
+	@30112 = ~Before ye look, I have something for that Big Metal Rod. It's a prototype ammo. Ye'll not be finding another one. I'll need 10,000 gold to cover the costs.~
 
-@30121 = ~Alright. I'll take it.~
+@30121 = ~Alright. I'll take it.~  // if 10000 gold
 @30122 = ~Not right now. Can I look at your regular items?~
 
 	@30131 = ~It's agreed then. Now, what will ye need today?~
 
 
+//Halbazzer (SoD)
+@30201 = ~What's that strange device hidden behind the counter?~
+@30202 = ~Do you have any special weapons we could make use of? Anything would help.~
+
+	@30211 = ~Well, well! So you noticed the—this will have to wait! I fear my customers' patience is wearing thin.~
+	@30212 = ~It's a Big Metal Rod. Take it if you must. We'll discuss the proper payment when you return.~
+	@30213 = ~You have that Big Metal Rod in your pack, do you not? Take this prototype ammunition. It would not cost much, perhaps 3,000 gold. You won't find another like it.~
+
+@30221 = ~That sounds fair. I'll take it.~  // if 3000 gold
+@30222 = ~Perhaps another time.~
 
 
 
-//Item text (IWDEE)
+//Dialogue (BG2)
+
+//Ribald
+@40101 = ~This weapon looks interesting. Is it some kind of crossbow?~    // standard install
+@40102 = ~Ribald, I found a Repair Manual for that Big Metal Rod.~
+@40103 = ~Do you have any special weapons we could make use of?~          // start with core items
+
+	@40111 = ~You've a good eye. That right there's a Big Metal Rod. Now, I'll tell ye straight up, it won't be of any use to you or me in its current condition.~
+	@40112 = ~The blasted thing's malfunctioned. If I had a Repair Manual I could fix it up fer you. But, let Old Ribald make ye an offer.~
+	@40113 = ~Find me a Repair Manual and I'll get that Big Metal Rod working, good as new. Call it an even trade, the manual fer the weapon. I'll even throw in a special prototype ammo fer the thing.~
+
+	@40121 = ~Well, would you look at that. And not a moment too soon. I could tell you'd come through.~
+	@40122 = ~No sense in wasting time, eh? Hand me that manual. This shouldn't take long...~
+	@40123 = ~As promised, an even trade. Take this here Pulse Ammunition with you. It's a special prototype ammo fer the Big Metal Rod. You won't find another in all Faerûn.~
+
+	@40131 = ~Well, you got that Big Metal Rod, don't you? Have a look at this. It's a special prototype ammo fer the thing. You won't find another in all Faerûn. How does 3,000 gold sound?~
+
+@40141 = ~Great! Thanks.~
+@40142 = ~That sounds fair. I'll take it.~  // if 3,000 gold
+@40143 = ~Perhaps another time.~
+
+	@40151 = ~Another satisfied customer. Now, before ye head out, I'll give you a bit of advice. You'd do well to keep the Big Metal Rod and that prototype ammo in yer pack.~
+	@40152 = ~Who knows, eh? Maybe ye'll run into someone, be it human, elf, or imp, that could make it worth yer while.~
+	@40153 = ~All right then, but if ye change yer thinks, you know where to come.~
+
+
+
+
+//Journal entries (IWD1, IWDEE)
+@10001 = ~Today, we found a strange device in the upper room at Pomab's Emporium. It seems to be a crossbow of some sort. Perhaps if we could speak to an inventor, we could learn more about it.~
+@10002 = ~We acquired the Pulse Ammunition (prototype) from Oswald. He mentioned, as we were leaving, that a more advanced version of the ammo has already been invented.~
+@10003 = ~Orrick has agreed to procure a production version of the Pulse Ammunition for us. It should take some days to arrive, so we should ask about it again in the future.~
+@10004 = ~We finally acquired the Pulse Ammunition from Orrick. He also tells us that another more advanced prototype of the ammo has been lost and that it would likely be found some place, far away from Kuldahar.~
+@10005 = ~~
+
+
+//Journal entries (IWD2)
+@20001 = ~Oswald tells us that a prototype ammo, called a Pulse Ammunition, had likely fallen from the ship during the landing. If true, it is unlikely to have fallen far from the ship. He gave us a drawing of the prototype to help us identify it. Perhaps, someone in the nearby area has seen it, or even near that temple we saw before the crash.~
+@20002 = ~~
+@20003 = ~~
+@20004 = ~~
+@20005 = ~~
+
+
+//Journal entries (BGEE/SoD)
+@30001 = ~Today, I spoke to Black Lily at the Thieves' Guild headquarters. She mentioned that I should return to her if I obtain a Big Metal Rod. She apparently has something to sell me then.~
+@30002 = ~I borrowed the Big Metal Rod from Sorcerous Sundries. Halbazzer didn't seem to mind. I wonder if this weapon has any special ammo designed for it. Maybe I should ask Halbazzer about it.~
+@30003 = ~~
+@30004 = ~~
+@30005 = ~~
+
+
+//Journal entries (BG2)
+@40001 = ~Repairman Ribald
+
+I found a malfunctioned crossbow in the Adventurer Mart. The name, Big Metal Rod, is inscribed on the weapon. Ribald has offered to fix it for me if I can bring him a Repair Manual.~
+
+@40002 = ~Repairman Ribald
+
+I found a Repair Manual inside the Planar Sphere. It's filled with diagrams and technical details of various Big Metal items. I should return to Ribald with it as soon as possible. He should, hopefully, be able to use this manual to repair the Big Metal Rod.~
+
+@40003 = ~Repairman Ribald
+
+Success! I brought the Repair Manual to Ribald and he fixed up the Big Metal Rod for me. Ribald also gave me the Pulse Ammunition (prototype), as promised.~
+@40004 = ~~
+@40005 = ~~
+
+
+
+
+
+//Item text (EEs)
 @100 = ~Big Metal Rod~
 @200 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
 
@@ -282,9 +392,9 @@ Weight: 0~
 @110 = ~~
 @210 = ~~
 
+@111 = ~~
+@211 = ~~
 
-
-//bag of holding (d2#mbag)
 @120 = ~Delivery Bag~
 @220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
 
@@ -294,9 +404,25 @@ Weight: 5~
 
 
 
-//Unidentified text
 
-//IWDEE
+//Quest items
+@150 = ~Big Metal Rod?~
+@250 = ~This seems to be a malfunctioned crossbow. Any attempt to operate it proves unsuccessful. The name, "Big Metal Rod", is inscribed on the weapon.
+
+STATISTICS:
+
+Weight: 4~
+
+@155 = ~Repair Manual~
+@255 = ~This manual is filled with diagrams and technical details of the "Big Metal" set of items. It can be used to repair a malfunctioned Big Metal Rod.
+
+STATISTICS:
+
+Weight: 2~
+
+
+
+//Unidentified text (IWDEE)
 
 //Golden Pantaloons
 @900 = ~Pantaloons of a quality heretofore unseen by the eyes of either man or beast. Dynamic styling and comfort that cradles, cuddles, and coddles. Seduce your thighs, cajole your calves, enjoy Golden Pantaloons... TODAY!
@@ -315,7 +441,7 @@ STATISTICS:
 Weight: 45~
 
 
-//IWD2
+//Unidentified text (IWD2)
 
 //Golden Pantaloons
 @920 = ~Pantaloons of a quality heretofore unseen by the eyes of either man or beast. Dynamic styling and comfort that cradles, cuddles, and coddles. Seduce your thighs, cajole your calves, enjoy Golden Pantaloons... TODAY!
@@ -336,7 +462,18 @@ Weight: 45 lb.~
 
 
 
-//Alt text (BGEE)
+//Alt text (BG2)
+
+//Pulse Ammunition (prototype)
+@405 = ~This is an early prototype of the Pulse Ammunition. It was last seen in Baldur's Gate during the troubles with the Iron Throne, but vanished shortly after. Allows you to shoot small balls of pure energy from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0~
+
+
+
+//Alt text (BG1)
 
 //Big Metal Rod
 @500 = ~The "Big Metal Rod" was designed to be used with the "Big Metal Unit", a one-of-a-kind device, which Lucky Aello happily tells you the details of. A likely tall tale, unless...
@@ -446,6 +583,12 @@ STATISTICS:
 Weight: 0
 Not Usable By:~
 
+@610 = ~~
+@610 = ~~
+
+@611 = ~~
+@611 = ~~
+
 //Delivery Bag
 @620 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
 
@@ -545,6 +688,12 @@ Weight: 0 lb.~
 STATISTICS:
 
 Weight: 0 lb.~
+
+@710 = ~~
+@710 = ~~
+
+@711 = ~~
+@711 = ~~
 
 //Delivery Bag
 @720 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.

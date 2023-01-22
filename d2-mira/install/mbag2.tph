@@ -73,13 +73,7 @@ ACTION_IF (GAME_IS ~eet~) BEGIN
 END
   
 ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
-  COPY_EXISTING ~bd0120.BCS~  ~override~
-    DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY 
-        ~GiveItemCreate("BDKEYR",Player1,0,0,0)~
-        ~GiveItemCreate("BDKEYR",Player1,0,0,0) GiveItemCreate("d2#mbag",Player1,0,0,0)~
-    END
-  BUT_ONLY
+  EXTEND_BOTTOM ~bd0120.BCS~  ~%mbag%/mbag-sodscript.BAF~
 END
 
 ACTION_FOR_EACH script IN ~BPHUB~ ~ohbhub~ BEGIN

@@ -5,28 +5,28 @@
 EXTEND_BOTTOM ~11OSWALD~ 82 83
 
 IF ~ !PartyHasItem("%bigmetalrod%")
-     Global("d2HasBigMetalRod","GLOBAL",0)    // variable set in AR4000.BCS (Western Pass)
-   ~ REPLY @20801 GOTO d2OswaldGivesRod
+     Global("d2HasBigMetalRod","GLOBAL",0)
+   ~ REPLY @20801 GOTO OswaldGivesRod
 
 IF ~ PartyHasItem("%bigmetalrod%")
      !PartyHasItem("%pulse%")
      !PartyHasItem("%prototype%")
-     Global("d2HasPulseAmmo","GLOBAL",0)      // variable set when Pulse is gained by an NPC
-   ~ REPLY @20802 GOTO d2OswaldGivesPulse
+     Global("d2HasPulseAmmo","GLOBAL",0)
+   ~ REPLY @20802 GOTO OswaldGivesPulse
 
 END
 
 
 APPEND ~11OSWALD~
 
-IF ~~ BEGIN d2OswaldGivesRod
+IF ~~ BEGIN OswaldGivesRod
   SAY @20811  // Oswald says stuff
   IF ~~ DO ~ SetGlobal("d2HasBigMetalRod","GLOBAL",1)
              GiveItemCreate("%bigmetalrod%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END
 
-IF ~~ BEGIN d2OswaldGivesPulse
+IF ~~ BEGIN OswaldGivesPulse
   SAY @20812  // Oswald says stuff
   IF ~~ DO ~ SetGlobal("d2HasPulseAmmo","GLOBAL",1)
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 

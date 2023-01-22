@@ -8,21 +8,22 @@ IF ~ PartyHasItem("%prototype%")            // has prototype
      PartyHasItem("%bigmetalrod%")          // has Big Metal Rod
      GlobalLT("Chapter","GLOBAL",3)         // pre-Chapter 3
      Global("d2OswaldBigMetal","GLOBAL",2)  // Oswald gave prototype
-   ~ REPLY @10201 GOTO d2OrrickShowPrototype1
+     Global("d2OrrickBigMetal","GLOBAL",0)  // not mentioned before
+   ~ REPLY @10201 GOTO OrrickShowPrototype1
 
 IF ~ PartyHasItem("%prototype%")            // has prototype
      PartyHasItem("%bigmetalrod%")          // has Big Metal Rod
      GlobalGT("Chapter","GLOBAL",2)         // Chapter 3 or later
      Global("d2OswaldBigMetal","GLOBAL",2)  // Oswald gave prototype
      Global("d2OrrickBigMetal","GLOBAL",0)  // not mentioned before
-   ~ REPLY @10201 GOTO d2OrrickShowPrototype2
+   ~ REPLY @10201 GOTO OrrickShowPrototype2
 
 IF ~ PartyHasItem("%prototype%")            // has prototype
      PartyHasItem("%bigmetalrod%")          // has Big Metal Rod
      GlobalGT("Chapter","GLOBAL",2)         // Chapter 3 or later
      Global("d2OswaldBigMetal","GLOBAL",2)  // Oswald gave prototype
      Global("d2OrrickBigMetal","GLOBAL",1)  // has been mentioned before
-   ~ REPLY @10202 GOTO d2OrrickShowPrototype3
+   ~ REPLY @10202 GOTO OrrickShowPrototype3
 
 END
 
@@ -30,13 +31,14 @@ END
 
 APPEND ~DORRICK~
 
-IF ~~ BEGIN d2OrrickShowPrototype1  // pre-Chapter 3
+IF ~~ BEGIN OrrickShowPrototype1  // pre-Chapter 3
   SAY @10211  // Orrick says stuff
   IF ~~ DO ~ SetGlobal("d2OrrickBigMetal","GLOBAL",1)
+             AddJournalEntry(%iwdjour03%)
            ~ EXIT
 END
 
-IF ~~ BEGIN d2OrrickShowPrototype2  // Chapter 3 or later (not mentioned before)
+IF ~~ BEGIN OrrickShowPrototype2  // Chapter 3 or later (not mentioned before)
   SAY @10221  // Orrick says stuff
     = @10222  // Orrick makes offer
   IF ~ PartyGoldGT(4999)  // if 5000 gold
@@ -47,7 +49,7 @@ IF ~~ BEGIN d2OrrickShowPrototype2  // Chapter 3 or later (not mentioned before)
                        ~ EXIT
 END
 
-IF ~~ BEGIN d2OrrickShowPrototype3  // Chapter 3 or later
+IF ~~ BEGIN OrrickShowPrototype3  // Chapter 3 or later
   SAY @10231  // Orrick makes offer
   IF ~ PartyGoldGT(4999)  // if 5000 gold
      ~ REPLY @10241 DO ~ SetGlobal("d2OrrickBigMetal","GLOBAL",2)  // accept offer
@@ -62,7 +64,9 @@ IF ~~ BEGIN OrrickPulse
     = @10252
   IF ~~ DO ~ TakePartyGold(5000)
              TakePartyItem("%prototype%")
-             GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 
+             DestroyItem("%prototype%")
+             GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0)
+             AddJournalEntry(%iwdjour04%)
            ~ EXIT
 END
 

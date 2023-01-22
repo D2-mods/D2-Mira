@@ -1,44 +1,44 @@
 //for Silver/Bronze pants (only if not previously gained)
-//Add to Nathaniel's dialogues
+//Add to Edion's dialogues
 
 
-EXTEND_BOTTOM ~60NATHA2~ 0 1 2 3 4 7 8 9 10 11 12 13 14 21 23 24 25 26 28 29
+EXTEND_BOTTOM ~DEDION~ 9 10 11 12 16 29
 
 IF ~ !PartyHasItem("%silver%")
      Global("d2HasSilverPants","GLOBAL",0)
-   ~ REPLY @20901 GOTO NathanielSilver
+   ~ REPLY @10501 GOTO EdionSilver
 
 IF ~ !PartyHasItem("%bronze%")
      PartyHasItem("%silver%") 
      Global("d2HasBronzePants","GLOBAL",0)
-   ~ REPLY @20902 GOTO NathanielBronze
+   ~ REPLY @10502 GOTO EdionBronze
 
 END
 
 
-APPEND ~60NATHA2~
+APPEND ~DEDION~
 
-IF ~~ BEGIN NathanielSilver
-  SAY @20911  // Nathaniel says stuff
+IF ~~ BEGIN EdionSilver
+  SAY @10511  // Edion says stuff
   IF ~ PartyGoldGT(14999)  // if 15000 gold
-     ~ REPLY @20921 DO ~ SetGlobal("d2HasSilverPants","GLOBAL",1)  // accept offer
+     ~ REPLY @10521 DO ~ SetGlobal("d2HasSilverPants","GLOBAL",1)  // accept offer
                          TakePartyGold(15000)
                          GiveItemCreate("%silver%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~
-     ~ REPLY @20923 DO ~ SetGlobal("d2HasSilverPants","GLOBAL",0)  // reject offer
+     ~ REPLY @10523 DO ~ SetGlobal("d2HasSilverPants","GLOBAL",0)  // reject offer
                        ~ EXIT
 END
 
-IF ~~ BEGIN NathanielBronze
-  SAY @20912  // Nathaniel says stuff
+IF ~~ BEGIN EdionBronze
+  SAY @10512  // Edion says stuff
   IF ~ PartyGoldGT(7999)  // if 8000 gold
-     ~ REPLY @20922 DO ~ SetGlobal("d2HasBronzePants","GLOBAL",1)  // accept offer
+     ~ REPLY @10522 DO ~ SetGlobal("d2HasBronzePants","GLOBAL",1)  // accept offer
                          TakePartyGold(8000)
                          GiveItemCreate("%bronze%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~
-     ~ REPLY @20923 DO ~ SetGlobal("d2HasBronzePants","GLOBAL",0)  // reject offer
+     ~ REPLY @10523 DO ~ SetGlobal("d2HasBronzePants","GLOBAL",0)  // reject offer
                        ~ EXIT
 END
 

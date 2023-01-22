@@ -9,14 +9,14 @@ IF ~ PartyHasItem("%bigmetalrod%")  // has Big Metal Rod
        PartyHasItem("%pulse%")      // has Pulse Ammunition
        PartyHasItem("%prototype%")  // or Pulse (prototype)
      Global("d2RikiBigMetal","GLOBAL",0)
-   ~ REPLY @20701 GOTO d2RikiShowPulse
+   ~ REPLY @20701 GOTO RikiShowPulse
 
 END
 
 
 APPEND ~20RIKI~
 
-IF ~~ BEGIN d2RikiShowPulse
+IF ~~ BEGIN RikiShowPulse
   SAY @20711  // Riki makes offer
   IF ~ PartyGoldGT(14999)  // if 15000 gold
      ~ REPLY @20721 DO ~ SetGlobal("d2RikiBigMetal","GLOBAL",1)  // accept offer
