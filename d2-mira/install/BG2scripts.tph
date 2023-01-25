@@ -42,7 +42,7 @@ EXTEND_TOP ~AR0411.BCS~  ~%workspace%/variables.BAF~
 
 
 
-//Repairing the Big Metal Rod
+//Fix Rod (fade black)
 <<<<<<<< .../temp/d2tecfix
 IF
 	True()
@@ -60,6 +60,27 @@ END
 COPY - ~.../temp/d2tecfix~  ~%workspace%/d2tecfix.BAF~
   EVALUATE_BUFFER
 COMPILE ~%workspace%/d2tecfix.BAF~
+
+
+
+//Pulse III
+<<<<<<<< .../temp/cespenar
+IF
+	Global("d2CespenarBigMetal","GLOBAL",1)
+	Global("ImpForgeStuff","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2CespenarBigMetal","GLOBAL",2)
+		SetGlobal("ImpForgeStuff","GLOBAL",0)
+		SetGlobal("ItemMaker","GLOBAL",99)
+		GiveItemCreate("%pulseIII%",Player1,0,0,0)
+		StartDialogueNoSet(Player1)
+END
+>>>>>>>>
+
+COPY - ~.../temp/cespenar~    ~%workspace%/cespenar.BAF~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~botsmith.BCS~  ~%workspace%/cespenar.BAF~
 
 
 END

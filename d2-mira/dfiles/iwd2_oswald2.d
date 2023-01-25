@@ -21,13 +21,15 @@ APPEND ~11OSWALD~
 
 IF ~~ BEGIN OswaldGivesRod
   SAY @20811  // Oswald says stuff
+    = @20812
   IF ~~ DO ~ SetGlobal("d2HasBigMetalRod","GLOBAL",1)
              GiveItemCreate("%bigmetalrod%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END
 
 IF ~~ BEGIN OswaldGivesPulse
-  SAY @20812  // Oswald says stuff
+  SAY @20813  // Oswald says stuff
+    = @20814
   IF ~~ DO ~ SetGlobal("d2HasPulseAmmo","GLOBAL",1)
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 
            ~ EXIT

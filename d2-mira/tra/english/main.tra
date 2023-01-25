@@ -172,7 +172,9 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Riki (15000), if has Rod + Pulse (normal or prototype)
 @20701 = ~Actually, I have something here called a Pulse Ammunition. I've heard rumors of an advanced version of this ammo. Perhaps you've come across something like that?~
 
-	@20711 = ~The Pulse III. That's what you're thinking of. Do I have something like that? Don't be daft. Of course I do. If it will aid you, then give me that Pulse ammo, along with, let's say, 15,000 gold and you can have it.~
+	@20711 = ~The Pulse III. That's what you're thinking of. Do I have something like that? Don't be daft, fool. Of course I do.~
+	@20712 = ~The Pulse III. That's what you're thinking of. Do I have something like that? Don't be daft, male. Of course I do.~
+	@20713 = ~If it will aid you, then give me that Pulse ammo, along with, let's say, 15,000 gold and you can have it.~
 
 @20721 = ~That sounds fair. I'll take it.~  // if 15000 gold
 @20722 = ~Not right now. I'll come back for it.~
@@ -184,8 +186,10 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @20801 = ~Oswald, what's that strange device on the table?~
 @20802 = ~Do you have any special weapons we could make use of? Anything would help.~
 
-	@20811 = ~I'm glad you asked. In fact, this is the Big Metal Rod! It may look odd, but... well never mind that for now. I know. Why don't you take it with you? I'm sure you could make better use of it than me or little Maralie.~
-	@20812 = ~I might have just the thing for you. No, no, not a potion this time. It's called a "Pulse Ammunition". You should try it out with the Big Metal Rod. I've even heard that a more advanced version of the ammo has already been invented...~
+	@20811 = ~I'm glad you asked. This is the Big Metal Rod! Quite the find, you know. It may look odd, but... well, never mind that for now.~
+	@20812 = ~I know. Why don't you take it with you? I'm sure you could make better use of it than me or little Maralie.~
+	@20813 = ~I might have just the thing for you. No, no, not a potion this time. It's called a "Pulse Ammunition".~
+	@20814 = ~You should try it out with the Big Metal Rod. I've even heard that a more advanced version of this ammo has already been invented...~
 
 
 //Nathaniel
@@ -236,7 +240,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @40103 = ~Do you have any special weapons we could make use of?~          // start with core items
 
 	@40111 = ~You've a good eye. That right there's a Big Metal Rod. Now, I'll tell ye straight up, it won't be of any use to you or me in its current condition.~
-	@40112 = ~The blasted thing's malfunctioned. If I had a Repair Manual I could fix it up fer you. But, let Old Ribald make ye an offer.~
+	@40112 = ~The blasted thing's malfunctioned. If I had a Repair Manual I could fix it up fer you. But, let old Ribald make ye an offer.~
 	@40113 = ~Find me a Repair Manual and I'll get that Big Metal Rod working, good as new. Call it an even trade, the manual fer the weapon. I'll even throw in a special prototype ammo fer the thing.~
 
 	@40121 = ~Well, would you look at that. And not a moment too soon. I could tell you'd come through.~
@@ -246,12 +250,53 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@40131 = ~Well, you got that Big Metal Rod, don't you? Have a look at this. It's a special prototype ammo fer the thing. You won't find another in all Faerûn. How does 3,000 gold sound?~
 
 @40141 = ~Great! Thanks.~
-@40142 = ~That sounds fair. I'll take it.~  // if 3,000 gold
+@40142 = ~That sounds fair. I'll take it.~  // if 3000 gold
 @40143 = ~Perhaps another time.~
 
 	@40151 = ~Another satisfied customer. Now, before ye head out, I'll give you a bit of advice. You'd do well to keep the Big Metal Rod and that prototype ammo in yer pack.~
 	@40152 = ~Who knows, eh? Maybe ye'll run into someone, be it human, elf, or imp, that could make it worth yer while.~
 	@40153 = ~All right then, but if ye change yer thinks, you know where to come.~
+
+
+//Cespenar
+	@40201 = ~Let's see... ooo! Is big rod? Why calls it big rod? Good for cracking open head, maybe.~ [BOTSM03]
+
+	@40211 = ~You gots Big Metal Rod, I sees! If you has Pulse Ammunition, can make much better, I can, oh yes! But you don't gots right now.~
+
+	@40221 = ~You gots Big Metal Rod, I sees! Wants you better Pulse Ammunition? Me has recipe for it. Just uses 15,000 gp. You wants?~
+
+@40231 = ~I don't have that much gold.~
+@40232 = ~Sure, let's do it.~
+@40233 = ~No, maybe later.~
+
+	@40241 = ~I keeps looking. You has lots here...~ [BOTSM38]
+
+
+//Lehtinan
+@40301 = ~By chance, have you heard anything about a Big Metal Rod? ~
+
+	@40311 = ~(Hurrm.) Yes... perhaps. You wish something?~
+
+@40321 = ~I have a Big Metal Rod, but it's malfunctioned. I need a Repair Manual to fix it.~
+
+	@40331 = ~It is an odd request. But, coin is... always... welcome. 500 gold.~
+
+@40341 = ~Alright, I'll pay it.~    // if 500 gold
+@40342 = ~I'll ask someone else, thanks.~
+
+	@40351 = ~(Hurrm.) The Planar Sphere... if you can open the sealed door. Your Repair Manual will... most likely... be found within.~
+
+
+//Hendak (after freeing)
+@40401 = ~By chance, have you heard anything about a Big Metal Rod?~
+@40402 = ~Could you repeat what you said about that Repair Manual for the Big Metal Rod?~
+
+	@40411 = ~I have heard some talk, yes. I will tell you what I can, if it will aid you.~
+
+@40421 = ~I have a Big Metal Rod, but it's malfunctioned. I need a Repair Manual to fix it.~
+
+	@40431 = ~Ah, I have heard of this manual, friend. There are many different stories. It could be that the Cowled Wizards have it. It could be in the libraries of de'Arnise Keep.~
+	@40432 = ~Perhaps a Repair Manual can be found inside the Planar Sphere. I apologize, friend. This is the most of my knowledge.~
 
 
 
@@ -292,8 +337,17 @@ I found a Repair Manual inside the Planar Sphere. It's filled with diagrams and 
 @40003 = ~Repairman Ribald
 
 Success! I brought the Repair Manual to Ribald and he fixed up the Big Metal Rod for me. Ribald also gave me the Pulse Ammunition (prototype), as promised.~
-@40004 = ~~
-@40005 = ~~
+
+@40004 = ~Repairman Ribald
+
+Lehtinan tells me that the Repair Manual would likely be found inside the Planar Sphere in the Slums.~
+
+@40005 = ~Repairman Ribald
+
+Hendak mentioned 3 possibilities: the Cowled Wizards, de'Arnise Keep, and the Planar Sphere in the Slums.~
+
+@40006 = ~
+@40007 = ~
 
 
 

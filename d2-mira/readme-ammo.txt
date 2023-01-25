@@ -83,6 +83,10 @@ BGEE:
 - Big Metal Rod                 - Lucky Aello (store), SoD (see below)
 - Pulse Ammunition (prototype)  - Black Lily, SoD (see below)
 
+BG2EE:
+- Big Metal Rod? (malfunctioned)  - Search around Adventurer Mart
+- Repair Manual                   - Ask in Copper Coronet for clues
+
 IWDEE:
 - Big Metal Rod                 - Pomab (on shelf), HoW (see below)
 - Pulse Ammunition (prototype)  - Oswald
@@ -110,6 +114,7 @@ Additional info:
 - Some items are now obtainable from more than one NPC (can only get an item once).
 - IWDEE: Some items needed for upgrades may be added to HoW, but only if not previously obtained.
 - BGEE/EET: Big Metal Rod and Pulse (prototype) will be in SoD if not already obtained.
+- BG2EE: Quest items are not assigned the "Critical" flag, so don't leave them on the ground.
 
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------

@@ -37,12 +37,12 @@ Components:
 	- BG2EE: Several items are added or revised (see below)
 	- Some are gained through trades/dialogue, some are sold by merchants, and some can be found in various places.
 	
-- Option 2: 
+- Option 2:
 	- Party starts with a bag, containing the core Big Metal items. 
 	- Other items not in the bag will still be obtainable in the game (if normally available with Option 1). 
 	- Also compatible with Black Pits 1 & 2.
 	
-- BG2EE notes: (not implemented yet)
+- BG2EE notes:
 	- Core items are still gained the same way as in the unmodded game.
 	- Scorcher and Frag Grenade are changed to the revised versions, by default.
 	- Pulse (prototype) and an extra Big Metal Rod are obtainable in SoA.

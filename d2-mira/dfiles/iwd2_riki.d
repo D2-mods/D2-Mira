@@ -9,15 +9,36 @@ IF ~ PartyHasItem("%bigmetalrod%")  // has Big Metal Rod
        PartyHasItem("%pulse%")      // has Pulse Ammunition
        PartyHasItem("%prototype%")  // or Pulse (prototype)
      Global("d2RikiBigMetal","GLOBAL",0)
-   ~ REPLY @20701 GOTO RikiShowPulse
+     !Gender(LastTalkedToBy,MALE)
+   ~ REPLY @20701 GOTO RikiShowPulse1
+
+IF ~ PartyHasItem("%bigmetalrod%")  // has Big Metal Rod
+     OR(2)
+       PartyHasItem("%pulse%")      // has Pulse Ammunition
+       PartyHasItem("%prototype%")  // or Pulse (prototype)
+     Global("d2RikiBigMetal","GLOBAL",0)
+     Gender(LastTalkedToBy,MALE)
+   ~ REPLY @20701 GOTO RikiShowPulse2
 
 END
 
 
 APPEND ~20RIKI~
 
-IF ~~ BEGIN RikiShowPulse
+IF ~~ BEGIN RikiShowPulse1
   SAY @20711  // Riki makes offer
+    = @20713
+  IF ~ PartyGoldGT(14999)  // if 15000 gold
+     ~ REPLY @20721 DO ~ SetGlobal("d2RikiBigMetal","GLOBAL",1)  // accept offer
+                       ~ GOTO RikiPulseIII
+  IF ~
+     ~ REPLY @20722 DO ~ SetGlobal("d2RikiBigMetal","GLOBAL",0)  // reject offer
+                       ~ EXIT
+END
+
+IF ~~ BEGIN RikiShowPulse2
+  SAY @20712  // Riki makes offer
+    = @20713
   IF ~ PartyGoldGT(14999)  // if 15000 gold
      ~ REPLY @20721 DO ~ SetGlobal("d2RikiBigMetal","GLOBAL",1)  // accept offer
                        ~ GOTO RikiPulseIII

@@ -97,9 +97,9 @@ VERSION HISTORY
 ==================================================
 v4.0
 - Rewrote chunks of the install files.
-- Several NPCs will have dialogue, related to gaining items from this mod. In total, 2 NPCs from BGEE/SoD, 2 from BG2EE, 6 from IWDEE, and 8 from IWD2 will have additional lines.
+- Several NPCs will have dialogue, related to gaining items from this mod. In total, 2 NPCs from BGEE/SoD, 4 from BG2EE, 6 from IWDEE, and 8 from IWD2 will have additional lines.
 - Added a few Journal entries, where it makes sense.
-- Added full support for classic IWD1. Dialogue and gaining items are identical to IWDEE. A couple items are slightly different, due to engine differences (i.e. Big Metal Unit doesn't change animation).
+- Added full support for classic IWD1. Dialogue and item locations are identical to IWDEE. A couple items are slightly different, due to engine differences (i.e. Big Metal Unit doesn't change appearance).
 - Added support for BG2EE and Black Pits 1&2.
 - All components are now installable on BGEE, BG2EE, and EET.
 
@@ -122,7 +122,7 @@ v4.0
 	- Pulse III is obtainable in ToB (requires a lesser Pulse Ammo).
 
 - Item changes:
-	- EEs: All ammo types given Silver and Cold Iron properties. For BGEE, this means that Pulse (prototype) will be able to hit all the different werewolf enemies. Doesn't affect anything in IWDEE unmodded.
+	- EEs: All ammo types given Silver and Cold Iron properties. For BGEE, this means that Pulse (prototype) will be able to hit all the different werewolf enemies. Doesn't affect anything in other games (unmodded).
 	- Adjusted base price of several items.
 	- Big Metal Rod: Changed to +5 enchantment. This is only relevant if using a tweak that makes launcher enchantment apply to attacks.
 	- Minor text edits.
