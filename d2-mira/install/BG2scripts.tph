@@ -11,16 +11,73 @@ ACTION_IF (GAME_INCLUDES ~bg2~) BEGIN
 //Set Global variables (check if party has items)
 <<<<<<<< .../temp/variables
 IF
-	OR(2)
-		PartyHasItem("%metalrodb%")
-		PartyHasItem("%bigmetalrod%")
-	!Global("d2HasBigMetalRod","GLOBAL",1)
+	PartyHasItem("misc5o")
+	!Global("d2HasSilverPants","GLOBAL",1)
 THEN
 	RESPONSE #100
-		SetGlobal("d2HasBigMetalRod","GLOBAL",1)
+		SetGlobal("d2HasSilverPants","GLOBAL",1)
 		Continue()
 END
 
+IF
+	PartyHasItem("misc47")
+	!Global("d2HasGoldPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasGoldPants","GLOBAL",1)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
+  EVALUATE_BUFFER
+
+ACTION_FOR_EACH area IN ~AR0700~ ~AR3000~ ~AR4500~ ~AR0400~ BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%area%.BCS~) BEGIN
+    EXTEND_TOP ~%area%.BCS~  ~%workspace%/variables.BAF~
+  END
+END
+
+
+
+//Add Gold Pantaloons if not obtained in starting dungeon
+<<<<<<<< .../temp/pantaloons
+IF
+	!Global("d2HasGoldPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasGoldPants","GLOBAL",1)
+		ActionOverride("Shelf1",CreateItem("misc47",0,0,0))
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/pantaloons~  ~%workspace%/pantaloons.BAF~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~AR3001.BCS~    ~%workspace%/pantaloons.BAF~
+
+
+
+//Add Silver Pantaloons if not obtained in SoA
+<<<<<<<< .../temp/silver
+IF
+	!Global("d2HasSilverPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasSilverPants","GLOBAL",1)
+		ActionOverride("Container1",CreateItem("misc5o",0,0,0))
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/silver~      ~%workspace%/silver.BAF~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~AR4500.BCS~    ~%workspace%/silver.BAF~
+
+
+
+//Journal entry for Repair Manual
+<<<<<<<< .../temp/repair
 IF
 	PartyHasItem("%repairbook%")
 	Global("d2RibaldBigMetal","GLOBAL",1)
@@ -33,12 +90,11 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
+COPY - ~.../temp/repair~  ~%workspace%/repair.BAF~
   EVALUATE_BUFFER
 
-EXTEND_TOP ~AR0602.BCS~  ~%workspace%/variables.BAF~
-EXTEND_TOP ~AR0702.BCS~  ~%workspace%/variables.BAF~
-EXTEND_TOP ~AR0411.BCS~  ~%workspace%/variables.BAF~
+EXTEND_TOP ~AR0702.BCS~  ~%workspace%/repair.BAF~
+EXTEND_TOP ~AR0411.BCS~  ~%workspace%/repair.BAF~
 
 
 

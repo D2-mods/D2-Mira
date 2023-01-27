@@ -231,6 +231,14 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @30222 = ~Perhaps another time.~
 
 
+//Diviner
+@30301 = ~Any interesting weapons hidden around the city?~
+@30302 = ~Where is the Big Metal Rod?~
+
+	@30311 = ~Speak to Black Lily. She can be found at the Thieves' Guild.~
+	@30312 = ~You will find it in the store of Lucky Aello.~
+
+
 
 //Dialogue (BG2)
 
@@ -318,10 +326,16 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 //Journal entries (BGEE/SoD)
-@30001 = ~Today, I spoke to Black Lily at the Thieves' Guild headquarters. She mentioned that I should return to her if I obtain a Big Metal Rod. She apparently has something to sell me then.~
-@30002 = ~I borrowed the Big Metal Rod from Sorcerous Sundries. Halbazzer didn't seem to mind. I wonder if this weapon has any special ammo designed for it. Maybe I should ask Halbazzer about it.~
-@30003 = ~~
-@30004 = ~~
+@30001 = ~An Interesting Weapon
+
+Today, I spoke to Black Lily at the Thieves' Guild headquarters. She mentioned that I should return to her with a Big Metal Rod. She apparently has something to sell me then.~
+@30002 = ~Halbazzer's Big Metal Rod
+
+I borrowed the Big Metal Rod from Sorcerous Sundries. Halbazzer didn't seem to mind. I wonder if this weapon has any special ammo designed for it. Maybe I should ask Halbazzer about it.~
+@30003 = ~A Seer's Vision
+In Baldur's Gate, a seer told me that Black Lily of the Thieves' Guild could tell me about an interesting weapon.~
+@30004 = ~A Seer's Vision
+In Baldur's Gate, a seer told me that the Big Metal Rod is in Lucky Aello's Discount Store.~
 @30005 = ~~
 
 

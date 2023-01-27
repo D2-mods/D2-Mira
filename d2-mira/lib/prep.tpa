@@ -2,7 +2,7 @@
 //
 
 
-//BG2 Item array
+//BG2 Item arrays
 ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira BEGIN    // mod => base
   d2tec01 => secret01
   d2tec02 => secret02

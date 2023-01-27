@@ -95,6 +95,14 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v4.1
+- Changes for BG2: 
+	- Golden Pantaloons added to Watcher's Keep if you didn't get it from the starting dungeon.
+	- Silver Pantaloons added to ToB if not obtained in SoA.
+- Changes for BG1: 
+	- Added dialogue with an additional NPC. Can ask about item locations.
+	- Journal entries will now give the pop up (if option is enabled).
+
 v4.0
 - Rewrote chunks of the install files.
 - Several NPCs will have dialogue, related to gaining items from this mod. In total, 2 NPCs from BGEE/SoD, 4 from BG2EE, 6 from IWDEE, and 8 from IWD2 will have additional lines.

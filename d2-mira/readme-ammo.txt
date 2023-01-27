@@ -31,7 +31,7 @@ vanilla BG2 stats
 
 Additional info:
 - Classic IWD1 uses the same stats as BG2/EEs, except for Scorcher (same as IWD2). Scorcher damage in IWD1/IWD2 is tied to the projectile.
-- For IWD:EE, you can choose between revised or vanilla stats for the Frag Grenade and Scorcher. This is safe to change during an ongoing game, even if the items are already in your inventory. Default is revised (if component is skipped).
+- For EEs, you can choose between revised or vanilla stats for the Frag Grenade and Scorcher. This is safe to change during an ongoing game, even if the items are already in your inventory. Default is revised (if component is skipped).
 
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------

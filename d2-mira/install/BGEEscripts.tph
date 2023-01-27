@@ -49,18 +49,26 @@ THEN
 	RESPONSE #100
 		SetGlobal("d2BlackLilyTalk","GLOBAL",2)
 		SetGlobalTimer("d2JournalDelay","GLOBAL",5)
-		AddStoreItem("STOCHEAP","%metalrodb%",1,1)
 		Continue()
 END
 
 IF
-	!PartyHasItem("%metalrodb%")
-	!Global("d2HasBigMetalRod","GLOBAL",1)
 	Global("d2BlackLilyTalk","GLOBAL",2)
 	!GlobalTimerNotExpired("d2JournalDelay","GLOBAL")
 THEN
 	RESPONSE #100
+		SetGlobal("d2BlackLilyTalk","GLOBAL",3)
 		AddJournalEntry(@30001,INFO)
+		Continue()
+END
+
+IF
+	GlobalGT("d2BlackLilyTalk","GLOBAL",0)
+	!Global("d2LuckyAelloBigMetal","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2LuckyAelloBigMetal","GLOBAL",1)
+		AddStoreItem("STOCHEAP","%metalrodb%",1,1)
 		Continue()
 END
 >>>>>>>>
@@ -84,12 +92,12 @@ THEN
 END
 
 IF
-	!PartyHasItem("%prototypeb%")
 	!Global("d2HasPrototype","GLOBAL",1)
 	Global("d2HalbazBigMetal","GLOBAL",2)
 	!GlobalTimerNotExpired("d2JournalDelay","GLOBAL")
 THEN
 	RESPONSE #100
+		SetGlobal("d2HalbazBigMetal","GLOBAL",3)
 		AddJournalEntry(@30002,INFO)
 		Continue()
 END
