@@ -225,5 +225,11 @@ OUTER_TEXT_SPRINT silver  ~d2pant02~
 OUTER_TEXT_SPRINT gold    ~d2pant03~
 
 
+
+//elemental weapons (for Better IWD Pregen mod)
+LAF d2_elemental_weapon_arrays STR_VAR item=~%frag%~ element=~fire~ RET_ARRAY d2fireweap END
+LAF d2_elemental_weapon_arrays STR_VAR item=~%scorcher%~ element=~fire~ RET_ARRAY d2fireweap END
+
+
 /*
 */

@@ -1,4 +1,4 @@
-The Big Metal Unit mod (v4.0)
+The Big Metal Unit mod (v4.0+)
 GitHub: https://github.com/D2-mods/D2-Mira
 Download: https://github.com/D2-mods/D2-Mira/releases
 Installs on: IWD:EE, IWD1, IWD2, BG:EE, BG2:EE, EET
@@ -95,6 +95,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v4.2
+- IWD2: fixed quick icons for ammo (was using wrong icons).
+
 v4.1
 - Changes for BG2: 
 	- Golden Pantaloons added to Watcher's Keep if you didn't get it from the starting dungeon.

@@ -161,7 +161,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Conlan (if 3 pantaloons)
 @20601 = ~Sorry, give me a moment. These things keep getting in the way. (Accidently show Conlan the pantaloons)~
 
-	@20611 = ~What, you have...?!. Hand it over. That thing, your pantaloons.~
+	@20611 = ~What, you have...?!. Hand it over. That thing, the pantaloons.~
 
 @20621 = ~Well, if you insist...~
 @20622 = ~Hands off. These pantaloons are mine... and no one else's.~
