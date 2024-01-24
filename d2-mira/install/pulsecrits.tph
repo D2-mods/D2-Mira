@@ -1,0 +1,67 @@
+/*
+Pulse ammo does double damage on a critical hit (EEs)
+*/
+
+
+//damage file (SPL)
+COPY ~%files%/pulsecrits.SPL~  ~override/%pulse%.SPL~
+COPY ~%files%/pulsecrits.SPL~  ~override/%pulseIII%.SPL~
+  LPF CLONE_EFFECT INT_VAR multi_match=1 match_opcode=12 END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 match_opcode=12 END
+
+
+//
+//make function
+DEFINE_PATCH_FUNCTION pulsecrits  
+  STR_VAR  crit_damage = ~~ 
+BEGIN
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode       = 341
+      target       = 1
+      timing       = 2
+      parameter2   = 1    // this weapon only (not sure if needed)
+      insert_point = 3
+    STR_VAR
+      resource = ~%crit_damage%~
+  END
+END
+
+
+//
+//patch items
+ACTION_FOR_EACH ammo_type IN
+ ~%pulse%~
+ ~%pulseIII%~
+ ~%prototype%~
+ ~%prototypeb%~
+BEGIN
+
+  ACTION_IF (~%ammo_type%~ STR_EQ ~%pulseIII%~) BEGIN  
+    OUTER_TEXT_SPRINT crit_damage  ~%pulseIII%~    // Pulse III
+  END ELSE BEGIN
+    OUTER_TEXT_SPRINT crit_damage  ~%pulse%~       // Pulse + prototype
+  END
+
+  ACTION_IF (FILE_EXISTS ~override/%ammo_type%.ITM~) BEGIN
+    COPY_EXISTING ~%ammo_type%.ITM~  ~override~
+      LPF pulsecrits STR_VAR crit_damage = ~%crit_damage%~ END
+    BUT_ONLY
+  END
+
+END
+
+
+//
+//Update BG2 files
+ACTION_PHP_EACH update_items AS mod => base BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
+    ACTION_IF (FILE_EXISTS ~override/%mod%.ITM~) BEGIN
+      COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
+    END
+  END
+END
+
+
+/*
+*/

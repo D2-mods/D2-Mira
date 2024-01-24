@@ -1,0 +1,23 @@
+/*
+Frag Grenade damage
+*/
+
+
+COPY_EXISTING ~%frag%.ITM~  ~override~
+  LPF ALTER_EFFECT INT_VAR header_type=2 match_opcode=12 parameter2=%damagetype% END
+BUT_ONLY
+
+
+//
+//Update BG2 files
+ACTION_PHP_EACH update_items AS mod => base BEGIN
+  ACTION_IF (~%mod%~ STR_EQ ~%frag%~) BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
+      COPY_EXISTING ~%frag%.ITM~  ~override/%base%.ITM~
+    END
+  END
+END
+
+
+/*
+*/

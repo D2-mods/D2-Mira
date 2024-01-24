@@ -1,0 +1,55 @@
+/*
+Adjust APR and enchantment level (IWD2)
+Default is +2 APR, +3 enchantment (Scorcher/Frag Grenade).
+*/
+
+
+//prep
+ACTION_IF (ammo = 2) BEGIN  
+  OUTER_SET frag_dice=1 OUTER_SET frag_roll=12    // frag does 1d12 (only used with vanilla BG2)
+END ELSE BEGIN
+  OUTER_SET frag_dice=3 OUTER_SET frag_roll=4     // frag does 3d4
+END
+
+ACTION_IF (ammo = 1) BEGIN  OUTER_SET attacks=2 OUTER_SET mode=0 OUTER_SET enchant=3 END  // +2 APR, +3 enchantment (default)
+ACTION_IF (ammo = 2) BEGIN  OUTER_SET attacks=5 OUTER_SET mode=1 OUTER_SET enchant=1 END  // 5 APR, +1 enchantment (vanilla BG2)
+ACTION_IF (ammo = 3) BEGIN  OUTER_SET attacks=2 OUTER_SET mode=0 OUTER_SET enchant=5 END  // +2 APR, +5 enchantment
+ACTION_IF (ammo = 4) BEGIN  OUTER_SET attacks=5 OUTER_SET mode=1 OUTER_SET enchant=3 END  // 5 APR, +3 enchantment
+ACTION_IF (ammo = 5) BEGIN  OUTER_SET attacks=5 OUTER_SET mode=1 OUTER_SET enchant=5 END  // 5 APR, +5 enchantment
+
+
+
+//
+//patch Scorcher and Frag Grenade
+COPY_EXISTING ~%frag%.ITM~  ~override~
+  LPF ALTER_EFFECT INT_VAR header_type=2 match_opcode=12 dicenumber=frag_dice dicesize=frag_roll END
+  LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter1=attacks parameter2=mode END
+  WRITE_LONG 0x60 enchant
+BUT_ONLY
+
+COPY_EXISTING ~%scorcher%.ITM~  ~override~
+  LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter1=attacks parameter2=mode END
+  WRITE_LONG 0x60 enchant
+BUT_ONLY
+
+
+
+//
+//patch Pulse and Pulse III (option 5)
+ACTION_IF (ammo = 5) BEGIN
+
+COPY_EXISTING ~%pulse%.ITM~  ~override~
+  LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter1=attacks parameter2=mode END
+  WRITE_LONG 0x60 enchant
+BUT_ONLY
+
+COPY_EXISTING ~%pulseIII%.ITM~  ~override~
+  LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter1=attacks parameter2=mode END
+  WRITE_LONG 0x60 enchant
+BUT_ONLY
+
+END
+
+
+/*
+*/

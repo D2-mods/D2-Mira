@@ -1,39 +1,47 @@
 The Big Metal Unit mod (v4.0+)
 GitHub: https://github.com/D2-mods/D2-Mira
-Download: https://github.com/D2-mods/D2-Mira/releases
 Installs on: IWD:EE, IWD1, IWD2, BG:EE, BG2:EE, EET
 
 
-==================================================
-OVERVIEW
-==================================================
-Adds the Big Metal items from BG2 to other IE games. All items are obtainable in IWDEE, IWD1, and IWD2 (including pantaloons). The Big Metal Rod and Pulse (prototype) are added to BGEE/SoD. For BG2EE, several items are added or revised. There's also an option to start with a bag containing the core Big Metal items. See components section for more info.
+Overview:
+This is a mod for Infinity Engine games. It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games (Baldur's Gate: Enhanced Edition, Baldur's Gate 2: Enhanced Edition, and classic IWD).
 
+The exact stuff this mod adds will depend on the game. All items are obtainable in the IWD games (including pantaloons). The Big Metal Rod and a Pulse (prototype) are added to BGEE/SoD (obtainable in both). For BG2EE/ToB, several items are added or revised, and there may be a small quest involved. There's also an option to start with a bag containing the core Big Metal items. See components section for more info.
 
-v4.0:
-- IWDEE/IWD2: The pantaloons are now required for gaining the Big Metal Unit.
-- IWDEE/IWD2: Pulse Ammos are now gained through trades/dialogue.
-- BGEE: Pulse (prototype) given Silver and Cold Iron properties (can hit all the werewolf enemies).
-- Added full support for classic IWD1
-- Added support for BG2EE and Black Pits 1&2 (see components section)
-- All components are now installable on BGEE, BG2EE, and EET.
+--
 
+Components:
 
-==================================================
-COMPONENTS
-==================================================
-1. Main Component
+1. Main Component:
 	- Option 1: Standard Installation
 	- Option 2: Start with the core "Big Metal" items
-2. EEs: Choose revised or vanilla BG2 ammo (default is Revised)
+2. Adjust APR and enchantment level (5 options, including vanilla BG2 stats)
+3. Choose damage type for Frag Grenade (fire or slashing)
+4. Make ammo more party friendly (see note below)
+5. Pulse ammo does double damage on a critical hit (EEs)
 
+--
+
+Component 4 info (party friendly ammo):
+- Makes it so only the damage from the launcher will harm PCs.
+- Ammo damage (ex. fire from Scorcher) does no damage to PCs.
+- If the launcher has no damage bonus (i.e. Big Metal Rod), the ammo is party friendly.
+- EEs: Applies to Scorcher and Frag Grenade.
+- IWD1/IWD2: Applies to Frag Grenade only (can't make it work with Scorcher projectile).
+- Neutral NPCs may still become hostile, even if they take no damage.
+
+--
+
+IWD (non-EE) note: If you get an installer warning related to missing stuff in DLG files, that's fine. It's just skipping some dialogue states added by the G3 fixpack, 'item upgrade' or 'unfinished business' mods. If those mods are installed before this mod, then the warnings go away.
+
+--
 
 Additional info:
 
 - Option 1:
 	- IWD games: All items are obtainable, including pantaloons.
 	- BGEE/SoD: Adds the Big Metal Rod and Pulse Ammunition (prototype).
-	- BG2EE: Several items are added or revised (see below)
+	- BG2EE: Several items are added or revised (see below).
 	- Some are gained through trades/dialogue, some are sold by merchants, and some can be found in various places.
 
 - Option 2: 
@@ -45,41 +53,31 @@ Additional info:
 	- Core items are still gained the same way as in the unmodded game.
 	- Scorcher and Frag Grenade are changed to the revised versions, by default.
 	- Pulse (prototype) and an extra Big Metal Rod are obtainable in SoA.
-	- Golden Pantaloons are in SoA, even if not importing from BG1.
+	- Golden Pantaloons are in SoA, even if not importing from BGEE.
 	- Pulse III is obtainable in ToB (requires a lesser Pulse Ammo).
 
+- A few hints:
+	- IWDEE/IWD1: The Big Metal Rod is in the starting town. Make sure not to miss it (though there's different dialogue with an NPC if you do miss it).
+	- ToB: Gold and Silver Pantaloons are obtainable if not found in SoA.
+	- HoW: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
+	- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after the second time flying with Oswald, if you didn't get them earlier.
 
-==================================================
-ITEM LIST
-==================================================
-- Big Metal Rod
-- Pulse Ammunition
-- Frag Grenade
-- Scorcher Ammunition
-- Big Metal Unit
-- Pulse Ammunition (prototype)
-- Pulse III Ammunition
-- Bronze Pantalettes
-- Silver Pantaloons
-- Golden Pantaloons
-
-See readme-ammo.txt for ammo stats (top of page) or location spoilers (bottom).
-
+--
 
 Trades info (IWDEE, IWD1, IWD2):
 - Big Metal Unit   : requires the 3 pantaloons
 - Pulse Ammunition : requires the Pulse (prototype)
 - Pulse III        : requires any lesser Pulse Ammo (regular or prototype)
-NOTE: You need to have the Big Metal Rod to get the Pulse Ammo dialogues.
+NOTE: You need to have the Big Metal Rod in possession to get the Pulse Ammo dialogues.
+
+--
 
 Known issues:
 - Big Metal Unit (classic IWD1): Does not change appearance. Will appear as a plate mail.
-- Big Metal Unit (IWD2): Selection sounds will change to a creature sound, even after removing the armor. Saving and reloading (with the armor off) will return selection sounds back to normal.
+- Big Metal Unit (IWD2): Selection sounds will change to a creature sound, even after removing the armor. Save and reload (with the armor off) to return selection sounds back to normal.
 
+--
 
-==================================================
-CREDITS
-==================================================
 Modder: Dan_P
 
 Tools and Resources used:
@@ -90,11 +88,20 @@ Tools and Resources used:
 - Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
 - IESDP (https://gibberlings3.github.io/iesdp/main.htm)
 - LibIconv for Windows (http://gnuwin32.sourceforge.net/packages/libiconv.htm)
+- 7-Zip (https://www.7-zip.org/)
 
+--
 
-==================================================
-VERSION HISTORY
-==================================================
+Updates:
+v4.3
+- Updated component: Adjust APR and enchantment level (5 options, including vanilla BG2 stats).
+- Added component: Choose damage type for Frag Grenade (fire or slashing).
+- Added component: Make ammo more party friendly (see readme for info).
+- Added component: Pulse ammo does double damage on a critical hit (EEs).
+- IWD1/IWDEE: Fixed oversight with one NPC's dialogue. Option to trade for a Pulse ammo could disappear if you progressed too far without obtaining the ammo.
+- Internal installer improvements.
+- Added more info to readme.
+
 v4.2
 - IWD2: fixed quick icons for ammo (was using wrong icons).
 

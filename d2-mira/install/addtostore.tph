@@ -1,8 +1,34 @@
-//Start with the core "Big Metal" items
+/*
+Parts with (mira = 1) are for Standard install.
+BGEE does not appear here, as everything is added by scripts or dialogues.
+*/
 
 
 //IWD1, IWDEE
 ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
+
+ACTION_IF (mira = 1) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~AR1016.ARE~) BEGIN
+    COPY_EXISTING ~AR1016.ARE~ ~override~
+      LPF ADD_AREA_ITEM INT_VAR container_to_add_to=2 STR_VAR item_to_add=~%bigmetalrod%~ END
+    BUT_ONLY
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~LDD_NYM.STO~) BEGIN
+    COPY_EXISTING ~LDD_NYM.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%frag%~ position=~LAST~ flags=~identified~ END
+    BUT_ONLY
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~KIERAN2.STO~) BEGIN
+    COPY_EXISTING ~KIERAN2.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%scorcher%~ position=~LAST~flags=~identified~ END
+    BUT_ONLY
+  END
+END
+
+//
+//pantaloons
   ACTION_IF (FILE_EXISTS_IN_GAME ~LDD_BEOR.STO~) BEGIN
     COPY_EXISTING ~LDD_BEOR.STO~ ~override~
       LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
@@ -24,8 +50,26 @@ END
 
 
 
+//
 //IWD2
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
+
+ACTION_IF (mira = 1) BEGIN
+  COPY_EXISTING ~AR4001.ARE~ ~override~
+    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=9 STR_VAR item_to_add=~%bigmetalrod%~ END
+  BUT_ONLY
+
+  COPY_EXISTING ~53MYRVEK.STO~ ~override~
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%frag%~ position=~LAST~ flags=~identified~ END
+  BUT_ONLY
+  
+  COPY_EXISTING ~AR6102.ARE~ ~override~
+    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=7 STR_VAR item_to_add=~%scorcher%~ END
+  BUT_ONLY
+END
+
+//
+//pantaloons
   COPY_EXISTING ~11ELYTHA.STO~ ~override~
     LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
@@ -41,8 +85,21 @@ END
 
 
 
+//
 //BG2EE
 ACTION_IF (GAME_INCLUDES ~bg2~) BEGIN
+
+ACTION_IF (mira = 1) BEGIN
+  //add Big Metal Rod? to container
+  COPY_EXISTING ~AR0702.ARE~ ~override~
+    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=11 STR_VAR item_to_add=~%brokenrod%~ END
+  BUT_ONLY
+
+  //add Repair Manual to container
+  COPY_EXISTING ~AR0411.ARE~ ~override~
+    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=8 STR_VAR item_to_add=~%repairbook%~ END
+  BUT_ONLY
+END
 
   //disable script block for Golden Pantaloons
   COPY_EXISTING ~AR0602.BCS~  ~override~

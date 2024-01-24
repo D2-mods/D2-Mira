@@ -2,8 +2,8 @@
 //
 
 
-//BG2 Item arrays
-ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira BEGIN    // mod => base
+//BG2 item array
+ACTION_DEFINE_ASSOCIATIVE_ARRAY update_items BEGIN    // mod => base
   d2tec01 => secret01
   d2tec02 => secret02
   d2tec03 => secret03
@@ -35,3 +35,42 @@ ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
   OUTER_TEXT_SPRINT iwdjour03  ~@10003~
   OUTER_TEXT_SPRINT iwdjour04  ~@10004~
 END
+
+
+//
+//Set item variables
+
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+
+  OUTER_TEXT_SPRINT bigmetalrod  ~d2mira01~
+  OUTER_TEXT_SPRINT pulse        ~d2mira02~
+  OUTER_TEXT_SPRINT frag         ~d2mira03~
+  OUTER_TEXT_SPRINT scorcher     ~d2mira04~
+  OUTER_TEXT_SPRINT bigmetalunit ~d2mira05~
+  OUTER_TEXT_SPRINT prototype    ~d2mira06~
+  OUTER_TEXT_SPRINT pulseIII     ~d2mira07~
+
+END
+ELSE BEGIN
+
+  OUTER_TEXT_SPRINT bigmetalrod  ~d2tec01~
+  OUTER_TEXT_SPRINT pulse        ~d2tec02~
+  OUTER_TEXT_SPRINT frag         ~d2tec03~
+  OUTER_TEXT_SPRINT scorcher     ~d2tec04~
+  OUTER_TEXT_SPRINT bigmetalunit ~d2tec05~
+  OUTER_TEXT_SPRINT prototype    ~d2tec06~
+  OUTER_TEXT_SPRINT pulseIII     ~d2tec07~
+  OUTER_TEXT_SPRINT metalrodb    ~d2tec01b~    // for BG1 (different text)
+  OUTER_TEXT_SPRINT prototypeb   ~d2tec06b~    // for BG1 (different text)
+  OUTER_TEXT_SPRINT brokenrod    ~d2tec50~     // for BG2 (malfunctioned rod)
+  OUTER_TEXT_SPRINT repairbook   ~d2tec55~     // for BG2 (repair manual)
+
+END
+
+OUTER_TEXT_SPRINT bronze  ~d2pant01~
+OUTER_TEXT_SPRINT silver  ~d2pant02~
+OUTER_TEXT_SPRINT gold    ~d2pant03~
+
+
+/*
+*/

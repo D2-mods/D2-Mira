@@ -1,9 +1,12 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~4.2~
+VERSION ~4.3~
 AUTO_EVAL_STRINGS
 
 ALWAYS
+
+  CLEAR_INLINED
+
   ACTION_BASH_FOR ~%MOD_FOLDER%/lib~ ~.*\.tpa~ BEGIN    // function list
     INCLUDE ~%BASH_FOR_FILESPEC%~
   END
@@ -32,7 +35,6 @@ ALWAYS
   OUTER_TEXT_SPRINT iwd2     ~%MOD_FOLDER%/iwd2~
   OUTER_TEXT_SPRINT mbag     ~%MOD_FOLDER%/mbag~
 
-  CLEAR_INLINED
 END
 
 LANGUAGE ~English~
@@ -45,54 +47,200 @@ LANGUAGE ~English~
 The Big Metal Unit mod
 */
 
-BEGIN @2    // Standard Installation
+BEGIN @1    // Standard Installation
 REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2 bgee bg2ee eet iwd how totlm~) ~Game not supported~
-SUBCOMPONENT @1
+SUBCOMPONENT @9999
 LABEL ~D2-MIRA-TEC~
+OUTER_SET mira = 1
 INCLUDE ~%install%/install.tph~
-INCLUDE ~%install%/journal.tph~
-INCLUDE ~%install%/addtostore1.tph~
-INCLUDE ~%install%/dfiles1.tph~
-INCLUDE ~%install%/mbag1.tph~
-INCLUDE ~%install%/HoWscripts.tph~    // game-specific scripts
-INCLUDE ~%install%/IWD2scripts.tph~
-INCLUDE ~%install%/BGEEscripts.tph~
-INCLUDE ~%install%/BG2scripts.tph~
 
-BEGIN @3    // Start with the core "Big Metal" items
+BEGIN @2    // Start with the core "Big Metal" items
 REQUIRE_PREDICATE !(GAME_IS ~iwd~) ~~
-SUBCOMPONENT @1
+SUBCOMPONENT @9999
 LABEL ~D2-MIRA-BAG~
+OUTER_SET mira = 2
 INCLUDE ~%install%/install.tph~
-INCLUDE ~%install%/journal.tph~
-INCLUDE ~%install%/addtostore2.tph~
-INCLUDE ~%install%/dfiles2.tph~
-INCLUDE ~%install%/mbag2.tph~
-INCLUDE ~%install%/HoWscripts.tph~    // game-specific scripts
-INCLUDE ~%install%/IWD2scripts.tph~
-INCLUDE ~%install%/BGEEscripts.tph~
-INCLUDE ~%install%/BG2scripts.tph~
+
 
 
 /*
-Choose revised or vanilla BG2 ammo
+Adjust APR and enchantment level
 */
 
-BEGIN @7    // Use revised Scorcher and Frag Grenade (default)
-REQUIRE_PREDICATE (GAME_IS ~iwdee bgee bg2ee eet~) ~~
-REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    // check for mod items
-                   (FILE_EXISTS ~override/d2tec04.ITM~)) ~~
-SUBCOMPONENT @6
+BEGIN @11    // Scorcher/Frag Grenade have 3 APR, +3 enchantment (default)
+DESIGNATED 10
+REQUIRE_PREDICATE !(GAME_IS ~iwd2~) ~~
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @10
 LABEL ~D2-MIRA-AMMOREV~
+OUTER_SET ammo = 1
 INCLUDE ~%install%/ammorev.tph~
 
-BEGIN @8    // Use vanilla Scorcher and Frag Grenade
-REQUIRE_PREDICATE ((FILE_EXISTS ~override/d2tec03.ITM~) AND    //  check for mod items
-                   (FILE_EXISTS ~override/d2tec04.ITM~)) ~~
-SUBCOMPONENT @6
+BEGIN @12    // Scorcher/Frag Grenade have 5 APR, +1 enchantment (vanilla BG2)
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @10
 LABEL ~D2-MIRA-AMMOBG2~
-INCLUDE ~%install%/ammobg2.tph~
+OUTER_SET ammo = 2
+INCLUDE ~%install%/ammorev.tph~
 
+BEGIN @13    // Scorcher/Frag Grenade have 3 APR, +5 enchantment
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @10
+LABEL ~D2-MIRA-AMMOREV3~
+OUTER_SET ammo = 3
+INCLUDE ~%install%/ammorev.tph~
+
+BEGIN @14    // Scorcher/Frag Grenade have 5 APR, +3 enchantment
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @10
+LABEL ~D2-MIRA-AMMOREV4~
+OUTER_SET ammo = 4
+INCLUDE ~%install%/ammorev.tph~
+
+BEGIN @15    // Scorcher/Frag Grenade/Pulse have 5 APR, +5 enchantment
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @10
+LABEL ~D2-MIRA-AMMOREV5~
+OUTER_SET ammo = 5
+INCLUDE ~%install%/ammorev.tph~
+
+
+/*
+Adjust APR and enchantment level (IWD2)
+*/
+
+BEGIN @21    // Scorcher/Frag Grenade have +2 APR, +3 enchantment (default)
+DESIGNATED 20
+REQUIRE_PREDICATE (GAME_IS ~iwd2~) ~~
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @20
+LABEL ~D2-MIRA-AMMOREVIWD2~
+OUTER_SET ammo = 1
+INCLUDE ~%install%/ammoiwd2.tph~
+
+BEGIN @22    // Scorcher/Frag Grenade have 5 APR, +1 enchantment (vanilla BG2)
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @20
+LABEL ~D2-MIRA-AMMOREV2IWD2~
+OUTER_SET ammo = 2
+INCLUDE ~%install%/ammoiwd2.tph~
+
+BEGIN @23    // Scorcher/Frag Grenade have +2 APR, +5 enchantment
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @20
+LABEL ~D2-MIRA-AMMOREV3IWD2~
+OUTER_SET ammo = 3
+INCLUDE ~%install%/ammoiwd2.tph~
+
+BEGIN @24    // Scorcher/Frag Grenade have 5 APR, +3 enchantment
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @20
+LABEL ~D2-MIRA-AMMOREV4IWD2~
+OUTER_SET ammo = 4
+INCLUDE ~%install%/ammoiwd2.tph~
+
+BEGIN @25    // Scorcher/Frag Grenade/Pulse have 5 APR, +5 enchantment
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @20
+LABEL ~D2-MIRA-AMMOREV5IWD2~
+OUTER_SET ammo = 5
+INCLUDE ~%install%/ammoiwd2.tph~
+
+
+
+/*
+Choose damage type for Frag Grenade
+*/
+
+BEGIN @31    // Fire (default)
+DESIGNATED 30
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @30
+LABEL ~D2-MIRA-FRAGFIRE~
+OUTER_SET damagetype = 0x00080000
+INCLUDE ~%install%/fragdamage.tph~
+
+BEGIN @32    // Slashing
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @30
+LABEL ~D2-MIRA-FRAGSLASH~
+OUTER_SET damagetype = 0x01000000
+INCLUDE ~%install%/fragdamage.tph~
+
+
+
+/*
+Make Scorcher and Frag Grenade more party friendly (EEs)
+*/
+
+BEGIN @41    // Yes (will damage PCs only if launcher has damage bonus)
+DESIGNATED 40
+REQUIRE_PREDICATE (GAME_IS ~iwdee bgee bg2ee eet~) ~~
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @40
+LABEL ~D2-MIRA-SAFEAMMO1~
+INCLUDE ~%install%/safeammo.tph~
+
+BEGIN @42    // No (default)
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @40
+LABEL ~D2-MIRA-SAFEAMMO0~
+
+
+
+/*
+Make Frag Grenade more party friendly (IWD/IWD2)
+*/
+
+BEGIN @46    // Yes (will damage PCs only if launcher has damage bonus)
+DESIGNATED 45
+REQUIRE_PREDICATE (GAME_IS ~iwd2 iwd how totlm~) ~~
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @45
+LABEL ~D2-MIRA-SAFEAMMOIWD1~
+INCLUDE ~%install%/safeammo.tph~
+
+BEGIN @47    // No (default)
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @45
+LABEL ~D2-MIRA-SAFEAMMOIWD0~
+
+
+
+/*
+Pulse ammo does double damage on a critical hit (EEs)
+*/
+
+BEGIN @51    // Yes
+DESIGNATED 50
+REQUIRE_PREDICATE (GAME_IS ~iwdee bgee bg2ee eet~) ~~
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @50
+LABEL ~D2-MIRA-PULSECRIT1~
+INCLUDE ~%install%/pulsecrits.tph~
+
+BEGIN @52    // No (default)
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @50
+LABEL ~D2-MIRA-PULSECRIT0~
 
 
 ////////////////////////////////////////////////////////////

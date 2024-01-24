@@ -1,0 +1,200 @@
+//
+//
+
+
+//BGEE, BG2EE
+ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
+  COPY ~%data%~  ~override~
+  COPY ~%bgee%~  ~override~
+
+  //Big Metal items
+  COPY_EXISTING ~%bigmetalrod%.ITM~  ~override~
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @200 
+    SAY NAME2 @100 SAY DESC @200
+  COPY_EXISTING ~%pulse%.ITM~  ~override~			
+    SAY NAME1 @101 SAY UNIDENTIFIED_DESC @201 
+    SAY NAME2 @101 SAY DESC @201
+  COPY_EXISTING ~%frag%.ITM~  ~override~			
+    SAY NAME1 @102 SAY UNIDENTIFIED_DESC @202 
+    SAY NAME2 @102 SAY DESC @202
+  COPY_EXISTING ~%scorcher%.ITM~  ~override~			
+    SAY NAME1 @103 SAY UNIDENTIFIED_DESC @203 
+    SAY NAME2 @103 SAY DESC @203
+  COPY_EXISTING ~%bigmetalunit%.ITM~  ~override~			
+    SAY NAME1 @901 SAY UNIDENTIFIED_DESC @902 
+    SAY NAME2 @104 SAY DESC @204
+  COPY_EXISTING ~%prototype%.ITM~  ~override~			
+    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @405 
+    SAY NAME2 @105 SAY DESC @405
+  COPY_EXISTING ~%pulseIII%.ITM~  ~override~			
+    SAY NAME1 @109 SAY UNIDENTIFIED_DESC @209 
+    SAY NAME2 @109 SAY DESC @209
+
+
+  //for BG1 (different text)
+  COPY_EXISTING ~%bigmetalrod%.ITM~  ~override/%metalrodb%.ITM~
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @500 
+    SAY NAME2 @100 SAY DESC @500
+    WRITE_LONG 0x34 300    // 300 gold
+
+  COPY_EXISTING ~%prototype%.ITM~  ~override/%prototypeb%.ITM~
+    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @505 
+    SAY NAME2 @105 SAY DESC @505
+
+
+  //Quest items (BG2)
+  COPY_EXISTING ~%bigmetalrod%.ITM~  ~override/%brokenrod%.ITM~
+    SAY NAME1 @150 SAY UNIDENTIFIED_DESC @250 
+    SAY NAME2 @150 SAY DESC @250
+    LPF DELETE_ITEM_HEADER INT_VAR header_type=~-1~ END
+    WRITE_SHORT 0x1c 0    // change item type
+    WRITE_LONG  0x34 0    // 0 gold
+
+  COPY ~%files%/repairmanual.ITM~  ~override/%repairbook%.ITM~
+    SAY NAME1 @155 SAY UNIDENTIFIED_DESC @255
+    SAY NAME2 @155 SAY DESC @255
+END
+
+
+//IWDEE
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+  COPY ~%data%~  ~override~
+  COPY ~%extra%~  ~override~
+
+  //Big Metal items
+  COPY_EXISTING ~%bigmetalrod%.ITM~  ~override~
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @200 
+    SAY NAME2 @100 SAY DESC @200
+  COPY_EXISTING ~%pulse%.ITM~  ~override~			
+    SAY NAME1 @101 SAY UNIDENTIFIED_DESC @201 
+    SAY NAME2 @101 SAY DESC @201
+  COPY_EXISTING ~%frag%.ITM~  ~override~			
+    SAY NAME1 @102 SAY UNIDENTIFIED_DESC @202 
+    SAY NAME2 @102 SAY DESC @202
+  COPY_EXISTING ~%scorcher%.ITM~  ~override~			
+    SAY NAME1 @103 SAY UNIDENTIFIED_DESC @203 
+    SAY NAME2 @103 SAY DESC @203
+  COPY_EXISTING ~%bigmetalunit%.ITM~  ~override~			
+    SAY NAME1 @901 SAY UNIDENTIFIED_DESC @902 
+    SAY NAME2 @104 SAY DESC @204
+  COPY_EXISTING ~%prototype%.ITM~  ~override~			
+    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @205 
+    SAY NAME2 @105 SAY DESC @205
+  COPY_EXISTING ~%pulseIII%.ITM~  ~override~			
+    SAY NAME1 @109 SAY UNIDENTIFIED_DESC @209 
+    SAY NAME2 @109 SAY DESC @209
+  
+  //Pantaloons
+  COPY_EXISTING ~%bronze%.ITM~  ~override~							
+    SAY NAME1 @106 SAY UNIDENTIFIED_DESC @206 
+    SAY NAME2 @106 SAY DESC @206
+  COPY_EXISTING ~%silver%.ITM~  ~override~							
+    SAY NAME1 @107 SAY UNIDENTIFIED_DESC @207 
+    SAY NAME2 @107 SAY DESC @207
+  COPY_EXISTING ~%gold%.ITM~  ~override~							
+    SAY NAME1 @108 SAY UNIDENTIFIED_DESC @900 
+    SAY NAME2 @108 SAY DESC @208
+END
+
+
+//IWD1
+ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
+  COPY ~%iwd1%~  ~override~
+  COPY ~%extra%~  ~override~
+
+  //Big Metal items
+  COPY_EXISTING ~%bigmetalrod%.ITM~  ~override~
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @600 
+    SAY NAME2 @100 SAY DESC @600
+  COPY_EXISTING ~%pulse%.ITM~  ~override~			
+    SAY NAME1 @101 SAY UNIDENTIFIED_DESC @601 
+    SAY NAME2 @101 SAY DESC @601
+  COPY_EXISTING ~%frag%.ITM~  ~override~			
+    SAY NAME1 @102 SAY UNIDENTIFIED_DESC @602 
+    SAY NAME2 @102 SAY DESC @602
+  COPY_EXISTING ~%scorcher%.ITM~  ~override~			
+    SAY NAME1 @103 SAY UNIDENTIFIED_DESC @603 
+    SAY NAME2 @103 SAY DESC @603
+  COPY_EXISTING ~%bigmetalunit%.ITM~  ~override~			
+    SAY NAME1 @901 SAY UNIDENTIFIED_DESC @902 
+    SAY NAME2 @104 SAY DESC @604
+  COPY_EXISTING ~%prototype%.ITM~  ~override~			
+    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @605 
+    SAY NAME2 @105 SAY DESC @605
+  COPY_EXISTING ~%pulseIII%.ITM~  ~override~			
+    SAY NAME1 @109 SAY UNIDENTIFIED_DESC @609 
+    SAY NAME2 @109 SAY DESC @609
+  
+  //Pantaloons
+  COPY_EXISTING ~%bronze%.ITM~  ~override~							
+    SAY NAME1 @106 SAY UNIDENTIFIED_DESC @606 
+    SAY NAME2 @106 SAY DESC @606
+  COPY_EXISTING ~%silver%.ITM~  ~override~							
+    SAY NAME1 @107 SAY UNIDENTIFIED_DESC @607 
+    SAY NAME2 @107 SAY DESC @607
+  COPY_EXISTING ~%gold%.ITM~  ~override~							
+    SAY NAME1 @108 SAY UNIDENTIFIED_DESC @900 
+    SAY NAME2 @108 SAY DESC @608
+END
+
+
+//IWD2
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+  COPY ~%iwd2%~  ~override~
+  COPY ~%extra%~  ~override~
+
+  //Big Metal items
+  COPY_EXISTING ~%bigmetalrod%.ITM~  ~override~							
+    SAY NAME1 @100 SAY UNIDENTIFIED_DESC @700 
+    SAY NAME2 @100 SAY DESC @700
+  COPY_EXISTING ~%pulse%.ITM~  ~override~			
+    SAY NAME1 @101 SAY UNIDENTIFIED_DESC @701 
+    SAY NAME2 @101 SAY DESC @701
+  COPY_EXISTING ~%frag%.ITM~  ~override~			
+    SAY NAME1 @102 SAY UNIDENTIFIED_DESC @702 
+    SAY NAME2 @102 SAY DESC @702
+  COPY_EXISTING ~%scorcher%.ITM~  ~override~			
+    SAY NAME1 @103 SAY UNIDENTIFIED_DESC @703 
+    SAY NAME2 @103 SAY DESC @703
+  COPY_EXISTING ~%bigmetalunit%.ITM~  ~override~			
+    SAY NAME1 @921 SAY UNIDENTIFIED_DESC @922 
+    SAY NAME2 @104 SAY DESC @704
+  COPY_EXISTING ~%prototype%.ITM~  ~override~			
+    SAY NAME1 @105 SAY UNIDENTIFIED_DESC @705 
+    SAY NAME2 @105 SAY DESC @705
+  COPY_EXISTING ~%pulseIII%.ITM~  ~override~			
+    SAY NAME1 @109 SAY UNIDENTIFIED_DESC @709 
+    SAY NAME2 @109 SAY DESC @709
+
+  //Pantaloons
+  COPY_EXISTING ~%bronze%.ITM~  ~override~							
+    SAY NAME1 @106 SAY UNIDENTIFIED_DESC @706 
+    SAY NAME2 @106 SAY DESC @706
+  COPY_EXISTING ~%silver%.ITM~  ~override~							
+    SAY NAME1 @107 SAY UNIDENTIFIED_DESC @707 
+    SAY NAME2 @107 SAY DESC @707
+  COPY_EXISTING ~%gold%.ITM~  ~override~							
+    SAY NAME1 @108 SAY UNIDENTIFIED_DESC @920 
+    SAY NAME2 @108 SAY DESC @708
+END
+
+
+
+//Update BG2 files
+ACTION_PHP_EACH update_items AS mod => base BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
+    ACTION_IF (FILE_EXISTS ~override/%mod%.ITM~) BEGIN
+      COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
+    END
+  END
+END
+
+
+
+//elemental weapons (for Better IWD Pregen scripts)
+LAF d2_elemental_weapon_arrays STR_VAR item=~%frag%~ element=~fire~ RET_ARRAY d2fireweap END
+LAF d2_elemental_weapon_arrays STR_VAR item=~%scorcher%~ element=~fire~ RET_ARRAY d2fireweap END
+
+
+/*
+*/

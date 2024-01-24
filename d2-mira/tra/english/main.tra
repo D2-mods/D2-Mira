@@ -4,6 +4,25 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 */
 
 
+/*
+//Dialogue (IWD1, IWDEE)
+//Dialogue (IWD2)
+//Dialogue (BGEE)
+//Dialogue (BG2)
+//Journal entries (IWD1, IWDEE)
+//Journal entries (BGEE/SoD)
+//Journal entries (BG2)
+//Item text (EEs)
+//Quest items
+//Unidentified text (IWDEE)
+//Unidentified text (IWD2)
+//Alt text (BG2)
+//Alt text (BG1)
+//Alt text (IWD1)
+//Alt text (IWD2)
+*/
+
+
 //Dialogue (IWD1, IWDEE)
 
 //Oswald (party has Big Metal Rod)
@@ -18,6 +37,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@10131 = ~Thank you. Here you are then, the Pulse Ammunition (prototype). You know, I've heard that a more advanced version of this ammo has already been invented. Perhaps someone else in Kuldahar might know more about it.~
 
+//
 //Oswald (no Big Metal Rod)
 @10141 = ~That object on the table. Is that a crossbow bolt?~
 
@@ -25,6 +45,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@10152 = ~I had heard that a Big Metal Rod was spotted in Easthaven. But, well, with the pass being blocked off...~
 
 
+//
 //Orrick (party has prototype from Oswald)
 @10201 = ~Oswald lent me this prototype ammo. Would you happen to know anything about it?~
 @10202 = ~So about that prototype ammo we were discussing earlier...~
@@ -43,6 +64,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@10252 = ~There is another version of this ammo in development, but one of the prototypes has been lost. Perhaps you may come upon it in your travels, some place, far away from Kuldahar.~
 
 
+//
 //Tiernon (party has all 3 pantaloons)
 @10301 = ~Sorry, give me a moment. These things keep getting in the way. (Take out the pantaloons)~
 
@@ -54,6 +76,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@10331 = ~Aye, I'm indebted to ye. Here. Take this. Do ye better than these old pantaloons, I'd reckon.~
 
 
+//
 //Hobart (party has any earlier Pulse Ammunition)
 @10401 = ~Hobart, maybe you'd know something about this. It's called a Pulse Ammunition. There's supposedly a prototype of this ammo that was lost some time ago...~
 
@@ -65,6 +88,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@10431 = ~Eh, here it is. Don't ask me what it does. One of the orc-wits I brought here had it on her corpse, heh.~
 
 
+//
 //Edion
 @10501 = ~Is that a pair of pantaloons? Can I buy it from you?~
 @10502 = ~I can't help but notice those pantalettes you're clutching...~
@@ -77,6 +101,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @10523 = ~Not right away. I'll come back for it, Edion.~
 
 
+//
 //Emmerich
 @10601 = ~What's that strange device on the table?~
 @10602 = ~By chance, have you come across any special weapons around here?~
@@ -89,6 +114,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 
+//
 //Dialogue (IWD2)
 
 //Oswald (crashed ship)
@@ -110,6 +136,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20171 = ~Do keep an eye out for it, will you? I think you'll find the prototype quite useful in your travels. I've even heard that a more advanced version of the ammo has already been invented...~
 
 
+//
 //Beodaewn (8000), if has Rod + Oswald info
 @20201 = ~Beodaewn, have you, by chance, come across this item? Here's a drawing of it. (Show drawing of prototype ammo)~
 
@@ -121,6 +148,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20231 = ~Very good, friend. Here is your item.~
 
 
+//
 //Zack Boosenburry (3000), if has Rod + Oswald info
 @20301 = ~Zach, have you, by chance, come across this item? Here's a drawing of it. (Show drawing of prototype ammo)~
 
@@ -132,6 +160,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20331 = ~Excellent. It's a done deal then.~
 
 
+//
 //Nym (10000), if has prototype
 @20401 = ~Nym, you must've come across a lot of magical items. Maybe you'd know something about this. I have this prototype ammo...~
 
@@ -146,6 +175,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20432 = ~Very good, darthiir. Take it - the Pulse Ammunition.~          // if Player1 is Elf
 
 
+//
 //Bered (5000), if has prototype
 @20501 = ~Bered, perhaps you might know something about this. I have this prototype ammo...~
 
@@ -158,6 +188,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20531 = ~Much thanks to you, traveler. Wait one moment... here it is. The Pulse Ammunition.~
 
 
+//
 //Conlan (if 3 pantaloons)
 @20601 = ~Sorry, give me a moment. These things keep getting in the way. (Accidently show Conlan the pantaloons)~
 
@@ -169,6 +200,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20631 = ~Aye, I'm indebted to you. Here. Take this. Do you better than these old pantaloons, I'd wager.~
 
 
+//
 //Riki (15000), if has Rod + Pulse (normal or prototype)
 @20701 = ~Actually, I have something here called a Pulse Ammunition. I've heard rumors of an advanced version of this ammo. Perhaps you've come across something like that?~
 
@@ -182,6 +214,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20731 = ~It's agreed then, adventurer. And here's the Pulse III.~
 
 
+//
 //Oswald (Kuldahar)
 @20801 = ~Oswald, what's that strange device on the table?~
 @20802 = ~Do you have any special weapons we could make use of? Anything would help.~
@@ -192,6 +225,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@20814 = ~You should try it out with the Big Metal Rod. I've even heard that a more advanced version of this ammo has already been invented...~
 
 
+//
 //Nathaniel
 @20901 = ~Is that a pair of pantaloons? Can I buy it from you?~
 @20902 = ~I can't help but notice those pantalettes you're clutching...~
@@ -205,6 +239,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 
+//
 //Dialogue (BGEE)
 
 //Black Lily
@@ -218,7 +253,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@30131 = ~It's agreed then. Now, what will ye need today?~
 
-
+//
 //Halbazzer (SoD)
 @30201 = ~What's that strange device hidden behind the counter?~
 @30202 = ~Do you have any special weapons we could make use of? Anything would help.~
@@ -230,7 +265,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @30221 = ~That sounds fair. I'll take it.~  // if 3000 gold
 @30222 = ~Perhaps another time.~
 
-
+//
 //Diviner
 @30301 = ~Any interesting weapons hidden around the city?~
 @30302 = ~Where is the Big Metal Rod?~
@@ -240,6 +275,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 
+//
 //Dialogue (BG2)
 
 //Ribald
@@ -265,7 +301,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 	@40152 = ~Who knows, eh? Maybe ye'll run into someone, be it human, elf, or imp, that could make it worth yer while.~
 	@40153 = ~All right then, but if ye change yer thinks, you know where to come.~
 
-
+//
 //Cespenar
 	@40201 = ~Let's see... ooo! Is big rod? Why calls it big rod? Good for cracking open head, maybe.~ [BOTSM03]
 
@@ -279,7 +315,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@40241 = ~I keeps looking. You has lots here...~ [BOTSM38]
 
-
+//
 //Lehtinan
 @40301 = ~By chance, have you heard anything about a Big Metal Rod? ~
 
@@ -294,7 +330,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@40351 = ~(Hurrm.) The Planar Sphere... if you can open the sealed door. Your Repair Manual will... most likely... be found within.~
 
-
+//
 //Hendak (after freeing)
 @40401 = ~By chance, have you heard anything about a Big Metal Rod?~
 @40402 = ~Could you repeat what you said about that Repair Manual for the Big Metal Rod?~
@@ -309,6 +345,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 
+//
 //Journal entries (IWD1, IWDEE)
 @10001 = ~Today, we found a strange device in the upper room at Pomab's Emporium. It seems to be a crossbow of some sort. Perhaps if we could speak to an inventor, we could learn more about it.~
 @10002 = ~We acquired the Pulse Ammunition (prototype) from Oswald. He mentioned, as we were leaving, that a more advanced version of the ammo has already been invented.~
@@ -317,6 +354,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @10005 = ~~
 
 
+//
 //Journal entries (IWD2)
 @20001 = ~Oswald tells us that a prototype ammo, called a Pulse Ammunition, had likely fallen from the ship during the landing. If true, it is unlikely to have fallen far from the ship. He gave us a drawing of the prototype to help us identify it. Perhaps, someone in the nearby area has seen it, or even near that temple we saw before the crash.~
 @20002 = ~~
@@ -325,6 +363,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @20005 = ~~
 
 
+//
 //Journal entries (BGEE/SoD)
 @30001 = ~An Interesting Weapon
 
@@ -339,6 +378,7 @@ In Baldur's Gate, a seer told me that the Big Metal Rod is in Lucky Aello's Disc
 @30005 = ~~
 
 
+//
 //Journal entries (BG2)
 @40001 = ~Repairman Ribald
 
@@ -366,7 +406,7 @@ Hendak mentioned 3 possibilities: the Cowled Wizards, de'Arnise Keep, and the Pl
 
 
 
-
+//
 //Item text (EEs)
 @100 = ~Big Metal Rod~
 @200 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
@@ -473,6 +513,7 @@ Weight: 5~
 
 
 
+//
 //Quest items
 @150 = ~Big Metal Rod?~
 @250 = ~This seems to be a malfunctioned crossbow. Any attempt to operate it proves unsuccessful. The name, "Big Metal Rod", is inscribed on the weapon.
@@ -490,6 +531,7 @@ Weight: 2~
 
 
 
+//
 //Unidentified text (IWDEE)
 
 //Golden Pantaloons
@@ -509,6 +551,7 @@ STATISTICS:
 Weight: 45~
 
 
+//
 //Unidentified text (IWD2)
 
 //Golden Pantaloons
@@ -530,6 +573,7 @@ Weight: 45 lb.~
 
 
 
+//
 //Alt text (BG2)
 
 //Pulse Ammunition (prototype)
@@ -541,6 +585,7 @@ Weight: 0~
 
 
 
+//
 //Alt text (BG1)
 
 //Big Metal Rod
@@ -559,6 +604,7 @@ Weight: 0~
 
 
 
+//
 //Alt text (IWD1)
 
 //Big Metal Rod
@@ -667,6 +713,7 @@ Not Usable By:~
 
 
 
+//
 //Alt text (IWD2)
 
 //Big Metal Rod

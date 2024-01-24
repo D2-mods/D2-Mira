@@ -2,7 +2,7 @@
 //Add to Hobart's dialogues
 
 
-EXTEND_BOTTOM ~DHOBART~ 19 29 38 39
+EXTEND_BOTTOM ~DHOBART~ 19 29 38 39 41
 
 IF ~ PartyHasItem("%bigmetalrod%")  // has Big Metal Rod
      OR(2)
