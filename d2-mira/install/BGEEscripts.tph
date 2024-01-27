@@ -1,7 +1,7 @@
 //Standard Installation
 
 /*
-Sets some variables for BGEE
+Variables, journal entry, store items for BGEE
 */
 
 
@@ -36,19 +36,20 @@ END
 COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
   EVALUATE_BUFFER
 
-EXTEND_TOP ~%bg1%0800.BCS~  ~%workspace%/variables.BAF~
-EXTEND_TOP ~%bg1%2600.BCS~  ~%workspace%/variables.BAF~
+EXTEND_TOP ~%baldursgate%.BCS~  ~%workspace%/variables.BAF~
+EXTEND_TOP ~%candlekeep%.BCS~  ~%workspace%/variables.BAF~
 
 
 
-//BGEE: Journal entry + add Rod to store
+//
+//BG1: Black Lily journal entry
 <<<<<<<< .../temp/blacklily
 IF
 	Global("d2BlackLilyTalk","GLOBAL",1)
 THEN
 	RESPONSE #100
 		SetGlobal("d2BlackLilyTalk","GLOBAL",2)
-		SetGlobalTimer("d2JournalDelay","GLOBAL",5)
+		SetGlobalTimer("d2JournalDelay","GLOBAL",3)
 		Continue()
 END
 
@@ -61,7 +62,23 @@ THEN
 		AddJournalEntry(@30001,INFO)
 		Continue()
 END
+>>>>>>>>
 
+COPY - ~.../temp/blacklily~  ~%workspace%/blacklily.BAF~
+  EVALUATE_BUFFER
+
+EXTEND_TOP ~%baldursgate%.BCS~  ~%workspace%/blacklily.BAF~
+EXTEND_TOP ~%thiefguild%.BCS~  ~%workspace%/blacklily.BAF~
+
+
+
+//
+//BGEE: add Metal Rod (note: AddStoreItem is EE-only)
+
+/*add to store by script (old version)
+ACTION_IF (RESOURCE_CONTAINS ~ACTION.IDS~ ~AddStoreItem~) BEGIN
+
+<<<<<<<< .../temp/luckystore
 IF
 	GlobalGT("d2BlackLilyTalk","GLOBAL",0)
 	!Global("d2LuckyAelloBigMetal","GLOBAL",1)
@@ -73,13 +90,42 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/blacklily~  ~%workspace%/blacklily.BAF~
+COPY - ~.../temp/luckystore~  ~%workspace%/luckystore.BAF~
   EVALUATE_BUFFER
+EXTEND_BOTTOM ~%baldursgate%.BCS~  ~%workspace%/luckystore.BAF~
+EXTEND_BOTTOM ~%luckystore%.BCS~  ~%workspace%/luckystore.BAF~
 
-EXTEND_TOP ~%bg1%0800.BCS~  ~%workspace%/blacklily.BAF~
+END
+*/
+
+//
+//add to container in store (new version)
+<<<<<<<< .../temp/luckybarrel
+IF
+	GlobalGT("d2BlackLilyTalk","GLOBAL",0)
+	!Global("d2LuckyAelloBigMetal","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2LuckyAelloBigMetal","GLOBAL",1)
+		ActionOverride("Container3",CreateItem("%metalrodb%",0,0,0))    // Container3 is non-trapped
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/luckybarrel~  ~%workspace%/luckybarrel.BAF~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~%luckystore%.BCS~  ~%workspace%/luckybarrel.BAF~
+
+//check if area has script set
+ACTION_IF (FILE_EXISTS_IN_GAME ~%luckystore%.ARE~) BEGIN
+  COPY_EXISTING ~%luckystore%.ARE~  ~override~
+    WRITE_ASCII 0x94 ~%luckystore%~ #8
+  BUT_ONLY
+END
 
 
 
+//
 //SoD: Journal entry
 <<<<<<<< .../temp/sodhalbaz
 IF
@@ -106,13 +152,14 @@ END
 COPY - ~.../temp/sodhalbaz~  ~%workspace%/sodhalbaz.BAF~
   EVALUATE_BUFFER
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~bd0020.BCS~) BEGIN
+ACTION_IF (FILE_EXISTS_IN_GAME ~bd0020.ARE~) BEGIN
   EXTEND_TOP ~bd0020.BCS~  ~%workspace%/sodhalbaz.BAF~
   EXTEND_TOP ~bd0020.BCS~  ~%workspace%/variables.BAF~
 END
 
 
 
+//
 //SoD: Add Rod and/or Pulse (prototype)
 <<<<<<<< .../temp/RodPulse
 IF
@@ -143,7 +190,7 @@ END
 COPY - ~.../temp/RodPulse~  ~%workspace%/siegecamp.BAF~
   EVALUATE_BUFFER
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~bd3000.BCS~) BEGIN
+ACTION_IF (FILE_EXISTS_IN_GAME ~bd3000.ARE~) BEGIN
   EXTEND_TOP ~bd3000.BCS~ ~%workspace%/siegecamp.BAF~
   EXTEND_TOP ~bd3000.BCS~ ~%workspace%/variables.BAF~
 END

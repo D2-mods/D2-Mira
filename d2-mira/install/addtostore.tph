@@ -5,7 +5,7 @@ BGEE does not appear here, as everything is added by scripts or dialogues.
 
 
 //IWD1, IWDEE
-ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
+ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
 
 ACTION_IF (mira = 1) BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~AR1016.ARE~) BEGIN
@@ -63,6 +63,7 @@ ACTION_IF (mira = 1) BEGIN
     LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%frag%~ position=~LAST~ flags=~identified~ END
   BUT_ONLY
   
+  COPY_EXISTING ~AR6102.ARE~ ~override/d2scorcher0.ARE~    // make backup (workaround for IWD2 issue)
   COPY_EXISTING ~AR6102.ARE~ ~override~
     LPF ADD_AREA_ITEM INT_VAR container_to_add_to=7 STR_VAR item_to_add=~%scorcher%~ END
   BUT_ONLY

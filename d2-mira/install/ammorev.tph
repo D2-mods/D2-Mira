@@ -6,7 +6,7 @@ Default is 3 APR, +3 enchantment (Scorcher/Frag Grenade).
 
 //prep
 ACTION_IF (ammo = 2) BEGIN  
-  OUTER_SET frag_dice=1 OUTER_SET frag_roll=12    // frag does 1d12 (only used with vanilla BG2)
+  OUTER_SET frag_dice=1 OUTER_SET frag_roll=12    // frag does 1d12 (only used for vanilla BG2)
 END ELSE BEGIN
   OUTER_SET frag_dice=3 OUTER_SET frag_roll=4     // frag does 3d4
 END
@@ -18,11 +18,10 @@ ACTION_IF (ammo = 4) BEGIN  OUTER_SET attacks=5 OUTER_SET enchant=3 END  // 5 AP
 ACTION_IF (ammo = 5) BEGIN  OUTER_SET attacks=5 OUTER_SET enchant=5 END  // 5 APR, +5 enchantment
 
 
-
 //
 //patch Scorcher and Frag Grenade
 COPY_EXISTING ~%frag%.ITM~  ~override~
-  LPF ALTER_EFFECT INT_VAR header_type=2 match_opcode=12 dicenumber=frag_dice dicesize=frag_roll END
+  LPF ALTER_EFFECT INT_VAR header_type=2 silent=1 match_opcode=12 dicenumber=frag_dice dicesize=frag_roll END
   LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter1=attacks END
   WRITE_LONG 0x60 enchant
 BUT_ONLY
@@ -32,6 +31,17 @@ COPY_EXISTING ~%scorcher%.ITM~  ~override~
   WRITE_LONG 0x60 enchant
 BUT_ONLY
 
+
+//
+//for classic BG2 with safe ammo (if this is installed after)
+ACTION_IF (FILE_EXISTS ~override/%frag%.EFF~) BEGIN
+  ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 40) BEGIN
+    COPY_EXISTING ~%frag%.EFF~  ~override~
+      WRITE_SHORT 0x38 frag_dice
+      WRITE_SHORT 0x3c frag_roll
+    BUT_ONLY
+  END
+END
 
 
 //
@@ -51,16 +61,9 @@ BUT_ONLY
 END
 
 
-
 //
 //Update BG2 files
-ACTION_PHP_EACH update_items AS mod => base BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
-    ACTION_IF (FILE_EXISTS ~override/%mod%.ITM~) BEGIN
-      COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
-    END
-  END
-END
+INCLUDE ~%install%/updatebg2.tph~
 
 
 /*

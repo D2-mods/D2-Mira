@@ -20,9 +20,9 @@ APPEND ~60NATHA2~
 
 IF ~~ BEGIN NathanielSilver
   SAY @20911  // Nathaniel says stuff
-  IF ~ PartyGoldGT(14999)  // if 15000 gold
+  IF ~ PartyGoldGT(5999)  // if 6000 gold
      ~ REPLY @20921 DO ~ SetGlobal("d2HasSilverPants","GLOBAL",1)  // accept offer
-                         TakePartyGold(15000)
+                         TakePartyGold(6000)
                          GiveItemCreate("%silver%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~
@@ -32,9 +32,9 @@ END
 
 IF ~~ BEGIN NathanielBronze
   SAY @20912  // Nathaniel says stuff
-  IF ~ PartyGoldGT(7999)  // if 8000 gold
+  IF ~ PartyGoldGT(2999)  // if 3000 gold
      ~ REPLY @20922 DO ~ SetGlobal("d2HasBronzePants","GLOBAL",1)  // accept offer
-                         TakePartyGold(8000)
+                         TakePartyGold(3000)
                          GiveItemCreate("%bronze%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~

@@ -1,0 +1,91 @@
+/*
+Update DLG or BCS files (give items max charges)
+*/
+
+
+//array with default lines
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_charges BEGIN
+//bg1/sod
+~BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0)~
+~BDHALBAZ.DLG~  => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0)~
+
+//bg2/tob
+~RIBALD.DLG~    => ~GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)~
+~BOTSMITH.BCS~  => ~GiveItemCreate("%pulseIII%",Player1,0,0,0)~
+
+//iwd1/how
+~DOSWALD.DLG~   => ~GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)~
+~DORRICK.DLG~   => ~GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0)~
+~DEMMRCH.DLG~   => ~GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0)~
+~DHOBART.DLG~   => ~GiveItemCreate("%pulseIII%",LastTalkedToBy,0,0,0)~
+
+//iwd2
+~40BDAWN.DLG~   => ~GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)~
+~41ZACK.DLG~    => ~GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)~
+~50NYM.DLG~     => ~GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0)~
+~52BERED.DLG~   => ~GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0)~
+~11OSWALD.DLG~  => ~GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0)~
+~20RIKI.DLG~    => ~GiveItemCreate("%pulseIII%",LastTalkedToBy,0,0,0)~
+END
+
+
+//array with patched lines
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_charges_patched BEGIN
+//bg1/sod
+~BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,%charges%,0,0)~
+~BDHALBAZ.DLG~  => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,%charges%,0,0)~
+
+//bg2/tob
+~RIBALD.DLG~    => ~GiveItemCreate("%prototype%",LastTalkedToBy,%charges%,0,0)~
+~BOTSMITH.BCS~  => ~GiveItemCreate("%pulseIII%",Player1,%charges%,0,0)~
+
+//iwd1/how
+~DOSWALD.DLG~   => ~GiveItemCreate("%prototype%",LastTalkedToBy,%charges%,0,0)~
+~DORRICK.DLG~   => ~GiveItemCreate("%pulse%",LastTalkedToBy,%charges%,0,0)~
+~DEMMRCH.DLG~   => ~GiveItemCreate("%pulse%",LastTalkedToBy,%charges%,0,0)~
+~DHOBART.DLG~   => ~GiveItemCreate("%pulseIII%",LastTalkedToBy,%charges%,0,0)~
+
+//iwd2
+~40BDAWN.DLG~   => ~GiveItemCreate("%prototype%",LastTalkedToBy,%charges%,0,0)~
+~41ZACK.DLG~    => ~GiveItemCreate("%prototype%",LastTalkedToBy,%charges%,0,0)~
+~50NYM.DLG~     => ~GiveItemCreate("%pulse%",LastTalkedToBy,%charges%,0,0)~
+~52BERED.DLG~   => ~GiveItemCreate("%pulse%",LastTalkedToBy,%charges%,0,0)~
+~11OSWALD.DLG~  => ~GiveItemCreate("%pulse%",LastTalkedToBy,%charges%,0,0)~
+~20RIKI.DLG~    => ~GiveItemCreate("%pulseIII%",LastTalkedToBy,%charges%,0,0)~
+END
+
+
+
+//patch items
+ACTION_PHP_EACH d2mira_charges AS file_to_patch => old_line BEGIN
+  ACTION_IF (FILE_EXISTS ~override/%file_to_patch%~) BEGIN
+    COPY_EXISTING ~%file_to_patch%~  ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        PHP_EACH d2mira_charges_patched AS match_file => new_line BEGIN
+          PATCH_IF (~%file_to_patch%~ STR_EQ ~%match_file%~) BEGIN
+            REPLACE_TEXTUALLY EXACT_MATCH ~%old_line%~  ~%new_line%~
+          END
+        END
+      END
+    BUT_ONLY
+  END
+END
+
+
+//
+//BG2 patch Amkethran smith
+ACTION_IF (FILE_EXISTS_IN_GAME ~AMSMITH.DLG~) BEGIN
+  COPY_EXISTING ~AMSMITH.DLG~  ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      PATCH_FOR_EACH ammo_type IN ~secret02~ ~secret03~ ~secret04~ BEGIN
+         TEXT_SPRINT old_line ~GiveItemCreate("%ammo_type%",LastTalkedToBy(),0,0,0)~
+         TEXT_SPRINT new_line ~GiveItemCreate("%ammo_type%",LastTalkedToBy(),%charges%,0,0)~
+         REPLACE_TEXTUALLY EXACT_MATCH ~%old_line%~ ~%new_line%~
+      END
+    END
+  BUT_ONLY
+END
+
+
+/*
+*/

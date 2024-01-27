@@ -2,6 +2,7 @@
 Text here appears in the weidu installer
 */
 
+
 //Setup
 @9999 = ~The Big Metal Unit mod~
 	@1 = ~Standard Installation~
@@ -25,7 +26,7 @@ Text here appears in the weidu installer
 	@31 = ~Fire (default)~
 	@32 = ~Slashing~
 
-@40 = ~Make Scorcher and Frag Grenade more party friendly (EEs)~
+@40 = ~Make Scorcher and Frag Grenade more party friendly (EEs, BG2)~
 	@41 = ~Yes (will damage PCs only if launcher has damage bonus)~
 	@42 = ~No (default)~
 
@@ -36,6 +37,12 @@ Text here appears in the weidu installer
 @50 = ~Pulse ammo does double damage on a critical hit (EEs)~
 	@51 = ~Yes~
 	@52 = ~No (default)~
+
+@60 = ~Adjust ammo charges (default is unlimited)~
+	@61 = ~Unlimited (default)~
+	@62 = ~120 charges~
+	@63 = ~80 charges~
+	@64 = ~40 charges~
 
 
 /*

@@ -1,4 +1,5 @@
 //Use to add items to d2#mbag (empty by default)
+//
 
 COPY_EXISTING ~d2#mbag.STO~ ~override~
   LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%bigmetalunit%~ flags = ~identified~ END
@@ -7,3 +8,6 @@ COPY_EXISTING ~d2#mbag.STO~ ~override~
   LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%pulse%~        flags = ~identified~ END
   LPF ADD_STORE_ITEM_EX STR_VAR item_name = ~%bigmetalrod%~  flags = ~identified~ END
 BUT_ONLY
+
+/*
+*/

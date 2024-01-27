@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~4.3~
+VERSION ~4.4~
 AUTO_EVAL_STRINGS
 
 ALWAYS
@@ -25,15 +25,16 @@ ALWAYS
       reload_array     = ~d2reload~
   END
 
-  OUTER_TEXT_SPRINT install  ~%MOD_FOLDER%/install~    // folder variables
-  OUTER_TEXT_SPRINT bgee     ~%MOD_FOLDER%/bgee~
-  OUTER_TEXT_SPRINT data     ~%MOD_FOLDER%/data~
-  OUTER_TEXT_SPRINT dfiles   ~%MOD_FOLDER%/dfiles~
-  OUTER_TEXT_SPRINT extra    ~%MOD_FOLDER%/extra~
-  OUTER_TEXT_SPRINT files    ~%MOD_FOLDER%/files~
-  OUTER_TEXT_SPRINT iwd1     ~%MOD_FOLDER%/iwd1~
-  OUTER_TEXT_SPRINT iwd2     ~%MOD_FOLDER%/iwd2~
-  OUTER_TEXT_SPRINT mbag     ~%MOD_FOLDER%/mbag~
+  OUTER_TEXT_SPRINT install   ~%MOD_FOLDER%/install~    // folder variables
+  OUTER_TEXT_SPRINT bgee      ~%MOD_FOLDER%/bgee~
+  OUTER_TEXT_SPRINT data      ~%MOD_FOLDER%/data~
+  OUTER_TEXT_SPRINT dfiles    ~%MOD_FOLDER%/dfiles~
+  OUTER_TEXT_SPRINT extra     ~%MOD_FOLDER%/extra~
+  OUTER_TEXT_SPRINT files     ~%MOD_FOLDER%/files~
+  OUTER_TEXT_SPRINT iwd1      ~%MOD_FOLDER%/iwd1~
+  OUTER_TEXT_SPRINT iwd2      ~%MOD_FOLDER%/iwd2~
+  OUTER_TEXT_SPRINT mbag      ~%MOD_FOLDER%/mbag~
+  OUTER_TEXT_SPRINT resource  ~%MOD_FOLDER%/resource~    // BG2 (classic) files
 
 END
 
@@ -48,7 +49,7 @@ The Big Metal Unit mod
 */
 
 BEGIN @1    // Standard Installation
-REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2 bgee bg2ee eet iwd how totlm~) ~Game not supported~
+REQUIRE_PREDICATE (GAME_IS ~iwdee iwd2 bgee bg2ee eet iwd how totlm bg2 tob tutu tutu_totsc ca iwd_in_bg2~) ~Game not supported~
 SUBCOMPONENT @9999
 LABEL ~D2-MIRA-TEC~
 OUTER_SET mira = 1
@@ -182,12 +183,12 @@ INCLUDE ~%install%/fragdamage.tph~
 
 
 /*
-Make Scorcher and Frag Grenade more party friendly (EEs)
+Make Scorcher and Frag Grenade more party friendly (EEs, BG2)
 */
 
 BEGIN @41    // Yes (will damage PCs only if launcher has damage bonus)
 DESIGNATED 40
-REQUIRE_PREDICATE (GAME_IS ~iwdee bgee bg2ee eet~) ~~
+REQUIRE_PREDICATE (GAME_IS ~iwdee bgee bg2ee eet bg2 tob tutu tutu_totsc ca iwd_in_bg2~) ~~
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @40
@@ -241,6 +242,45 @@ REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @50
 LABEL ~D2-MIRA-PULSECRIT0~
+
+
+
+/*
+Adjust ammo charges (default is unlimited)
+*/
+
+BEGIN @61    // Unlimited (default)
+DESIGNATED 60
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @60
+LABEL ~D2-MIRA-RECHARGE1~
+OUTER_SET recharge = 1
+INCLUDE ~%install%/recharge.tph~
+
+BEGIN @62    // 120 charges
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @60
+LABEL ~D2-MIRA-RECHARGE2~
+OUTER_SET recharge = 2
+INCLUDE ~%install%/recharge.tph~
+
+BEGIN @63    // 80 charges
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @60
+LABEL ~D2-MIRA-RECHARGE3~
+OUTER_SET recharge = 3
+INCLUDE ~%install%/recharge.tph~
+
+BEGIN @64    // 40 charges
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @60
+LABEL ~D2-MIRA-RECHARGE4~
+OUTER_SET recharge = 4
+INCLUDE ~%install%/recharge.tph~
 
 
 ////////////////////////////////////////////////////////////

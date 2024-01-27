@@ -10,11 +10,22 @@ IWD1/IWD2: Applies to Frag Grenade only (can't make it work with Scorcher projec
 
 ACTION_IF (GAME_IS ~iwdee bgee bg2ee eet~) BEGIN
   OUTER_SET effect_to_use = 318
+  OUTER_SET effect_target = 52
+  OUTER_SET target_type   = 0
 END
 
 ACTION_IF (GAME_IS ~iwd2 iwd how totlm~) BEGIN
   OUTER_SET effect_to_use = 206
+  OUTER_SET effect_target = 52
+  OUTER_SET target_type   = 0
 END
+
+ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
+  OUTER_SET effect_to_use = 177
+  OUTER_SET effect_target = 2
+  OUTER_SET target_type   = 255
+END
+
 
 
 ACTION_FOR_EACH ammo_type IN
@@ -25,28 +36,60 @@ BEGIN
   COPY_EXISTING ~%ammo_type%.ITM~  ~override~
     LPF ADD_ITEM_EFFECT
       INT_VAR
-        opcode        = ~%effect_to_use%~
+        opcode        = %effect_to_use%    // opcode
         target        = 2
-        parameter2    = 52    // ignore non-enemies (neutral NPCs still become hostile)
-        type          = 2     // ranged header (default = 3)
-        insert_point  = 0     // top effect (default = bottom)
+        parameter1    = %target_type%      // for op177 (classic BG2 engine)
+        parameter2    = %effect_target%    // set which targets are immune
+        type          = 2
+        insert_point  = 0
       STR_VAR
         resource      = ~%ammo_type%~
     END
+
+    PATCH_IF (effect_to_use = 177) BEGIN
+      LPF DELETE_EFFECT INT_VAR match_opcode=12 END
+    END
   BUT_ONLY
-      
+
+  ACTION_IF (~%ammo_type%~ STR_EQ ~%frag%~) BEGIN  OUTER_SET dice=3 OUTER_SET roll=4 END    // frag does 3d4
+  ACTION_IF (~%ammo_type%~ STR_EQ ~%scorcher%~) BEGIN  OUTER_SET dice=1 OUTER_SET roll=12 END    // scorcher does 2d12
+
+  ACTION_IF (effect_to_use = 177) BEGIN
+    COPY ~%files%/bg2safeammo.EFF~  ~override/%ammo_type%.EFF~
+      WRITE_SHORT 0x38 dice 
+      WRITE_SHORT 0x3c roll
+  END
+
 END
 
 
 //
-//Update BG2 files
-ACTION_PHP_EACH update_items AS mod => base BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
-    ACTION_IF (FILE_EXISTS ~override/%mod%.ITM~) BEGIN
-      COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
-    END
-  END
+//classic BG2: Scorcher allows save for half
+ACTION_IF (effect_to_use = 177) BEGIN
+  COPY ~%files%/bg2safescorch.EFF~  ~override/%scorcher%s.EFF~
+  COPY_EXISTING ~%scorcher%.ITM~  ~override~  
+    LPF CLONE_EFFECT STR_VAR match_resource=~%scorcher%~ resource=~%scorcher%s~ END
+  BUT_ONLY
 END
+
+
+//classic BG2: check Frag Grenade (damage type and rolls)
+ACTION_IF (effect_to_use = 177) BEGIN
+  COPY_EXISTING ~%frag%.EFF~  ~override~
+    PATCH_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 31) BEGIN    // if slashing damage
+      WRITE_SHORT 0x22 256
+    END
+    PATCH_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 11) BEGIN    // if vanilla BG2 stats
+      WRITE_SHORT 0x38 1 WRITE_SHORT 0x3c 12
+    END
+  BUT_ONLY
+END
+
+
+
+//
+//Update BG2 files
+INCLUDE ~%install%/updatebg2.tph~
 
 
 /*

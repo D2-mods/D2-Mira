@@ -2,7 +2,7 @@
 //Add to Edion's dialogues
 
 
-EXTEND_BOTTOM ~DEDION~ 9 10 11 12 16 29
+EXTEND_BOTTOM ~DEDION~ %edion_states%
 
 IF ~ !PartyHasItem("%silver%")
      Global("d2HasSilverPants","GLOBAL",0)
@@ -20,9 +20,9 @@ APPEND ~DEDION~
 
 IF ~~ BEGIN EdionSilver
   SAY @10511  // Edion says stuff
-  IF ~ PartyGoldGT(14999)  // if 15000 gold
+  IF ~ PartyGoldGT(5999)  // if 6000 gold
      ~ REPLY @10521 DO ~ SetGlobal("d2HasSilverPants","GLOBAL",1)  // accept offer
-                         TakePartyGold(15000)
+                         TakePartyGold(6000)
                          GiveItemCreate("%silver%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~
@@ -32,9 +32,9 @@ END
 
 IF ~~ BEGIN EdionBronze
   SAY @10512  // Edion says stuff
-  IF ~ PartyGoldGT(7999)  // if 8000 gold
+  IF ~ PartyGoldGT(2999)  // if 3000 gold
      ~ REPLY @10522 DO ~ SetGlobal("d2HasBronzePants","GLOBAL",1)  // accept offer
-                         TakePartyGold(8000)
+                         TakePartyGold(3000)
                          GiveItemCreate("%bronze%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~

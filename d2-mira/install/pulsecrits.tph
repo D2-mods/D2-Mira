@@ -54,13 +54,7 @@ END
 
 //
 //Update BG2 files
-ACTION_PHP_EACH update_items AS mod => base BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
-    ACTION_IF (FILE_EXISTS ~override/%mod%.ITM~) BEGIN
-      COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
-    END
-  END
-END
+INCLUDE ~%install%/updatebg2.tph~
 
 
 /*

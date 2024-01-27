@@ -1,0 +1,59 @@
+/*
+Adjust ammo charges (default is unlimited)
+*/
+
+
+//prep
+ACTION_IF (recharge = 1) BEGIN  OUTER_SET charges=0   OUTER_SET drained=1 OUTER_SET flag_recharge=0 END  // unlimited
+ACTION_IF (recharge = 2) BEGIN  OUTER_SET charges=120 OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 100 charges
+ACTION_IF (recharge = 3) BEGIN  OUTER_SET charges=80  OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 50 charges
+ACTION_IF (recharge = 4) BEGIN  OUTER_SET charges=40  OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 20 charges
+
+
+//
+//make function
+DEFINE_PATCH_FUNCTION pulserecharge BEGIN
+  LPF ALTER_ITEM_HEADER
+    INT_VAR
+      header_type    = 2
+      charges        = charges
+      drained        = drained
+      flag_recharge  = flag_recharge
+  END
+END
+
+
+//
+//patch items
+ACTION_FOR_EACH ammo_type IN
+ ~%pulse%~
+ ~%frag%~
+ ~%scorcher%~
+ ~%pulseIII%~
+ ~%prototype%~
+ ~%prototypeb%~
+BEGIN
+
+  ACTION_IF (FILE_EXISTS ~override/%ammo_type%.ITM~) BEGIN
+    COPY_EXISTING ~%ammo_type%.ITM~  ~override~
+      LPF pulserecharge END
+    BUT_ONLY
+  END
+
+END
+
+
+//update stores and dialogue
+ACTION_IF (recharge != 1) BEGIN
+  INCLUDE ~%install%/rechargestores.tph~
+  INCLUDE ~%install%/rechargetrades.tph~
+END
+
+
+//
+//Update BG2 files
+INCLUDE ~%install%/updatebg2.tph~
+
+
+/*
+*/

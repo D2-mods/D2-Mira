@@ -32,7 +32,7 @@ IF ~~ BEGIN OswaldGivesPulse
     = @20814
   IF ~~ DO ~ SetGlobal("d2HasPulseAmmo","GLOBAL",1)
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 
-           ~ EXIT
+           ~ JOURNAL @20002 EXIT
 END
 
 END

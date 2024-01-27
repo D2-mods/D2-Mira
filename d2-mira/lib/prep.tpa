@@ -2,27 +2,64 @@
 //
 
 
+//variable if tweak is installed later
+ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 0) BEGIN  
+  OUTER_SET mira = 1
+END ELSE BEGIN
+  OUTER_SET mira = 2
+END
+
+
+//
 //BG2 item array
+ACTION_IF !(GAME_IS ~iwdee iwd2 iwd how totlm~) BEGIN
 ACTION_DEFINE_ASSOCIATIVE_ARRAY update_items BEGIN    // mod => base
   d2tec01 => secret01
   d2tec02 => secret02
   d2tec03 => secret03
   d2tec04 => secret04
   d2tec05 => secret05
+  d2pant01 => MISCCB
+  d2pant02 => MISC5O
+  d2pant03 => MISC47
+END
 END
 
 
+//
 //BG1 ARE files
+ACTION_IF (GAME_IS ~bgee bg1 totsc~) BEGIN
+  OUTER_TEXT_SPRINT baldursgate ~AR0800~
+  OUTER_TEXT_SPRINT candlekeep  ~AR2600~
+  OUTER_TEXT_SPRINT luckystore  ~AR0810~
+  OUTER_TEXT_SPRINT thiefguild  ~AR0153~
+END
+
 ACTION_IF (GAME_IS ~eet~) BEGIN
-  OUTER_TEXT_SPRINT bg1 ~BG~    // EET
+  OUTER_TEXT_SPRINT baldursgate ~BG0800~
+  OUTER_TEXT_SPRINT candlekeep  ~BG2600~
+  OUTER_TEXT_SPRINT luckystore  ~BG0810~
+  OUTER_TEXT_SPRINT thiefguild  ~BG0153~
 END
-ELSE BEGIN
-  OUTER_TEXT_SPRINT bg1 ~AR~    // BGEE
+
+ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
+  OUTER_TEXT_SPRINT baldursgate ~FW0800~
+  OUTER_TEXT_SPRINT candlekeep  ~FW2600~
+  OUTER_TEXT_SPRINT luckystore  ~FW0810~
+  OUTER_TEXT_SPRINT thiefguild  ~FW0153~
+END
+
+ACTION_IF (GAME_IS ~bgt~) BEGIN
+  OUTER_TEXT_SPRINT baldursgate ~AR7800~
+  OUTER_TEXT_SPRINT candlekeep  ~AR0015~
+  OUTER_TEXT_SPRINT luckystore  ~AR7810~
+  OUTER_TEXT_SPRINT thiefguild  ~AR7253~
 END
 
 
+//
 //IWD1 Journal entries
-ACTION_IF (GAME_IS ~iwdee~) BEGIN
+ACTION_IF (GAME_IS ~iwdee iwd_in_bg2~) BEGIN
   OUTER_TEXT_SPRINT iwdjour01  ~@10001,INFO~
   OUTER_TEXT_SPRINT iwdjour02  ~@10002,INFO~
   OUTER_TEXT_SPRINT iwdjour03  ~@10003,INFO~
@@ -70,6 +107,7 @@ END
 OUTER_TEXT_SPRINT bronze  ~d2pant01~
 OUTER_TEXT_SPRINT silver  ~d2pant02~
 OUTER_TEXT_SPRINT gold    ~d2pant03~
+OUTER_TEXT_SPRINT mirabag ~d2#mbag~
 
 
 /*

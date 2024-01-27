@@ -9,17 +9,13 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Dialogue (IWD2)
 //Dialogue (BGEE)
 //Dialogue (BG2)
-//Journal entries (IWD1, IWDEE)
-//Journal entries (BGEE/SoD)
-//Journal entries (BG2)
-//Item text (EEs)
-//Quest items
-//Unidentified text (IWDEE)
-//Unidentified text (IWD2)
-//Alt text (BG2)
-//Alt text (BG1)
-//Alt text (IWD1)
-//Alt text (IWD2)
+//Journal entries
+//Item text (core items)
+//Big Metal Unit
+//Pantaloons
+//Item text (new ammo)
+//Item text (other)
+//Unidentified text
 */
 
 
@@ -93,8 +89,8 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @10501 = ~Is that a pair of pantaloons? Can I buy it from you?~
 @10502 = ~I can't help but notice those pantalettes you're clutching...~
 
-	@10511 = ~Of course, but you must understand... *cough* these are extremely valuable items. I would ask of you 15,000 gold for these Silver Pantaloons.~
-	@10512 = ~Most perceptive. Yes, the Bronze Pantalettes. There's not much to tell... *cough* *cough* a memento from my younger years. If it can help you, perhaps 8,000 gold will suffice.~
+	@10511 = ~Of course, but you must understand... *cough* these are extremely valuable items. I would ask of you 6,000 gold for these Silver Pantaloons.~
+	@10512 = ~Most perceptive. Yes, the Bronze Pantalettes. There's not much to tell... *cough* *cough* a memento from my younger years. If it can help you, perhaps 3,000 gold will suffice.~
 
 @10521 = ~I've been looking for these. I'll take it.~
 @10522 = ~Thank you! I've been looking for these.~
@@ -111,6 +107,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 @10621 = ~I'll take it.~
 @10622 = ~Please hold onto it. I'll come back for it later.~
+
 
 
 
@@ -230,12 +227,13 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @20901 = ~Is that a pair of pantaloons? Can I buy it from you?~
 @20902 = ~I can't help but notice those pantalettes you're clutching...~
 
-	@20911 = ~Of course, but you must understand these are extremely valuable items. I would ask of you 15,000 gold for these Silver Pantaloons.~
-	@20912 = ~Ah yes, the Bronze Pantalettes. There's not much to tell. These were sent as a gift from the Lord of Targos some time ago. If it can help you, perhaps 8,000 gold will suffice.~
+	@20911 = ~Of course, but you must understand these are extremely valuable items. I would ask of you 6,000 gold for these Silver Pantaloons.~
+	@20912 = ~Ah yes, the Bronze Pantalettes. There's not much to tell. These were sent as a gift from Elytharra of Targos some time ago. If it can help you, perhaps 3,000 gold will suffice.~
 
 @20921 = ~I've been looking for these. I'll take it.~
 @20922 = ~Thank you! I've been looking for these.~
 @20923 = ~Not right away. I'll come back for it, Nathaniel.~
+
 
 
 
@@ -253,6 +251,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@30131 = ~It's agreed then. Now, what will ye need today?~
 
+
 //
 //Halbazzer (SoD)
 @30201 = ~What's that strange device hidden behind the counter?~
@@ -265,6 +264,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @30221 = ~That sounds fair. I'll take it.~  // if 3000 gold
 @30222 = ~Perhaps another time.~
 
+
 //
 //Diviner
 @30301 = ~Any interesting weapons hidden around the city?~
@@ -272,6 +272,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@30311 = ~Speak to Black Lily. She can be found at the Thieves' Guild.~
 	@30312 = ~You will find it in the store of Lucky Aello.~
+
 
 
 
@@ -284,7 +285,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @40103 = ~Do you have any special weapons we could make use of?~          // start with core items
 
 	@40111 = ~You've a good eye. That right there's a Big Metal Rod. Now, I'll tell ye straight up, it won't be of any use to you or me in its current condition.~
-	@40112 = ~The blasted thing's malfunctioned. If I had a Repair Manual I could fix it up fer you. But, let old Ribald make ye an offer.~
+	@40112 = ~The blasted thing's malfunctioned. If I had a Repair Manual I could fix it up fer you. But let old Ribald make ye an offer.~
 	@40113 = ~Find me a Repair Manual and I'll get that Big Metal Rod working, good as new. Call it an even trade, the manual fer the weapon. I'll even throw in a special prototype ammo fer the thing.~
 
 	@40121 = ~Well, would you look at that. And not a moment too soon. I could tell you'd come through.~
@@ -298,8 +299,9 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @40143 = ~Perhaps another time.~
 
 	@40151 = ~Another satisfied customer. Now, before ye head out, I'll give you a bit of advice. You'd do well to keep the Big Metal Rod and that prototype ammo in yer pack.~
-	@40152 = ~Who knows, eh? Maybe ye'll run into someone, be it human, elf, or imp, that could make it worth yer while.~
+	@40152 = ~Who knows, eh? Maybe ye'll run into someone, be it dragon, elf, or imp, that could make it worth yer while.~
 	@40153 = ~All right then, but if ye change yer thinks, you know where to come.~
+
 
 //
 //Cespenar
@@ -315,6 +317,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 	@40241 = ~I keeps looking. You has lots here...~ [BOTSM38]
 
+
 //
 //Lehtinan
 @40301 = ~By chance, have you heard anything about a Big Metal Rod? ~
@@ -329,6 +332,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @40342 = ~I'll ask someone else, thanks.~
 
 	@40351 = ~(Hurrm.) The Planar Sphere... if you can open the sealed door. Your Repair Manual will... most likely... be found within.~
+
 
 //
 //Hendak (after freeing)
@@ -346,7 +350,9 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 //
-//Journal entries (IWD1, IWDEE)
+//Journal entries
+
+//IWD1, IWDEE
 @10001 = ~Today, we found a strange device in the upper room at Pomab's Emporium. It seems to be a crossbow of some sort. Perhaps if we could speak to an inventor, we could learn more about it.~
 @10002 = ~We acquired the Pulse Ammunition (prototype) from Oswald. He mentioned, as we were leaving, that a more advanced version of the ammo has already been invented.~
 @10003 = ~Orrick has agreed to procure a production version of the Pulse Ammunition for us. It should take some days to arrive, so we should ask about it again in the future.~
@@ -355,16 +361,16 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 //
-//Journal entries (IWD2)
+//IWD2
 @20001 = ~Oswald tells us that a prototype ammo, called a Pulse Ammunition, had likely fallen from the ship during the landing. If true, it is unlikely to have fallen far from the ship. He gave us a drawing of the prototype to help us identify it. Perhaps, someone in the nearby area has seen it, or even near that temple we saw before the crash.~
-@20002 = ~~
+@20002 = ~Oswald tells us that a more advanced version of the Pulse Ammunition has already been invented. Perhaps this is something we should keep in mind. It may be a good idea to keep the Big Metal Rod in our possession, for the time being.~
 @20003 = ~~
 @20004 = ~~
 @20005 = ~~
 
 
 //
-//Journal entries (BGEE/SoD)
+//BGEE/SoD
 @30001 = ~An Interesting Weapon
 
 Today, I spoke to Black Lily at the Thieves' Guild headquarters. She mentioned that I should return to her with a Big Metal Rod. She apparently has something to sell me then.~
@@ -379,7 +385,7 @@ In Baldur's Gate, a seer told me that the Big Metal Rod is in Lucky Aello's Disc
 
 
 //
-//Journal entries (BG2)
+//BG2/ToB
 @40001 = ~Repairman Ribald
 
 I found a malfunctioned crossbow in the Adventurer Mart. The name, Big Metal Rod, is inscribed on the weapon. Ribald has offered to fix it for me if I can bring him a Repair Manual.~
@@ -407,35 +413,106 @@ Hendak mentioned 3 possibilities: the Cowled Wizards, de'Arnise Keep, and the Pl
 
 
 //
-//Item text (EEs)
-@100 = ~Big Metal Rod~
-@200 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
+//Item text (core items)
 
-STATISTICS:
+/*NOTE: installer will combine item text and stats, with 1 empty space in between
+1xx = item name
+2xx = text (default)
+3xx = stat (default)
+4xx = BG2 alt, quest items
+5xx = BG1 alt
+6xx = IWD1 alt (non-EE)
+7xx = IWD2 alt
+8xx = tweak alt text
+9xx = tweak alt stats
+*/
+
+//Big Metal Rod
+@100 = ~Big Metal Rod~
+@200 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends...~
+@300 = ~STATISTICS:
 
 Weight: 4~
 
-@101 = ~Pulse Ammunition~
-@201 = ~This Pulse Ammunition allows you to shoot small balls of pure energy at a frightening pace from the Big Metal Rod.
+//BG1 alt text
+@500 = ~The "Big Metal Rod" was designed to be used with the "Big Metal Unit", a one-of-a-kind device, which Lucky Aello happily tells you the details of. A likely tall tale, unless...~
 
-STATISTICS:
+//IWD1 alt
+@600 = ~STATISTICS:
+
+Weight: 4
+Not Usable By:~
+
+//IWD2 alt
+@700 = ~STATISTICS:
+
+Weight: 4 lb.~
+
+
+//
+//Pulse Ammo
+@101 = ~Pulse Ammunition~
+@201 = ~This Pulse Ammunition allows you to shoot small balls of pure energy at a frightening pace from the Big Metal Rod.~
+@301 = ~STATISTICS:
 
 Weight: 0~
 
+//IWD1 alt
+@601 = ~STATISTICS:
+
+Weight: 0
+Not Usable By:~
+
+//IWD2 alt
+@701 = ~STATISTICS:
+
+Weight: 0 lb.~
+
+
+//
+//Frag Grenade
 @102 = ~Frag Grenade~
-@202 = ~This skull can be launched at your enemies via the Big Metal Rod. It will explode into fragments when an enemy approaches it and damage everyone within the radius of the explosion.
-
-STATISTICS:
+@202 = ~This skull can be launched at your enemies via the Big Metal Rod. It will explode into fragments when an enemy approaches it and damage everyone within the radius of the explosion.~
+@302 = ~STATISTICS:
 
 Weight: 1~
 
+//IWD1 alt
+@602 = ~STATISTICS:
+
+Weight: 1
+Not Usable By:~
+
+//IWD2 alt
+@702 = ~STATISTICS:
+
+Weight: 1 lb.~
+
+
+//
+//Scorcher
 @103 = ~Scorcher Ammunition~
-@203 = ~This ammunition for the Big Metal Rod will allow you to shoot a jet of flame at an enemy.
-
-STATISTICS:
+@203 = ~This ammunition for the Big Metal Rod will allow you to shoot a jet of flame at an enemy.~
+@303 = ~STATISTICS:
 
 Weight: 1~
 
+//IWD1 alt
+@603 = ~STATISTICS:
+
+Weight: 1
+Not Usable By:~
+
+//IWD2 alt
+@703 = ~STATISTICS:
+
+Weight: 1 lb.~
+
+
+
+
+//
+//Big Metal Unit
 @104 = ~Big Metal Unit~
 @204 = ~Found within a long-forgotten pocket of our collected pantology, herein tales the lie of the Metal "Unit." 
 
@@ -443,9 +520,10 @@ Gargantua was self-proclaimed lord of his immeasurable lower regions until his s
 
 The rule of Pantagruel was a discommoding morass, his armor eventually suffering a breach in the breech that proved his undoing. As his basket left the pantry, so to speak, his regime fell to insurrection, and so complete was the sacking that not even his Metal "Unit" could be found. The component pieces, a pantaloon triumvirate, were lost in the annals of time. 
 
-You now bear the awesome responsibility of the Metal "Unit." Gussets of wind, seams like reality, pockets of resistance, the seat of power, and legs as flared as your temper. Polish it well; the onus is now on you.
+You now bear the awesome responsibility of the Metal "Unit." Gussets of wind, seams like reality, pockets of resistance, the seat of power, and legs as flared as your temper. Polish it well; the onus is now on you.~
 
-STATISTICS:
+//EE stats
+@304 = ~STATISTICS:
 
 Equipped abilities:
 – Immunity to backstab
@@ -458,63 +536,171 @@ Requires:
 
 Weight: 45~
 
-@105 = ~Pulse Ammunition (prototype)~
-@205 = ~This is an early prototype of the Pulse Ammunition, designed to be used with the Big Metal Rod (though usable with any crossbow). Oswald is willing to lend it to you... for a small fee. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+//BG2 alt (for classic, just changes the dashes)
+@404 = ~STATISTICS:
 
-STATISTICS:
+Equipped abilities:
+- Immunity to backstab
+- Magic Resistance: +5%
+- Spellcasting, stealth, and thieving abilities disabled
 
-Weight: 0~
+Armor Class: -10 (-14 vs. slashing, -13 vs. piercing and missile)
+Requires:
+ 15 Strength
 
-@106 = ~Bronze Pantalettes~
-@206 = ~The pinnacle of style and the epitome of fashion, those of discerning taste would rather wear nothing at all than substitute inferior apparel for the bronze pantalettes.
+Weight: 45~
 
-STATISTICS:
+//IWD1 alt
+@604 = ~STATISTICS:
 
-Weight: 1~
+Armor Class: -10
+Magic Resistance: +5%
+Special:  Immune to backstab
+Weight: 45
+Not Usable By:~
 
-@107 = ~Silver Pantaloons~
-@207 = ~A stainless, silver pair of trousers. Said to be one-third of a set, along with the Golden Pantaloons and the Bronze Pantalettes. Only one of maximum taste would have their hands on these pants.
+//IWD2 alt
+@704 = ~STATISTICS:
 
-STATISTICS:
-
-Weight: 1~
-
-@108 = ~Golden Pantaloons~
-@208 = ~The Golden Pantaloons did surely see the very beginnings of our realm, though I must press that they "saw" this formative time by their simple presence, and not through some vestigial eyes that might have erupted through a rear pocket perhaps concealing teeth and other improbable extremities. I am sure that the various owners of the pantaloons can attest to the general lack of animated digits or ocular sensors, as evidenced by the continued sanctity and privacy maintained by their respective buttocks.
-
-Lyric pantoums of an age long since out of print speak of "trousers that were as metal, though soft about the shanks." While it might be easy to jump to the seemingly inevitable conclusion that the trousers rose while Netheril fell, it is doubtful that the Pantaloons were the garments of which they speak. One must clarify these oft misquoted verses with knowledge of the Pantechnicon, an ancient bazaar once prized for Silver Pantalettes. Fine these may have been, but golden they were not. Nickel Panties are also said to be currently available, though the dockside establishments that claim to offer these products are beyond my meager experience, and thus I can make no report.
-
-The purpose of the Pantaloons is as mysterious as ever, and will likely remain so until the Pantocrator himself returns, though some properties can be divined though intimate observation. The "uplifting" properties of the gusset very nearly defy gravity, shaping quite nicely both the front and rear. This improved contour would likely increase self-esteem for a wearer of either sex. I would hazard a guess, however, that this continuing self delusion might actually hamper cognitive functions, and care should be taken in the wearing of any pantaloons of golden nature.
-
-STATISTICS:
-
-Weight: 0~
-
-@109 = ~Pulse III Ammunition~
-@209 = ~Rapid advancement has led to the development of the Pulse III Ammunition, able to fire 3 balls of pure energy at once from the Big Metal Rod. As this is a prototype for gathering data, it has a reduced rate of fire compared to the standard Pulse Ammunition.
-
-STATISTICS:
-
-Weight: 0~
-
-@110 = ~~
-@210 = ~~
-
-@111 = ~~
-@211 = ~~
-
-@120 = ~Delivery Bag~
-@220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
-
-STATISTICS:
-
-Weight: 5~
+Heavy Armor
+Armor Bonus:  +15
+Max Dex Bonus:  +0
+Armor Check Penalty:  -6
+Arcane Spell Failure:  40%
+Special:  
+  Immunity to Sneak Attack
+  Resistance: 5/- Spell Resistance
+Weight: 45 lb.~
 
 
 
 
 //
-//Quest items
+//Pantaloons (for IWD games only)
+
+//Bronze Pantalettes
+@106 = ~Bronze Pantalettes~
+@206 = ~The pinnacle of style and the epitome of fashion, those of discerning taste would rather wear nothing at all than substitute inferior apparel for the bronze pantalettes.~
+@306 = ~STATISTICS:
+
+Weight: 1~
+
+//IWD2 alt
+@706 = ~STATISTICS:
+
+Weight: 1 lb.~
+
+
+//
+//Silver Pantaloons
+@107 = ~Silver Pantaloons~
+@207 = ~A stainless, silver pair of trousers. Said to be one-third of a set, along with the Golden Pantaloons and the Bronze Pantalettes. Only one of maximum taste would have their hands on these pants.~
+@307 = ~STATISTICS:
+
+Weight: 1~
+
+//IWD2 alt
+@707 = ~STATISTICS:
+
+Weight: 1 lb.~
+
+
+//
+//Golden Pantaloons
+@108 = ~Golden Pantaloons~
+@208 = ~The Golden Pantaloons did surely see the very beginnings of our realm, though I must press that they "saw" this formative time by their simple presence, and not through some vestigial eyes that might have erupted through a rear pocket perhaps concealing teeth and other improbable extremities. I am sure that the various owners of the pantaloons can attest to the general lack of animated digits or ocular sensors, as evidenced by the continued sanctity and privacy maintained by their respective buttocks.
+
+Lyric pantoums of an age long since out of print speak of "trousers that were as metal, though soft about the shanks." While it might be easy to jump to the seemingly inevitable conclusion that the trousers rose while Netheril fell, it is doubtful that the Pantaloons were the garments of which they speak. One must clarify these oft misquoted verses with knowledge of the Pantechnicon, an ancient bazaar once prized for Silver Pantalettes. Fine these may have been, but golden they were not. Nickel Panties are also said to be currently available, though the dockside establishments that claim to offer these products are beyond my meager experience, and thus I can make no report.
+
+The purpose of the Pantaloons is as mysterious as ever, and will likely remain so until the Pantocrator himself returns, though some properties can be divined though intimate observation. The "uplifting" properties of the gusset very nearly defy gravity, shaping quite nicely both the front and rear. This improved contour would likely increase self-esteem for a wearer of either sex. I would hazard a guess, however, that this continuing self delusion might actually hamper cognitive functions, and care should be taken in the wearing of any pantaloons of golden nature.~
+@308 = ~STATISTICS:
+
+Weight: 0~
+
+//IWD2 alt
+@708 = ~STATISTICS:
+
+Weight: 0 lb.~
+
+
+
+
+//
+//Item text (new ammo)
+
+//Pulse (prototype)
+@105 = ~Pulse Ammunition (prototype)~
+@205 = ~This is an early prototype of the Pulse Ammunition, designed to be used with the Big Metal Rod (though usable with any crossbow). Oswald is willing to lend it to you... for a small fee. It allows you to shoot small balls of pure energy from the Big Metal Rod.~
+@305 = ~STATISTICS:
+
+Weight: 0~
+
+//BG2 alt text
+@405 = ~This is an early prototype of the Pulse Ammunition. It was last seen in Baldur's Gate during the troubles with the Iron Throne, but vanished shortly after. Allows you to shoot small balls of pure energy from the Big Metal Rod.~
+
+//BG1 alt text
+@505 = ~This is a version of the in-development Pulse Ammunition that was stolen and sold at the Carnival, before finding its way to Baldur's Gate. "FOR TESTING PURPOSES ONLY", the label reads. Allows you to shoot small balls of pure energy from the Big Metal Rod.~
+
+//IWD1 alt
+@605 = ~STATISTICS:
+
+Weight: 0
+Not Usable By:~
+
+//IWD2 alt (text + stats)
+@705 = ~This is an early prototype of the Pulse Ammunition. It was last seen in possession of a band of mercenaries near Kuldahar, but vanished shortly after. It allows you to shoot small balls of pure energy from the Big Metal Rod.
+
+STATISTICS:
+
+Weight: 0 lb.~
+
+
+//
+//Pulse III
+@109 = ~Pulse III Ammunition~
+@209 = ~Rapid advancement has led to the development of the Pulse III Ammunition, able to fire 3 balls of pure energy at once from the Big Metal Rod. As this is a prototype for gathering data, it has a reduced rate of fire compared to the standard Pulse Ammunition.~
+@309 = ~STATISTICS:
+
+Weight: 0~
+
+//IWD1 alt
+@609 = ~STATISTICS:
+
+Weight: 0
+Not Usable By:~
+
+//IWD2 alt
+@709 = ~STATISTICS:
+
+Weight: 0 lb.~
+
+
+
+
+//
+//Item text (other)
+
+//Delivery Bag
+@120 = ~Delivery Bag~
+@220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.~
+@320 = ~STATISTICS:
+
+Weight: 5~
+
+//IWD1 alt
+@620 = ~STATISTICS:
+
+Weight: 5
+Not Usable By:~
+
+//IWD2 alt
+@720 = ~STATISTICS:
+
+Weight: 5 lb.~
+
+
+//
+//Quest items (BG2)
 @150 = ~Big Metal Rod?~
 @250 = ~This seems to be a malfunctioned crossbow. Any attempt to operate it proves unsuccessful. The name, "Big Metal Rod", is inscribed on the weapon.
 
@@ -531,291 +717,28 @@ Weight: 2~
 
 
 
+
 //
-//Unidentified text (IWDEE)
+//Unidentified text
 
-//Golden Pantaloons
-@900 = ~Pantaloons of a quality heretofore unseen by the eyes of either man or beast. Dynamic styling and comfort that cradles, cuddles, and coddles. Seduce your thighs, cajole your calves, enjoy Golden Pantaloons... TODAY!
+//Golden Pantaloons (unidentified)
+@180 = ~Golden Pantaloons~
+@280 = ~Pantaloons of a quality heretofore unseen by the eyes of either man or beast. Dynamic styling and comfort that cradles, cuddles, and coddles. Seduce your thighs, cajole your calves, enjoy Golden Pantaloons... TODAY!
 
-Trousers you would be proud to take home to mother, if mother rode fast and fought hard.
+Trousers you would be proud to take home to mother, if mother rode fast and fought hard.~
 
-STATISTICS:
 
-Weight: 0~
-
-@901 = ~Combined Pantaloons~
-@902 = ~Long has the world marveled at the Golden Pantaloons, the Silver Pantaloons, and to a lesser extent, the Bronze Pantalettes. Revealed here for the first time are the secrets of their gregariously girding gussets that so softly shield your shanks. Ye gods! Get to identifyin' already! Now it can be told!
-
-STATISTICS:
+//Big Metal Unit (unidentified)
+@181 = ~Combined Pantaloons~
+@281 = ~Long has the world marveled at the Golden Pantaloons, the Silver Pantaloons, and to a lesser extent, the Bronze Pantalettes. Revealed here for the first time are the secrets of their gregariously girding gussets that so softly shield your shanks. Ye gods! Get to identifyin' already! Now it can be told!~
+@381 = ~STATISTICS:
 
 Weight: 45~
 
-
-//
-//Unidentified text (IWD2)
-
-//Golden Pantaloons
-@920 = ~Pantaloons of a quality heretofore unseen by the eyes of either man or beast. Dynamic styling and comfort that cradles, cuddles, and coddles. Seduce your thighs, cajole your calves, enjoy Golden Pantaloons... TODAY!
-
-Trousers you would be proud to take home to mother, if mother rode fast and fought hard.
-
-STATISTICS:
-
-Weight: 0 lb.~
-
-@921 = ~Combined Pantaloons~
-@922 = ~Long has the world marveled at the Golden Pantaloons, the Silver Pantaloons, and to a lesser extent, the Bronze Pantalettes. Revealed here for the first time are the secrets of their gregariously girding gussets that so softly shield your shanks. Ye gods! Get to identifyin' already! Now it can be told!
-
-STATISTICS:
+//IWD2 alt
+@781 = ~STATISTICS:
 
 Weight: 45 lb.~
-
-
-
-
-//
-//Alt text (BG2)
-
-//Pulse Ammunition (prototype)
-@405 = ~This is an early prototype of the Pulse Ammunition. It was last seen in Baldur's Gate during the troubles with the Iron Throne, but vanished shortly after. Allows you to shoot small balls of pure energy from the Big Metal Rod.
-
-STATISTICS:
-
-Weight: 0~
-
-
-
-//
-//Alt text (BG1)
-
-//Big Metal Rod
-@500 = ~The "Big Metal Rod" was designed to be used with the "Big Metal Unit", a one-of-a-kind device, which Lucky Aello happily tells you the details of. A likely tall tale, unless...
-
-STATISTICS:
-
-Weight: 4~
-
-//Pulse Ammunition (prototype)
-@505 = ~This is a version of the in-development Pulse Ammunition that was stolen and sold at the Carnival, before finding its way to Baldur's Gate. "FOR TESTING PURPOSES ONLY", the label reads. Allows you to shoot small balls of pure energy from the Big Metal Rod.
-
-STATISTICS:
-
-Weight: 0~
-
-
-
-//
-//Alt text (IWD1)
-
-//Big Metal Rod
-@600 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
-
-STATISTICS:
-
-Weight: 4
-Not Usable By:~
-
-//Pulse Ammunition
-@601 = ~This Pulse Ammunition allows you to shoot small balls of pure energy at a frightening pace from the Big Metal Rod.
-
-STATISTICS:
-
-Weight: 0
-Not Usable By:~
-
-//Frag Grenade
-@602 = ~This skull can be launched at your enemies via the Big Metal Rod. It will explode into fragments when an enemy approaches it and damage everyone within the radius of the explosion.
-
-STATISTICS:
-
-Weight: 1
-Not Usable By:~
-
-//Scorcher Ammunition
-@603 = ~This ammunition for the Big Metal Rod will allow you to shoot a jet of flame at an enemy.
-
-STATISTICS:
-
-Weight: 1
-Not Usable By:~
-
-//Big Metal Unit
-@604 = ~Found within a long-forgotten pocket of our collected pantology, herein tales the lie of the Metal "Unit." 
-
-Gargantua was self-proclaimed lord of his immeasurable lower regions until his son, Pantagruel, questioned the accuracy of the ruler. With his shortcomings exposed, great Gargantua lay prostrate upon the ground while Pantagruel sought to cover his cuirass in case his now governing body lost its sway. He was warned that the people would cut him no slacks, but he never listened, and had burned his britches behind him. Undaunted, he fulfilled his animus with the robes of his father, as uncomfortable as that might sound, and shaped the Metal "Unit" with his own hands. 
-
-The rule of Pantagruel was a discommoding morass, his armor eventually suffering a breach in the breech that proved his undoing. As his basket left the pantry, so to speak, his regime fell to insurrection, and so complete was the sacking that not even his Metal "Unit" could be found. The component pieces, a pantaloon triumvirate, were lost in the annals of time. 
-
-You now bear the awesome responsibility of the Metal "Unit." Gussets of wind, seams like reality, pockets of resistance, the seat of power, and legs as flared as your temper. Polish it well; the onus is now on you.
-
-STATISTICS:
-
-Armor Class: -10
-Magic Resistance: +5%
-Special:  Immune to backstab
-Weight: 45
-Not Usable By:~
-
-//Pulse Ammunition (prototype)
-@605 = ~This is an early prototype of the Pulse Ammunition, designed to be used with the Big Metal Rod (though usable with any crossbow). Oswald is willing to lend it to you... for a small fee. It allows you to shoot small balls of pure energy from the Big Metal Rod.
-
-STATISTICS:
-
-Weight: 0
-Not Usable By:~
-
-//Bronze Pantalettes
-@606 = ~The pinnacle of style and the epitome of fashion, those of discerning taste would rather wear nothing at all than substitute inferior apparel for the bronze pantalettes.
-
-STATISTICS:
-
-Weight: 1~
-
-//Silver Pantaloons
-@607 = ~A stainless, silver pair of trousers. Said to be one-third of a set, along with the Golden Pantaloons and the Bronze Pantalettes. Only one of maximum taste would have their hands on these pants.
-
-STATISTICS:
-
-Weight: 1~
-
-//Golden Pantaloons
-@608 = ~The Golden Pantaloons did surely see the very beginnings of our realm, though I must press that they "saw" this formative time by their simple presence, and not through some vestigial eyes that might have erupted through a rear pocket perhaps concealing teeth and other improbable extremities. I am sure that the various owners of the pantaloons can attest to the general lack of animated digits or ocular sensors, as evidenced by the continued sanctity and privacy maintained by their respective buttocks.
-
-Lyric pantoums of an age long since out of print speak of "trousers that were as metal, though soft about the shanks." While it might be easy to jump to the seemingly inevitable conclusion that the trousers rose while Netheril fell, it is doubtful that the Pantaloons were the garments of which they speak. One must clarify these oft misquoted verses with knowledge of the Pantechnicon, an ancient bazaar once prized for Silver Pantalettes. Fine these may have been, but golden they were not. Nickel Panties are also said to be currently available, though the dockside establishments that claim to offer these products are beyond my meager experience, and thus I can make no report.
-
-The purpose of the Pantaloons is as mysterious as ever, and will likely remain so until the Pantocrator himself returns, though some properties can be divined though intimate observation. The "uplifting" properties of the gusset very nearly defy gravity, shaping quite nicely both the front and rear. This improved contour would likely increase self-esteem for a wearer of either sex. I would hazard a guess, however, that this continuing self delusion might actually hamper cognitive functions, and care should be taken in the wearing of any pantaloons of golden nature.
-
-STATISTICS:
-
-Weight: 0~
-
-//Pulse III Ammunition
-@609 = ~Rapid advancement has led to the development of the Pulse III Ammunition, able to fire 3 balls of pure energy at once from the Big Metal Rod. As this is a prototype for gathering data, it has a reduced rate of fire compared to the standard Pulse Ammunition.
-
-STATISTICS:
-
-Weight: 0
-Not Usable By:~
-
-@610 = ~~
-@610 = ~~
-
-@611 = ~~
-@611 = ~~
-
-//Delivery Bag
-@620 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
-
-STATISTICS:
-
-Weight: 5
-Not Usable By:~
-
-
-
-//
-//Alt text (IWD2)
-
-//Big Metal Rod
-@700 = ~The Big Metal Rod was designed to be used with the Big Metal Unit. It has several types of ammunition that can be launched at your enemies... or friends... 
-
-STATISTICS:
-
-Weight: 4 lb.~
-
-//Pulse Ammunition
-@701 = ~This Pulse Ammunition allows you to shoot small balls of pure energy at a frightening pace from the Big Metal Rod.
-
-STATISTICS:
-
-Weight: 0 lb.~
-
-//Frag Grenade
-@702 = ~This skull can be launched at your enemies via the Big Metal Rod. It will explode into fragments when an enemy approaches it and damage everyone within the radius of the explosion.
-
-STATISTICS:
-
-Weight: 1 lb.~
-
-//Scorcher Ammunition
-@703 = ~This ammunition for the Big Metal Rod will allow you to shoot a jet of flame at an enemy.
-
-STATISTICS:
-
-Weight: 1 lb.~
-
-//Big Metal Unit
-@704 = ~Found within a long-forgotten pocket of our collected pantology, herein tales the lie of the Metal "Unit." 
-
-Gargantua was self-proclaimed lord of his immeasurable lower regions until his son, Pantagruel, questioned the accuracy of the ruler. With his shortcomings exposed, great Gargantua lay prostrate upon the ground while Pantagruel sought to cover his cuirass in case his now governing body lost its sway. He was warned that the people would cut him no slacks, but he never listened, and had burned his britches behind him. Undaunted, he fulfilled his animus with the robes of his father, as uncomfortable as that might sound, and shaped the Metal "Unit" with his own hands. 
-
-The rule of Pantagruel was a discommoding morass, his armor eventually suffering a breach in the breech that proved his undoing. As his basket left the pantry, so to speak, his regime fell to insurrection, and so complete was the sacking that not even his Metal "Unit" could be found. The component pieces, a pantaloon triumvirate, were lost in the annals of time. 
-
-You now bear the awesome responsibility of the Metal "Unit." Gussets of wind, seams like reality, pockets of resistance, the seat of power, and legs as flared as your temper. Polish it well; the onus is now on you.
-
-STATISTICS:
-
-Heavy Armor
-Armor Bonus:  +15
-Max Dex Bonus:  +0
-Armor Check Penalty:  -6
-Arcane Spell Failure:  40%
-Special:  
-  Immunity to Sneak Attack
-  Resistance: 5/- Spell Resistance
-Weight: 45 lb.~
-
-//Pulse Ammunition (prototype)
-@705 = ~This is an early prototype of the Pulse Ammunition. It was last seen in possession of a band of mercenaries near Kuldahar, but vanished shortly after. It allows you to shoot small balls of pure energy from the Big Metal Rod.
-
-STATISTICS:
-
-Weight: 0 lb.~
-
-//Bronze Pantalettes
-@706 = ~The pinnacle of style and the epitome of fashion, those of discerning taste would rather wear nothing at all than substitute inferior apparel for the bronze pantalettes.
-
-STATISTICS:
-
-Weight: 1 lb.~
-
-//Silver Pantaloons
-@707 = ~A stainless, silver pair of trousers. Said to be one-third of a set, along with the Golden Pantaloons and the Bronze Pantalettes. Only one of maximum taste would have their hands on these pants.
-
-STATISTICS:
-
-Weight: 1 lb.~
-
-//Golden Pantaloons
-@708 = ~The Golden Pantaloons did surely see the very beginnings of our realm, though I must press that they "saw" this formative time by their simple presence, and not through some vestigial eyes that might have erupted through a rear pocket perhaps concealing teeth and other improbable extremities. I am sure that the various owners of the pantaloons can attest to the general lack of animated digits or ocular sensors, as evidenced by the continued sanctity and privacy maintained by their respective buttocks.
-
-Lyric pantoums of an age long since out of print speak of "trousers that were as metal, though soft about the shanks." While it might be easy to jump to the seemingly inevitable conclusion that the trousers rose while Netheril fell, it is doubtful that the Pantaloons were the garments of which they speak. One must clarify these oft misquoted verses with knowledge of the Pantechnicon, an ancient bazaar once prized for Silver Pantalettes. Fine these may have been, but golden they were not. Nickel Panties are also said to be currently available, though the dockside establishments that claim to offer these products are beyond my meager experience, and thus I can make no report.
-
-The purpose of the Pantaloons is as mysterious as ever, and will likely remain so until the Pantocrator himself returns, though some properties can be divined though intimate observation. The "uplifting" properties of the gusset very nearly defy gravity, shaping quite nicely both the front and rear. This improved contour would likely increase self-esteem for a wearer of either sex. I would hazard a guess, however, that this continuing self delusion might actually hamper cognitive functions, and care should be taken in the wearing of any pantaloons of golden nature.
-
-STATISTICS:
-
-Weight: 0 lb.~
-
-//Pulse III Ammunition
-@709 = ~Rapid advancement has led to the development of the Pulse III Ammunition, able to fire 3 balls of pure energy at once from the Big Metal Rod. As this is a prototype for gathering data, it has a reduced rate of fire compared to the standard Pulse Ammunition.
-
-STATISTICS:
-
-Weight: 0 lb.~
-
-@710 = ~~
-@710 = ~~
-
-@711 = ~~
-@711 = ~~
-
-//Delivery Bag
-@720 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains the core "Big Metal" set of armor and weapons. However, a magical force prevents the party from placing items into the bag.
-
-STATISTICS:
-
-Weight: 5 lb.~
 
 
 /*

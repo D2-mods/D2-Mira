@@ -1,0 +1,181 @@
+//Build item text on a per-game basis
+//
+
+/*
+Combine text and stats into item descriptions.
+The variables used for function are set in d2mira_item_desc.tpa
+Tweaks should use their own file for combining specific @refs.
+*/
+
+
+//
+//BGEE/SoD/BG2
+ACTION_IF (GAME_IS ~bgee bg2ee eet bg2 tob tutu tutu_totsc ca~) BEGIN
+
+  //core items
+  LAF d2mira_item_desc STR_VAR text = ~%metalrod_text_base%~  stats = ~%metalrod_stat_base%~  RET item_desc END
+    OUTER_TEXT_SPRINT metalrod_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulse_text_base%~     stats = ~%pulse_stat_base%~     RET item_desc END
+    OUTER_TEXT_SPRINT pulse_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%frag_text_base%~      stats = ~%frag_stat_base%~      RET item_desc END
+    OUTER_TEXT_SPRINT frag_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%scorcher_text_base%~  stats = ~%scorcher_stat_base%~  RET item_desc END
+    OUTER_TEXT_SPRINT scorcher_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
+
+  //new ammo
+  LAF d2mira_item_desc STR_VAR text = ~%prototype_text_bg2%~ stats = ~%prototype_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT prototype_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulseIII_text_base%~ stats = ~%pulseIII_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT pulseIII_desc ~%item_desc%~
+
+  //BG1 alt text
+  LAF d2mira_item_desc STR_VAR text = ~%metalrod_text_bg1%~  stats = ~%metalrod_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT metalrod_desc_bg1 ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%prototype_text_bg1%~ stats = ~%prototype_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT prototype_desc_bg1 ~%item_desc%~
+
+  //unidentified text
+  LAF d2mira_item_desc STR_VAR text = ~%combinedpants_text_base%~ stats = ~%combinedpants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT combinedpants_desc ~%item_desc%~
+
+  //delivery bag
+  LAF d2mira_item_desc STR_VAR text = ~%mirabag_text_base%~ stats = ~%mirabag_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT mirabag_desc ~%item_desc%~
+
+END
+
+
+//
+//IWDEE
+ACTION_IF (GAME_IS ~iwdee iwd_in_bg2~) BEGIN
+
+  //core items
+  LAF d2mira_item_desc STR_VAR text = ~%metalrod_text_base%~  stats = ~%metalrod_stat_base%~  RET item_desc END
+    OUTER_TEXT_SPRINT metalrod_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulse_text_base%~     stats = ~%pulse_stat_base%~     RET item_desc END
+    OUTER_TEXT_SPRINT pulse_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%frag_text_base%~      stats = ~%frag_stat_base%~      RET item_desc END
+    OUTER_TEXT_SPRINT frag_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%scorcher_text_base%~  stats = ~%scorcher_stat_base%~  RET item_desc END
+    OUTER_TEXT_SPRINT scorcher_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
+
+  //new ammo
+  LAF d2mira_item_desc STR_VAR text = ~%prototype_text_base%~ stats = ~%prototype_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT prototype_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulseIII_text_base%~ stats = ~%pulseIII_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT pulseIII_desc ~%item_desc%~
+
+  //pantaloons
+  LAF d2mira_item_desc STR_VAR text = ~%bronzepants_text_base%~ stats = ~%bronzepants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT bronzepants_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%silverpants_text_base%~ stats = ~%silverpants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT silverpants_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%goldenpants_text_base%~ stats = ~%goldenpants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT goldenpants_desc ~%item_desc%~
+
+  //unidentified text
+  LAF d2mira_item_desc STR_VAR text = ~%combinedpants_text_base%~ stats = ~%combinedpants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT combinedpants_desc ~%item_desc%~
+
+  //delivery bag
+  LAF d2mira_item_desc STR_VAR text = ~%mirabag_text_base%~ stats = ~%mirabag_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT mirabag_desc ~%item_desc%~
+
+END
+
+
+//
+//IWD1
+ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
+
+  //core items
+  LAF d2mira_item_desc STR_VAR text = ~%metalrod_text_base%~  stats = ~%metalrod_stat_iwd1%~  RET item_desc END
+    OUTER_TEXT_SPRINT metalrod_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulse_text_base%~     stats = ~%pulse_stat_iwd1%~     RET item_desc END
+    OUTER_TEXT_SPRINT pulse_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%frag_text_base%~      stats = ~%frag_stat_iwd1%~      RET item_desc END
+    OUTER_TEXT_SPRINT frag_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%scorcher_text_base%~  stats = ~%scorcher_stat_iwd1%~  RET item_desc END
+    OUTER_TEXT_SPRINT scorcher_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_iwd1%~ RET item_desc END
+    OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
+
+  //new ammo
+  LAF d2mira_item_desc STR_VAR text = ~%prototype_text_base%~ stats = ~%prototype_stat_iwd1%~ RET item_desc END
+    OUTER_TEXT_SPRINT prototype_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulseIII_text_base%~ stats = ~%pulseIII_stat_iwd1%~ RET item_desc END
+    OUTER_TEXT_SPRINT pulseIII_desc ~%item_desc%~
+
+  //pantaloons
+  LAF d2mira_item_desc STR_VAR text = ~%bronzepants_text_base%~ stats = ~%bronzepants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT bronzepants_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%silverpants_text_base%~ stats = ~%silverpants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT silverpants_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%goldenpants_text_base%~ stats = ~%goldenpants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT goldenpants_desc ~%item_desc%~
+
+  //unidentified text
+  LAF d2mira_item_desc STR_VAR text = ~%combinedpants_text_base%~ stats = ~%combinedpants_stat_base%~ RET item_desc END
+    OUTER_TEXT_SPRINT combinedpants_desc ~%item_desc%~
+
+  //delivery bag
+  LAF d2mira_item_desc STR_VAR text = ~%mirabag_text_base%~ stats = ~%mirabag_stat_iwd1%~ RET item_desc END
+    OUTER_TEXT_SPRINT mirabag_desc ~%item_desc%~
+
+END
+
+
+//
+//IWD2
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+
+  //core items
+  LAF d2mira_item_desc STR_VAR text = ~%metalrod_text_base%~  stats = ~%metalrod_stat_iwd2%~  RET item_desc END
+    OUTER_TEXT_SPRINT metalrod_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulse_text_base%~     stats = ~%pulse_stat_iwd2%~     RET item_desc END
+    OUTER_TEXT_SPRINT pulse_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%frag_text_base%~      stats = ~%frag_stat_iwd2%~      RET item_desc END
+    OUTER_TEXT_SPRINT frag_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%scorcher_text_base%~  stats = ~%scorcher_stat_iwd2%~  RET item_desc END
+    OUTER_TEXT_SPRINT scorcher_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_iwd2%~ RET item_desc END
+    OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
+
+  //new ammo
+  OUTER_TEXT_SPRINT prototype_desc ~%prototype_desc_iwd2%~
+  LAF d2mira_item_desc STR_VAR text = ~%pulseIII_text_base%~ stats = ~%pulseIII_stat_iwd2%~ RET item_desc END
+    OUTER_TEXT_SPRINT pulseIII_desc ~%item_desc%~
+
+  //pantaloons
+  LAF d2mira_item_desc STR_VAR text = ~%bronzepants_text_base%~ stats = ~%bronzepants_stat_iwd2%~ RET item_desc END
+    OUTER_TEXT_SPRINT bronzepants_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%silverpants_text_base%~ stats = ~%silverpants_stat_iwd2%~ RET item_desc END
+    OUTER_TEXT_SPRINT silverpants_desc ~%item_desc%~
+  LAF d2mira_item_desc STR_VAR text = ~%goldenpants_text_base%~ stats = ~%goldenpants_stat_iwd2%~ RET item_desc END
+    OUTER_TEXT_SPRINT goldenpants_desc ~%item_desc%~
+
+  //unidentified text
+  LAF d2mira_item_desc STR_VAR text = ~%combinedpants_text_base%~ stats = ~%combinedpants_stat_iwd2%~ RET item_desc END
+    OUTER_TEXT_SPRINT combinedpants_desc ~%item_desc%~
+
+  //delivery bag
+  LAF d2mira_item_desc STR_VAR text = ~%mirabag_text_base%~ stats = ~%mirabag_stat_iwd2%~ RET item_desc END
+    OUTER_TEXT_SPRINT mirabag_desc ~%item_desc%~
+
+END
+
+
+//
+//change dashes for classic games
+ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
+  LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_bg2%~ RET item_desc END
+    OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
+END
+
+
+/*
+*/

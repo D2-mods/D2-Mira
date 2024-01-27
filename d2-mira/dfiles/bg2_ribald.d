@@ -63,6 +63,10 @@ IF ~ Global("d2RibaldRepair","GLOBAL",1)
                           GiveItemCreate("%bigmetalrod%",LastTalkedToBy,0,0,0)
                           GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)
                           AddJournalEntry(@40003,QUEST_DONE)
+                          EraseJournalEntry(@40001)
+                          EraseJournalEntry(@40002)
+                          EraseJournalEntry(@40004)
+                          EraseJournalEntry(@40005)
                         ~ GOTO RibaldPrototype
 END
 

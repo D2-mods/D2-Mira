@@ -1,0 +1,108 @@
+//
+//
+
+
+//function for combining text and stats of item description
+//use OUTER_SPRINT to set @ ref strings to separate text and stat variables
+//function will add one blank line between the text and stats strings
+//RET item_desc, then use for item or copy to unique variable
+
+DEFINE_ACTION_FUNCTION d2mira_item_desc  
+  STR_VAR text = ~~ stats = ~~ 
+  RET item_desc
+BEGIN
+  OUTER_TEXT_SPRINT  item_desc ~%text%
+
+%stats%~
+END
+
+
+
+//add condition for setting each variable?
+//not needed, but would reduce entries in tlk
+
+//
+//set variables
+OUTER_SPRINT metalrod_name      @100
+OUTER_SPRINT metalrod_text_base @200
+OUTER_SPRINT metalrod_stat_base @300
+OUTER_SPRINT metalrod_text_bg1  @500
+OUTER_SPRINT metalrod_stat_iwd1 @600
+OUTER_SPRINT metalrod_stat_iwd2 @700
+
+OUTER_SPRINT pulse_name      @101
+OUTER_SPRINT pulse_text_base @201
+OUTER_SPRINT pulse_stat_base @301
+OUTER_SPRINT pulse_stat_iwd1 @601
+OUTER_SPRINT pulse_stat_iwd2 @701
+
+OUTER_SPRINT frag_name      @102
+OUTER_SPRINT frag_text_base @202
+OUTER_SPRINT frag_stat_base @302
+OUTER_SPRINT frag_stat_iwd1 @602
+OUTER_SPRINT frag_stat_iwd2 @702
+
+OUTER_SPRINT scorcher_name      @103
+OUTER_SPRINT scorcher_text_base @203
+OUTER_SPRINT scorcher_stat_base @303
+OUTER_SPRINT scorcher_stat_iwd1 @603
+OUTER_SPRINT scorcher_stat_iwd2 @703
+
+OUTER_SPRINT metalunit_name      @104
+OUTER_SPRINT metalunit_text_base @204
+OUTER_SPRINT metalunit_stat_base @304
+OUTER_SPRINT metalunit_stat_bg2  @404    // change dashes for classic BG2
+OUTER_SPRINT metalunit_stat_iwd1 @604
+OUTER_SPRINT metalunit_stat_iwd2 @704
+
+OUTER_SPRINT bronzepants_name      @106
+OUTER_SPRINT bronzepants_text_base @206
+OUTER_SPRINT bronzepants_stat_base @306
+OUTER_SPRINT bronzepants_stat_iwd2 @706
+
+OUTER_SPRINT silverpants_name      @107
+OUTER_SPRINT silverpants_text_base @207
+OUTER_SPRINT silverpants_stat_base @307
+OUTER_SPRINT silverpants_stat_iwd2 @707
+
+OUTER_SPRINT goldenpants_name      @108
+OUTER_SPRINT goldenpants_text_base @208
+OUTER_SPRINT goldenpants_stat_base @308
+OUTER_SPRINT goldenpants_stat_iwd2 @708
+
+OUTER_SPRINT prototype_name      @105
+OUTER_SPRINT prototype_text_base @205    // IWDEE/IWD1
+OUTER_SPRINT prototype_stat_base @305    // EE/BG2
+OUTER_SPRINT prototype_text_bg2  @405
+OUTER_SPRINT prototype_text_bg1  @505
+OUTER_SPRINT prototype_stat_iwd1 @605
+OUTER_SPRINT prototype_desc_iwd2 @705    // text + stats
+
+OUTER_SPRINT pulseIII_name      @109
+OUTER_SPRINT pulseIII_text_base @209
+OUTER_SPRINT pulseIII_stat_base @309
+OUTER_SPRINT pulseIII_stat_iwd1 @609
+OUTER_SPRINT pulseIII_stat_iwd2 @709
+
+OUTER_SPRINT mirabag_name      @120
+OUTER_SPRINT mirabag_text_base @220
+OUTER_SPRINT mirabag_stat_base @320
+OUTER_SPRINT mirabag_stat_iwd1 @620
+OUTER_SPRINT mirabag_stat_iwd2 @720
+
+OUTER_SPRINT questitembg2_name @150    // BG2 only
+OUTER_SPRINT questitembg2_desc @250
+OUTER_SPRINT questbookbg2_name @155
+OUTER_SPRINT questbookbg2_desc @255
+
+OUTER_SPRINT goldenpants_name_unidentified @180    // IWD games
+OUTER_SPRINT goldenpants_desc_unidentified @280
+
+OUTER_SPRINT combinedpants_name      @181
+OUTER_SPRINT combinedpants_text_base @281
+OUTER_SPRINT combinedpants_stat_base @381
+OUTER_SPRINT combinedpants_stat_iwd2 @781
+
+
+/*
+*/

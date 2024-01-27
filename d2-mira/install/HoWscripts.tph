@@ -1,11 +1,11 @@
 //Standard Installation
 
 /*
-Sets some variables for IWDEE/IWD1
+Variables and journal entry for IWDEE/IWD1
 */
 
 
-ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
+ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
 
 
 //Set Global variables (check if party has items)

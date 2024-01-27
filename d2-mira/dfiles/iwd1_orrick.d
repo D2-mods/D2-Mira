@@ -2,7 +2,7 @@
 //Add to Orrick's dialogues
 
 
-EXTEND_BOTTOM ~DORRICK~ 0 2 18 19 38
+EXTEND_BOTTOM ~DORRICK~ %orrick_states%
 
 IF ~ PartyHasItem("%prototype%")            // has prototype
      PartyHasItem("%bigmetalrod%")          // has Big Metal Rod

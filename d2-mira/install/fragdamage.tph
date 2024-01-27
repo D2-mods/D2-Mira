@@ -3,9 +3,27 @@ Frag Grenade damage
 */
 
 
-COPY_EXISTING ~%frag%.ITM~  ~override~
-  LPF ALTER_EFFECT INT_VAR header_type=2 match_opcode=12 parameter2=%damagetype% END
-BUT_ONLY
+/*
+fire = 0x00080000 (8 in EFF)
+slashing = 0x01000000 (256 in EFF)
+*/
+
+
+ACTION_IF (FILE_EXISTS ~override/%frag%.ITM~) BEGIN
+  COPY_EXISTING ~%frag%.ITM~  ~override~
+    LPF ALTER_EFFECT INT_VAR header_type=2 silent=1 match_opcode=12 parameter2=%damagetype% END
+  BUT_ONLY
+END
+
+
+//for classic BG2 with safe ammo (if this is installed after)
+ACTION_IF (FILE_EXISTS ~override/%frag%.EFF~) BEGIN
+  ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 40) BEGIN
+    COPY_EXISTING ~%frag%.EFF~  ~override~
+      WRITE_SHORT 0x22 256
+    BUT_ONLY
+  END
+END
 
 
 //

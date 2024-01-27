@@ -2,7 +2,7 @@
 //Add to Tiernon's dialogues
 
 
-EXTEND_BOTTOM ~DTIERNON~ 16 17 26 27 28 33 46 78
+EXTEND_BOTTOM ~DTIERNON~ %tiernon_states%
 
 IF ~ PartyHasItem("%gold%")
      PartyHasItem("%silver%")

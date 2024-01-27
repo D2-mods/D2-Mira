@@ -4,7 +4,51 @@ The ones with (mira = 1) are only added with Standard install.
 */
 
 
-ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
+//prep
+
+//iwd1
+OUTER_TEXT_SPRINT orrick_states  ~0 2 18 19~               // DORRICK
+OUTER_TEXT_SPRINT oswald_states  ~12 14~                   // DOSWALD
+OUTER_TEXT_SPRINT edion_states   ~9 10 11 12 16~           // DEDION
+OUTER_TEXT_SPRINT tiernon_states ~16 17 26 27 28 33 46~    // DTIERNON
+
+ACTION_IF (GAME_IS ~iwdee~) BEGIN                                   // if iwdee
+  OUTER_TEXT_SPRINT orrick_states  ~%orrick_states% 23 28 38~
+  OUTER_TEXT_SPRINT oswald_states  ~%oswald_states% 31 33~
+  OUTER_TEXT_SPRINT edion_states   ~%edion_states% 29~
+  OUTER_TEXT_SPRINT tiernon_states ~%tiernon_states% 78~
+END
+ELSE BEGIN
+  ACTION_IF (MOD_IS_INSTALLED ~setup-iu_iwd.tp2~ 0) BEGIN           // if classic iwd with 'item upgrade'
+    OUTER_TEXT_SPRINT orrick_states  ~%orrick_states% 29~
+    OUTER_TEXT_SPRINT oswald_states  ~%oswald_states% 31 33~
+    OUTER_TEXT_SPRINT edion_states   ~%edion_states% 29~
+    OUTER_TEXT_SPRINT tiernon_states ~%tiernon_states% 78~
+    ACTION_IF (RESOURCE_CONTAINS ~DORRICK.DLG~ ~beetshld~) BEGIN    // if UB mod
+      OUTER_TEXT_SPRINT orrick_states  ~%orrick_states% 33 38~ 
+    END
+  END
+  ELSE BEGIN
+    ACTION_IF (RESOURCE_CONTAINS ~DORRICK.DLG~ ~beetshld~) BEGIN    // if UB with no 'item upgrade'
+      OUTER_TEXT_SPRINT orrick_states  ~%orrick_states% 23 28~
+    END
+  END
+END
+
+
+//iwd2
+ACTION_IF (FILE_EXISTS_IN_GAME ~11OSWALD.DLG~) BEGIN
+  COPY_EXISTING ~11OSWALD.DLG~  ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY EXACT_MATCH  ~StartCutscene(#53cKulda#)~ ~StartCutscene("53cKulda")~
+    END
+  BUT_ONLY
+END
+
+
+
+//add to DLGs
+ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~DOSWALD.DLG~)  BEGIN COMPILE EVAL ~%dfiles%/iwd1_oswald.d~ END
   ACTION_IF (FILE_EXISTS_IN_GAME ~DHOBART.DLG~)  BEGIN COMPILE EVAL ~%dfiles%/iwd1_hobart.d~ END
@@ -37,7 +81,7 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
 END
 
 
-ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
+ACTION_IF ((GAME_INCLUDES ~bg1~) OR (GAME_INCLUDES ~bg2~)) BEGIN
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~BLACKL.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg1_blacklily.d~ END
   ACTION_IF (FILE_EXISTS_IN_GAME ~DIVINE.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg1_diviner.d~ END
@@ -51,3 +95,7 @@ ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
   END
 
 END
+
+
+/*
+*/

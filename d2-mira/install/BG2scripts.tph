@@ -1,7 +1,7 @@
 //Standard Installation
 
 /*
-Sets some variables for BG2EE
+Variables + quest/item stuff for BG2EE
 */
 
 
@@ -128,7 +128,7 @@ THEN
 	RESPONSE #100
 		SetGlobal("d2CespenarBigMetal","GLOBAL",2)
 		SetGlobal("ImpForgeStuff","GLOBAL",0)
-		SetGlobal("ItemMaker","GLOBAL",99)
+		SetGlobal("ItemMaker","GLOBAL",999)
 		GiveItemCreate("%pulseIII%",Player1,0,0,0)
 		StartDialogueNoSet(Player1)
 END

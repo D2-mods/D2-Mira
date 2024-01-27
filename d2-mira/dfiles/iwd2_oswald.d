@@ -38,7 +38,7 @@ END
 IF ~~ BEGIN OswaldTalkPulse
   SAY @20171  // Oswald says stuff
   IF ~~ DO ~ SetGlobal("d2OswaldBigMetal","GLOBAL",1)
-           ~ EXIT
+           ~ JOURNAL @20002 EXIT
 END
 
 END

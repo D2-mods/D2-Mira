@@ -2,7 +2,7 @@
 //Add to Oswald's dialogues
 
 
-EXTEND_BOTTOM ~DOSWALD~ 12 14 31 33
+EXTEND_BOTTOM ~DOSWALD~ %oswald_states%
 
 IF ~ PartyHasItem("%bigmetalrod%")
      Global("d2OswaldBigMetal","GLOBAL",0)
