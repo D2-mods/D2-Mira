@@ -28,6 +28,8 @@ IF ~~ BEGIN ConlanBigMetalUnit
   IF ~~ DO ~ TakePartyItem("%gold%")
              TakePartyItem("%silver%")
              TakePartyItem("%bronze%")
+             DestroyItem("%silver%")
+             DestroyItem("%bronze%")
              GiveItemCreate("%bigmetalunit%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END

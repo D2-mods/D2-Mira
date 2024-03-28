@@ -36,6 +36,7 @@ END
 IF ~~ BEGIN OswaldPrototype
   SAY @10131  // Oswald says stuff
   IF ~~ DO ~ TakePartyGold(3000)
+             %destroygold%(3000)
              GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)
              AddJournalEntry(%iwdjour02%)
            ~ EXIT

@@ -75,6 +75,7 @@ IF ~~ BEGIN RibaldOffer
   IF ~ PartyGoldGT(2999)  // if 3000 gold
      ~ REPLY @40142 DO ~ SetGlobal("d2RibaldBigMetal","GLOBAL",2)  // accept offer
                          TakePartyGold(3000)
+                         DestroyGold(3000)
                          GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0) 
                        ~ GOTO RibaldPrototype
   IF ~

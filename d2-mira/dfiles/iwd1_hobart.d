@@ -31,6 +31,9 @@ IF ~~ BEGIN HobartPulseIII
   IF ~~ DO ~ TakePartyGold(15000)
              TakePartyItem("%pulse%")
              TakePartyItem("%prototype%")
+             %destroygold%(15000)
+             DestroyItem("%pulse%")
+             DestroyItem("%prototype%")
              GiveItemCreate("%pulseIII%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END

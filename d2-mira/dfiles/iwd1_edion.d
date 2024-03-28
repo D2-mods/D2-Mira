@@ -23,6 +23,7 @@ IF ~~ BEGIN EdionSilver
   IF ~ PartyGoldGT(5999)  // if 6000 gold
      ~ REPLY @10521 DO ~ SetGlobal("d2HasSilverPants","GLOBAL",1)  // accept offer
                          TakePartyGold(6000)
+                         %destroygold%(6000)
                          GiveItemCreate("%silver%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~
@@ -35,6 +36,7 @@ IF ~~ BEGIN EdionBronze
   IF ~ PartyGoldGT(2999)  // if 3000 gold
      ~ REPLY @10522 DO ~ SetGlobal("d2HasBronzePants","GLOBAL",1)  // accept offer
                          TakePartyGold(3000)
+                         %destroygold%(3000)
                          GiveItemCreate("%bronze%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~

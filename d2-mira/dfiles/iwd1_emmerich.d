@@ -31,6 +31,7 @@ IF ~~ BEGIN EmmerichGivesPulse
   IF ~ PartyGoldGT(4999)  // if 5000 gold
      ~ REPLY @10621 DO ~ SetGlobal("d2HasPulseAmmo","GLOBAL",1)  // accept offer
                          TakePartyGold(5000)
+                         %destroygold%(5000)
                          GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~

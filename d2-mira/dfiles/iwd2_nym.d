@@ -39,6 +39,7 @@ IF ~~ BEGIN NymPulse1
   SAY @20431  // Nym says stuff
   IF ~~ DO ~ TakePartyGold(10000)
              TakePartyItem("%prototype%")
+             DestroyItem("%prototype%")
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END
@@ -47,6 +48,7 @@ IF ~~ BEGIN NymPulse2
   SAY @20432  // Nym says stuff
   IF ~~ DO ~ TakePartyGold(10000)
              TakePartyItem("%prototype%")
+             DestroyItem("%prototype%")
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END

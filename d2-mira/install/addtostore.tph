@@ -16,13 +16,13 @@ ACTION_IF (mira = 1) BEGIN
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~LDD_NYM.STO~) BEGIN
     COPY_EXISTING ~LDD_NYM.STO~ ~override~
-      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%frag%~ position=~LAST~ flags=~identified~ END
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%frag%~ position=~AFTER VIOLIN~ flags=~identified~ END
     BUT_ONLY
   END
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~KIERAN2.STO~) BEGIN
     COPY_EXISTING ~KIERAN2.STO~ ~override~
-      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%scorcher%~ position=~LAST~flags=~identified~ END
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%scorcher%~ position=~AFTER THRYM~flags=~identified~ END
     BUT_ONLY
   END
 END
@@ -37,7 +37,7 @@ END
   
   ACTION_IF (FILE_EXISTS_IN_GAME ~KUTEMPLE.STO~) BEGIN
     COPY_EXISTING ~KUTEMPLE.STO~ ~override~
-      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~LAST~ flags=~identified~ END
+      LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~AFTER SCRLPET~ flags=~identified~ END
     BUT_ONLY
   END
   
@@ -60,7 +60,7 @@ ACTION_IF (mira = 1) BEGIN
   BUT_ONLY
 
   COPY_EXISTING ~53MYRVEK.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%frag%~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%frag%~ position=~BEFORE 00WAND16~ flags=~identified~ END
   BUT_ONLY
   
   COPY_EXISTING ~AR6102.ARE~ ~override/d2scorcher0.ARE~    // make backup (workaround for IWD2 issue)
@@ -72,11 +72,11 @@ END
 //
 //pantaloons
   COPY_EXISTING ~11ELYTHA.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~LAST~ flags=~identified~ END
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%bronze%~ position=~BEFORE 00BOOT03~ flags=~identified~ END
   BUT_ONLY
   
-  COPY_EXISTING ~53MALAVO.STO~ ~override~
-    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~LAST~ flags=~identified~ END
+  COPY_EXISTING ~53KADRES.STO~ ~override~
+    LPF ADD_STORE_ITEM_EX STR_VAR item_name=~%silver%~ position=~BEFORE 00RING71~ flags=~identified~ END
   BUT_ONLY
   
   COPY_EXISTING ~AR6006.ARE~ ~override~

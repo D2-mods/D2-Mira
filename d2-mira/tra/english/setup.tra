@@ -26,19 +26,19 @@ Text here appears in the weidu installer
 	@31 = ~Fire (default)~
 	@32 = ~Slashing~
 
-@40 = ~Make Scorcher and Frag Grenade more party friendly (EEs, BG2)~
-	@41 = ~Yes (will damage PCs only if launcher has damage bonus)~
+@40 = ~Make Scorcher and Frag Grenade more party friendly~
+	@41 = ~Yes (will damage allies only if launcher has damage bonus)~
 	@42 = ~No (default)~
 
-@45 = ~Make Frag Grenade more party friendly (IWD/IWD2)~
-	@46 = ~Yes (will damage PCs only if launcher has damage bonus)~
+@45 = ~Make Frag Grenade more party friendly (IWD1/IWD2)~
+	@46 = ~Yes (will damage allies only if launcher has damage bonus)~
 	@47 = ~No (default)~
 
 @50 = ~Pulse ammo does double damage on a critical hit (EEs)~
 	@51 = ~Yes~
 	@52 = ~No (default)~
 
-@60 = ~Adjust ammo charges (default is unlimited)~
+@60 = ~Adjust ammo charges per day (default is unlimited)~
 	@61 = ~Unlimited (default)~
 	@62 = ~120 charges~
 	@63 = ~80 charges~

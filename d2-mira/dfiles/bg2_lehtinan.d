@@ -32,6 +32,7 @@ END
 IF ~~ BEGIN LehtinanManual
   SAY @40351  // Lehtinan says stuff
   IF ~~ DO ~ TakePartyGold(500)
+             DestroyGold(500)
              AddJournalEntry(@40004,QUEST)
            ~ EXIT
 END

@@ -6,7 +6,7 @@ The ones with (mira = 1) are only added with Standard install.
 
 //prep
 
-//iwd1
+//iwd1 (check dlg states)
 OUTER_TEXT_SPRINT orrick_states  ~0 2 18 19~               // DORRICK
 OUTER_TEXT_SPRINT oswald_states  ~12 14~                   // DOSWALD
 OUTER_TEXT_SPRINT edion_states   ~9 10 11 12 16~           // DEDION
@@ -36,7 +36,7 @@ ELSE BEGIN
 END
 
 
-//iwd2
+//iwd2 (fix weidu warning)
 ACTION_IF (FILE_EXISTS_IN_GAME ~11OSWALD.DLG~) BEGIN
   COPY_EXISTING ~11OSWALD.DLG~  ~override~
     DECOMPILE_AND_PATCH BEGIN
@@ -46,7 +46,16 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~11OSWALD.DLG~) BEGIN
 END
 
 
+//check DestroyGold script action (used for BG1/IWD1 d files)
+ACTION_IF (GAME_IS ~iwd how totlm bg1 totsc~) BEGIN
+  OUTER_TEXT_SPRINT destroygold ~//DestroyGold~
+END ELSE BEGIN
+  OUTER_TEXT_SPRINT destroygold ~DestroyGold~
+END
 
+
+
+//
 //add to DLGs
 ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
 

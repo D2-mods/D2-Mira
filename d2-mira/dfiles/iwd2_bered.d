@@ -30,6 +30,7 @@ IF ~~ BEGIN BeredPulse
   SAY @20531  // Bered says stuff
   IF ~~ DO ~ TakePartyGold(5000)
              TakePartyItem("%prototype%")
+             DestroyItem("%prototype%")
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END

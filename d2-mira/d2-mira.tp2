@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~4.4~
+VERSION ~4.5~
 AUTO_EVAL_STRINGS
 
 ALWAYS
@@ -183,10 +183,10 @@ INCLUDE ~%install%/fragdamage.tph~
 
 
 /*
-Make Scorcher and Frag Grenade more party friendly (EEs, BG2)
+Make Scorcher and Frag Grenade more party friendly
 */
 
-BEGIN @41    // Yes (will damage PCs only if launcher has damage bonus)
+BEGIN @41    // Yes (will damage allies only if launcher has damage bonus)
 DESIGNATED 40
 REQUIRE_PREDICATE (GAME_IS ~iwdee bgee bg2ee eet bg2 tob tutu tutu_totsc ca iwd_in_bg2~) ~~
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
@@ -204,10 +204,10 @@ LABEL ~D2-MIRA-SAFEAMMO0~
 
 
 /*
-Make Frag Grenade more party friendly (IWD/IWD2)
+Make Frag Grenade more party friendly (IWD1/IWD2)
 */
 
-BEGIN @46    // Yes (will damage PCs only if launcher has damage bonus)
+BEGIN @46    // Yes (will damage allies only if launcher has damage bonus)
 DESIGNATED 45
 REQUIRE_PREDICATE (GAME_IS ~iwd2 iwd how totlm~) ~~
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
@@ -246,7 +246,7 @@ LABEL ~D2-MIRA-PULSECRIT0~
 
 
 /*
-Adjust ammo charges (default is unlimited)
+Adjust ammo charges per day (default is unlimited)
 */
 
 BEGIN @61    // Unlimited (default)

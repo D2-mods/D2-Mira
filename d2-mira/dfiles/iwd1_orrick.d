@@ -64,6 +64,7 @@ IF ~~ BEGIN OrrickPulse
     = @10252
   IF ~~ DO ~ TakePartyGold(5000)
              TakePartyItem("%prototype%")
+             %destroygold%(5000)
              DestroyItem("%prototype%")
              GiveItemCreate("%pulse%",LastTalkedToBy,0,0,0)
              AddJournalEntry(%iwdjour04%)

@@ -52,6 +52,8 @@ IF ~~ BEGIN RikiPulseIII
   IF ~~ DO ~ TakePartyGold(15000)
              TakePartyItem("%pulse%")
              TakePartyItem("%prototype%")
+             DestroyItem("%pulse%")
+             DestroyItem("%prototype%")
              GiveItemCreate("%pulseIII%",LastTalkedToBy,0,0,0) 
            ~ EXIT
 END

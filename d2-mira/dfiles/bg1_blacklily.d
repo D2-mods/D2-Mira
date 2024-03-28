@@ -33,6 +33,7 @@ IF ~~ BEGIN BlackLilyOffer
   IF ~ PartyGoldGT(9999)  // if 10000 gold
      ~ REPLY @30121 DO ~ SetGlobal("d2BlackLilyBigMetal","GLOBAL",1)  // accept offer
                          TakePartyGold(10000)
+                         %destroygold%(10000)
                          GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0) 
                        ~ GOTO BlackLilyPrototype
   IF ~

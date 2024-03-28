@@ -35,6 +35,7 @@ IF ~~ BEGIN HalbazzerGivesPulse
   IF ~ PartyGoldGT(2999)  // if 3000 gold
      ~ REPLY @30221 DO ~ SetGlobal("d2HasPrototype","GLOBAL",1)  // accept offer
                          TakePartyGold(3000)
+                         DestroyGold(3000)
                          GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0) 
                        ~ EXIT
   IF ~

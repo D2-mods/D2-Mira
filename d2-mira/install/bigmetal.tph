@@ -106,7 +106,7 @@ END
 
 //BG2
 ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca~) BEGIN
-  COPY ~%iwd1%~  ~override~    // not a typo (using IWD1 folder as base)
+  COPY ~%iwd1%~  ~override~
   LAF d2mira_bg2core END
   LAF d2mira_bigmetal_text END
   LAF d2mira_bg1alt_text END
