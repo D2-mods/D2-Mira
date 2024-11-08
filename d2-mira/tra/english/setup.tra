@@ -40,10 +40,10 @@ Text here appears in the weidu installer
 
 @60 = ~Adjust ammo charges per day (default is unlimited)~
 	@61 = ~Unlimited (default)~
-	@62 = ~120 charges~
-	@63 = ~80 charges~
-	@64 = ~40 charges~
+	@62 = ~999 charges~
+	@63 = ~300 charges~
+	@64 = ~80 charges~
 
 
-/*
-*/
+//
+//

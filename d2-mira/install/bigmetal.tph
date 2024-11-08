@@ -86,6 +86,7 @@ DEFINE_ACTION_FUNCTION d2mira_bg2core BEGIN
   ACTION_PHP_EACH update_items AS mod => base BEGIN
     ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN    // use BG2 files as defaults
       COPY_EXISTING ~%base%.ITM~  ~override/%mod%.ITM~
+        LPF ALTER_EFFECT INT_VAR silent=1 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
     END
   END
 END

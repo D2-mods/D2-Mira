@@ -258,7 +258,7 @@ LABEL ~D2-MIRA-RECHARGE1~
 OUTER_SET recharge = 1
 INCLUDE ~%install%/recharge.tph~
 
-BEGIN @62    // 120 charges
+BEGIN @62    // 999 charges
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @60
@@ -266,7 +266,7 @@ LABEL ~D2-MIRA-RECHARGE2~
 OUTER_SET recharge = 2
 INCLUDE ~%install%/recharge.tph~
 
-BEGIN @63    // 80 charges
+BEGIN @63    // 300 charges
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @60
@@ -274,7 +274,7 @@ LABEL ~D2-MIRA-RECHARGE3~
 OUTER_SET recharge = 3
 INCLUDE ~%install%/recharge.tph~
 
-BEGIN @64    // 40 charges
+BEGIN @64    // 80 charges
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @60

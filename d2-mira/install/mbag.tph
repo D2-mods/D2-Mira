@@ -63,40 +63,33 @@ INCLUDE ~%MOD_FOLDER%/install/mbagfill.tph~
 
 ACTION_IF (mira = 2) BEGIN
 
-ACTION_IF ((GAME_INCLUDES ~bg2~) AND !(GAME_IS ~eet bgt~)) BEGIN
-  EXTEND_BOTTOM ~AR0602.BCS~  ~%mbag%/mbag-imoen.BAF~
-END
+  ACTION_IF (GAME_INCLUDES ~bg2~) BEGIN
+    EXTEND_BOTTOM ~AR0602.BCS~  ~%mbag%/mbag-imoen.BAF~
+  END 
   
-ACTION_IF (GAME_IS ~eet bgt~) BEGIN
-  COPY - ~%mbag%/mbag-imoen.BAF~  ~%workspace%/mbag-imoen.BAF~
-    REPLACE_TEXTUALLY ~InParty("Imoen")~  ~InParty("Imoen2")~
-    REPLACE_TEXTUALLY ~"%mirabag%","Imoen"~  ~"%mirabag%","Imoen2"~
-  EXTEND_BOTTOM ~AR0602.BCS~  ~%workspace%/mbag-imoen.BAF~
-END
-  
-ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
-  EXTEND_BOTTOM ~bd0120.BCS~  ~%mbag%/mbag-sodscript.BAF~
-END
-
-ACTION_FOR_EACH script IN ~BPHUB~ ~ohbhub~ BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.BCS~) BEGIN
-    EXTEND_BOTTOM ~%script%.BCS~  ~%mbag%/mbag-bpscript.BAF~
+  ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
+    EXTEND_BOTTOM ~bd0120.BCS~  ~%mbag%/mbag-sodscript.BAF~
   END
-END
 
-ACTION_FOR_EACH script IN ~BALDUR~ ~BALDUR25~ ~bdbaldur~ BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.BCS~) BEGIN
-    EXTEND_TOP ~%script%.BCS~  ~%mbag%/mbag-script.BAF~
+  ACTION_FOR_EACH script IN ~BPHUB~ ~ohbhub~ BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.BCS~) BEGIN
+      EXTEND_BOTTOM ~%script%.BCS~  ~%mbag%/mbag-bpscript.BAF~
+    END
   END
-END
 
-ACTION_IF (FILE_EXISTS ~override/lhMIS0a.itm~) BEGIN
-  EXTEND_BOTTOM ~BALDUR.BCS~ ~%mbag%/mbag-epicadv.BAF~
-END
+  ACTION_FOR_EACH script IN ~BALDUR~ ~BALDUR25~ ~bdbaldur~ BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.BCS~) BEGIN
+      EXTEND_TOP ~%script%.BCS~  ~%mbag%/mbag-script.BAF~
+    END
+  END
+
+  ACTION_IF (FILE_EXISTS ~override/lhMIS0a.itm~) BEGIN
+    EXTEND_BOTTOM ~BALDUR.BCS~ ~%mbag%/mbag-epicadv.BAF~
+  END
   
-ACTION_IF (GAME_IS ~ca~) BEGIN
-  EXTEND_BOTTOM ~TC0009.BCS~ ~%mbag%/mbag-ca.BAF~
-END
+  ACTION_IF (GAME_IS ~ca~) BEGIN
+    EXTEND_BOTTOM ~TC0009.BCS~ ~%mbag%/mbag-ca.BAF~
+  END
 
 END
 

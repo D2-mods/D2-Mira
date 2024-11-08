@@ -5,9 +5,9 @@ Adjust ammo charges (default is unlimited)
 
 //prep
 ACTION_IF (recharge = 1) BEGIN  OUTER_SET charges=0   OUTER_SET drained=1 OUTER_SET flag_recharge=0 END  // unlimited
-ACTION_IF (recharge = 2) BEGIN  OUTER_SET charges=120 OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 100 charges
-ACTION_IF (recharge = 3) BEGIN  OUTER_SET charges=80  OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 50 charges
-ACTION_IF (recharge = 4) BEGIN  OUTER_SET charges=40  OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 20 charges
+ACTION_IF (recharge = 2) BEGIN  OUTER_SET charges=999 OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 999 charges
+ACTION_IF (recharge = 3) BEGIN  OUTER_SET charges=300 OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 300 charges
+ACTION_IF (recharge = 4) BEGIN  OUTER_SET charges=80  OUTER_SET drained=3 OUTER_SET flag_recharge=1 END  // 80 charges
 
 
 //
@@ -44,7 +44,7 @@ END
 
 
 //update stores and dialogue
-ACTION_IF (recharge != 1) BEGIN
+ACTION_IF (recharge > 1) BEGIN
   INCLUDE ~%install%/rechargestores.tph~
   INCLUDE ~%install%/rechargetrades.tph~
 END

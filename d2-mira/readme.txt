@@ -82,19 +82,26 @@ Tools and Resources used:
 - NearInfinity (https://github.com/Argent77/NearInfinity)
 - Notepad++ (https://notepad-plus-plus.org/)
 - Git Bash (https://git-scm.com/downloads)
-- Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
+- WeiDU Mod Packager (https://github.com/InfinityTools/WeiduModPackager)
 - IESDP (https://gibberlings3.github.io/iesdp/main.htm)
+- WeiDU readme (https://weidu.org/~thebigg/README-WeiDU.html)
 - LibIconv for Windows (http://gnuwin32.sourceforge.net/packages/libiconv.htm)
+
+Used for older releases (replaced by WeiDU Mod Packager):
+- Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
 - 7-Zip (https://www.7-zip.org/)
 
 --
 
 Updates:
+
 v4.5
-- IWD2/IWD2EE mod: This mod is compatible with IWD2EE. Install this mod after IWD2EE and before the compatibility patch. The patch adds 1-2 effects on the items from this mod (ex. can add damage resist to Big Metal Unit).
-- Items traded away will (mostly) be destroyed now, instead of staying in the NPC's inventory.
-- EEs/BG2 engine: Gold given to NPCs by dialogue will be removed now, instead of adding to gold drop if killed.
+- Fixed possible mod conflict issues with "Start with core items" component (scripting related).
+- Items traded away will mostly be destroyed now, instead of staying in the NPC's inventory.
+- EEs/BG2: Gold given to NPCs by dialogue will be removed now, instead of adding to gold drop if killed.
 - classic IWD1: Fixed fake/duplicated Evasion messages for some ammo. (note: for Scorcher, secondary targets get an Evasion check, this is part of the projectile itself).
+- IWD2EE note: all ammo types are now considered Silver weapons for hitting enemies.
+- Ammo charges component: Changed options 2-4 to 999, 300, 80 charges (previously 120, 80 40).
 
 v4.4
 - BG2 (classic):

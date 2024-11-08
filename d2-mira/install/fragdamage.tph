@@ -32,6 +32,7 @@ ACTION_PHP_EACH update_items AS mod => base BEGIN
   ACTION_IF (~%mod%~ STR_EQ ~%frag%~) BEGIN
     ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
       COPY_EXISTING ~%frag%.ITM~  ~override/%base%.ITM~
+        LPF ALTER_EFFECT INT_VAR silent=1 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
     END
   END
 END
