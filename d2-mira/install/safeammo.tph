@@ -48,6 +48,7 @@ BEGIN
 
     PATCH_IF (effect_to_use = 177) BEGIN
       LPF DELETE_EFFECT INT_VAR match_opcode=12 END
+      LPF ALTER_EFFECT INT_VAR match_opcode=177 STR_VAR match_resource=~%ammo_type%~ resource=~%ammo_type%a~ END
     END
   BUT_ONLY
 
@@ -55,8 +56,8 @@ BEGIN
   ACTION_IF (~%ammo_type%~ STR_EQ ~%scorcher%~) BEGIN  OUTER_SET dice=1 OUTER_SET roll=12 END    // scorcher does 2d12
 
   ACTION_IF (effect_to_use = 177) BEGIN
-    COPY ~%files%/bg2safeammo.EFF~  ~override/%ammo_type%.EFF~
-      WRITE_SHORT 0x38 dice 
+    COPY ~%files%/bg2safeammo.EFF~  ~override/%ammo_type%a.EFF~
+      WRITE_SHORT 0x38 dice
       WRITE_SHORT 0x3c roll
   END
 
@@ -66,16 +67,16 @@ END
 //
 //classic BG2: Scorcher allows save for half
 ACTION_IF (effect_to_use = 177) BEGIN
-  COPY ~%files%/bg2safescorch.EFF~  ~override/%scorcher%s.EFF~
+  COPY ~%files%/bg2safescorch.EFF~  ~override/%scorcher%b.EFF~
   COPY_EXISTING ~%scorcher%.ITM~  ~override~  
-    LPF CLONE_EFFECT STR_VAR match_resource=~%scorcher%~ resource=~%scorcher%s~ END
+    LPF CLONE_EFFECT STR_VAR match_resource=~%scorcher%a~ resource=~%scorcher%b~ END
   BUT_ONLY
 END
 
 
 //classic BG2: check Frag Grenade (damage type and rolls)
 ACTION_IF (effect_to_use = 177) BEGIN
-  COPY_EXISTING ~%frag%.EFF~  ~override~
+  COPY_EXISTING ~%frag%a.EFF~  ~override~
     PATCH_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 31) BEGIN    // if slashing damage
       WRITE_SHORT 0x22 256
     END

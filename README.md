@@ -6,9 +6,9 @@ Installs on: BG:EE, BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
 Overview:
 -
 
-This is a mod for Infinity Engine games. It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games (Baldur's Gate: Enhanced Edition, Baldur's Gate 2: Enhanced Edition, classic BG2 engine, and classic IWD).
+This is a mod for Infinity Engine games. It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games (BG:EE, BG2 (classic and EE), classic IWD1).
 
-The exact stuff this mod adds will depend on the game. All items are obtainable in the IWD games (including pantaloons). The Big Metal Rod and a Pulse (prototype) are added to BG1/SoD (obtainable in both). For BG2/ToB, several items are added or revised, and there may be a small quest involved. There's also an option to start with a bag containing the core Big Metal items. See components section for more info.
+The exact stuff this mod adds will depend on the game. All items are obtainable in the IWD games (including pantaloons). The Big Metal Rod and a Pulse ammo are added to BG1/SoD (obtainable in both). For BG2/ToB, several items are added or revised, and there may be a small quest involved. There's also an option to start with a bag containing the core Big Metal items. More info below.
 
 --
 
@@ -29,7 +29,7 @@ Components:
 **Component 4 info (party friendly ammo):**
 - Makes it so only the damage from the launcher will harm PCs.
 - Ammo damage (ex. fire from Scorcher) does no damage to PCs.
-- If the launcher has no damage bonus (i.e. Big Metal Rod), the ammo is party friendly.
+- If the launcher has no damage bonus, then the ammo is party friendly.
 - EEs/BG2 engine: Applies to Scorcher and Frag Grenade.
 - IWD1/IWD2: Applies to Frag Grenade only (can't make it work with Scorcher projectile).
 - Neutral NPCs will still become hostile if they get hit, even if they take no damage.
@@ -40,7 +40,7 @@ Additional info:
 -
 
 **Option 1:**
-- IWD games: All items are obtainable, including pantaloons.
+- IWD games: All items are obtainable, including pantaloons. (more info below)
 - BG1/SoD: Adds the Big Metal Rod and Pulse Ammo (prototype).
 - BG2: Several items are added or revised (see below).
 - Some are gained through trades, some are sold by merchants, and some can be found in various places.
@@ -53,13 +53,13 @@ Additional info:
 **BG2 notes:**
 - Core items are still gained the same way as in the unmodded game.
 - Pulse (prototype) and an extra Big Metal Rod are obtainable in SoA.
-- Golden Pantaloons are in SoA, even if not importing from BG1.
-- Pulse III is obtainable in ToB (requires a lesser Pulse Ammo).
+- Golden Pantaloons are in SoA, even if not importing from BG1. (note: if missed in the starting dungeon, it gets moved somewhere else)
+- Pulse III is obtainable in ToB (requires trading in a lesser Pulse Ammo).
 
 **A few hints:**
 - IWD1: The Big Metal Rod is in the starting town. Make sure not to miss it (though there's different dialogue with an NPC if you do miss it).
 - BG1: The Big Metal Rod will not appear at its location until you find out it exists.
-- Throne of Bhaal: Gold and Silver Pantaloons are obtainable if not found in SoA.
+- Throne of Bhaal: Gold/Silver pantaloons are still obtainable in ToB, if not already obtained.
 - Heart of Winter: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
 - IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after the second time flying with Oswald, if you missed them in earlier locations.
 
