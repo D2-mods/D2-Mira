@@ -98,7 +98,7 @@ Updates:
 
 v4.6
 - classic BG2: Fixed damage with safe ammo component (oversight from last update).
-- 
+- Fixed possible install error on Mac systems, caused by using text files without extensions.
 
 v4.5
 - Fixed possible mod conflict issues with "Start with core items" component (scripting related).
