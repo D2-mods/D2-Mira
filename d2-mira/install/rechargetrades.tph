@@ -56,7 +56,24 @@ END
 
 
 
-//patch items
+//iwd2ee: fix weidu warning (20riki)
+ACTION_IF (FILE_EXISTS ~IEex.dll~ AND FILE_EXISTS ~IWD2EE.exe~) BEGIN
+  COPY_EXISTING ~20riki.dlg~  ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      COUNT_REGEXP_INSTANCES ~SH_Perform_Illmater_Ritual~ check    // removed by IWD2EE
+      PATCH_IF (check = 0) BEGIN
+        TEXT_SPRINT match1  ~^.*IF.*False().*$~
+        TEXT_SPRINT match2  ~^.*35916.*GOTO 35.*$~
+        REPLACE_TEXTUALLY ~%match1%~  ~~
+        REPLACE_TEXTUALLY ~%match2%~  ~~
+      END
+    END
+  BUT_ONLY
+END
+
+
+//patch DLGs
+SILENT
 ACTION_PHP_EACH d2mira_charges AS file_to_patch => old_line BEGIN
   ACTION_IF (FILE_EXISTS ~override/%file_to_patch%~) BEGIN
     COPY_EXISTING ~%file_to_patch%~  ~override~
@@ -70,6 +87,10 @@ ACTION_PHP_EACH d2mira_charges AS file_to_patch => old_line BEGIN
     BUT_ONLY
   END
 END
+VERBOSE
+
+//the SILENT is to not interrupt PI installs if compiler notices issues with DLG (caused by other mods)
+//may show WARNING message after install, but it's harmless for this mod
 
 
 //

@@ -96,6 +96,9 @@ Used for older releases (replaced by WeiDU Mod Packager):
 
 Updates:
 
+v4.7
+- IWD2EE note: Fixed a possible installer warning when installing ammo charges component after IWD2EE ("more ways to progress" component). This was harmless and didn't affect anything but it was annoying because it paused Project Infinity installs.
+
 v4.6
 - classic BG2: Fixed damage with safe ammo component (oversight from last update).
 - Fixed possible install error on Mac systems, caused by using text files without extensions.
