@@ -1,0 +1,30 @@
+/*
+add silver and cold iron flags
+"buff" adds as equipped effect, instead of setting flag (EE-only)
+*/
+
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_silver BEGIN
+  ~%pulse%~      => flag
+  ~%frag%~       => flag
+  ~%scorcher%~   => flag
+  ~%prototype%~  => flag
+  ~%prototypeb%~ => flag
+  ~%pulseIII%~   => flag
+END
+
+
+//patch items
+ACTION_PHP_EACH ~d2mira_silver~ AS weapon => type BEGIN
+  COPY_EXISTING ~%weapon%.itm~  ~override~
+    PATCH_IF (~%type%~ STR_EQ ~buff~) BEGIN
+      LPF d2_silverweapon_buff END
+    END ELSE BEGIN
+      LPF d2_silverweapon END
+    END
+  IF_EXISTS BUT_ONLY
+END
+
+
+//
+//

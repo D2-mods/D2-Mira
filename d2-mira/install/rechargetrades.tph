@@ -60,15 +60,22 @@ END
 ACTION_IF (FILE_EXISTS ~IEex.dll~ AND FILE_EXISTS ~IWD2EE.exe~) BEGIN
   COPY_EXISTING ~20riki.dlg~  ~override~
     DECOMPILE_AND_PATCH BEGIN
-      COUNT_REGEXP_INSTANCES ~SH_Perform_Illmater_Ritual~ check    // removed by IWD2EE
-      PATCH_IF (check = 0) BEGIN
-        TEXT_SPRINT match1  ~^.*IF.*False().*$~
-        TEXT_SPRINT match2  ~^.*35916.*GOTO 35.*$~
-        REPLACE_TEXTUALLY ~%match1%~  ~~
-        REPLACE_TEXTUALLY ~%match2%~  ~~
-      END
+      TEXT_SPRINT match  ~^.*35916.*GOTO 35.*$~
+      TEXT_SPRINT string "~ THEN REPLY #35916 GOTO 35"
+      REPLACE_TEXTUALLY ~%match%~  ~%string%~
     END
-  BUT_ONLY
+  IF_EXISTS BUT_ONLY
+END
+
+//iwd-in-bg2
+ACTION_IF (FILE_CONTAINS_EVALUATED (~weidu.log~  ~ICE_TUTU_TWEAKS~)) BEGIN
+  COPY_EXISTING ~DORRICK.dlg~  ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      TEXT_SPRINT match   ~AddXPVar("Level_7.*)~
+      TEXT_SPRINT string  ~AddXP2DA("Level_7_Average")~
+      REPLACE_TEXTUALLY ~%match%~  ~%string%~
+    END
+  IF_EXISTS BUT_ONLY
 END
 
 

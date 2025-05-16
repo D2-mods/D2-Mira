@@ -1,10 +1,112 @@
+/*
+install items
+*/
+
+
 //
+DEFINE_ACTION_FUNCTION d2mira_copy BEGIN
+  OUTER_SPRINT folder  ~%files%~
+  ACTION_IF (GAME_IS ~iwd2~) BEGIN  OUTER_SPRINT folder  ~%iwd2%~  END    // iwd2 files (crashes with EE files)
+
+  ACTION_PHP_EACH d2mira_copy AS res => copy BEGIN
+    COPY ~%folder%/%copy%.itm~  ~override/%res%.itm~
+      LPF d2mira_icons END
+      LPF d2mira_ground END
+    COPY ~%icons%/%copy%icon.bam~  ~override/%res%.bam~  IF_EXISTS
+    COPY ~%icons%/%copy%desc.bam~  ~override/%res%d.bam~  IF_EXISTS
+    COPY ~%icons%/%copy%ground.bam~  ~override/%res%g.bam~  IF_EXISTS
+  END
+END
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_copy BEGIN    // mod folder res
+  ~%bigmetalrod%~  => metalrod
+  ~%pulse%~        => pulse
+  ~%frag%~         => frag
+  ~%scorcher%~     => scorcher
+  ~%bigmetalunit%~ => metalunit
+  ~%prototype%~    => prototype
+  ~%pulseIII%~     => pulse3
+END
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_icons BEGIN    // icon res
+  ~%bigmetalrod%~  => ~%bigmetalrod%~
+  ~%pulse%~        => ~%pulse%~
+  ~%frag%~         => ~%frag%~
+  ~%scorcher%~     => ~%scorcher%~
+  ~%bigmetalunit%~ => ~%bigmetalunit%~
+  ~%prototype%~    => ~%pulse%~
+  ~%pulseIII%~     => ~%pulse%~
+END
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_ground BEGIN    // icon res
+  ~%bigmetalrod%~  => GSACK01
+  ~%pulse%~        => GWAND01
+  ~%frag%~         => GWAND01
+  ~%scorcher%~     => GWAND01
+  ~%bigmetalunit%~ => GPLAT01
+  ~%prototype%~    => GWAND01
+  ~%pulseIII%~     => GWAND01
+END
+
+OUTER_SPRINT $d2mira_ground(~%bigmetalrod%~) ~%bigmetalrod%g~
+OUTER_SPRINT $d2mira_ground(~%bigmetalunit%~) ~%bigmetalunit%g~
+
+DEFINE_PATCH_FUNCTION d2mira_icons BEGIN
+  PHP_EACH d2mira_icons AS item => icon BEGIN
+    PATCH_IF (~%res%~ STR_EQ ~%item%~) BEGIN
+      WRITE_ASCII 0x3a ~%icon%~ #8     // icon
+      WRITE_ASCII 0x58 ~%icon%d~ #8    // bg desc image
+      LPF ALTER_ITEM_HEADER STR_VAR icon=~%icon%~ END
+    END
+  END
+END
+
+DEFINE_PATCH_FUNCTION d2mira_ground BEGIN
+  PHP_EACH d2mira_ground AS item => icon BEGIN
+    PATCH_IF (~%res%~ STR_EQ ~%item%~) BEGIN
+      WRITE_ASCII 0x44 ~%icon%~ #8    // ground icon
+    END
+  END
+END
+
+
+//IWD pantaloons
+DEFINE_ACTION_FUNCTION d2mira_pantaloons BEGIN
+  ACTION_PHP_EACH d2mira_copypants AS res => copy BEGIN
+    COPY ~%files%/%copy%.itm~  ~override/%res%.itm~
+      LPF d2mira_iconspants END
+    COPY ~%icons%/%copy%icon.bam~  ~override/%res%.bam~  IF_EXISTS
+    COPY ~%icons%/%copy%desc.bam~  ~override/%res%d.bam~  IF_EXISTS
+  END
+END
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_copypants BEGIN    // mod folder res
+  ~%bronze%~ => bronzepants
+  ~%silver%~ => silverpants
+  ~%gold%~   => goldpants
+END
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_iconspants BEGIN    // icon res
+  ~%bronze%~ => ~%bronze%~
+  ~%silver%~ => ~%silver%~
+  ~%gold%~   => ~%gold%~
+END
+
+DEFINE_PATCH_FUNCTION d2mira_iconspants BEGIN
+  PHP_EACH d2mira_iconspants AS item => icon BEGIN
+    PATCH_IF (~%res%~ STR_EQ ~%item%~) BEGIN
+      WRITE_ASCII 0x3a ~%icon%~ #8     // icon
+      WRITE_ASCII 0x58 ~%icon%d~ #8    // bg desc image
+    END
+  END
+END
+
+
+
 //
+//functions
 
-
-//functions for adding text
-
-//Big Metal items
+//item text
 DEFINE_ACTION_FUNCTION d2mira_bigmetal_text BEGIN
   COPY_EXISTING ~%bigmetalrod%.ITM~  ~override~
     SAY NAME1 ~%metalrod_name%~ SAY UNIDENTIFIED_DESC ~%metalrod_desc%~
@@ -29,7 +131,6 @@ DEFINE_ACTION_FUNCTION d2mira_bigmetal_text BEGIN
     SAY NAME2 ~%pulseIII_name%~ SAY DESC ~%pulseIII_desc%~
 END
 
-//
 //Pantaloons
 DEFINE_ACTION_FUNCTION d2mira_pantaloons_text BEGIN
   COPY_EXISTING ~%bronze%.ITM~  ~override~							
@@ -43,7 +144,6 @@ DEFINE_ACTION_FUNCTION d2mira_pantaloons_text BEGIN
     SAY NAME2 ~%goldenpants_name%~ SAY DESC ~%goldenpants_desc%~
 END
 
-//
 //for BG1 (different text)
 DEFINE_ACTION_FUNCTION d2mira_bg1alt_text BEGIN
   COPY_EXISTING ~%bigmetalrod%.ITM~  ~override/%metalrodb%.ITM~
@@ -56,7 +156,6 @@ DEFINE_ACTION_FUNCTION d2mira_bg1alt_text BEGIN
     SAY NAME2 ~%prototype_name%~ SAY DESC ~%prototype_desc_bg1%~
 END
 
-//
 //Quest items (BG2)
 DEFINE_ACTION_FUNCTION d2mira_bg2quest_text BEGIN
   COPY_EXISTING ~%bigmetalrod%.ITM~  ~override/%brokenrod%.ITM~
@@ -65,30 +164,76 @@ DEFINE_ACTION_FUNCTION d2mira_bg2quest_text BEGIN
     LPF DELETE_ITEM_HEADER INT_VAR header_type=~-1~ END
     WRITE_SHORT 0x1c 0    // change item type
     WRITE_LONG  0x34 0    // 0 gold
+//    WRITE_BYTE 0x31 0     // no prof
 
   COPY ~%files%/repairmanual.ITM~  ~override/%repairbook%.ITM~
     SAY NAME1 ~%questbookbg2_name%~ SAY UNIDENTIFIED_DESC ~%questbookbg2_desc%~
     SAY NAME2 ~%questbookbg2_name%~ SAY DESC ~%questbookbg2_desc%~
 END
 
-//
+
 //for classic BG2 engine
 DEFINE_ACTION_FUNCTION d2mira_bg2core BEGIN
-  COPY ~%resource%/SECRET03.ITM~  ~override~    // make slightly more like EEs
-       ~%resource%/SECRET04.ITM~  ~override~
-
   ACTION_BASH_FOR ~%resource%~  ~.*~ BEGIN
     ACTION_IF !(FILE_EXISTS_IN_GAME ~%BASH_FOR_FILE%~) BEGIN    // add files if missing
       COPY ~%BASH_FOR_FILESPEC%~  ~override~
     END
   END
 
+  // use BG2 files as defaults
   ACTION_PHP_EACH update_items AS mod => base BEGIN
-    ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN    // use BG2 files as defaults
+    ACTION_IF (FILE_EXISTS ~override/%mod%.itm~) BEGIN
       COPY_EXISTING ~%base%.ITM~  ~override/%mod%.ITM~
         LPF ALTER_EFFECT INT_VAR silent=1 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
+      IF_EXISTS
     END
   END
+
+  ACTION_PHP_EACH d2mira_bg2images AS mod => base BEGIN
+    COPY_EXISTING ~%base%.bam~  ~override/%mod%.bam~  IF_EXISTS
+  END
+
+  // tobex edits
+  COPY_EXISTING ~%frag%.ITM~      ~override~
+                ~%scorcher%.ITM~  ~override~
+    LPF ALTER_EFFECT INT_VAR match_opcode=12 savingthrow=16777218 END
+    LPF ALTER_EFFECT INT_VAR multi_match=1 match_savingthrow=16777218 savingthrow=16777216 END
+  BUT_ONLY
+
+  // ground icons
+  ACTION_PHP_EACH d2mira_ground AS item => icon BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%item%g.bam~) BEGIN
+      COPY_EXISTING ~%item%.itm~  ~override~
+        WRITE_ASCII 0x44 ~%icon%~ #8
+      IF_EXISTS BUT_ONLY
+    END
+  END
+END
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_bg2images BEGIN    // for original BG2
+  ~%bigmetalrod%~   => ISECRT01
+  ~%bigmetalrod%d~  => PSECRT01
+  ~%pulse%~         => ISECRT02
+  ~%pulse%d~        => PSECRT02
+  ~%frag%~          => IMISC50
+  ~%frag%d~         => CMISC50
+  ~%scorcher%~      => ISECRT04
+  ~%scorcher%d~     => PSECRT04
+  ~%bigmetalunit%~  => ISECRT05
+  ~%bigmetalunit%d~ => PSECRT05
+END
+
+
+//for IWD1 (classic)
+DEFINE_ACTION_FUNCTION d2mira_iwdopcodes BEGIN
+  COPY_EXISTING ~%bigmetalunit%.ITM~  ~override~
+    LPF DELETE_EFFECT INT_VAR match_opcode=53 END    // no animation change (note: polymorph can't change appearance only)
+    LPF ALTER_EFFECT INT_VAR match_opcode=292 opcode=287 END    // backstab immunity
+  BUT_ONLY
+
+  COPY_EXISTING ~%scorcher%.ITM~  ~override~
+    LPF DELETE_EFFECT INT_VAR match_opcode=12 END    // no damage opcode (projectile has hardcoded damage)
+  BUT_ONLY
 END
 
 
@@ -96,10 +241,20 @@ END
 //
 //Install items
 
+//copy items
+LAF d2mira_copy END
+
+/*
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+  COPY ~%iwd2%~  ~override~
+END ELSE BEGIN
+  LAF d2mira_copy END
+END
+*/
+
+
 //BGEE, BG2EE
 ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
-  COPY ~%data%~  ~override~
-  COPY ~%bgee%~  ~override~
   LAF d2mira_bigmetal_text END
   LAF d2mira_bg1alt_text END
   LAF d2mira_bg2quest_text END
@@ -107,7 +262,6 @@ END
 
 //BG2
 ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca~) BEGIN
-  COPY ~%iwd1%~  ~override~
   LAF d2mira_bg2core END
   LAF d2mira_bigmetal_text END
   LAF d2mira_bg1alt_text END
@@ -116,41 +270,84 @@ END
 
 //IWDEE
 ACTION_IF (GAME_IS ~iwdee~) BEGIN
-  COPY ~%data%~  ~override~
-  COPY ~%extra%~  ~override~
+  LAF d2mira_pantaloons END
   LAF d2mira_bigmetal_text END
   LAF d2mira_pantaloons_text END
 END
 
 //IWD1
 ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
-  COPY ~%iwd1%~  ~override~
-  COPY ~%extra%~  ~override~
+  LAF d2mira_pantaloons END
+  LAF d2mira_iwdopcodes END
   LAF d2mira_bigmetal_text END
   LAF d2mira_pantaloons_text END
 END
 
 //IWD2
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
-  COPY ~%iwd2%~  ~override~
-  COPY ~%extra%~  ~override~
+  LAF d2mira_pantaloons END
   LAF d2mira_bigmetal_text END
   LAF d2mira_pantaloons_text END
 END
 
 //IWD-in-BG2
 ACTION_IF (GAME_IS ~iwd_in_bg2~) BEGIN
-  COPY ~%iwd1%~  ~override~
+  LAF d2mira_pantaloons END
   LAF d2mira_bg2core END
   LAF d2mira_bigmetal_text END
   LAF d2mira_pantaloons_text END
 END
 
 
+
+//
+//extra stuff
+
 //elemental weapons (for Better IWD Pregen scripts)
 LAF d2_elemental_weapon_arrays STR_VAR item=~%frag%~ element=~fire~ RET_ARRAY d2fireweap END
 LAF d2_elemental_weapon_arrays STR_VAR item=~%scorcher%~ element=~fire~ RET_ARRAY d2fireweap END
 
 
-/*
-*/
+//set crossbow cat and prof
+DEFINE_PATCH_FUNCTION profcheck BEGIN
+//  WRITE_SHORT 0x1c item_cat
+  PATCH_IF (FILE_EXISTS_IN_GAME ~weapprof.2da~) BEGIN
+    WRITE_BYTE 0x31  item_prof
+  END
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~weapprof.2da~) BEGIN
+  LAF d2_get_weapontype_fields STR_VAR type=crossbow RET item_cat item_prof END
+  COPY_EXISTING ~%bigmetalrod%.itm~  ~override~  LPF profcheck END  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~%metalrodb%.itm~  ~override~  LPF profcheck END  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~%brokenrod%.itm~  ~override~  LPF profcheck END  IF_EXISTS BUT_ONLY
+END
+
+
+//polymorph check
+ACTION_IF (RESOURCE_CONTAINS ~action.ids~ ~zoomlock~) BEGIN
+  OUTER_TEXT_SPRINT d2polymorphcheck  ~d2polymorphcheck 59 1 4~     // POLYMORPHED >= 1
+  LAF d2_splprot_adder STR_VAR match=d2polymorphcheck string=~%d2polymorphcheck%~ RET stat END
+  OUTER_SET d2polymorphcheck = stat
+END
+
+//big metal unit animation
+COPY_EXISTING ~%bigmetalunit%.itm~  ~override~
+  // blocks op53 (animation change)
+  SET anim = 53
+  LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=anim opcode=101 parameter2=anim STR_VAR insert=below END
+
+  // EEs: no change if polymorphed
+  PATCH_IF (IS_AN_INT d2polymorphcheck) BEGIN
+    LPF d2_protect_on_castequip INT_VAR match_opcode=anim cre_type=d2polymorphcheck STR_VAR insert=above END
+  END
+
+  // npc bump
+  PATCH_IF (RESOURCE_CONTAINS ~stats.ids~  ~NPC_BUMP~) BEGIN
+    LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=anim opcode=300 parameter2=1 END
+  END
+BUT_ONLY
+
+
+//
+//

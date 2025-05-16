@@ -7,35 +7,35 @@ Resource: d2#mbag.ITM
 
 
 ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
-  COPY ~%mbag%/mbag-ee.BAM~  ~override/%mirabag%.BAM~
+  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbee1.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbee1.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 ACTION_IF (GAME_IS ~iwdee~) BEGIN
-  COPY ~%mbag%/mbag-ee.BAM~  ~override/%mirabag%.BAM~
+  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbee0.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbee0.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 ACTION_IF (GAME_IS ~how totlm~) BEGIN
-  COPY ~%mbag%/mbag-id1.BAM~  ~override/%mirabag%.BAM~
+  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbid1.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbid1.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
-  COPY ~%mbag%/mbag-id2.BAM~  ~override/%mirabag%.BAM~
+  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbid2.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbid2.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
-  COPY ~%mbag%/mbag-bg2.BAM~  ~override/%mirabag%.BAM~
+  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbbg2.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbbg2.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */

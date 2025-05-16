@@ -2,19 +2,26 @@
 //
 
 
+  INCLUDE ~%install%/weapontypes.tph~
   INCLUDE ~%install%/itemdesc.tph~
   INCLUDE ~%install%/bigmetal.tph~
+
   INCLUDE ~%install%/journal.tph~
   INCLUDE ~%install%/addtostore.tph~
-  INCLUDE ~%install%/priceadjust.tph~
-  INCLUDE ~%install%/loreadjust.tph~
-  INCLUDE ~%install%/updatebg2.tph~
   INCLUDE ~%install%/dfiles.tph~
   INCLUDE ~%install%/mbag.tph~
-  INCLUDE ~%install%/HoWscripts.tph~    // game-specific scripts
-  INCLUDE ~%install%/IWD2scripts.tph~
-  INCLUDE ~%install%/BGEEscripts.tph~
-  INCLUDE ~%install%/BG2scripts.tph~
+
+  INCLUDE ~%install%/howscripts.tph~
+  INCLUDE ~%install%/iwd2scripts.tph~
+  INCLUDE ~%install%/bgeescripts.tph~
+  INCLUDE ~%install%/bg2scripts.tph~
+
+  INCLUDE ~%install%/priceadjust.tph~
+  INCLUDE ~%install%/loreadjust.tph~
+  INCLUDE ~%install%/silverweapon.tph~
+  INCLUDE ~%install%/iwditempatch.tph~
+  INCLUDE ~%install%/bg2opcodecheck.tph~
+  INCLUDE ~%install%/updatebg2.tph~
 
 
 /*

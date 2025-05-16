@@ -96,8 +96,26 @@ Used for older releases (replaced by WeiDU Mod Packager):
 
 Updates:
 
+v4.9
+- IWD2: items renamed internally to be same as other games. Partially backwards compatible. Existing saved games using the old resource names will still have those items, but scripts and dialogue will only recognize the new resource names.
+- IWD1/IWD2: Icons for pantaloons now based on original BG2 files. Looks better in the inventory for non-EE games.
+- BG2 engine (non-EE): adjusted some installer stuff for better mod compat.
+- IWD-in-BG2 mod: fixed possible installer warning caused by Orrick's dlg file using a script action not in action.ids.
+- Changed ground icons for big metal rod/unit. They now look similar to the inventory icon.
+
+v4.8
+improved animation changing behavior of Big Metal Unit.
+- While equipped, the character cannot be affected by other opcode 53 (animation change) effects. Having multiple op53 effects causes glitchy visuals. (note: the character can still be shapeshifted)
+- EEs: does not change animation if currently shapeshifted (still gives all armor bonuses).
+- While in armor form, bumps others out of the way (EEs/BG2 only), only applied if animation change is applied.
+- note: some issues can't be fixed. ex. there is bugginess if reloading a save where a character was both polymorphed and wearing the Big Metal Unit. Seems to cause issues with movement. Unequip and reequip the armor to fix.
+
 v4.7
-- IWD2EE note: Fixed a possible installer warning when installing ammo charges component after IWD2EE ("more ways to progress" component). This was harmless and didn't affect anything but it was annoying because it paused Project Infinity installs.
+- IWD2EE note: fixed possible installer warning with ammo charges component.
+- "Start with items" note: fixed harmless NI warning with EET in BG2 starting dungeon script.
+- Mod now safe to install before or after proficiency overhauls. It's still recommended to follow normal install order guidelines.
+- fixed minor BAM image corruption in a couple files.
+- reduced duplicate files in mod folder, slightly reorganized install.
 
 v4.6
 - classic BG2: Fixed damage with safe ammo component (oversight from last update).

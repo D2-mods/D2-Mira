@@ -4,15 +4,32 @@ This does nothing if ToB is not part of the game.
 */
 
 
-//
-//Update BG2 files
+//update bg2 files
 ACTION_PHP_EACH update_items AS mod => base BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%base%.ITM~) BEGIN
-    ACTION_IF (FILE_EXISTS ~override/%mod%.ITM~) BEGIN
-      COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
-        LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=318 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
-        LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=324 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
-    END
+    COPY_EXISTING ~%mod%.ITM~  ~override/%base%.ITM~
+      LPF ALTER_EFFECT INT_VAR silent=1 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
+    IF_EXISTS
+  END
+END
+
+
+//copy to old iwd2 resource (so old items work)
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_iwd2oldres BEGIN    // icon res
+    ~%bigmetalrod%~  => d2mira01
+    ~%pulse%~        => d2mira02
+    ~%frag%~         => d2mira03
+    ~%scorcher%~     => d2mira04
+    ~%bigmetalunit%~ => d2mira05
+    ~%prototype%~    => d2mira06
+    ~%pulseIII%~     => d2mira07
+  END
+
+  ACTION_PHP_EACH d2mira_iwd2oldres AS item => res BEGIN
+    COPY_EXISTING ~%item%.itm~  ~override/%res%.itm~
+      LPF ALTER_EFFECT INT_VAR silent=1 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
+    IF_EXISTS
   END
 END
 
