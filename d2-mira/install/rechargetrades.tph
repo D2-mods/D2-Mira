@@ -8,6 +8,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_charges BEGIN
 //bg1/sod
 ~BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0)~
 ~BDHALBAZ.DLG~  => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0)~
+//~bd3000.BCS~    => ~AddStoreItem("BDBELEG4","%prototype%",1,1)~
+~bd3000.BCS~    => ~ActionOverride("PlayerChest00",CreateItem("%prototype%",0,0,0))~
 
 //bg2/tob
 ~RIBALD.DLG~    => ~GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)~
@@ -34,6 +36,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_charges_patched BEGIN
 //bg1/sod
 ~BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,%charges%,0,0)~
 ~BDHALBAZ.DLG~  => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,%charges%,0,0)~
+//~bd3000.BCS~    => ~AddStoreItem("BDBELEG4","%prototype%",%charges%,1)~
+~bd3000.BCS~    => ~ActionOverride("PlayerChest00",CreateItem("%prototype%",%charges%,0,0))~
 
 //bg2/tob
 ~RIBALD.DLG~    => ~GiveItemCreate("%prototype%",LastTalkedToBy,%charges%,0,0)~
@@ -79,6 +83,7 @@ ACTION_IF (FILE_CONTAINS_EVALUATED (~weidu.log~  ~ICE_TUTU_TWEAKS~)) BEGIN
 END
 
 
+//
 //patch DLGs
 SILENT
 ACTION_PHP_EACH d2mira_charges AS file_to_patch => old_line BEGIN

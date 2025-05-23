@@ -15,7 +15,7 @@ BUT_ONLY
 ACTION_IF (mira = 1) BEGIN
 
 //IWD1/IWDEE
-ACTION_IF (GAME_IS ~iwdee iwd how totlm~) BEGIN
+ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~LDD_NYM.STO~) BEGIN
     COPY_EXISTING ~LDD_NYM.STO~ ~override~
       LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%frag%~ flags=~identified~ END
@@ -35,8 +35,8 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
     LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%frag%~ flags=~identified~ END
   BUT_ONLY
 
-  COPY_EXISTING ~AR6102.ARE~ ~override/d2scorcher1.ARE~              // backup (just in case)
-  COPY_EXISTING ~override/d2scorcher0.ARE~  ~override/AR6102.ARE~    // workaround for IWD2 issue
+  COPY_EXISTING ~AR6102.ARE~ ~override/d2scorcher1.ARE~     // backup (just in case)
+  COPY_EXISTING ~d2scorcher0.ARE~  ~override/AR6102.ARE~    // workaround for IWD2 issue
     LPF ADD_AREA_ITEM INT_VAR container_to_add_to=7 charges1=charges STR_VAR item_to_add=~%scorcher%~ END
   BUT_ONLY
 END

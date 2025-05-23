@@ -1,33 +1,30 @@
 /*
-Make ammo party friendly
-*/
-
-/*
-EEs: Applies to Scorcher and Frag Grenade
-IWD1/IWD2: Applies to Frag Grenade only (can't make it work with Scorcher projectile)
+Make ammo more party friendly
 */
 
 
-ACTION_IF (GAME_IS ~iwdee bgee bg2ee eet~) BEGIN
+//EEs: Applies to Scorcher and Frag Grenade
+//IWD games: Applies to Frag Grenade only (can't make it work with Scorcher projectile)
+
+
+ACTION_IF (FILE_EXISTS engine.lua && RESOURCE_CONTAINS ~action.ids~ ~zoomlock~) BEGIN
   OUTER_SET effect_to_use = 318
   OUTER_SET effect_target = 52
   OUTER_SET target_type   = 0
 END
-
-ACTION_IF (GAME_IS ~iwd2 iwd how totlm~) BEGIN
+ELSE ACTION_IF (GAME_IS ~iwd2 iwd how totlm~) BEGIN
   OUTER_SET effect_to_use = 206
   OUTER_SET effect_target = 52
   OUTER_SET target_type   = 0
 END
-
-ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
+ELSE BEGIN
   OUTER_SET effect_to_use = 177
   OUTER_SET effect_target = 2
   OUTER_SET target_type   = 255
 END
 
 
-
+//
 ACTION_FOR_EACH ammo_type IN
  ~%frag%~
  ~%scorcher%~

@@ -29,52 +29,19 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
+COPY - ~.../temp/variables~  ~inlined/variables.BAF~
   EVALUATE_BUFFER
 
 ACTION_FOR_EACH area IN ~AR0700~ ~AR3000~ ~AR4500~ ~AR0400~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%area%.BCS~) BEGIN
-    EXTEND_TOP ~%area%.BCS~  ~%workspace%/variables.BAF~
+    EXTEND_TOP ~%area%.BCS~  ~inlined/variables.BAF~
   END
 END
 
 
 
-//Add Gold Pantaloons if not obtained in starting dungeon
-<<<<<<<< .../temp/pantaloons
-IF
-	!Global("d2HasGoldPants","GLOBAL",1)
-THEN
-	RESPONSE #100
-		SetGlobal("d2HasGoldPants","GLOBAL",1)
-		ActionOverride("Shelf1",CreateItem("misc47",0,0,0))
-		Continue()
-END
->>>>>>>>
-
-COPY - ~.../temp/pantaloons~  ~%workspace%/pantaloons.BAF~
-  EVALUATE_BUFFER
-EXTEND_BOTTOM ~AR3001.BCS~    ~%workspace%/pantaloons.BAF~
-
-
-
-//Add Silver Pantaloons if not obtained in SoA
-<<<<<<<< .../temp/silver
-IF
-	!Global("d2HasSilverPants","GLOBAL",1)
-THEN
-	RESPONSE #100
-		SetGlobal("d2HasSilverPants","GLOBAL",1)
-		ActionOverride("Container1",CreateItem("misc5o",0,0,0))
-		Continue()
-END
->>>>>>>>
-
-COPY - ~.../temp/silver~      ~%workspace%/silver.BAF~
-  EVALUATE_BUFFER
-EXTEND_BOTTOM ~AR4500.BCS~    ~%workspace%/silver.BAF~
-
-
+//
+//broken rod quest
 
 //Journal entry for Repair Manual
 <<<<<<<< .../temp/repair
@@ -90,16 +57,15 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/repair~  ~%workspace%/repair.BAF~
+COPY - ~.../temp/repair~  ~inlined/repair.BAF~
   EVALUATE_BUFFER
 
-EXTEND_TOP ~AR0702.BCS~  ~%workspace%/repair.BAF~
-EXTEND_TOP ~AR0411.BCS~  ~%workspace%/repair.BAF~
-
+EXTEND_TOP ~AR0702.BCS~  ~inlined/repair.BAF~
+EXTEND_TOP ~AR0411.BCS~  ~inlined/repair.BAF~
 
 
 //Fix Rod (fade black)
-<<<<<<<< .../temp/d2tecfix
+<<<<<<<< .../temp/d2mtfix
 IF
 	True()
 THEN
@@ -113,10 +79,47 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/d2tecfix~  ~%workspace%/d2tecfix.BAF~
+COPY - ~.../temp/d2mtfix~  ~inlined/d2mtfix.BAF~
   EVALUATE_BUFFER
-COMPILE ~%workspace%/d2tecfix.BAF~
+COMPILE ~inlined/d2mtfix.BAF~
 
+
+
+//
+//tob stuff
+
+//Add Gold Pantaloons if not obtained in starting dungeon
+<<<<<<<< .../temp/pantaloons
+IF
+	!Global("d2HasGoldPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasGoldPants","GLOBAL",1)
+		ActionOverride("Shelf1",CreateItem("misc47",0,0,0))
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/pantaloons~  ~inlined/pantaloons.BAF~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~AR3001.BCS~    ~inlined/pantaloons.BAF~
+
+
+//Add Silver Pantaloons if not obtained in SoA
+<<<<<<<< .../temp/silver
+IF
+	!Global("d2HasSilverPants","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasSilverPants","GLOBAL",1)
+		ActionOverride("Container1",CreateItem("misc5o",0,0,0))
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/silver~      ~inlined/silver.BAF~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~AR4500.BCS~    ~inlined/silver.BAF~
 
 
 //Pulse III
@@ -134,9 +137,9 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/cespenar~    ~%workspace%/cespenar.BAF~
+COPY - ~.../temp/cespenar~    ~inlined/cespenar.BAF~
   EVALUATE_BUFFER
-EXTEND_BOTTOM ~botsmith.BCS~  ~%workspace%/cespenar.BAF~
+EXTEND_BOTTOM ~botsmith.BCS~  ~inlined/cespenar.BAF~
 
 
 END

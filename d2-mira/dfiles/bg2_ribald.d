@@ -51,7 +51,7 @@ IF ~~ BEGIN RibaldFixRod
   SAY @40122  // Ribald says stuff
   IF ~~ DO ~ SetGlobal("d2RibaldRepair","GLOBAL",1)
              StartCutSceneMode()
-             StartCutScene("d2tecfix")
+             StartCutScene("d2mtfix")
            ~ EXIT
 END
 

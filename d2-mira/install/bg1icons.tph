@@ -1,0 +1,13 @@
+//original bg1 needs compressed frames (messed up colors without)
+//
+
+
+ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
+  COPY ~%mbag%/d2#mbag_compressed.BAM~  ~override/%mirabag%.BAM~
+  COPY ~%icons%/metalrodground_compressed.bam~  ~override/%metalrod%g.bam~
+  COPY ~%icons%/metalunitground_compressed.bam~  ~override/%metalunit%g.bam~
+END
+
+
+/*
+*/

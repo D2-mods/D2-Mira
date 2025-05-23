@@ -1,10 +1,10 @@
 The Big Metal Unit mod
 GitHub: https://github.com/D2-mods/D2-Mira
-Installs on: BG:EE, BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
+Supports: BG1(EE), BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
 
 
 Overview:
-This is a mod for Infinity Engine games. It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games (BG:EE, BG2 (classic and EE), classic IWD1).
+This is a mod for Infinity Engine games (classic and EE versions). It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games.
 
 The exact stuff this mod adds will depend on the game. All items are obtainable in the IWD games (including pantaloons). The Big Metal Rod and a Pulse ammo are added to BG1/SoD (obtainable in both). For BG2/ToB, several items are added or revised, and there may be a small quest involved. There's also an option to start with a bag containing the core Big Metal items. More info below.
 
@@ -95,6 +95,28 @@ Used for older releases (replaced by WeiDU Mod Packager):
 --
 
 Updates:
+
+v4.12
+- BG2EE: inventory icons will use the tweaked EEFP icons if installed.
+- BG1 (classic): all icons and description images now look like the mod items. Previously, it was using generic icons because the mod icons were either crashing or had messed up colors.
+- compat fix with iwd_in_bg2 mod + ammo charges component (some ammo gained with charges drained until resting). NOT RECOMMENDED to play this version (buggy/unfinished), but this mod is technically compatible with it.
+- BG2 (classic): description for big metal unit now uses same stats layout as other armors.
+- SoD: if you obtained items in the BG1 campaign, then left them behind when going into SoD, the game will now treat it as if you had never obtained them.
+- IWD2: if you obtained the Big Metal Rod or any pantaloons, but lost them before reaching Kuldahar, the game will treat it as if you had never obtained them.
+- Big Metal Rod colors (on avatar/paperdoll) changed to be closer to the icon.
+
+v4.11
+added support for original BG1
+- obtaining items is the same as other BG1 versions (has all dialogue and journal entries).
+- No bag option.
+- Big Metal Unit, if imported, does not protect from backstab. Also, it changes form to Ogrillon (no golem form).
+- Icons and description images currently use existing crossbow or wand images. (original BG2 bams crash when loaded).
+
+v4.10
+- Ground icons for metal rod/unit now have the glowing outline with Tab or mouse over.
+- BG1/BGEE: NPC near the rod will tell you where it is if asked. Can only ask if you already learned it's in the area. (note: This dialogue isn't required to get it. It makes sense to be able to ask about it, so I added it in.)
+- IWD1: there was a minor patching oversight caused by recent mod folder reorganizing. No real gameplay issue, but looks bad in Near Infinity so it's fixed.
+- SoD: "ammo charges" component was not updating a later script thing in SoD (because I forgot it was there).
 
 v4.9
 - IWD2: items renamed internally to be same as other games. Partially backwards compatible. Existing saved games using the old resource names will still have those items, but scripts and dialogue will only recognize the new resource names.

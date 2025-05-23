@@ -6,42 +6,48 @@ Resource: d2#mbag.ITM
 */
 
 
+COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
+
 ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
-  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbee1.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbee1.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 ACTION_IF (GAME_IS ~iwdee~) BEGIN
-  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbee0.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbee0.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
-ACTION_IF (GAME_IS ~how totlm~) BEGIN
-  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
+ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
   COPY ~%mbag%/d2hbid1.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbid1.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
-  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
   COPY ~%mbag%/d2hbid2.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbid2.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
-ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
-  COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
+ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2 bg1 totsc~) BEGIN    // note: bg1 does not support bags
   COPY ~%mbag%/d2hbbg2.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbbg2.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 
+//edits for bg1 and iwd1 (with no HoW)
+//need to change to be usable items
+ACTION_IF (GAME_IS ~bg1 totsc iwd~) BEGIN
+  COPY_EXISTING ~%mirabag%.ITM~  ~override~  WRITE_SHORT 0x1c 0  BUT_ONLY    // 0 = misc items
+  COPY_EXISTING ~%mirabag%.STO~  ~override~  WRITE_LONG 0x8 0  BUT_ONLY      // 0 = store file
+END
+
+
+//
 COPY_EXISTING ~%mirabag%.ITM~  ~override~
   SAY NAME1 ~%mirabag_name%~ SAY UNIDENTIFIED_DESC ~%mirabag_desc%~
   SAY NAME2 ~%mirabag_name%~ SAY DESC ~%mirabag_desc%~
@@ -66,7 +72,7 @@ ACTION_IF (mira = 2) BEGIN
   ACTION_IF (GAME_INCLUDES ~bg2~) BEGIN
     EXTEND_BOTTOM ~AR0602.BCS~  ~%mbag%/mbag-imoen.BAF~
   END 
-  
+
   ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
     EXTEND_BOTTOM ~bd0120.BCS~  ~%mbag%/mbag-sodscript.BAF~
   END
@@ -86,7 +92,7 @@ ACTION_IF (mira = 2) BEGIN
   ACTION_IF (FILE_EXISTS ~override/lhMIS0a.itm~) BEGIN
     EXTEND_BOTTOM ~BALDUR.BCS~ ~%mbag%/mbag-epicadv.BAF~
   END
-  
+
   ACTION_IF (GAME_IS ~ca~) BEGIN
     EXTEND_BOTTOM ~TC0009.BCS~ ~%mbag%/mbag-ca.BAF~
   END

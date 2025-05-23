@@ -1,16 +1,17 @@
-//Build item text on a per-game basis
-//
+/*
+Build item text on a per-game basis
+Combine text and stats into item descriptions.
+*/
+
 
 /*
-Combine text and stats into item descriptions.
 The variables used for function are set in d2mira_item_desc.tpa
 Tweaks should use their own file for combining specific @refs.
 */
 
 
-//
 //BGEE/SoD/BG2
-ACTION_IF (GAME_IS ~bgee bg2ee eet bg2 tob tutu tutu_totsc ca~) BEGIN
+ACTION_IF (GAME_IS ~bgee bg2ee eet bg2 tob tutu tutu_totsc ca bg1 totsc~) BEGIN
 
   //core items
   LAF d2mira_item_desc STR_VAR text = ~%metalrod_text_base%~  stats = ~%metalrod_stat_base%~  RET item_desc END
@@ -47,7 +48,7 @@ ACTION_IF (GAME_IS ~bgee bg2ee eet bg2 tob tutu tutu_totsc ca~) BEGIN
 END
 
 
-//
+
 //IWDEE
 ACTION_IF (GAME_IS ~iwdee iwd_in_bg2~) BEGIN
 
@@ -88,7 +89,7 @@ ACTION_IF (GAME_IS ~iwdee iwd_in_bg2~) BEGIN
 END
 
 
-//
+
 //IWD1
 ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
 
@@ -129,7 +130,7 @@ ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
 END
 
 
-//
+
 //IWD2
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
 
@@ -169,10 +170,16 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
 END
 
 
-//
-//change dashes for classic games
+
+//metal unit text for classic BG2
 ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
   LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_bg2%~ RET item_desc END
+    OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
+END
+
+//metal unit text for classic BG1
+ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
+  LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_bg1%~ RET item_desc END
     OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
 END
 

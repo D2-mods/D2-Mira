@@ -10,11 +10,25 @@ IF ~ !PartyHasItem("%metalrodb%")     // no Big Metal Rod
      Global("d2BlackLilyTalk","GLOBAL",0)
    ~ GOTO BlackLilyTalk
 
+%lilytalk%
+
+/*lilytalk if game has OR() action
 IF ~ OR(2)
        PartyHasItem("%metalrodb%")    // has Big Metal Rod
        PartyHasItem("%bigmetalrod%")
      Global("d2BlackLilyBigMetal","GLOBAL",0)
    ~ GOTO BlackLilyOffer
+*/
+
+/*lilytalk if no OR() action
+IF ~ PartyHasItem("%metalrodb%")    // has Big Metal Rod
+     Global("d2BlackLilyBigMetal","GLOBAL",0)
+   ~ GOTO BlackLilyOffer
+
+IF ~ PartyHasItem("%bigmetalrod%")    // bg2 text
+     Global("d2BlackLilyBigMetal","GLOBAL",0)
+   ~ GOTO BlackLilyOffer
+*/
 
 END
 

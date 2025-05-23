@@ -545,25 +545,19 @@ Requires:
 
 Weight: 45~
 
-//BG2 alt (for classic)
+//BG2 alt (for classic, just changes the dashes)
 @404 = ~STATISTICS:
 
 Equipped abilities:
-   Immunity to backstab
-   +5% Magic Resistance
+- Immunity to backstab
+- Magic Resistance: +5%
+- Spellcasting, stealth, and thieving abilities disabled
 
-Armor Class: -10
-Weight: 45
-Requires: 15 Strength
-Not Usable By:~
+Armor Class: -10 (-14 vs. slashing, -13 vs. piercing and missile)
+Requires:
+ 15 Strength
 
-//BG1 alt (for classic)
-@504 = ~STATISTICS:
-
-Armor Class: -10
-Magic Resistance: +5%
-Weight: 45
-Not Usable By:~
+Weight: 45~
 
 //IWD1 alt
 @604 = ~STATISTICS:
@@ -578,7 +572,7 @@ Not Usable By:~
 @704 = ~STATISTICS:
 
 Heavy Armor
-Armor Bonus: +15
+Armor Bonus:  +15
 Max Dex Bonus:  +0
 Armor Check Penalty:  -6
 Arcane Spell Failure:  40%

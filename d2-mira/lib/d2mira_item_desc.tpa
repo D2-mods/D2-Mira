@@ -51,7 +51,8 @@ OUTER_SPRINT scorcher_stat_iwd2 @703
 OUTER_SPRINT metalunit_name      @104
 OUTER_SPRINT metalunit_text_base @204
 OUTER_SPRINT metalunit_stat_base @304
-OUTER_SPRINT metalunit_stat_bg2  @404    // change dashes for classic BG2
+OUTER_SPRINT metalunit_stat_bg2  @404    // for classic BG2 (different stats layout)
+OUTER_SPRINT metalunit_stat_bg1  @504    // for classic BG1
 OUTER_SPRINT metalunit_stat_iwd1 @604
 OUTER_SPRINT metalunit_stat_iwd2 @704
 

@@ -33,11 +33,19 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/variables~  ~%workspace%/variables.BAF~
+COPY - ~.../temp/variables~  ~inlined/variables.BAF~
   EVALUATE_BUFFER
+  PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN
+    SPRINT match1  ~OR(2)~
+    SPRINT match2  ~PartyHasItem("%bigmetalrod%")~
+    SPRINT match3  ~PartyHasItem("%prototype%")~
+    REPLACE_TEXTUALLY ~%match1%~  ~~
+    REPLACE_TEXTUALLY ~%match2%~  ~~
+    REPLACE_TEXTUALLY ~%match3%~  ~~
+  END
 
-EXTEND_TOP ~%baldursgate%.BCS~  ~%workspace%/variables.BAF~
-EXTEND_TOP ~%candlekeep%.BCS~  ~%workspace%/variables.BAF~
+EXTEND_TOP ~%baldursgate%.BCS~  ~inlined/variables.BAF~
+EXTEND_TOP ~%candlekeep%.BCS~  ~inlined/variables.BAF~
 
 
 
@@ -59,16 +67,16 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("d2BlackLilyTalk","GLOBAL",3)
-		AddJournalEntry(@30001,INFO)
+		AddJournalEntry(%bg1jour01%)
 		Continue()
 END
 >>>>>>>>
 
-COPY - ~.../temp/blacklily~  ~%workspace%/blacklily.BAF~
+COPY - ~.../temp/blacklily~  ~inlined/blacklily.BAF~
   EVALUATE_BUFFER
 
-EXTEND_TOP ~%baldursgate%.BCS~  ~%workspace%/blacklily.BAF~
-EXTEND_TOP ~%thiefguild%.BCS~  ~%workspace%/blacklily.BAF~
+EXTEND_TOP ~%baldursgate%.BCS~  ~inlined/blacklily.BAF~
+EXTEND_TOP ~%thiefguild%.BCS~  ~inlined/blacklily.BAF~
 
 
 
@@ -90,16 +98,20 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/luckystore~  ~%workspace%/luckystore.BAF~
+COPY - ~.../temp/luckystore~  ~inlined/luckystore.BAF~
   EVALUATE_BUFFER
-EXTEND_BOTTOM ~%baldursgate%.BCS~  ~%workspace%/luckystore.BAF~
-EXTEND_BOTTOM ~%luckystore%.BCS~  ~%workspace%/luckystore.BAF~
+EXTEND_BOTTOM ~%baldursgate%.BCS~  ~inlined/luckystore.BAF~
+EXTEND_BOTTOM ~%luckystore%.BCS~  ~inlined/luckystore.BAF~
 
 END
 */
 
 //
 //add to container in store (new version)
+COPY_EXISTING ~%luckystore%.ARE~  ~override~
+  LPF read_or_set_areascript RET areascript END
+BUT_ONLY
+
 <<<<<<<< .../temp/luckybarrel
 IF
 	GlobalGT("d2BlackLilyTalk","GLOBAL",0)
@@ -112,16 +124,45 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~.../temp/luckybarrel~  ~%workspace%/luckybarrel.BAF~
+COPY - ~.../temp/luckybarrel~  ~inlined/luckybarrel.BAF~
+  PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN
+    REPLACE_TEXTUALLY ~ActionOverride~  ~//~
+  END
   EVALUATE_BUFFER
-EXTEND_BOTTOM ~%luckystore%.BCS~  ~%workspace%/luckybarrel.BAF~
 
-//check if area has script set
-ACTION_IF (FILE_EXISTS_IN_GAME ~%luckystore%.ARE~) BEGIN
-  COPY_EXISTING ~%luckystore%.ARE~  ~override~
-    WRITE_ASCII 0x94 ~%luckystore%~ #8
-  BUT_ONLY
+EXTEND_BOTTOM ~%areascript%.BCS~  ~inlined/luckybarrel.BAF~
+
+
+
+//
+//for Lucky Aello talk
+COPY_EXISTING ~LUCKY.cre~  ~override~
+  LPF read_or_set_scriptname RET scriptname END
+BUT_ONLY
+
+<<<<<<<< .../temp/d2mtluck
+IF
+	True()
+THEN
+	RESPONSE #100
+		Wait(1)
+		FadeToColor([45.0],0)
+        %stuff%    // bg1 only
+		Wait(2)
+		FadeFromColor([45.0],0)
+		Wait(1)
+		ActionOverride("%scriptname%",StartDialogueNoSet(LastTalkedToBy))
 END
+>>>>>>>>
+
+COPY - ~.../temp/d2mtluck~  ~inlined/d2mtluck.BAF~
+  TEXT_SPRINT stuff  ~~
+  PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN
+    TEXT_SPRINT stuff ~ActionOverride("Container3",CreateItem("%metalrodb%",0,0,0))~
+  END
+  EVALUATE_BUFFER
+
+COMPILE ~inlined/d2mtluck.BAF~
 
 
 
@@ -144,17 +185,17 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("d2HalbazBigMetal","GLOBAL",3)
-		AddJournalEntry(@30002,INFO)
+		AddJournalEntry(%bg1jour02%)
 		Continue()
 END
 >>>>>>>>
 
-COPY - ~.../temp/sodhalbaz~  ~%workspace%/sodhalbaz.BAF~
+COPY - ~.../temp/sodhalbaz~  ~inlined/sodhalbaz.BAF~
   EVALUATE_BUFFER
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~bd0020.ARE~) BEGIN
-  EXTEND_TOP ~bd0020.BCS~  ~%workspace%/sodhalbaz.BAF~
-  EXTEND_TOP ~bd0020.BCS~  ~%workspace%/variables.BAF~
+  EXTEND_TOP ~bd0020.BCS~  ~inlined/sodhalbaz.BAF~
+  EXTEND_TOP ~bd0020.BCS~  ~inlined/variables.BAF~
 END
 
 
@@ -170,7 +211,8 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("d2BelegarmBigMetal","GLOBAL",1)
-		AddStoreItem("bdbelega","%bigmetalrod%",1,1)
+		ActionOverride("PlayerChest00",CreateItem("%bigmetalrod%",0,0,0))
+//		AddStoreItem("BDBELEG4","%bigmetalrod%",1,1)
 		Continue()
 END
 
@@ -182,17 +224,41 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("d2BelegarmPrototype","GLOBAL",1)
-		AddStoreItem("bdbelega","%prototype%",1,1)
+		ActionOverride("PlayerChest00",CreateItem("%prototype%",0,0,0))
+//		AddStoreItem("BDBELEG4","%prototype%",1,1)
 		Continue()
 END
 >>>>>>>>
 
-COPY - ~.../temp/RodPulse~  ~%workspace%/siegecamp.BAF~
+COPY - ~.../temp/RodPulse~  ~inlined/siegecamp.BAF~
   EVALUATE_BUFFER
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~bd3000.ARE~) BEGIN
-  EXTEND_TOP ~bd3000.BCS~ ~%workspace%/siegecamp.BAF~
-  EXTEND_TOP ~bd3000.BCS~ ~%workspace%/variables.BAF~
+  EXTEND_TOP ~bd3000.BCS~ ~inlined/siegecamp.BAF~
+  EXTEND_TOP ~bd3000.BCS~ ~inlined/variables.BAF~
+END
+
+
+
+//
+//reset variables for SoD (will be set back to 1 if party has items)
+<<<<<<<< .../temp/resetvar
+IF
+	!Global("d2mira_sodreset","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2HasBigMetalRod","GLOBAL",0)
+		SetGlobal("d2HasPrototype","GLOBAL",0)
+		SetGlobal("d2mira_sodreset","GLOBAL",1)
+		Continue()
+END
+>>>>>>>>
+
+COPY - ~.../temp/resetvar~  ~inlined/resetvar.baf~
+  EVALUATE_BUFFER
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~bdbaldur.bcs~) BEGIN
+  EXTEND_BOTTOM ~bdbaldur.bcs~  ~inlined/resetvar.baf~
 END
 
 

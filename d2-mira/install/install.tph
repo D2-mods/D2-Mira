@@ -11,9 +11,9 @@
   INCLUDE ~%install%/dfiles.tph~
   INCLUDE ~%install%/mbag.tph~
 
-  INCLUDE ~%install%/howscripts.tph~
+  INCLUDE ~%install%/iwd1scripts.tph~
   INCLUDE ~%install%/iwd2scripts.tph~
-  INCLUDE ~%install%/bgeescripts.tph~
+  INCLUDE ~%install%/bg1scripts.tph~
   INCLUDE ~%install%/bg2scripts.tph~
 
   INCLUDE ~%install%/priceadjust.tph~
@@ -22,6 +22,7 @@
   INCLUDE ~%install%/iwditempatch.tph~
   INCLUDE ~%install%/bg2opcodecheck.tph~
   INCLUDE ~%install%/updatebg2.tph~
+  INCLUDE ~%install%/bg1icons.tph~
 
 
 /*

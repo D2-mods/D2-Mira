@@ -22,14 +22,14 @@ APPEND ~DIVINE~
 IF ~~ BEGIN DivinerPulse
   SAY @30311  // Diviner says stuff
   IF ~~ DO ~ SetGlobal("d2DivinerPulse","GLOBAL",1)
-             AddJournalEntry(@30003,INFO)
+             AddJournalEntry(%bg1jour03%)
            ~ GOTO 8
 END
 
 IF ~~ BEGIN DivinerBigMetal
   SAY @30312  // Diviner says stuff
   IF ~~ DO ~ SetGlobal("d2DivinerBigMetal","GLOBAL",1)
-             AddJournalEntry(@30004,INFO)
+             AddJournalEntry(%bg1jour04%)
            ~ GOTO 8
 END
 

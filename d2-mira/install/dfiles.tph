@@ -46,11 +46,39 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~11OSWALD.DLG~) BEGIN
 END
 
 
-//check DestroyGold script action (used for BG1/IWD1 d files)
+//check DestroyGold script action (not in BG1/IWD1)
 ACTION_IF (GAME_IS ~iwd how totlm bg1 totsc~) BEGIN
-  OUTER_TEXT_SPRINT destroygold ~//DestroyGold~
+  OUTER_TEXT_SPRINT destroygold ~//~
 END ELSE BEGIN
   OUTER_TEXT_SPRINT destroygold ~DestroyGold~
+END
+
+
+//check BG1 script actions (black lily, diviner)
+ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
+
+OUTER_TEXT_SPRINT lilytalk
+~~~~~
+IF ~ PartyHasItem("%metalrodb%")    // has Big Metal Rod
+     Global("d2BlackLilyBigMetal","GLOBAL",0)
+   ~ GOTO BlackLilyOffer
+
+IF ~ PartyHasItem("%bigmetalrod%")    // bg2 text
+     Global("d2BlackLilyBigMetal","GLOBAL",0)
+   ~ GOTO BlackLilyOffer
+~~~~~
+
+END ELSE BEGIN
+
+OUTER_TEXT_SPRINT lilytalk
+~~~~~
+IF ~ OR(2)
+       PartyHasItem("%metalrodb%")    // has Big Metal Rod
+       PartyHasItem("%bigmetalrod%")
+     Global("d2BlackLilyBigMetal","GLOBAL",0)
+   ~ GOTO BlackLilyOffer
+~~~~~
+
 END
 
 
@@ -69,10 +97,7 @@ ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
     ACTION_IF (FILE_EXISTS_IN_GAME ~DEMMRCH.DLG~)  BEGIN COMPILE EVAL ~%dfiles%/iwd1_emmerich.d~ END
   END
 
-END
-
-
-ACTION_IF (GAME_IS ~iwd2~) BEGIN
+END ELSE ACTION_IF (GAME_IS ~iwd2~) BEGIN
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~11OSWALD.DLG~) BEGIN COMPILE EVAL ~%dfiles%/iwd2_oswald.d~ END
   ACTION_IF (FILE_EXISTS_IN_GAME ~40BDAWN.DLG~)  BEGIN COMPILE EVAL ~%dfiles%/iwd2_beodaewn.d~ END
@@ -87,13 +112,11 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
     ACTION_IF (FILE_EXISTS_IN_GAME ~11OSWALD.DLG~) BEGIN COMPILE EVAL ~%dfiles%/iwd2_oswald2.d~ END
   END
 
-END
-
-
-ACTION_IF ((GAME_INCLUDES ~bg1~) OR (GAME_INCLUDES ~bg2~)) BEGIN
+END ELSE BEGIN    // bg games
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~BLACKL.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg1_blacklily.d~ END
   ACTION_IF (FILE_EXISTS_IN_GAME ~DIVINE.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg1_diviner.d~ END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~LUCKY.DLG~)    BEGIN COMPILE EVAL ~%dfiles%/bg1_lucky.d~ END
   ACTION_IF (FILE_EXISTS_IN_GAME ~BDHALBAZ.DLG~) BEGIN COMPILE EVAL ~%dfiles%/sod_halbaz.d~ END
   ACTION_IF (FILE_EXISTS_IN_GAME ~RIBALD.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg2_ribald.d~ END
   ACTION_IF (FILE_EXISTS_IN_GAME ~BOTSMITH.DLG~) BEGIN COMPILE EVAL ~%dfiles%/bg2_cespenar.d~ END
@@ -102,6 +125,13 @@ ACTION_IF ((GAME_INCLUDES ~bg1~) OR (GAME_INCLUDES ~bg2~)) BEGIN
     ACTION_IF (FILE_EXISTS_IN_GAME ~LEHTIN.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg2_lehtinan.d~ END
     ACTION_IF (FILE_EXISTS_IN_GAME ~HENDAK.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg2_hendak.d~ END
   END
+
+  // extra patching for Lucky Aello
+  COPY_EXISTING ~LUCKY.dlg~  ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY EXACT_MATCH ~True()~ ~~    // remove true trigger if not already removed
+    END
+  IF_EXISTS BUT_ONLY
 
 END
 
