@@ -1,0 +1,114 @@
+/*
+tweak animations for Big Metal Unit
+
+personal space tweak sets to = 3 (same as natural form)
+it won't be counted as a large creature, but can go through all doorways (size = 4 is too big)
+*/
+
+
+ACTION_IF (anim = 1) BEGIN  OUTER_SET dknight=0 OUTER_SET circle=0 OUTER_SET noanim=0 END  // Use default
+ACTION_IF (anim = 2) BEGIN  OUTER_SET dknight=1 OUTER_SET circle=0 OUTER_SET noanim=0 END  // Death Knight
+ACTION_IF (anim = 3) BEGIN  OUTER_SET dknight=0 OUTER_SET circle=0 OUTER_SET noanim=1 END  // No animation
+ACTION_IF (anim = 4) BEGIN  OUTER_SET dknight=0 OUTER_SET circle=1 OUTER_SET noanim=0 END  // Option 1 + personal space
+ACTION_IF (anim = 5) BEGIN  OUTER_SET dknight=1 OUTER_SET circle=1 OUTER_SET noanim=0 END  // Option 2 + personal space
+
+//1 = personal space effect is always set (if circle = 1)
+//2 = use repeating eff (don't use, very buggy)
+OUTER_SET circlemode = 1
+
+
+//
+DEFINE_PATCH_FUNCTION d2mira_animations INT_VAR dknight=0 circle=0 noanim=0 BEGIN
+
+  // 
+  SET opcode = 53
+  PATCH_IF (GAME_IS ~iwd how totlm~) BEGIN  SET opcode = 135  END    // iwd1 uses polymorph opcode
+  SET bg1check = 0
+  PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN  SET bg1check = 1  END    // used for bg1 checks
+
+  PATCH_IF !(FILE_EXISTS ~engine.lua~) BEGIN  SET circle=0  END
+  PATCH_IF (circle>0 && circlemode<1)  BEGIN  SET circlemode = 1  END
+  LPF DELETE_EFFECT INT_VAR match_opcode=7 match_parameter2=3 END
+  LPF DELETE_EFFECT INT_VAR match_opcode=8 END
+
+  // set animation
+  PATCH_IF (noanim = 0) BEGIN
+    SET anim = 0x7F04
+    PATCH_IF (bg1check > 0) BEGIN  SET anim = 0x7001  END    // ogrillon for bg1
+    PATCH_IF (opcode = 135) BEGIN  SET anim = 0xE51D  END    // iwd golem for iwd1
+    PATCH_IF (dknight > 0) BEGIN  SET anim = 0x2300  END     // death knight animation (same in all games)
+  END
+  PATCH_IF (noanim=0 && opcode=53) BEGIN
+    LPF ALTER_EFFECT INT_VAR match_opcode=53 parameter1=anim END
+  END
+
+  // death knight
+  PATCH_IF (noanim=0 && anim != 0x7F04) BEGIN
+    SET color = 27
+    SET type = 3
+    LPF CLONE_EFFECT INT_VAR match_opcode=opcode opcode=7 parameter1=color parameter2=type timing=2 STR_VAR insert=below END
+
+    SET glow = 255
+    PATCH_IF (bg1check > 0) BEGIN  SET glow = 3  END    // bg1: location 255 crashes
+    LPF CLONE_EFFECT INT_VAR match_opcode=7 match_parameter2=type opcode=8 parameter2=glow END
+  END
+  PATCH_IF (noanim=0 && dknight>0 && opcode=135) BEGIN
+    LPF ALTER_EFFECT INT_VAR match_opcode=135 STR_VAR resource=BIKNIGHT END    // cre with death knight animation
+  END
+
+  // speed up slow movement
+  // note: iron golem is already fast in bg2, iwd2, bgee, bg2ee (not iwdee)
+  LPF DELETE_EFFECT INT_VAR match_opcode=176 END
+  PATCH_IF (noanim = 0) BEGIN
+    SET speed = 0
+    PATCH_IF (anim=0x7F04 && GAME_IS ~iwdee~) BEGIN  SET speed = 4  END             // use bg2 speed for iwdee
+    PATCH_IF (anim != 0x7F04) BEGIN  SET speed = 3  END                             // adjust for specific animation if needed
+    PATCH_IF (anim=0x2300 && FILE_EXISTS ~engine.lua~) BEGIN  SET speed = 4  END    // ee death knight
+    PATCH_IF (opcode = 135) BEGIN  SET speed = 4  END                               // iwd1 needs faster default
+
+    PATCH_IF (speed>0 && bg1check=0) BEGIN
+      LPF CLONE_EFFECT INT_VAR match_opcode=opcode opcode=176 parameter1=speed timing=2 STR_VAR insert=below END
+    END
+    PATCH_IF (speed>0 && bg1check>0) BEGIN
+      LPF CLONE_EFFECT INT_VAR match_opcode=opcode opcode=176 parameter1=10 parameter2=1 timing=2 STR_VAR insert=below END
+    END
+    // bg1 note: incrementing speed gives buggy movement
+  END
+
+  // personal space (EE only)
+  // note: circle is same size, but can fit in smaller areas
+  PATCH_IF (noanim=0 && circle>0 && circlemode=1) BEGIN
+    SET type = 4
+    SET space = 3    // 3 = natural form (4 is too big for normal doors)
+    LPF CLONE_EFFECT INT_VAR match_opcode=opcode opcode=342 parameter1=space parameter2=type STR_VAR insert=below END
+  END
+  // use repeating eff (don't use, very buggy)
+  PATCH_IF (noanim=0 && circle>0 && circlemode>1) BEGIN
+    SPRINT crespace3  ~%metalunit%a~
+    LPF CLONE_EFFECT INT_VAR match_opcode=opcode opcode=272 parameter1=2 parameter2=3 STR_VAR resource=~%crespace3%~ insert=below END
+    INNER_ACTION BEGIN
+      COPY ~%files%/crespace3.eff~  ~override/%crespace3%.eff~
+    END
+  END
+
+  // no animation
+  PATCH_IF (noanim > 0) BEGIN
+    LPF DELETE_EFFECT STR_VAR match_resource=~%SOURCE_RES%~ END
+    LPF DELETE_EFFECT INT_VAR match_opcode=206 STR_VAR match_resource=lcarmor END
+    LPF DELETE_EFFECT INT_VAR match_opcode=139 END
+  END
+  PATCH_IF (noanim>0 && opcode=53) BEGIN
+    LPF DELETE_EFFECT INT_VAR match_opcode=53 END
+    LPF DELETE_EFFECT INT_VAR match_opcode=300 END
+    LPF DELETE_EFFECT INT_VAR match_opcode=101 match_parameter2=53 END
+  END
+END
+
+
+COPY_EXISTING ~%metalunit%.itm~  ~override~
+  LPF d2mira_animations INT_VAR dknight=dknight circle=circle noanim=noanim END
+BUT_ONLY
+
+
+//
+//

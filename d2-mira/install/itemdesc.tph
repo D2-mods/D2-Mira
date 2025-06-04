@@ -171,18 +171,21 @@ END
 
 
 
-//metal unit text for classic BG2
+//edits for classic BG2
 ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
   LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_bg2%~ RET item_desc END
     OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
 END
 
-//metal unit text for classic BG1
+//edits for classic BG1
 ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
   LAF d2mira_item_desc STR_VAR text = ~%metalunit_text_base%~ stats = ~%metalunit_stat_bg1%~ RET item_desc END
     OUTER_TEXT_SPRINT metalunit_desc ~%item_desc%~
+
+  LAF d2mira_item_desc STR_VAR text = ~%mirabag_text_base%~ stats = ~%mirabag_stat_bg1%~ RET item_desc END
+    OUTER_TEXT_SPRINT mirabag_desc ~%item_desc%~
 END
 
 
-/*
-*/
+//
+//

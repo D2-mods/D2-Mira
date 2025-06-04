@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~4.12~
+VERSION ~4.15~
 AUTO_EVAL_STRINGS
 
 ALWAYS
@@ -53,7 +53,7 @@ OUTER_SET mira = 1
 INCLUDE ~%install%/install.tph~
 
 BEGIN @2    // Start with the core "Big Metal" items
-REQUIRE_PREDICATE !(GAME_IS ~iwd bg1 totsc~) ~~
+//REQUIRE_PREDICATE !(GAME_IS ~iwd bg1 totsc~) ~~
 SUBCOMPONENT @9999
 LABEL ~D2-MIRA-BAG~
 OUTER_SET mira = 2
@@ -243,6 +243,7 @@ LABEL ~D2-MIRA-PULSECRIT0~
 
 BEGIN @61    // Unlimited (default)
 DESIGNATED 60
+REQUIRE_PREDICATE !(GAME_IS ~bg1 totsc~) ~~
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @60
@@ -273,6 +274,56 @@ SUBCOMPONENT @60
 LABEL ~D2-MIRA-RECHARGE4~
 OUTER_SET recharge = 4
 INCLUDE ~%install%/recharge.tph~
+
+
+
+//
+//Animation tweaking (Big Metal Unit)
+
+BEGIN @71    // 
+DESIGNATED 70
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @70
+LABEL ~D2-MIRA-ARMORANIM1~
+OUTER_SET anim = 1
+INCLUDE ~%install%/armoranim.tph~
+
+BEGIN @72    // 
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @70
+LABEL ~D2-MIRA-ARMORANIM2~
+OUTER_SET anim = 2
+INCLUDE ~%install%/armoranim.tph~
+
+BEGIN @73    // 
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+SUBCOMPONENT @70
+LABEL ~D2-MIRA-ARMORANIM3~
+OUTER_SET anim = 3
+INCLUDE ~%install%/armoranim.tph~
+
+BEGIN @74    // 
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+REQUIRE_PREDICATE (FILE_EXISTS ~engine.lua~) ~~
+REQUIRE_PREDICATE (RESOURCE_CONTAINS ~action.ids~ ~zoomlock~) ~~
+SUBCOMPONENT @70
+LABEL ~D2-MIRA-ARMORANIM4~
+OUTER_SET anim = 4
+INCLUDE ~%install%/armoranim.tph~
+
+BEGIN @75    // 
+REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
+                   (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
+REQUIRE_PREDICATE (FILE_EXISTS ~engine.lua~) ~~
+REQUIRE_PREDICATE (RESOURCE_CONTAINS ~action.ids~ ~zoomlock~) ~~
+SUBCOMPONENT @70
+LABEL ~D2-MIRA-ARMORANIM5~
+OUTER_SET anim = 5
+INCLUDE ~%install%/armoranim.tph~
 
 
 ////////////////////////////////////////////////////////////

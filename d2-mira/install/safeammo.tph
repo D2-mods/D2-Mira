@@ -7,7 +7,7 @@ Make ammo more party friendly
 //IWD games: Applies to Frag Grenade only (can't make it work with Scorcher projectile)
 
 
-ACTION_IF (FILE_EXISTS engine.lua && RESOURCE_CONTAINS ~action.ids~ ~zoomlock~) BEGIN
+ACTION_IF (ee_game > 0) BEGIN
   OUTER_SET effect_to_use = 318
   OUTER_SET effect_target = 52
   OUTER_SET target_type   = 0

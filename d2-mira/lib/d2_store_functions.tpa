@@ -24,11 +24,7 @@ BEGIN
   END
   
   PATCH_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca bg1 totsc~) BEGIN
-    FOR (cat = 0; cat < 28; ++cat) BEGIN
-      LPF REMOVE_STORE_PURCHASE INT_VAR category = cat END
-    END
-	
-    FOR (cat = 29; cat < 38; ++cat) BEGIN
+    FOR (cat = 0; cat < 38; ++cat) BEGIN
       LPF REMOVE_STORE_PURCHASE INT_VAR category = cat END
     END
   END
@@ -129,11 +125,7 @@ COPY_EXISTING ~%store%.STO~ ~override~
   END
   
   PATCH_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca bg1 totsc~) BEGIN
-    FOR (cat = 0; cat < 28; ++cat) BEGIN
-      LPF REMOVE_STORE_PURCHASE INT_VAR category = cat END
-    END
-	
-    FOR (cat = 29; cat < 38; ++cat) BEGIN
+    FOR (cat = 0; cat < 38; ++cat) BEGIN
       LPF REMOVE_STORE_PURCHASE INT_VAR category = cat END
     END
   END

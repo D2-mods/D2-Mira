@@ -1,12 +1,12 @@
 # The Big Metal Unit mod
 Download: https://github.com/D2-mods/D2-Mira/releases  
-Installs on: BG:EE, BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
+Supports: BG1(EE), BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
 
 
 Overview:
 -
 
-This is a mod for Infinity Engine games. It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games (BG:EE, BG2 (classic and EE), classic IWD1).
+This is a mod for Infinity Engine games (classic and EE versions). It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games.
 
 The exact stuff this mod adds will depend on the game. All items are obtainable in the IWD games (including pantaloons). The Big Metal Rod and a Pulse ammo are added to BG1/SoD (obtainable in both). For BG2/ToB, several items are added or revised, and there may be a small quest involved. There's also an option to start with a bag containing the core Big Metal items. More info below.
 
@@ -27,12 +27,12 @@ Components:
 --
 
 **Component 4 info (party friendly ammo):**
-- Makes it so only the damage from the launcher will harm PCs.
-- Ammo damage (ex. fire from Scorcher) does no damage to PCs.
-- If the launcher has no damage bonus, then the ammo is party friendly.
-- EEs/BG2 engine: Applies to Scorcher and Frag Grenade.
-- IWD1/IWD2: Applies to Frag Grenade only (can't make it work with Scorcher projectile).
-- Neutral NPCs will still become hostile if they get hit, even if they take no damage.
+- Protects allies from AoE ammo damage (ex. fire from scorcher).
+- Does not block damage from the launcher.
+- It still counts as a hit, so it will interrupt spellcasting.
+- EEs/BG2 engine: this works for all AoE ammo.
+- IWD1/IWD2 note: Frag Grenade only, scorcher damage can't be blocked.
+- Neutral NPCs take no damage but may become hostile (depends on AI script).
 
 --
 
@@ -61,7 +61,7 @@ Additional info:
 - BG1: The Big Metal Rod will not appear at its location until you find out it exists.
 - Throne of Bhaal: Gold/Silver pantaloons are still obtainable in ToB, if not already obtained.
 - Heart of Winter: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
-- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after the second time flying with Oswald, if you missed them in earlier locations.
+- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after reaching Kuldahar, if you missed them in earlier locations.
 
 --
 

@@ -22,7 +22,7 @@ END
 
 
 //
-ACTION_IF !(RESOURCE_CONTAINS ~action.ids~ ~ZoomLock~) BEGIN
+ACTION_IF (ee_game = 0) BEGIN
 
   ACTION_BASH_FOR ~override~ ~d2.*\.spl~ BEGIN
     COPY ~%BASH_FOR_FILESPEC%~ ~override~

@@ -117,6 +117,7 @@ OUTER_TEXT_SPRINT gold    ~d2pant03~
 OUTER_TEXT_SPRINT mirabag ~d2#mbag~
 OUTER_TEXT_SPRINT metalrod ~%bigmetalrod%~
 OUTER_TEXT_SPRINT metalunit ~%bigmetalunit%~
+OUTER_TEXT_SPRINT checkbag  ~%mirabag%t~
 
 
 /*

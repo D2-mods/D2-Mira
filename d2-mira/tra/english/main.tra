@@ -5,21 +5,29 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 /*
-//Dialogue (IWD1, IWDEE)
+//Dialogue (IWD1)
 //Dialogue (IWD2)
-//Dialogue (BGEE)
+//Dialogue (BG1)
 //Dialogue (BG2)
 //Journal entries
 //Item text (core items)
 //Big Metal Unit
-//Pantaloons
+//Pantaloons (IWD games only)
 //Item text (new ammo)
 //Item text (other)
 //Unidentified text
 */
 
 
-//Dialogue (IWD1, IWDEE)
+//misc text
+@49319276 = ~Note: To return to natural form, save and reload after removing the armor.~    // iwd1 (classic)
+@49329276 = ~Note: To restore selection sounds, save and reload after removing the armor.~    // iwd2
+@2582245 = ~You search the bag... 5 items obtained!~
+@2582240 = ~You search the bag... but it was empty!~
+
+
+
+//Dialogue (IWD1)
 
 //Oswald (party has Big Metal Rod)
 @10101 = ~Would you happen to know anything about this strange device? (Show Oswald the Big Metal Rod)~
@@ -238,7 +246,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 
 
 //
-//Dialogue (BGEE/BG1)
+//Dialogue (BG1)
 
 //Black Lily
 @30101 = ~~
@@ -361,25 +369,21 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //
 //Journal entries
 
-//IWD1, IWDEE
+//IWD1
 @10001 = ~Today, we found a strange device in the upper room at Pomab's Emporium. It seems to be a crossbow of some sort. Perhaps if we could speak to an inventor, we could learn more about it.~
 @10002 = ~We acquired the Pulse Ammunition (prototype) from Oswald. He mentioned, as we were leaving, that a more advanced version of the ammo has already been invented.~
 @10003 = ~Orrick has agreed to procure a production version of the Pulse Ammunition for us. It should take some days to arrive, so we should ask about it again in the future.~
 @10004 = ~We finally acquired the Pulse Ammunition from Orrick. He also tells us that another more advanced prototype of the ammo has been lost and that it would likely be found some place, far away from Kuldahar.~
-@10005 = ~~
 
 
 //
 //IWD2
 @20001 = ~Oswald tells us that a prototype ammo, called a Pulse Ammunition, had likely fallen from the ship during the landing. If true, it is unlikely to have fallen far from the ship. He gave us a drawing of the prototype to help us identify it. Perhaps, someone in the nearby area has seen it, or even near that temple we saw before the crash.~
 @20002 = ~Oswald tells us that a more advanced version of the Pulse Ammunition has already been invented. Perhaps this is something we should keep in mind. It may be a good idea to keep the Big Metal Rod in our possession, for the time being.~
-@20003 = ~~
-@20004 = ~~
-@20005 = ~~
 
 
 //
-//BGEE/SoD
+//BG1
 @30001 = ~An Interesting Weapon
 
 Today, I spoke to Black Lily at the Thieves' Guild headquarters. She mentioned that I should return to her with a Big Metal Rod. She apparently has something to sell me then.~
@@ -390,11 +394,10 @@ I borrowed the Big Metal Rod from Sorcerous Sundries. Halbazzer didn't seem to m
 In Baldur's Gate, a seer told me that Black Lily of the Thieves' Guild could tell me about an interesting weapon.~
 @30004 = ~A Seer's Vision
 In Baldur's Gate, a seer told me that the Big Metal Rod is in Lucky Aello's Discount Store.~
-@30005 = ~~
 
 
 //
-//BG2/ToB
+//BG2
 @40001 = ~Repairman Ribald
 
 I found a malfunctioned crossbow in the Adventurer Mart. The name, Big Metal Rod, is inscribed on the weapon. Ribald has offered to fix it for me if I can bring him a Repair Manual.~
@@ -414,9 +417,6 @@ Lehtinan tells me that the Repair Manual would likely be found inside the Planar
 @40005 = ~Repairman Ribald
 
 Hendak mentioned 3 possibilities: the Cowled Wizards, de'Arnise Keep, and the Planar Sphere in the Slums.~
-
-@40006 = ~
-@40007 = ~
 
 
 
@@ -569,8 +569,8 @@ Not Usable By:~
 @604 = ~STATISTICS:
 
 Armor Class: -10
-Magic Resistance: +5%
-Special:  Immune to backstab
+Magic Resistance:  +5%
+Special:  Immunity to backstab
 Weight: 45
 Not Usable By:~
 
@@ -591,7 +591,7 @@ Weight: 45 lb.~
 
 
 //
-//Pantaloons (for IWD games only)
+//Pantaloons (IWD games only)
 
 //Bronze Pantalettes
 @106 = ~Bronze Pantalettes~
@@ -701,6 +701,14 @@ Weight: 0 lb.~
 @320 = ~STATISTICS:
 
 Weight: 5~
+
+//BG1 alt (for classic)
+@520 = ~STATISTICS:
+
+Special: Use as a quick item to take out all items.
+If the inventory is full, items are dropped to the ground.
+Weight: 5
+Not Usable By:~
 
 //IWD1 alt
 @620 = ~STATISTICS:

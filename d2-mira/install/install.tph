@@ -5,11 +5,13 @@
   INCLUDE ~%install%/weapontypes.tph~
   INCLUDE ~%install%/itemdesc.tph~
   INCLUDE ~%install%/bigmetal.tph~
+  INCLUDE ~%install%/iwd1anim.tph~    // make golem form work for classic iwd1
 
   INCLUDE ~%install%/journal.tph~
   INCLUDE ~%install%/addtostore.tph~
   INCLUDE ~%install%/dfiles.tph~
   INCLUDE ~%install%/mbag.tph~
+  INCLUDE ~%install%/bg1bagscript.tph~
 
   INCLUDE ~%install%/iwd1scripts.tph~
   INCLUDE ~%install%/iwd2scripts.tph~

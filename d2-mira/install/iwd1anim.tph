@@ -1,0 +1,67 @@
+/*
+iwd1 needs to use polymorph effect (iwd1 does not have "animation change" opcode)
+use timing=0 duration=0 to change only animation (parameter2 setting does nothing)
+*/
+
+
+ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
+
+OUTER_TEXT_SPRINT aa  ~%metalunit%a~
+OUTER_TEXT_SPRINT bb  ~%metalunit%b~
+OUTER_TEXT_SPRINT xx  ~%metalunit%x~
+OUTER_TEXT_SPRINT yy  ~%metalunit%y~
+
+OUTER_SET note = RESOLVE_STR_REF (@49319276)    // note to reload after removing armor (undo animation change)
+
+
+//edit big metal unit
+COPY_EXISTING ~%metalunit%.itm~  ~override~
+  // golem animation
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=135 parameter2=0 timing=0 STR_VAR resource=golemiro insert=last END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=7 parameter2=3 STR_VAR insert=last END    // color (doesn't work)
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=8 parameter2=255 STR_VAR insert=last END    // glow effect
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=139 parameter1=note timing=4 duration=2 STR_VAR insert=last END
+  LPF CLONE_EFFECT INT_VAR match_opcode=135 opcode=176 parameter1=3 timing=2 END    // normalize movement speed
+
+/*(doesn't work)
+  // removal subspell
+  LPF CLONE_EFFECT INT_VAR match_opcode=142 opcode=206 parameter2=0 STR_VAR resource=~%bb%~ insert=last END    // unlock effect
+  LPF CLONE_EFFECT INT_VAR match_opcode=142 opcode=206 parameter2=0 STR_VAR resource=~%yy%~ insert=last END    // block effect
+  LPF CLONE_EFFECT INT_VAR match_opcode=142 opcode=146 parameter2=1 STR_VAR resource=~%aa%~ insert=last END    // cast main subspell
+*/
+
+BUT_ONLY
+
+
+/*
+//subspells A, B, C (applies S/T)
+COPY ~%files%/applyeffects.SPL~  ~override/%aa%.SPL~
+  LPF ALTER_EFFECT INT_VAR opcode=146 parameter2=1 STR_VAR resource=~%xx%~ END    // cast C (trigger spell)
+  LPF CLONE_EFFECT INT_VAR opcode=146 parameter2=1 STR_VAR resource=~%bb%~ END    // cast B (blocking spell)
+COPY ~%files%/applyeffects.SPL~  ~override/%bb%.SPL~
+  LPF ALTER_EFFECT INT_VAR opcode=206 timing=0 duration=1 STR_VAR resource=~%xx%~ END    // B blocks C
+
+
+//natural form on unequip (subspells S/T)
+//without this, you're stuck in golem form until reloading or using a shapeshift spell
+COPY ~%files%/applyeffects.SPL~  ~override/%xx%.SPL~
+  LPF ALTER_EFFECT INT_VAR opcode=146 parameter2=1 STR_VAR resource=~%yy%~ END
+  LPF CLONE_EFFECT INT_VAR timing=4 duration=1 END    // delay 1 second
+COPY ~%files%/applyeffects.SPL~  ~override/%yy%.SPL~
+  LPF ALTER_EFFECT INT_VAR opcode=135 timing=0 END    // natural form
+  LPF CLONE_EFFECT INT_VAR opcode=146 parameter2=1 STR_VAR resource=~%aa%~ insert=last END    // recast A
+  LPF CLONE_EFFECT INT_VAR match_opcode=135 opcode=206 duration=1 STR_VAR resource=~%yy%~ insert=last END
+*/
+
+
+//function for later patching
+DEFINE_PATCH_FUNCTION d2mira_iwd1anim BEGIN
+  LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=135 opcode=206 parameter2=0 STR_VAR resource=~%yy%~ END
+END
+
+
+END
+
+
+//
+//

@@ -20,16 +20,30 @@ Components:
 4. Make ammo more party friendly (see note below)
 5. Pulse ammo does double damage on a critical hit (EEs)
 6. Adjust ammo charges per day (default is unlimited)
+7. Animation tweaking (Big Metal Unit)
 
 --
 
 Component 4 info (party friendly ammo):
-- Makes it so only the damage from the launcher will harm PCs.
-- Ammo damage (ex. fire from Scorcher) does no damage to PCs.
-- If the launcher has no damage bonus, then the ammo is party friendly.
-- EEs/BG2 engine: Applies to Scorcher and Frag Grenade.
-- IWD1/IWD2: Applies to Frag Grenade only (can't make it work with Scorcher projectile).
-- Neutral NPCs may still become hostile if they get hit.
+- Protects allies from AoE ammo damage (ex. fire from scorcher).
+- Does not block damage from the launcher.
+- It still counts as a hit, so it will interrupt spellcasting.
+- EEs/BG2 engine: this works for all AoE ammo.
+- IWD1/IWD2 note: Frag Grenade only, scorcher damage can't be blocked.
+- Neutral NPCs take no damage but may become hostile (depends on AI script).
+
+--
+
+Animation tweaking (Big Metal Unit):
+- Option 1: Use default form, normalize movement
+- Option 2: Death Knight (note: wields a sword)
+- Option 3: No animation, appears as plate mail
+- Option 4: Option 1, smaller personal space (EEs)
+- Option 5: Option 2, smaller personal space (EEs)
+
+Notes:
+- Options 4/5 sets personal space to 3, same as PC races, so it can fit through all doors. The wearer will not be considered a large creature for spell effects.
+- normalize movement: This is done from all components except no animation. It makes movement roughly the same as BG2 relative to natural form (moves slightly faster).
 
 --
 
@@ -57,7 +71,7 @@ Additional info:
 	- BG1: The Big Metal Rod will not appear at its location until you find out it exists.
 	- Throne of Bhaal: Gold/Silver pantaloons are still obtainable in ToB, if not already obtained.
 	- Heart of Winter: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
-	- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after the second time flying with Oswald, if you missed them in earlier locations.
+	- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after reaching Kuldahar, if you missed them in earlier locations.
 
 --
 
@@ -95,6 +109,24 @@ Used for older releases (replaced by WeiDU Mod Packager):
 --
 
 Updates:
+
+v4.15
+- iwd1/iwd2/iwdee: if starting with core items, none of the items will now be sellable.
+- bg1 (classic): fixed sounds for delivery bag item not always playing (moved from scripting to subspell).
+
+v4.14
+add component: Animation tweaking (Big Metal Unit)
+- option 1 keeps the default animation, will speed up movement if too slow (BG2 golem moves faster than IWD).
+- can change to alternate Death Knight animation (note: wields a sword)
+- can also remove animation effect completely, will look like a plate mail.
+- EEs: can set personal space to 3, so it can go through all doors (circle size does not change, but it fits in smaller areas). This is the same size as PC races. If this is set, it will not be considered a large creature for spell effects. (note: size of 4 is too big for normal doors)
+
+v4.13
+- bg1 (classic): ammo charges component no longer available (will always use the default unlimited charges). Original BG1 engine does not support rechargeable items, based on my testing.
+- bg1 (classic): "start with items" now installable on original BG1. The bag is a quick item. Items are added to inventory, or dropped on ground if full. The bag will only give items once per playthrough.
+- iwd1 (classic): Big Metal Unit now changes animation. It uses the iwd iron golem form. Similar to the other games, shapeshifts will still have priority over the armor animation.
+- iwd1/iwd2: these both have a note in the dialogue when equipping the armor now. It tells you to save and reload after removing the armor to fully remove effects of the armor animation.
+- bg2 (classic) + 1pp: fixed 1pp smart avatar possibly overriding animation change from Big Metal Unit.
 
 v4.12
 - BG2EE: inventory icons will use the tweaked EEFP icons if installed.

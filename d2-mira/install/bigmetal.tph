@@ -270,11 +270,21 @@ DEFINE_ACTION_FUNCTION d2mira_iwdopcodes BEGIN
 END
 
 
+//for IWD2
+DEFINE_ACTION_FUNCTION d2mira_iwd2note BEGIN
+  OUTER_SET note = RESOLVE_STR_REF (@49329276)    // note to reload after removing armor (fix selection sounds)
+  COPY_EXISTING ~%metalunit%.itm~  ~override~
+    LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=139 parameter1=note timing=4 duration=2 STR_VAR insert=last END
+  BUT_ONLY
+END
+
+
 //for BG1 (classic)
 DEFINE_ACTION_FUNCTION d2mira_bg1opcodes BEGIN
   COPY_EXISTING ~%bigmetalunit%.ITM~  ~override~
 //    LPF DELETE_EFFECT INT_VAR match_opcode=53 END    // no animation change (no golem animation)
-    LPF ALTER_EFFECT INT_VAR match_opcode=53 parameter1=0x7001 END    // ogrillon (test)
+    LPF ALTER_EFFECT INT_VAR match_opcode=53 parameter1=0x7001 END    // ogrillon
+//    LPF ALTER_EFFECT INT_VAR match_opcode=53 parameter1=0x2300 END    // death knight (test)
     LPF DELETE_EFFECT INT_VAR match_opcode=292 END    // no backstab immunity
     LPF CLONE_EFFECT INT_VAR multi_match=1 match_opcode=7 parameter2=3 STR_VAR insert=last END    // ogrillon color
   BUT_ONLY
@@ -365,6 +375,7 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
   LAF d2mira_pantaloons END
   LAF d2mira_bigmetal_text END
   LAF d2mira_pantaloons_text END
+  LAF d2mira_iwd2note END
 END
 
 //IWD-in-BG2
@@ -393,7 +404,7 @@ COPY_EXISTING ~%brokenrod%.itm~  ~override~  WRITE_BYTE 0x31  item_prof  IF_EXIS
 
 
 //polymorph check
-ACTION_IF (RESOURCE_CONTAINS ~action.ids~ ~zoomlock~) BEGIN
+ACTION_IF (ee_game > 0) BEGIN
   OUTER_TEXT_SPRINT d2polymorphcheck  ~d2polymorphcheck 59 1 4~     // POLYMORPHED >= 1
   LAF d2_splprot_adder STR_VAR match=d2polymorphcheck string=~%d2polymorphcheck%~ RET stat END
   OUTER_SET d2polymorphcheck = stat
@@ -401,18 +412,23 @@ END
 
 //big metal unit animation
 COPY_EXISTING ~%bigmetalunit%.itm~  ~override~
-  // blocks op53 (animation change)
+  // blocks other op53 effects (animation change)
   SET anim = 53
   LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=anim opcode=101 parameter2=anim STR_VAR insert=below END
 
-  // EEs: no change if polymorphed
+  // bg2 (classic), block 1pp thing
+  PATCH_IF (GAME_IS ~bg2 tob tutu tutu_totsc iwd_in_bg2 ca~) BEGIN
+    LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=anim opcode=206 parameter1=0 STR_VAR resource=lcarmor END
+  END
+
+  // EEs: no animation if polymorphed
   PATCH_IF (IS_AN_INT d2polymorphcheck) BEGIN
     LPF d2_protect_on_castequip INT_VAR match_opcode=anim cre_type=d2polymorphcheck STR_VAR insert=above END
   END
 
   // npc bump
   PATCH_IF (RESOURCE_CONTAINS ~stats.ids~  ~NPC_BUMP~) BEGIN
-    LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=anim opcode=300 parameter2=1 END
+    LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=anim opcode=300 parameter2=1 STR_VAR insert=below END
   END
 BUT_ONLY
 

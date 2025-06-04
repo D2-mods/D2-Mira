@@ -27,12 +27,12 @@ Text here appears in the weidu installer
 	@32 = ~Slashing~
 
 @40 = ~Make Scorcher and Frag Grenade more party friendly~
-	@41 = ~Yes (will damage allies only if launcher has damage bonus)~
-	@42 = ~No (default)~
+	@41 = ~Allies protected (note: damage from the launcher still applies)~
+	@42 = ~Allies not protected (default)~
 
 @45 = ~Make Frag Grenade more party friendly (IWD1/IWD2)~
-	@46 = ~Yes (will damage allies only if launcher has damage bonus)~
-	@47 = ~No (default)~
+	@46 = ~Allies protected (note: damage from the launcher still applies)~
+	@47 = ~Allies not protected (default)~
 
 @50 = ~Pulse ammo does double damage on a critical hit (EEs)~
 	@51 = ~Yes~
@@ -43,6 +43,13 @@ Text here appears in the weidu installer
 	@62 = ~999 charges~
 	@63 = ~300 charges~
 	@64 = ~80 charges~
+
+@70 = ~Animation tweaking (Big Metal Unit)~
+	@71 = ~Use default form, normalize movement~
+	@72 = ~Death Knight (note: wields a sword)~
+	@73 = ~No animation~
+	@74 = ~Option 1, smaller personal space (EEs)~
+	@75 = ~Option 2, smaller personal space (EEs)~
 
 
 //

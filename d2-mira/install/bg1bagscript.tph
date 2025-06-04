@@ -1,0 +1,158 @@
+/*
+invisible creature scripting
+gives all items when using bag as quick item (only 1 time)
+used for games that don't support bags
+
+tested with BG1 + TotSC
+untested with IWD (without HoW)
+*/
+
+
+//
+ACTION_IF (GAME_IS ~bg1 totsc iwd~) BEGIN
+
+
+//OUTER_TEXT_SPRINT checkbag  ~%mirabag%t~
+//this is set in prep.tpa
+
+//sounds
+OUTER_TEXT_SPRINT gotitems  ~GAM_11~
+OUTER_TEXT_SPRINT shakebag  ~GAM_15A~
+
+
+//invisible creature
+COPY ~%files%/bg1bag.SPL~  ~override/%checkbag%.SPL~
+  SAY NAME1 ~%mirabag_name%~
+  LPF ALTER_EFFECT INT_VAR opcode=67 STR_VAR resource=~%checkbag%~ END    // use summon opcode (can't use replace self for bg1)
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=174 STR_VAR resource=~%shakebag%~ END
+COPY ~%files%/bg1bag.CRE~  ~override/%checkbag%.CRE~
+  REPLACE_CRE_ITEM ~ring95~ #0 #0 #0 ~unstealable&undroppable~ ~amulet~
+  REPLACE_CRE_ITEM ~immune1~ #0 #0 #0 ~unstealable&undroppable~ ~rring~
+  WRITE_ASCII 0x248 ~%checkbag%~ #8     // set script
+  WRITE_ASCII 0x280 ~%checkbag%~ #32    // set script name
+
+
+//used for sound effect (scripting doesn't always play sound)
+//can't use this to add items, items not created if no room in inventory
+COPY ~%files%/createitem.SPL~  ~override/%mirabag%.SPL~
+  LPF ALTER_EFFECT INT_VAR multi_match=1 parameter1=1 STR_VAR resource=~%metalunit%~ END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 parameter1=1 STR_VAR resource=~%scorcher%~ END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 parameter1=1 STR_VAR resource=~%frag%~ END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 parameter1=1 STR_VAR resource=~%pulse%~ END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 parameter1=1 STR_VAR resource=~%metalrod%~ END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=174 STR_VAR resource=~%gotitems%~ END
+  LPF DELETE_EFFECT INT_VAR match_opcode=122 END
+
+
+
+//make BCS file
+<<<<<<<< .../temp/%checkbag%.BAF
+>>>>>>>>
+COMPILE ~.../temp/%checkbag%.BAF~
+
+DEFINE_PATCH_FUNCTION d2mira_playercheck STR_VAR pc=player1 BEGIN
+  REPLACE_TEXTUALLY ~Player1~ ~%pc%~
+  TEXT_SPRINT match  ~HasItem("%mirabag%",%pc%)~
+  TEXT_SPRINT string  ~HasItem("%mirabag%",%pc%) !HasItem("%mirabag%",Player1)~
+  REPLACE_TEXTUALLY EXACT_MATCH  ~%match%~  ~%string%~
+END
+
+OUTER_SET 5items = RESOLVE_STR_REF (@2582245)
+OUTER_SET 0items = RESOLVE_STR_REF (@2582240)
+
+
+
+//
+<<<<<<<< .../temp/itemcheck
+IF
+	GlobalLT("d2mira_%mirabag%","GLOBAL",1)
+	Exists(Player1)
+	HasItem("%mirabag%",Player1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2mira_%mirabag%","GLOBAL",1)
+//		PlaySound("%gotitems%")
+		ForceSpellRES("%mirabag%",Player1)
+		GiveItemCreate("%metalrod%",Player1,0,0,0)
+		GiveItemCreate("%pulse%",Player1,0,0,0)
+		GiveItemCreate("%frag%",Player1,0,0,0)
+		GiveItemCreate("%scorcher%",Player1,0,0,0)
+		GiveItemCreate("%metalunit%",Player1,0,0,0)
+		DisplayString(Myself,%5items%)
+END
+>>>>>>>>
+COPY - ~.../temp/itemcheck~  ~inlined/itemcheck.BAF~
+  EVALUATE_BUFFER
+COPY - ~inlined/itemcheck.BAF~  ~inlined/itemcheck2.BAF~
+  REPLACE_TEXTUALLY ~Player1~  ~Player2~
+COPY - ~inlined/itemcheck.BAF~  ~inlined/itemcheck3.BAF~
+  REPLACE_TEXTUALLY ~Player1~  ~Player3~
+COPY - ~inlined/itemcheck.BAF~  ~inlined/itemcheck4.BAF~
+  REPLACE_TEXTUALLY ~Player1~  ~Player4~
+COPY - ~inlined/itemcheck.BAF~  ~inlined/itemcheck5.BAF~
+  REPLACE_TEXTUALLY ~Player1~  ~Player5~
+COPY - ~inlined/itemcheck.BAF~  ~inlined/itemcheck6.BAF~
+  REPLACE_TEXTUALLY ~Player1~  ~Player6~
+
+EXTEND_BOTTOM ~%checkbag%.BCS~  ~inlined/itemcheck.BAF~
+EXTEND_BOTTOM ~%checkbag%.BCS~  ~inlined/itemcheck2.BAF~
+EXTEND_BOTTOM ~%checkbag%.BCS~  ~inlined/itemcheck3.BAF~
+EXTEND_BOTTOM ~%checkbag%.BCS~  ~inlined/itemcheck4.BAF~
+EXTEND_BOTTOM ~%checkbag%.BCS~  ~inlined/itemcheck5.BAF~
+EXTEND_BOTTOM ~%checkbag%.BCS~  ~inlined/itemcheck6.BAF~
+
+
+//set spell timer
+<<<<<<<< .../temp/movecre
+IF
+	!Global("%mirabag%move","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("%mirabag%move","LOCALS",1)
+		JumpToPoint([20.20])
+		SetGlobalTimer("%mirabag%timer","LOCALS",1)
+END
+>>>>>>>>
+COPY - ~.../temp/movecre~  ~inlined/movecre.BAF~
+  EVALUATE_BUFFER
+EXTEND_TOP ~%checkbag%.BCS~  ~inlined/movecre.BAF~
+
+
+//spell ended
+<<<<<<<< .../temp/endspell
+IF
+	Global("%mirabag%move","LOCALS",1)
+	!GlobalTimerNotExpired("%mirabag%timer","LOCALS")
+	Global("d2mira_%mirabag%","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("d2mira_%mirabag%","GLOBAL",2)
+		DestroySelf()
+END
+>>>>>>>>
+COPY - ~.../temp/endspell~    ~inlined/endspell.BAF~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~%checkbag%.BCS~  ~inlined/endspell.BAF~
+
+
+//
+<<<<<<<< .../temp/empty
+IF
+	GlobalGT("d2mira_%mirabag%","GLOBAL",1)
+THEN
+	RESPONSE #100
+//		PlaySound("%shakebag%")    // played from %checkbag%.SPL
+		DisplayString(Myself,%0items%)
+		DestroySelf()
+END
+>>>>>>>>
+COPY - ~.../temp/empty~  ~inlined/empty.BAF~
+  EVALUATE_BUFFER
+EXTEND_TOP ~%checkbag%.BCS~  ~inlined/empty.BAF~
+
+
+END
+
+
+//
+//

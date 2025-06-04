@@ -11,7 +11,6 @@ ELSE BEGIN
 END
 
 
-//
 //BG prices
 ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mirabg2prices BEGIN
   ~%bigmetalrod%~   => 0
@@ -34,17 +33,16 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mirabg2prices BEGIN
 END
 
 
-//
 //IWD prices
 ACTION_DEFINE_ASSOCIATIVE_ARRAY d2miraiwdprices BEGIN
   ~%bigmetalrod%~   => 0
-  ~%pulse%~         => 4000
+  ~%pulse%~         => 0    // was 4000
   ~%frag%~          => 8000
   ~%scorcher%~      => 8000
   ~%bigmetalunit%~  => 0
 //
   ~%prototype%~     => 0
-  ~%pulseIII%~      => 12000
+  ~%pulseIII%~      => 0    // was 12000
 //
   ~%metalrodb%~     => 0
   ~%prototypeb%~    => 0
@@ -54,6 +52,13 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d2miraiwdprices BEGIN
   ~%bronze%~        => 800
   ~%silver%~        => 3000
   ~%gold%~          => 0
+END
+
+
+// bag items for iwd/iwd2 are 0 gold (if starting with bag)
+ACTION_IF (mira = 2) BEGIN
+  OUTER_TEXT_SPRINT $d2miraiwdprices(~%frag%~) ~0~
+  OUTER_TEXT_SPRINT $d2miraiwdprices(~%scorcher%~) ~0~
 END
 
 

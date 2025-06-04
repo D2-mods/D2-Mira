@@ -1,13 +1,13 @@
-//Add Delivery Bag
-//
-
 /*
+Add Delivery Bag
 Resource: d2#mbag.ITM
 */
 
 
 COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
 
+
+//add files
 ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
   COPY ~%mbag%/d2hbee1.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbee1.STO~  ~override/%mirabag%.STO~
@@ -20,7 +20,7 @@ ACTION_IF (GAME_IS ~iwdee~) BEGIN
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
-ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
+ACTION_IF (GAME_IS ~how totlm~) BEGIN
   COPY ~%mbag%/d2hbid1.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbid1.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
@@ -32,19 +32,44 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
-ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2 bg1 totsc~) BEGIN    // note: bg1 does not support bags
+ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
   COPY ~%mbag%/d2hbbg2.ITM~  ~override/%mirabag%.ITM~
   COPY ~%mbag%/d2hbbg2.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
 
 
-//edits for bg1 and iwd1 (with no HoW)
-//need to change to be usable items
-ACTION_IF (GAME_IS ~bg1 totsc iwd~) BEGIN
-  COPY_EXISTING ~%mirabag%.ITM~  ~override~  WRITE_SHORT 0x1c 0  BUT_ONLY    // 0 = misc items
-  COPY_EXISTING ~%mirabag%.STO~  ~override~  WRITE_LONG 0x8 0  BUT_ONLY      // 0 = store file
+
+//variants for bg1 and iwd1 (with no HoW)
+
+/*
+used as quick items (these games don't support bags)
+items are added automatically to the inventory
+*/
+
+//OUTER_TEXT_SPRINT checkbag  ~%mirabag%t~
+//this is set in prep.tpa
+
+ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN    // note: bg1 does not support bags
+  COPY ~%mbag%/quickitembg1.ITM~  ~override/%mirabag%.ITM~
+    WRITE_SHORT 0x1c 0
+    LPF ALTER_ITEM_HEADER STR_VAR icon=~%mirabag%~ END
+    LPF ALTER_EFFECT STR_VAR resource=~%checkbag%~ END
+  COPY ~%mbag%/d2hbbg2.STO~       ~override/%mirabag%.STO~
+    SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
+    WRITE_LONG 0x8 0
 END
+
+ACTION_IF (GAME_IS ~iwd~) BEGIN
+  COPY ~%mbag%/quickitemiwd.ITM~  ~override/%mirabag%.ITM~
+    WRITE_SHORT 0x1c 0
+    LPF ALTER_ITEM_HEADER STR_VAR icon=~%mirabag%~ END
+    LPF ALTER_EFFECT STR_VAR resource=~%checkbag%~ END
+  COPY ~%mbag%/d2hbid1.STO~       ~override/%mirabag%.STO~
+    SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
+    WRITE_LONG 0x8 0
+END
+
 
 
 //
@@ -97,8 +122,20 @@ ACTION_IF (mira = 2) BEGIN
     EXTEND_BOTTOM ~TC0009.BCS~ ~%mbag%/mbag-ca.BAF~
   END
 
+  // bg1 has no global script (baldur.bcs), add to each area script
+  ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
+    COPY_EXISTING_REGEXP - GLOB ~.*\.BCS~  ~override~
+      PATCH_IF (FILE_EXISTS_IN_GAME ~%SOURCE_RES%.are~) BEGIN
+        TEXT_SPRINT $d2mira_bg1bag(~%SOURCE_RES%~) ~script~
+      END
+
+    ACTION_PHP_EACH d2mira_bg1bag AS script => extend BEGIN
+      EXTEND_TOP ~%script%.bcs~  ~%mbag%/mbag-script.BAF~
+    END
+  END
+
 END
 
 
-/*
-*/
+//
+//

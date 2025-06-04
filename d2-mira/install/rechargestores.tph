@@ -1,14 +1,15 @@
 /*
-Update .STO files (give items max charges)
+update charges for stores and bags
 */
 
 
 //update Delivery Bag
-COPY_EXISTING ~%mirabag%.STO~ ~override~
+COPY_EXISTING ~%mirabag%.STO~  ~override~
   LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%scorcher%~ flags = ~identified~ END
   LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%frag%~     flags = ~identified~ END
   LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%pulse%~    flags = ~identified~ END
 BUT_ONLY
+
 
 
 //update stores/containers
@@ -17,13 +18,13 @@ ACTION_IF (mira = 1) BEGIN
 //IWD1/IWDEE
 ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~LDD_NYM.STO~) BEGIN
-    COPY_EXISTING ~LDD_NYM.STO~ ~override~
+    COPY_EXISTING ~LDD_NYM.STO~  ~override~
       LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%frag%~ flags=~identified~ END
     BUT_ONLY
   END
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~KIERAN2.STO~) BEGIN
-    COPY_EXISTING ~KIERAN2.STO~ ~override~
+    COPY_EXISTING ~KIERAN2.STO~  ~override~
       LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%scorcher%~ flags=~identified~ END
     BUT_ONLY
   END
@@ -31,17 +32,47 @@ END
 
 //IWD2
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
-  COPY_EXISTING ~53MYRVEK.STO~ ~override~
+  COPY_EXISTING ~53MYRVEK.STO~  ~override~
     LPF ADD_STORE_ITEM_EX INT_VAR charge1=charges overwrite=1 STR_VAR item_name=~%frag%~ flags=~identified~ END
   BUT_ONLY
 
-  COPY_EXISTING ~AR6102.ARE~ ~override/d2scorcher1.ARE~     // backup (just in case)
+  COPY_EXISTING ~AR6102.ARE~  ~override/d2scorcher1.ARE~     // backup (just in case)
   COPY_EXISTING ~d2scorcher0.ARE~  ~override/AR6102.ARE~    // workaround for IWD2 issue
     LPF ADD_AREA_ITEM INT_VAR container_to_add_to=7 charges1=charges STR_VAR item_to_add=~%scorcher%~ END
   BUT_ONLY
 END
 
 END
+
+
+
+//update stuff for original BG1 and IWD1 (without HoW)
+//note: charges component disabled for BG1 (cannot recharge items)
+COPY_EXISTING ~%mirabag%.SPL~  ~override~
+  LPF ALTER_EFFECT INT_VAR parameter1=charges STR_VAR match_resource=~%pulse%~ END
+  LPF ALTER_EFFECT INT_VAR parameter1=charges STR_VAR match_resource=~%frag%~ END
+  LPF ALTER_EFFECT INT_VAR parameter1=charges STR_VAR match_resource=~%scorcher%~ END
+IF_EXISTS BUT_ONLY
+
+DEFINE_PATCH_FUNCTION d2mira_bg1charges STR_VAR pc=Player1 BEGIN
+  SPRINT match1  ~%pulse%",%pc%,0~
+  SPRINT match2  ~%frag%",%pc%,0~
+  SPRINT match3  ~%scorcher%",%pc%,0~
+  REPLACE_TEXTUALLY EXACT_MATCH ~%match1%~  ~%pulse%",%pc%,%charges%~
+  REPLACE_TEXTUALLY EXACT_MATCH ~%match2%~  ~%frag%",%pc%,%charges%~
+  REPLACE_TEXTUALLY EXACT_MATCH ~%match3%~  ~%scorcher%",%pc%,%charges%~
+END
+
+COPY_EXISTING ~%checkbag%.bcs~  ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    LPF d2mira_bg1charges STR_VAR pc=Player1 END
+    LPF d2mira_bg1charges STR_VAR pc=Player2 END
+    LPF d2mira_bg1charges STR_VAR pc=Player3 END
+    LPF d2mira_bg1charges STR_VAR pc=Player4 END
+    LPF d2mira_bg1charges STR_VAR pc=Player5 END
+    LPF d2mira_bg1charges STR_VAR pc=Player6 END
+  END
+IF_EXISTS BUT_ONLY
 
 
 /*

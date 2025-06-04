@@ -88,6 +88,7 @@ OUTER_SPRINT pulseIII_stat_iwd2 @709
 OUTER_SPRINT mirabag_name      @120
 OUTER_SPRINT mirabag_text_base @220
 OUTER_SPRINT mirabag_stat_base @320
+OUTER_SPRINT mirabag_stat_bg1  @520
 OUTER_SPRINT mirabag_stat_iwd1 @620
 OUTER_SPRINT mirabag_stat_iwd2 @720
 
