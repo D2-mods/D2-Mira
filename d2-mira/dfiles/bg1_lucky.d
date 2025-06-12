@@ -1,5 +1,5 @@
 //add to Lucky Aello's dialogue
-//tells you where rod is (not required to get it)
+//tells you where rod is (v4.15: now required to get the item)
 
 
 EXTEND_BOTTOM ~LUCKY~ 0
@@ -7,8 +7,8 @@ EXTEND_BOTTOM ~LUCKY~ 0
 IF ~ !PartyHasItem("%metalrodb%")    // no Big Metal Rod
      !PartyHasItem("%bigmetalrod%")
      Global("d2HasBigMetalRod","GLOBAL",0)
-     GlobalGT("d2LuckyAelloBigMetal","GLOBAL",0)
-     Global("d2DivinerBigMetal","GLOBAL",1)
+     GlobalGT("d2LuckyAelloBigMetal","GLOBAL",0)    // this is set after Black Lily talk
+//     Global("d2DivinerBigMetal","GLOBAL",1)       // this talk no longer requires diviner talk
    ~ REPLY @30401 GOTO LuckyRod
 
 END

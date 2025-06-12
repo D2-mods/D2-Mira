@@ -1,0 +1,244 @@
+/*
+gives scaling xp based on party size
+compatible with classic and EE of all games
+
+for EEs and BG2, uses AddXPObject (1 script block)
+for other games, uses AddExperienceParty (6 script blocks)
+*/
+
+
+/*
+"global" is name for a variable, function sets this to prevent blocks from running more than once
+"script" is a BCS resource, can be list, if left empty adds to any global scripts detected
+"extend" can be set to "top" or "first" to EXTEND_TOP (anything else will EXTEND_BOTTOM)
+"partyxp" is only relevant for EEs and BG2, it makes function use AddExperienceParty instead of AddXPObject
+*/
+
+//NOTE: should set at least 1 of the trigger variables (all are blank if not set)
+//trigger and action variables can be a list separated by a space (ex. can use for OR trigger list)
+
+DEFINE_ACTION_FUNCTION d2_adjusted_xpbonus
+  INT_VAR xpbonus=0 partyxp=0
+  STR_VAR global=~~ script=~~ extend=bottom
+          trigger1=~~ trigger2=~~ trigger3=~~    // extra triggers (optional), ex. variable checks
+          action1=~~ action2=~~ action3=~~       // extra actions (optional), ex. display string or journal
+BEGIN
+
+//variables
+ACTION_IF (~%global%~ STR_EQ ~~) BEGIN
+  OUTER_TEXT_SPRINT global  ~d2_adjusted_xpbonus_%MOD_FOLDER%_%COMPONENT_NUMBER%~
+END
+
+ACTION_IF (~%script%~ STR_EQ ~baldur~) BEGIN
+  ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
+    OUTER_TEXT_SPRINT script  ~~
+  END
+END
+
+ACTION_IF (partyxp < 1) BEGIN
+  ACTION_IF !(RESOURCE_CONTAINS ~action.ids~  ~AddXPObject~) BEGIN
+    OUTER_SET partyxp = 1
+  END
+END
+
+OUTER_SET xpbonus1 = xpbonus*1
+OUTER_SET xpbonus2 = xpbonus*2
+OUTER_SET xpbonus3 = xpbonus*3
+OUTER_SET xpbonus4 = xpbonus*4
+OUTER_SET xpbonus5 = xpbonus*5
+OUTER_SET xpbonus6 = xpbonus*6
+
+OUTER_SPRINT extra_triggers  ~%trigger1% %trigger2% %trigger3%~
+OUTER_SPRINT extra_actions  ~%action1% %action2% %action3%~
+
+
+
+//script blocks
+ACTION_IF (partyxp < 1) BEGIN
+
+<<<<<<<< .../temp/script
+IF
+	!Global("%global%","GLOBAL",1)
+	%extra_triggers%
+THEN
+	RESPONSE #100
+		SetGlobal("%global%","GLOBAL",1)
+		%extra_actions%
+        AddXPObject(Player1,%xpbonus1%)
+        AddXPObject(Player2,%xpbonus1%)
+        AddXPObject(Player3,%xpbonus1%)
+        AddXPObject(Player4,%xpbonus1%)
+        AddXPObject(Player5,%xpbonus1%)
+        AddXPObject(Player6,%xpbonus1%)
+		Continue()
+END
+>>>>>>>>
+
+END ELSE BEGIN
+
+<<<<<<<< .../temp/script
+IF
+	!Global("%global%","GLOBAL",1)
+	%extra_triggers%
+	!Exists(Player2)
+	!Exists(Player3)
+	!Exists(Player4)
+	!Exists(Player5)
+	!Exists(Player6)
+THEN
+	RESPONSE #100
+		SetGlobal("%global%","GLOBAL",1)
+		%extra_actions%
+        AddExperienceParty(%xpbonus1%)
+		Continue()
+END
+
+IF
+	!Global("%global%","GLOBAL",1)
+	%extra_triggers%
+	Exists(Player2)
+	!Exists(Player3)
+	!Exists(Player4)
+	!Exists(Player5)
+	!Exists(Player6)
+THEN
+	RESPONSE #100
+		SetGlobal("%global%","GLOBAL",1)
+		%extra_actions%
+        AddExperienceParty(%xpbonus2%)
+		Continue()
+END
+
+IF
+	!Global("%global%","GLOBAL",1)
+	%extra_triggers%
+	Exists(Player2)
+	Exists(Player3)
+	!Exists(Player4)
+	!Exists(Player5)
+	!Exists(Player6)
+THEN
+	RESPONSE #100
+		SetGlobal("%global%","GLOBAL",1)
+		%extra_actions%
+        AddExperienceParty(%xpbonus3%)
+		Continue()
+END
+
+IF
+	!Global("%global%","GLOBAL",1)
+	%extra_triggers%
+	Exists(Player2)
+	Exists(Player3)
+	Exists(Player4)
+	!Exists(Player5)
+	!Exists(Player6)
+THEN
+	RESPONSE #100
+		SetGlobal("%global%","GLOBAL",1)
+		%extra_actions%
+        AddExperienceParty(%xpbonus4%)
+		Continue()
+END
+
+IF
+	!Global("%global%","GLOBAL",1)
+	%extra_triggers%
+	Exists(Player2)
+	Exists(Player3)
+	Exists(Player4)
+	Exists(Player5)
+	!Exists(Player6)
+THEN
+	RESPONSE #100
+		SetGlobal("%global%","GLOBAL",1)
+		%extra_actions%
+        AddExperienceParty(%xpbonus5%)
+		Continue()
+END
+
+IF
+	!Global("%global%","GLOBAL",1)
+	%extra_triggers%
+	Exists(Player2)
+	Exists(Player3)
+	Exists(Player4)
+	Exists(Player5)
+	Exists(Player6)
+THEN
+	RESPONSE #100
+		SetGlobal("%global%","GLOBAL",1)
+		%extra_actions%
+        AddExperienceParty(%xpbonus6%)
+		Continue()
+END
+>>>>>>>>
+
+END
+
+COPY - ~.../temp/script~  ~inlined/script.BAF~
+  EVALUATE_BUFFER
+
+
+//extend scripts
+ACTION_IF (~%script%~ STR_EQ ~~) BEGIN
+  LAF d2_adjusted_xpbonus_global END
+END ELSE ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.bcs~) BEGIN
+  LAF d2_adjusted_xpbonus_script STR_VAR script=EVAL ~%script%~ extend=EVAL ~%extend%~ END
+END ELSE BEGIN
+  LAF d2_adjusted_xpbonus_list END
+END
+
+
+END
+
+
+
+//used by above function
+DEFINE_ACTION_FUNCTION d2_adjusted_xpbonus_script STR_VAR script=~~ extend=bottom BEGIN
+  ACTION_IF (~%extend%~ STR_EQ ~top~)   BEGIN  EXTEND_TOP ~%script%.bcs~  ~inlined/script.BAF~  END ELSE
+  ACTION_IF (~%extend%~ STR_EQ ~first~) BEGIN  EXTEND_TOP ~%script%.bcs~  ~inlined/script.BAF~  END ELSE
+  BEGIN  EXTEND_BOTTOM ~%script%.bcs~  ~inlined/script.BAF~  END
+END
+
+DEFINE_ACTION_FUNCTION d2_adjusted_xpbonus_global BEGIN
+  ACTION_FOR_EACH script IN ~baldur~ ~baldur25~ ~bdbaldur~ BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%script%.bcs~) BEGIN
+      LAF d2_adjusted_xpbonus_script STR_VAR script=EVAL ~%script%~ extend=EVAL ~%extend%~ END
+    END
+  END
+
+  ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
+    // make array of scripts
+    COPY_EXISTING_REGEXP - GLOB ~.*\.are~  ~override~
+      PATCH_IF (FILE_EXISTS_IN_GAME ~%SOURCE_RES%.bcs~) BEGIN
+        SPRINT $d2_adjusted_xpbonus_bg1(~%SOURCE_RES%~) ~~
+      END
+
+    // add script blocks
+    PRINT ~patching BG1 area scripts (no global script) ...~
+    SILENT
+    ACTION_PHP_EACH d2_adjusted_xpbonus_bg1 AS script => list BEGIN
+      LAF d2_adjusted_xpbonus_script STR_VAR script=EVAL ~%script%~ extend=EVAL ~%extend%~ END
+    END
+    VERBOSE
+  END
+END
+
+//if "script" is a list, this scans all bcs files
+DEFINE_ACTION_FUNCTION d2_adjusted_xpbonus_list BEGIN
+  // make array of scripts
+  COPY_EXISTING_REGEXP - GLOB ~.*\.bcs~  ~override~
+    PATCH_IF !(~%script%~ STRING_CONTAINS_REGEXP ~[^0-9^a-z]*%SOURCE_RES%[^0-9^a-z]*~) BEGIN
+      SPRINT $d2_adjusted_xpbonus_list(~%SOURCE_RES%~) ~~
+    END
+
+  // add script blocks
+  ACTION_PHP_EACH d2_adjusted_xpbonus_list AS script => list BEGIN
+    LAF d2_adjusted_xpbonus_script STR_VAR script=EVAL ~%script%~ extend=EVAL ~%extend%~ END
+  END
+END
+
+
+//
+//

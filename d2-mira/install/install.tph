@@ -17,6 +17,7 @@
   INCLUDE ~%install%/iwd2scripts.tph~
   INCLUDE ~%install%/bg1scripts.tph~
   INCLUDE ~%install%/bg2scripts.tph~
+  INCLUDE ~%install%/xpbonus.tph~
 
   INCLUDE ~%install%/priceadjust.tph~
   INCLUDE ~%install%/loreadjust.tph~

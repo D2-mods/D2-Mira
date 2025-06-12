@@ -20,9 +20,10 @@ Components:
 	- Option 2: Start with the core "Big Metal" items
 2. Adjust APR and enchantment level (5 options, including vanilla BG2 stats)
 3. Choose damage type for Frag Grenade (fire or slashing)
-4. Make ammo more party friendly (see note below)
+4. Make ammo more party friendly (see notes below)
 5. Pulse ammo does double damage on a critical hit (EEs)
 6. Adjust ammo charges per day (default is unlimited)
+7. Animation tweaking (Big Metal Unit)
 
 --
 
@@ -48,7 +49,7 @@ Additional info:
 **Option 2:**
 - Party starts with a bag, containing the core Big Metal items. 
 - Other items not in the bag will still be obtainable in the game (if normally available with Option 1). 
-- Also compatible with Black Pits 1 & 2.
+- Also compatible with Black Pits 1 & 2, as well as total conversions for BG2.
 
 **BG2 notes:**
 - Core items are still gained the same way as in the unmodded game.
@@ -61,7 +62,7 @@ Additional info:
 - BG1: The Big Metal Rod will not appear at its location until you find out it exists.
 - Throne of Bhaal: Gold/Silver pantaloons are still obtainable in ToB, if not already obtained.
 - Heart of Winter: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
-- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after reaching Kuldahar, if you missed them in earlier locations.
+- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after reaching Kuldahar if you missed them in earlier locations.
 
 --
 
@@ -74,6 +75,25 @@ Additional info:
 
 --
 
-**Known issues:**
-- Big Metal Unit (classic IWD1): Does not change appearance. Will appear as a plate mail.
-- Big Metal Unit (IWD2): Selection sounds will change to a creature sound, even after removing the armor. Save and reload (with the armor off) to return selection sounds back to normal.
+**Animation tweaking (Big Metal Unit):**
+- Option 1: Use default form, normalize movement
+- Option 2: Death Knight (note: wields a sword)
+- Option 3: No animation, appears as plate mail
+- Option 4: Option 1, smaller personal space (EEs)
+- Option 5: Option 2, smaller personal space (EEs)
+
+Notes:
+- Options 4/5 sets personal space to 3, same as PC races, so it can fit through all doors. The wearer will not be considered a large creature for spell effects.
+- normalize movement: This is done from all components except no animation. It makes movement roughly the same as the BG2 armor relative to natural form (moves slightly faster).
+
+--
+
+**Game issues/workarounds:**
+- IWD1 (classic): Save and reload to return to human/natural form after removing the armor.
+- IWD2: Save and reload to restore selection sounds to normal after removing the armor.
+- for these games, the engine doesn't seem to clear all animation change effects until reloading.
+
+**Shapeshifts and Big Metal Unit**
+- These can work together but may occasionally be buggy.
+- The safest way to combine is to shapeshift with armor off, then equip the armor after.
+- Buggy movement can sometimes be fixed by saving and reloading. Changing to natural form should also restore normal movement.

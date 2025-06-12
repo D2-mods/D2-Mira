@@ -6,7 +6,7 @@ Text here appears in the weidu installer
 //Setup
 @9999 = ~The Big Metal Unit mod~
 	@1 = ~Standard Installation~
-	@2 = ~Start with the core "Big Metal" items~
+	@2 = ~Start with the core Big Metal items~
 
 @10 = ~Adjust APR and enchantment level~
 	@11 = ~Scorcher/Frag Grenade have 3 APR, +3 enchantment (default)~

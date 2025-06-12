@@ -34,44 +34,31 @@ Component 4 info (party friendly ammo):
 
 --
 
-Animation tweaking (Big Metal Unit):
-- Option 1: Use default form, normalize movement
-- Option 2: Death Knight (note: wields a sword)
-- Option 3: No animation, appears as plate mail
-- Option 4: Option 1, smaller personal space (EEs)
-- Option 5: Option 2, smaller personal space (EEs)
-
-Notes:
-- Options 4/5 sets personal space to 3, same as PC races, so it can fit through all doors. The wearer will not be considered a large creature for spell effects.
-- normalize movement: This is done from all components except no animation. It makes movement roughly the same as BG2 relative to natural form (moves slightly faster).
-
---
-
 Additional info:
 
-- Option 1:
-	- IWD games: All items are obtainable, including pantaloons. (more info below)
-	- BG1/SoD: Adds the Big Metal Rod and Pulse Ammo (prototype).
-	- BG2: Several items are added or revised (see below).
-	- Some are gained through trades, some are sold by merchants, and some can be found in various places.
+Option 1:
+- IWD games: All items are obtainable, including pantaloons. (more info below)
+- BG1/SoD: Adds the Big Metal Rod and Pulse Ammo (prototype).
+- BG2: Several items are added or revised (see below).
+- Some are gained through trades, some are sold by merchants, and some can be found in various places.
 
-- Option 2: 
-	- Party starts with a bag, containing the core Big Metal items. 
-	- Other items not in the bag will still be obtainable in the game (if normally available with Option 1). 
-	- Also compatible with Black Pits 1 & 2, as well as total conversions for BG2.
+Option 2: 
+- Party starts with a bag, containing the core Big Metal items. 
+- Other items not in the bag will still be obtainable in the game (if normally available with Option 1). 
+- Also compatible with Black Pits 1 & 2, as well as total conversions for BG2.
 
-- BG2 notes: 
-	- Core items are still gained the same way as in the unmodded game.
-	- Pulse (prototype) and an extra Big Metal Rod are obtainable in SoA.
-	- Golden Pantaloons are in SoA, even if not importing from BG1. (note: if missed in the starting dungeon, it gets moved somewhere else)
-	- Pulse III is obtainable in ToB (requires trading in a lesser Pulse Ammo).
+BG2 notes: 
+- Core items are still gained the same way as in the unmodded game.
+- Pulse (prototype) and an extra Big Metal Rod are obtainable in SoA.
+- Golden Pantaloons are in SoA, even if not importing from BG1. (note: if missed in the starting dungeon, it gets moved somewhere else)
+- Pulse III is obtainable in ToB (requires trading in a lesser Pulse Ammo).
 
-- A few hints:
-	- IWD1: The Big Metal Rod is in the starting town. Make sure not to miss it (though there's different dialogue with an NPC if you do miss it).
-	- BG1: The Big Metal Rod will not appear at its location until you find out it exists.
-	- Throne of Bhaal: Gold/Silver pantaloons are still obtainable in ToB, if not already obtained.
-	- Heart of Winter: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
-	- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after reaching Kuldahar, if you missed them in earlier locations.
+A few hints:
+- IWD1: The Big Metal Rod is in the starting town. Make sure not to miss it (though there's different dialogue with an NPC if you do miss it).
+- BG1: The Big Metal Rod will not appear at its location until you find out it exists.
+- Throne of Bhaal: Gold/Silver pantaloons are still obtainable in ToB, if not already obtained.
+- Heart of Winter: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
+- IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after reaching Kuldahar if you missed them in earlier locations.
 
 --
 
@@ -84,9 +71,28 @@ NOTE: You need to have the Big Metal Rod in possession to get the Pulse Ammo dia
 
 --
 
-Known issues:
-- Big Metal Unit (classic IWD1): Does not change appearance. Will appear as a plate mail.
-- Big Metal Unit (IWD2): Selection sounds will change to a creature sound, even after removing the armor. Save and reload (with the armor off) to return selection sounds back to normal.
+Animation tweaking (Big Metal Unit):
+- Option 1: Use default form, normalize movement
+- Option 2: Death Knight (note: wields a sword)
+- Option 3: No animation, appears as plate mail
+- Option 4: Option 1, smaller personal space (EEs)
+- Option 5: Option 2, smaller personal space (EEs)
+
+Notes:
+- Options 4/5 sets personal space to 3, same as PC races, so it can fit through all doors. The wearer will not be considered a large creature for spell effects.
+- normalize movement: This is done from all components except no animation. It makes movement roughly the same as the BG2 armor relative to natural form (moves slightly faster).
+
+--
+
+Game issues/workarounds:
+- IWD1 (classic): Save and reload to return to human/natural form after removing the armor.
+- IWD2: Save and reload to restore selection sounds to normal after removing the armor.
+- for these games, the engine doesn't seem to clear all animation change effects until reloading.
+
+Shapeshifts and Big Metal Unit
+- These can work together but may occasionally be buggy.
+- The safest way to combine is to shapeshift with armor off, then equip the armor after.
+- Buggy movement can sometimes be fixed by saving and reloading. Changing to natural form should also restore normal movement.
 
 --
 
@@ -111,8 +117,13 @@ Used for older releases (replaced by WeiDU Mod Packager):
 Updates:
 
 v4.15
-- iwd1/iwd2/iwdee: if starting with core items, none of the items will now be sellable.
-- bg1 (classic): fixed sounds for delivery bag item not always playing (moved from scripting to subspell).
+- minor editing or rewording of some of the dialogue. Cut down the length of some of the initial response options.
+- BG1: Big Metal Rod now only appears after talking to the NPC near it. You still need to be told to find it first before the dialogue option is choosable.
+- iwd1/iwd2: fixed some items being sellable if using "start with core items" installer option.
+- bg1 (classic): fixed sound effects for Delivery Bag item not always playing. (moved from scripting to subspells)
+- bg1/bg2: now gains minor xp bonuses after optional dialogues or obtaining a quest item (for bg2).
+- iwd1/iwd2: now gains a moderate xp bonus for obtaining the Big Metal Unit.
+- NOTE: for games where individual XP bonuses are not possible, the total XP will scale with party size.
 
 v4.14
 add component: Animation tweaking (Big Metal Unit)

@@ -124,14 +124,19 @@ ACTION_IF (mira = 2) BEGIN
 
   // bg1 has no global script (baldur.bcs), add to each area script
   ACTION_IF (GAME_IS ~bg1 totsc~) BEGIN
-    COPY_EXISTING_REGEXP - GLOB ~.*\.BCS~  ~override~
-      PATCH_IF (FILE_EXISTS_IN_GAME ~%SOURCE_RES%.are~) BEGIN
+    // make array of scripts
+    COPY_EXISTING_REGEXP - GLOB ~.*\.are~  ~override~
+      PATCH_IF (FILE_EXISTS_IN_GAME ~%SOURCE_RES%.bcs~) BEGIN
         TEXT_SPRINT $d2mira_bg1bag(~%SOURCE_RES%~) ~script~
       END
 
+    // add script blocks
+    PRINT ~patching BG1 area scripts (no global script) ...~
+    SILENT
     ACTION_PHP_EACH d2mira_bg1bag AS script => extend BEGIN
       EXTEND_TOP ~%script%.bcs~  ~%mbag%/mbag-script.BAF~
     END
+    VERBOSE
   END
 
 END

@@ -125,9 +125,9 @@ END
 >>>>>>>>
 
 COPY - ~.../temp/luckybarrel~  ~inlined/luckybarrel.BAF~
-  PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN
-    REPLACE_TEXTUALLY ~ActionOverride~  ~//~
-  END
+//PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN
+    REPLACE_TEXTUALLY ~ActionOverride~  ~//~    // this is now done from below script (d2mtluck)
+//END
   EVALUATE_BUFFER
 
 EXTEND_BOTTOM ~%areascript%.BCS~  ~inlined/luckybarrel.BAF~
@@ -139,6 +139,12 @@ EXTEND_BOTTOM ~%areascript%.BCS~  ~inlined/luckybarrel.BAF~
 COPY_EXISTING ~LUCKY.cre~  ~override~
   LPF read_or_set_scriptname RET scriptname END
 BUT_ONLY
+
+//these are changed to play with text strings (more reliable than scripting)
+OUTER_SPRINT folder  ~%resource%~
+ACTION_IF (ee_game > 0) BEGIN  OUTER_SPRINT folder  ~%files%~  END
+ACTION_IF !(FILE_EXISTS_IN_GAME ~itemharp.wav~) BEGIN  COPY ~%folder%/itemharp.wav~ ~override~  END
+ACTION_IF !(FILE_EXISTS_IN_GAME ~itemhorn.wav~) BEGIN  COPY ~%folder%/itemhorn.wav~ ~override~  END
 
 <<<<<<<< .../temp/d2mtluck
 IF
@@ -157,9 +163,9 @@ END
 
 COPY - ~.../temp/d2mtluck~  ~inlined/d2mtluck.BAF~
   TEXT_SPRINT stuff  ~~
-  PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN
+//PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN
     TEXT_SPRINT stuff ~ActionOverride("Container3",CreateItem("%metalrodb%",0,0,0))~
-  END
+//END
   EVALUATE_BUFFER
 
 COMPILE ~inlined/d2mtluck.BAF~

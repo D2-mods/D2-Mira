@@ -1,0 +1,85 @@
+/*
+xp bonuses
+*/
+
+
+ACTION_IF (mira = 1) BEGIN
+
+
+//
+DEFINE_ACTION_FUNCTION d2mira_xpbonus BEGIN
+  OUTER_SPRINT areascript  ~%area%~
+  COPY_EXISTING ~%area%.are~  ~override~
+    LPF read_or_set_areascript RET areascript END
+  IF_EXISTS BUT_ONLY
+
+  // make script if it doesn't exist
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~%areascript%.bcs~) BEGIN
+<<<<<<<< .../temp/%areascript%.BAF
+>>>>>>>>
+COMPILE ~.../temp/%areascript%.BAF~
+  END
+
+  LAF d2_adjusted_xpbonus INT_VAR xpbonus=xpbonus STR_VAR global=~%global%~ script=~%areascript%~ trigger1=~%checkvar%~ END
+END
+
+
+//
+ACTION_IF (GAME_INCLUDES ~bg1~) BEGIN
+  OUTER_TEXT_SPRINT divinertent  ~AR0726~
+  ACTION_IF (GAME_IS ~eet~)             BEGIN  OUTER_TEXT_SPRINT divinertent  ~BG0726~  END
+  ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN  OUTER_TEXT_SPRINT divinertent  ~FW0726~  END
+  ACTION_IF (GAME_IS ~bgt~)             BEGIN  OUTER_TEXT_SPRINT divinertent  ~AR7726~  END
+  OUTER_SPRINT area  ~%divinertent%~
+
+  // first diviner talk
+  OUTER_SPRINT global  ~d2mira_seer1~
+  OUTER_SPRINT checkvar  ~GlobalGT("d2DivinerPulse","GLOBAL",0)~
+  OUTER_SET xpbonus = 650
+  LAF d2mira_xpbonus END
+
+  // second diviner talk
+  OUTER_SPRINT global  ~d2mira_seer2~
+  OUTER_SPRINT checkvar  ~GlobalGT("d2DivinerBigMetal","GLOBAL",0)~
+  OUTER_SET xpbonus = 650
+  LAF d2mira_xpbonus END
+END
+
+ACTION_IF (GAME_INCLUDES ~bg2~) BEGIN
+  // learn item location (only once)
+  OUTER_SPRINT global  ~d2mira_coppertalks~
+  OUTER_SPRINT area  ~AR0406~
+  OUTER_SPRINT checkvar  ~OR(2) GlobalGT("d2LehtinanBigMetal","GLOBAL",0) GlobalGT("d2HendakBigMetal","GLOBAL",0)~
+  OUTER_SET xpbonus = 1000
+  LAF d2mira_xpbonus END
+
+  //found repair manual
+  OUTER_SPRINT global  ~d2mira_questxp3000~
+  OUTER_SPRINT area  ~AR0411~
+  OUTER_SPRINT checkvar  ~GlobalGT("d2HasRepairManual","GLOBAL",0)~
+  OUTER_SET xpbonus = 3000
+  LAF d2mira_xpbonus END
+END
+
+ACTION_IF (GAME_IS ~iwdee how totlm iwd_in_bg2~) BEGIN
+  OUTER_SPRINT global  ~d2mira_armortrade~
+  OUTER_SPRINT area  ~AR9501~
+  OUTER_SPRINT checkvar  ~GlobalGT("d2TiernonBigMetal","GLOBAL",0)~
+  OUTER_SET xpbonus = 6472
+  LAF d2mira_xpbonus END
+END
+
+ACTION_IF (GAME_IS ~iwd2~) BEGIN
+  OUTER_SPRINT global  ~d2mira_armortrade~
+  OUTER_SPRINT area  ~AR6004~
+  OUTER_SPRINT checkvar  ~GlobalGT("d2ConlanBigMetal","GLOBAL",0)~
+  OUTER_SET xpbonus = 6472
+  LAF d2mira_xpbonus END
+END
+
+
+END
+
+
+//
+//
