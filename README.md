@@ -77,7 +77,7 @@ Additional info:
 
 **Animation tweaking (Big Metal Unit):**
 - Option 1: Use default form, normalize movement
-- Option 2: Death Knight (note: wields a sword)
+- Option 2: Demon Knight (note: wields a sword)
 - Option 3: No animation, appears as plate mail
 - Option 4: Option 1, smaller personal space (EEs)
 - Option 5: Option 2, smaller personal space (EEs)

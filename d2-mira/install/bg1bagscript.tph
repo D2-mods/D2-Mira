@@ -20,6 +20,13 @@ OUTER_TEXT_SPRINT gotitems  ~GAM_11~
 OUTER_TEXT_SPRINT shakebag  ~GAM_15A~
 
 
+//check action.ids (this works), 113 is same number as ForceSpell
+ACTION_IF !(RESOURCE_CONTAINS ~action.ids~  ~ForceSpellRES~) BEGIN
+  OUTER_SPRINT string  ~113 ForceSpellRES(S:RES*,O:Target)~
+  APPEND ~action.ids~  ~%string%~
+END
+
+
 //invisible creature
 COPY ~%files%/bg1bag.SPL~  ~override/%checkbag%.SPL~
   SAY NAME1 ~%mirabag_name%~

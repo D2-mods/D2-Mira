@@ -17,7 +17,7 @@ Components:
 	- Option 2: Start with the core "Big Metal" items
 2. Adjust APR and enchantment level (5 options, including vanilla BG2 stats)
 3. Choose damage type for Frag Grenade (fire or slashing)
-4. Make ammo more party friendly (see note below)
+4. Make ammo more party friendly (see notes below)
 5. Pulse ammo does double damage on a critical hit (EEs)
 6. Adjust ammo charges per day (default is unlimited)
 7. Animation tweaking (Big Metal Unit)
@@ -73,7 +73,7 @@ NOTE: You need to have the Big Metal Rod in possession to get the Pulse Ammo dia
 
 Animation tweaking (Big Metal Unit):
 - Option 1: Use default form, normalize movement
-- Option 2: Death Knight (note: wields a sword)
+- Option 2: Demon Knight (note: wields a sword)
 - Option 3: No animation, appears as plate mail
 - Option 4: Option 1, smaller personal space (EEs)
 - Option 5: Option 2, smaller personal space (EEs)
@@ -115,6 +115,9 @@ Used for older releases (replaced by WeiDU Mod Packager):
 --
 
 Updates:
+
+v4.16
+- bg1 (classic): fixed installer error that could occur because I didn't test it without baldurdash and dudleyville fixes. My test setup includes these by default. This mod will now install without error on an unmodded original BG1.
 
 v4.15
 - minor editing or rewording of some of the dialogue. Cut down the length of some of the initial response options.
