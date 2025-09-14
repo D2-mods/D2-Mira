@@ -1,7 +1,16 @@
 /*
-Update vanilla BG2 files
-This does nothing if ToB is not part of the game.
+Update vanilla BG2 files or older mod files
+This does nothing if files are not in the game.
 */
+
+
+//check item restrictions
+ACTION_PHP_EACH update_items AS mod => base BEGIN
+  COPY_EXISTING ~%mod%.ITM~  ~override~
+    LPF d2_no_usableflags END
+    LPF DELETE_EFFECT INT_VAR match_opcode=319 END
+  IF_EXISTS BUT_ONLY
+END
 
 
 //update bg2 files

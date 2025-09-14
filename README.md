@@ -1,4 +1,4 @@
-# The Big Metal Unit mod
+# Big Metal Unit mod
 Download: https://github.com/D2-mods/D2-Mira/releases  
 Supports: BG1(EE), BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
 
@@ -34,6 +34,16 @@ Components:
 - EEs/BG2 engine: this works for all AoE ammo.
 - IWD1/IWD2 note: Frag Grenade only, scorcher damage can't be blocked.
 - Neutral NPCs take no damage but may become hostile (depends on AI script).
+
+--
+
+**Updater: Check item usability**
+- Use if a later tweak added restrictions.
+- This will remove item flags and EE opcode 319 effects.
+- Can re-run at any time, skipped on initial mod install.
+- This is automatically run from other components, but can also be run standalone.
+
+> Note: This can only remove restrictions set on the items. Some kit/NPC mods add item type restrictions as effects on the creature. Those won't be removed.
 
 --
 

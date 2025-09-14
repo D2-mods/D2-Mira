@@ -90,31 +90,35 @@ END
 //BG2EE
 ACTION_IF (GAME_INCLUDES ~bg2~) BEGIN
 
-ACTION_IF (mira = 1) BEGIN
-  //add Big Metal Rod? to container
-  COPY_EXISTING ~AR0702.ARE~ ~override~
-    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=11 STR_VAR item_to_add=~%brokenrod%~ END
-  BUT_ONLY
+  ACTION_IF (mira = 1) BEGIN
+    //add Big Metal Rod? to container
+    COPY_EXISTING ~AR0702.ARE~ ~override~
+      LPF ADD_AREA_ITEM INT_VAR container_to_add_to=11 STR_VAR item_to_add=~%brokenrod%~ END
+    BUT_ONLY
 
-  //add Repair Manual to container
-  COPY_EXISTING ~AR0411.ARE~ ~override~
-    LPF ADD_AREA_ITEM INT_VAR container_to_add_to=8 STR_VAR item_to_add=~%repairbook%~ END
-  BUT_ONLY
-END
+    //add Repair Manual to container
+    COPY_EXISTING ~AR0411.ARE~ ~override~
+      LPF ADD_AREA_ITEM INT_VAR container_to_add_to=8 STR_VAR item_to_add=~%repairbook%~ END
+    BUT_ONLY
+  END
 
-  //disable script block for Golden Pantaloons
+  //always add Golden Pantaloons
   COPY_EXISTING ~AR0602.BCS~  ~override~
     DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY  ~PartyHasItem("MISC47")~
-                         ~PartyHasItem("MISC47") False()~
+      REPLACE_TEXTUALLY  ~PartyHasItem("MISC47")~  ~~
+      SPRINT string  ~ActionOverride("Picture1",DestroyItem("MISC47"))~
+      SPRINT match  ~ActionOverride("Picture1",CreateItem("MISC47",0,0,0))~
+      REPLACE_TEXTUALLY EXACT_MATCH ~%match%~  ~%string% %match%~
     END
   BUT_ONLY
 
+/*
   //add Golden Pantaloons directly to container
   COPY_EXISTING ~AR0602.ARE~  ~override~
     LPF DELETE_AREA_ITEM STR_VAR item_to_delete=~MISC47~ END
     LPF ADD_AREA_ITEM INT_VAR container_to_add_to=33 STR_VAR item_to_add=~MISC47~ END
   BUT_ONLY
+*/
 
 END
 

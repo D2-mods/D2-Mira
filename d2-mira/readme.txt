@@ -11,16 +11,18 @@ The exact stuff this mod adds will depend on the game. All items are obtainable 
 --
 
 Components:
-
 1. Main Component:
 	- Option 1: Standard Installation
-	- Option 2: Start with the core "Big Metal" items
+	- Option 2: Start with the core Big Metal items
 2. Adjust APR and enchantment level (5 options, including vanilla BG2 stats)
 3. Choose damage type for Frag Grenade (fire or slashing)
 4. Make ammo more party friendly (see notes below)
 5. Pulse ammo does double damage on a critical hit (EEs)
 6. Adjust ammo charges per day (default is unlimited)
 7. Animation tweaking (Big Metal Unit)
+
+Extra patching:
+- Check item usability (can re-run at any time, use if a later tweak added restrictions)
 
 --
 
@@ -89,7 +91,7 @@ Game issues/workarounds:
 - IWD2: Save and reload to restore selection sounds to normal after removing the armor.
 - for these games, the engine doesn't seem to clear all animation change effects until reloading.
 
-Shapeshifts and Big Metal Unit
+Shapeshifts and Big Metal Unit:
 - These can work together but may occasionally be buggy.
 - The safest way to combine is to shapeshift with armor off, then equip the armor after.
 - Buggy movement can sometimes be fixed by saving and reloading. Changing to natural form should also restore normal movement.
@@ -115,6 +117,10 @@ Used for older releases (replaced by WeiDU Mod Packager):
 --
 
 Updates:
+
+v4.17
+- BG2 (all versions): fixed possible conflicts (duplicate items) if using another mod that makes the Golden Pantaloons always added to the starting dungeon (ex. the new Golden Pantaloons/Better SoA Start component from cdtweaks/Tweaks Anthology).
+- added component: Check item usability. Removes item restrictions if added by another mod. Skipped on initial mod install. Can be re-run at any time (does not uninstall other mods). This is automatically checked from other components as well, but the new component can be used if you install a later tweak that added restrictions.
 
 v4.16
 - bg1 (classic): fixed installer error that could occur because I didn't test it without baldurdash and dudleyville fixes. My test setup includes these by default. This mod will now install without error on an unmodded original BG1.
