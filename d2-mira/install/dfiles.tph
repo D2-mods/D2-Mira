@@ -112,6 +112,20 @@ END ELSE ACTION_IF (GAME_IS ~iwd2~) BEGIN
     ACTION_IF (FILE_EXISTS_IN_GAME ~11OSWALD.DLG~) BEGIN COMPILE EVAL ~%dfiles%/iwd2_oswald2.d~ END
   END
 
+END ELSE ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
+
+  COPY - ~%dfiles%/bg1_blacklily.d~  ~inlined/bg1_blacklily.d~
+    REPLACE_TEXTUALLY "~BLACKL~"  "~_BLACKL~"
+    REPLACE_TEXTUALLY "stoblack"  "_toblack"
+  COPY - ~%dfiles%/bg1_diviner.d~  ~inlined/bg1_diviner.d~
+    REPLACE_TEXTUALLY "~DIVINE~"  "~_DIVINE~"
+  COPY - ~%dfiles%/bg1_lucky.d~  ~inlined/bg1_lucky.d~
+    REPLACE_TEXTUALLY "~LUCKY~"  "~_LUCKY~"
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~_BLACKL.DLG~)   BEGIN COMPILE EVAL ~inlined/bg1_blacklily.d~ END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~_DIVINE.DLG~)   BEGIN COMPILE EVAL ~inlined/bg1_diviner.d~ END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~_LUCKY.DLG~)    BEGIN COMPILE EVAL ~inlined/bg1_lucky.d~ END
+
 END ELSE BEGIN    // bg games
 
   ACTION_IF (FILE_EXISTS_IN_GAME ~BLACKL.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg1_blacklily.d~ END
@@ -126,13 +140,17 @@ END ELSE BEGIN    // bg games
     ACTION_IF (FILE_EXISTS_IN_GAME ~HENDAK.DLG~)   BEGIN COMPILE EVAL ~%dfiles%/bg2_hendak.d~ END
   END
 
-  // extra patching for Lucky Aello
+END
+
+
+// extra patching for Lucky Aello
+ACTION_IF (GAME_INCLUDES ~bg1~) BEGIN
   COPY_EXISTING ~LUCKY.dlg~  ~override~
+                ~_LUCKY.dlg~  ~override~    // tutu
     DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY EXACT_MATCH ~True()~ ~~    // remove true trigger if not already removed
+      REPLACE_TEXTUALLY EXACT_MATCH ~True()~ ~~    // remove True() trigger
     END
   IF_EXISTS BUT_ONLY
-
 END
 
 

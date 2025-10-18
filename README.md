@@ -1,6 +1,6 @@
 # Big Metal Unit mod
 Download: https://github.com/D2-mods/D2-Mira/releases  
-Supports: BG1(EE), BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
+Supports: classic and EE versions of BG1, BG2, IWD1, and IWD2 (including EET/BGT/IWD2EE)
 
 
 Overview:
@@ -24,6 +24,9 @@ Components:
 5. Pulse ammo does double damage on a critical hit (EEs)
 6. Adjust ammo charges per day (default is unlimited)
 7. Animation tweaking (Big Metal Unit)
+
+Extra patching:
+- Check item usability (see notes below)
 
 --
 
@@ -94,7 +97,7 @@ Additional info:
 
 Notes:
 - Options 4/5 sets personal space to 3, same as PC races, so it can fit through all doors. The wearer will not be considered a large creature for spell effects.
-- normalize movement: This is done from all components except no animation. It makes movement roughly the same as the BG2 armor relative to natural form (moves slightly faster).
+- normalize movement: This is done from all options except no animation. It makes movement roughly the same as the BG2 armor relative to natural form (moves slightly faster).
 
 --
 

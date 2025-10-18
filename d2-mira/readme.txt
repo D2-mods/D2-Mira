@@ -1,7 +1,8 @@
 The Big Metal Unit mod
 GitHub: https://github.com/D2-mods/D2-Mira
-Supports: BG1(EE), BG2(EE), IWD(EE), IWD2, EET/BGT/IWD2EE
+Supports: classic and EE versions of BG1, BG2, IWD1, and IWD2 (including EET/BGT/IWD2EE)
 
+--
 
 Overview:
 This is a mod for Infinity Engine games (classic and EE versions). It was originally written for Icewind Dale: Enhanced Edition and Icewind Dale 2 in order to add the Big Metal Unit and related items into the games. The mod has since been expanded to include dialogue and item trading with various NPCs, several tweak options, as well as support for more games.
@@ -117,6 +118,11 @@ Used for older releases (replaced by WeiDU Mod Packager):
 --
 
 Updates:
+
+v4.18
+- usability check from last update wasn't applying to all ammo types.
+- fixed compatibility issues with Tutu/EasyTutu mod (scripting not working, installer warnings).
+- BG2 engine: fixed possible crash with the armor animation tweak if you didn't have Infinity Animations installed. (this happened with the demon knight option, one of the color effects was crashing without IA, it will now work with or without IA)
 
 v4.17
 - BG2 (all versions): fixed possible conflicts (duplicate items) if using another mod that makes the Golden Pantaloons always added to the starting dungeon (ex. the new Golden Pantaloons/Better SoA Start component from cdtweaks/Tweaks Anthology).

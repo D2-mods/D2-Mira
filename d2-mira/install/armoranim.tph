@@ -26,6 +26,13 @@ DEFINE_PATCH_FUNCTION d2mira_animations INT_VAR dknight=0 circle=0 noanim=0 BEGI
   SET bg1check = 0
   PATCH_IF (GAME_IS ~bg1 totsc~) BEGIN  SET bg1check = 1  END    // used for bg1 checks
 
+  // bg2 engine: glow effect at 255 crashes without infinity animations
+  SET noglow = 0
+  PATCH_IF (GAME_IS ~bg2 tob tutu tutu_totsc iwd_in_bg2 ca~) BEGIN
+    PATCH_IF !(MOD_IS_INSTALLED ~setup-infinityanimations.tp2~ 0) BEGIN  SET noglow = 1  END
+  END
+
+
   PATCH_IF !(FILE_EXISTS ~engine.lua~) BEGIN  SET circle=0  END
   PATCH_IF (circle>0 && circlemode<1)  BEGIN  SET circlemode = 1  END
   LPF DELETE_EFFECT INT_VAR match_opcode=7 match_parameter2=3 END
@@ -48,8 +55,9 @@ DEFINE_PATCH_FUNCTION d2mira_animations INT_VAR dknight=0 circle=0 noanim=0 BEGI
     SET type = 3
     LPF CLONE_EFFECT INT_VAR match_opcode=opcode opcode=7 parameter1=color parameter2=type timing=2 STR_VAR insert=below END
 
+    // increase brightness
     SET glow = 255
-    PATCH_IF (bg1check > 0) BEGIN  SET glow = 3  END    // bg1: location 255 crashes
+    PATCH_IF (bg1check>0 OR noglow>0) BEGIN  SET glow = 3  END    // bg1: location 255 crashes (also bg2 without IA)
     LPF CLONE_EFFECT INT_VAR match_opcode=7 match_parameter2=type opcode=8 parameter2=glow END
   END
   PATCH_IF (noanim=0 && dknight>0 && opcode=135) BEGIN
@@ -111,4 +119,9 @@ BUT_ONLY
 
 
 //
-//
+//Update BG2 files
+INCLUDE ~%install%/updatebg2.tph~
+
+
+/*
+*/

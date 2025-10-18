@@ -8,6 +8,22 @@ Variables, journal entry, store items for BGEE
 ACTION_IF (GAME_INCLUDES ~bg1~) BEGIN
 
 
+//get area scripts (.ARE file not needed after)
+COPY_EXISTING - ~%baldursgate%.ARE~  ~~
+  LPF read_or_set_areascript RET areascript END
+  SPRINT baldursgate  ~%areascript%~
+COPY_EXISTING - ~%candlekeep%.ARE~  ~~
+  LPF read_or_set_areascript RET areascript END
+  SPRINT candlekeep  ~%areascript%~
+COPY_EXISTING - ~%thiefguild%.ARE~  ~~
+  LPF read_or_set_areascript RET areascript END
+  SPRINT thiefguild  ~%areascript%~
+COPY_EXISTING - ~%luckystore%.ARE~  ~~
+  LPF read_or_set_areascript RET areascript END
+  SPRINT luckystore  ~%areascript%~
+
+
+
 //Set Global variables (check if party has items)
 <<<<<<<< .../temp/variables
 IF
@@ -108,10 +124,6 @@ END
 
 //
 //add to container in store (new version)
-COPY_EXISTING ~%luckystore%.ARE~  ~override~
-  LPF read_or_set_areascript RET areascript END
-BUT_ONLY
-
 <<<<<<<< .../temp/luckybarrel
 IF
 	GlobalGT("d2BlackLilyTalk","GLOBAL",0)
@@ -130,15 +142,16 @@ COPY - ~.../temp/luckybarrel~  ~inlined/luckybarrel.BAF~
 //END
   EVALUATE_BUFFER
 
-EXTEND_BOTTOM ~%areascript%.BCS~  ~inlined/luckybarrel.BAF~
+EXTEND_BOTTOM ~%luckystore%.BCS~  ~inlined/luckybarrel.BAF~
 
 
 
 //
 //for Lucky Aello talk
 COPY_EXISTING ~LUCKY.cre~  ~override~
+              ~_LUCKY.cre~  ~override~    // tutu
   LPF read_or_set_scriptname RET scriptname END
-BUT_ONLY
+IF_EXISTS BUT_ONLY
 
 //these are changed to play with text strings (more reliable than scripting)
 OUTER_SPRINT folder  ~%resource%~

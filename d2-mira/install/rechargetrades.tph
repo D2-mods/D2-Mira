@@ -7,6 +7,7 @@ update charges for DLG or BCS files
 ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_charges BEGIN
 //bg1/sod
 ~BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0)~
+~_BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0)~    // tutu
 ~BDHALBAZ.DLG~  => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,0,0,0)~
 //~bd3000.BCS~    => ~AddStoreItem("BDBELEG4","%prototype%",1,1)~
 ~bd3000.BCS~    => ~ActionOverride("PlayerChest00",CreateItem("%prototype%",0,0,0))~
@@ -35,6 +36,7 @@ END
 ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_charges_patched BEGIN
 //bg1/sod
 ~BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,%charges%,0,0)~
+~_BLACKL.DLG~    => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,%charges%,0,0)~    // tutu
 ~BDHALBAZ.DLG~  => ~GiveItemCreate("%prototypeb%",LastTalkedToBy,%charges%,0,0)~
 //~bd3000.BCS~    => ~AddStoreItem("BDBELEG4","%prototype%",%charges%,1)~
 ~bd3000.BCS~    => ~ActionOverride("PlayerChest00",CreateItem("%prototype%",%charges%,0,0))~

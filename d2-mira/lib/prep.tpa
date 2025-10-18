@@ -27,13 +27,11 @@ END
 END
 
 
-//BG1 ARE files
-ACTION_IF (GAME_IS ~bgee bg1 totsc~) BEGIN
-  OUTER_TEXT_SPRINT baldursgate ~AR0800~
-  OUTER_TEXT_SPRINT candlekeep  ~AR2600~
-  OUTER_TEXT_SPRINT luckystore  ~AR0810~
-  OUTER_TEXT_SPRINT thiefguild  ~AR0153~
-END
+//BG1 ARE files (used in bg1scripts.tph)
+OUTER_TEXT_SPRINT baldursgate ~AR0800~
+OUTER_TEXT_SPRINT candlekeep  ~AR2600~
+OUTER_TEXT_SPRINT luckystore  ~AR0810~
+OUTER_TEXT_SPRINT thiefguild  ~AR0153~
 
 ACTION_IF (GAME_IS ~eet~) BEGIN
   OUTER_TEXT_SPRINT baldursgate ~BG0800~
@@ -41,14 +39,12 @@ ACTION_IF (GAME_IS ~eet~) BEGIN
   OUTER_TEXT_SPRINT luckystore  ~BG0810~
   OUTER_TEXT_SPRINT thiefguild  ~BG0153~
 END
-
-ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
+ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN    // note: tutu uses different names for the area scripts
   OUTER_TEXT_SPRINT baldursgate ~FW0800~
   OUTER_TEXT_SPRINT candlekeep  ~FW2600~
   OUTER_TEXT_SPRINT luckystore  ~FW0810~
   OUTER_TEXT_SPRINT thiefguild  ~FW0153~
 END
-
 ACTION_IF (GAME_IS ~bgt~) BEGIN
   OUTER_TEXT_SPRINT baldursgate ~AR7800~
   OUTER_TEXT_SPRINT candlekeep  ~AR0015~
@@ -82,6 +78,49 @@ END ELSE BEGIN
   OUTER_TEXT_SPRINT bg1jour03  ~@30003,INFO~
   OUTER_TEXT_SPRINT bg1jour04  ~@30004,INFO~
 END
+
+
+//add missing entry, used for a check later
+ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc iwd_in_bg2 ca~) BEGIN
+  ACTION_IF !(RESOURCE_CONTAINS ~stats.ids~  ~NPC_BUMP~) BEGIN
+    APPEND ~stats.ids~  ~190 NPC_BUMP~
+  END
+END
+
+
+//
+//functions
+
+//sets stacks to 1 if ammo charges installed
+OUTER_SET nostacks = 0
+ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 61) BEGIN  OUTER_SET nostacks = 1  END
+ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 62) BEGIN  OUTER_SET nostacks = 1  END
+ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 63) BEGIN  OUTER_SET nostacks = 1  END
+
+DEFINE_PATCH_FUNCTION fixstackcharges BEGIN
+  PATCH_IF (nostacks > 0) BEGIN
+    READ_SHORT 0x1c type
+    PATCH_IF (type = 31) BEGIN  WRITE_SHORT 0x38 1  END    // 31 = bolts
+  END
+END
+
+
+//bg2 engine: check glow effect (255 crashes BG2 without IA, does not crash EEs/IWD1/IWD2)
+OUTER_SET glow255 = 0
+ACTION_IF (MOD_IS_INSTALLED ~setup-infinityanimations.tp2~ 0) BEGIN  OUTER_SET glow255 = 1  END
+
+DEFINE_ACTION_FUNCTION dknightglow255 BEGIN
+  ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 71) BEGIN    // if demon knight animation installed
+    COPY_EXISTING ~%bigmetalunit%.itm~  ~override~
+      PATCH_IF (glow255 > 0) BEGIN
+        LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=8 parameter2=255 END
+      END ELSE BEGIN
+        LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=8 parameter2=3 END
+      END
+    BUT_ONLY
+  END
+END
+
 
 
 //
