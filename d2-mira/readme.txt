@@ -119,6 +119,11 @@ Used for older releases (replaced by WeiDU Mod Packager):
 
 Updates:
 
+v4.19
+notes for Pulse criticals tweak:
+- now has 2 install options: (1) 2x damage modifier or (2) fire extra missiles.
+- BG2EE: fixed issue that made it not work with the normal Pulse ammo obtained in ToB. This issue did not affect the one from the bag option or other Pulse variants.
+
 v4.18
 - usability check from last update wasn't applying to all ammo types.
 - fixed compatibility issues with Tutu/EasyTutu mod (scripting not working, installer warnings).

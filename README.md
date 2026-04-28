@@ -2,6 +2,7 @@
 Download: https://github.com/D2-mods/D2-Mira/releases  
 Supports: classic and EE versions of BG1, BG2, IWD1, and IWD2 (including EET/BGT/IWD2EE)
 
+--
 
 Overview:
 -
@@ -25,15 +26,17 @@ Components:
 6. Adjust ammo charges per day (default is unlimited)
 7. Animation tweaking (Big Metal Unit)
 
-Extra patching:
+--
+
+**Extra patching:**
 - Check item usability (see notes below)
 
---
+#
 
 **Component 4 info (party friendly ammo):**
 - Protects allies from AoE ammo damage (ex. fire from scorcher).
 - Does not block damage from the launcher.
-- It still counts as a hit, so it will interrupt spellcasting.
+- It still counts as a hit so it will interrupt spellcasting.
 - EEs/BG2 engine: this works for all AoE ammo.
 - IWD1/IWD2 note: Frag Grenade only, scorcher damage can't be blocked.
 - Neutral NPCs take no damage but may become hostile (depends on AI script).
@@ -77,7 +80,7 @@ Additional info:
 - Heart of Winter: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are obtainable if not found in the main IWD campaign.
 - IWD2: Any missing pantaloons, the Big Metal Rod, and a Pulse Ammo are still obtainable after reaching Kuldahar if you missed them in earlier locations.
 
---
+#
 
 **Trades info (IWDEE, IWD1, IWD2):**
 - Big Metal Unit: requires the 3 pantaloons

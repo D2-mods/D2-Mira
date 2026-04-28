@@ -36,8 +36,8 @@ Text here appears in the weidu installer
 	@47 = ~Allies not protected (default)~
 
 @50 = ~Pulse ammo does double damage on a critical hit (EEs)~
-	@51 = ~Yes~
-	@52 = ~No (default)~
+	@51 = ~2x damage modifier~
+	@52 = ~Fire extra missiles~
 
 @60 = ~Adjust ammo charges per day (default is unlimited)~
 	@61 = ~Unlimited (default)~

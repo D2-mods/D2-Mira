@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~4.18~
+VERSION ~4.19~
 AUTO_EVAL_STRINGS
 
 ALWAYS
@@ -250,7 +250,7 @@ LABEL ~D2-MIRA-SAFEAMMOIWD0~
 //
 //Pulse ammo does double damage on a critical hit (EEs)
 
-BEGIN @51    // Yes
+BEGIN @51    // Use damage modifier
 DESIGNATED 50
 REQUIRE_PREDICATE !(~%miracheck%~ STR_EQ ~skip~) ~~
 REQUIRE_PREDICATE (FILE_EXISTS ~engine.lua~) ~~
@@ -259,14 +259,17 @@ REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @50
 LABEL ~D2-MIRA-PULSECRIT1~
+OUTER_SET critstyle = 1
 INCLUDE ~%install%/pulsecrits.tph~
 
-BEGIN @52    // No (default)
+BEGIN @52    // Fire extra missiles
 REQUIRE_PREDICATE !(~%miracheck%~ STR_EQ ~skip~) ~~
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR 
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 SUBCOMPONENT @50
 LABEL ~D2-MIRA-PULSECRIT0~
+OUTER_SET critstyle = 2
+INCLUDE ~%install%/pulsecrits.tph~
 
 
 

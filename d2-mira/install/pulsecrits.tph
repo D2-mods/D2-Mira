@@ -1,13 +1,33 @@
 /*
 Pulse ammo does double damage on a critical hit (EEs)
+
+critstyle=1 - double magic damage for 2 seconds
+critstryl=2 - fire extra missiles
 */
 
 
+OUTER_SPRINT pulsecrits  ~%pulse%a~
+OUTER_SPRINT pulse3crits  ~%pulseIII%a~
+
+DEFINE_PATCH_FUNCTION pulsecrits INT_VAR missiles=1 BEGIN
+  PATCH_IF (critstyle = 1) BEGIN
+    LPF ALTER_EFFECT INT_VAR opcode=332 target=1 parameter1=100 parameter2=5 timing=0 duration=2 dicesize=0 dicenumber=0 END
+    LPF d2_remove_effects_on_cast END
+  END ELSE BEGIN
+    PATCH_IF (missiles < 1) BEGIN  SET missiles = 1  END
+    PATCH_IF (missiles > 11) BEGIN  SET missiles = 11  END
+    SET proj = 37
+    PATCH_IF (missiles > 1) BEGIN  SET proj = 67 + missiles  END
+    WRITE_SHORT 0x98 proj
+  END
+END
+
+
 //damage file (SPL)
-COPY ~%files%/pulsecrits.SPL~  ~override/%pulse%.SPL~
-COPY ~%files%/pulsecrits.SPL~  ~override/%pulseIII%.SPL~
-  LPF CLONE_EFFECT INT_VAR multi_match=1 match_opcode=12 END
-  LPF CLONE_EFFECT INT_VAR multi_match=1 match_opcode=12 END
+COPY ~%files%/pulsecrits.SPL~  ~override/%pulsecrits%.SPL~
+  LPF pulsecrits END
+COPY ~%files%/pulsecrits.SPL~  ~override/%pulse3crits%.SPL~
+  LPF pulsecrits INT_VAR missiles=3 END
 
 
 //
@@ -38,16 +58,14 @@ ACTION_FOR_EACH ammo_type IN
 BEGIN
 
   ACTION_IF (~%ammo_type%~ STR_EQ ~%pulseIII%~) BEGIN  
-    OUTER_TEXT_SPRINT crit_damage  ~%pulseIII%~    // Pulse III
+    OUTER_SPRINT crit_damage  ~%pulse3crits%~    // Pulse III
   END ELSE BEGIN
-    OUTER_TEXT_SPRINT crit_damage  ~%pulse%~       // Pulse + prototype
+    OUTER_SPRINT crit_damage  ~%pulsecrits%~     // Pulse + prototype
   END
 
-  ACTION_IF (FILE_EXISTS ~override/%ammo_type%.ITM~) BEGIN
-    COPY_EXISTING ~%ammo_type%.ITM~  ~override~
-      LPF pulsecrits STR_VAR crit_damage = ~%crit_damage%~ END
-    BUT_ONLY
-  END
+  COPY_EXISTING ~%ammo_type%.ITM~  ~override~
+    LPF pulsecrits STR_VAR crit_damage = ~%crit_damage%~ END
+  IF_EXISTS BUT_ONLY
 
 END
 
