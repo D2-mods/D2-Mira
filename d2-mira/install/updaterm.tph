@@ -1,0 +1,38 @@
+//
+//
+
+
+//bg2: copy base files to mod (account for possible changes NOT added to mod files)
+//this is skipped if for some reason the base files no longer include changes from this mod
+ACTION_PHP_EACH update_items AS mod => base BEGIN
+  ACTION_IF (RESOURCE_CONTAINS ~%base%.itm~  ~d2tec~) BEGIN
+    COPY_EXISTING ~%base%.itm~  ~override/%mod%.itm~
+      LPF ALTER_EFFECT INT_VAR silent=1 STR_VAR match_resource=~%SOURCE_RES%~ resource=~%DEST_RES%~ END
+    IF_EXISTS
+  END
+END
+
+//bgee/iwdee: check for forgotten armaments crit immunity tweak
+ACTION_IF ((FILE_EXISTS ~engine.lua~) && !(FILE_EXISTS_IN_GAME ~secret05.itm~)) BEGIN
+  OUTER_SET CritImmunity1 = ID_OF_LABEL ~forgotten-armament.tp2~ ~ForgottenArmament-CritImmunity1~
+  OUTER_SET CritImmunity2 = ID_OF_LABEL ~forgotten-armament.tp2~ ~ForgottenArmament-CritImmunity2~
+
+  OUTER_SET fa_check = 0
+  ACTION_IF (MOD_IS_INSTALLED ~forgotten-armament.tp2~ CritImmunity1) BEGIN  OUTER_SET fa_check = 1  END
+  ACTION_IF (MOD_IS_INSTALLED ~forgotten-armament.tp2~ CritImmunity2) BEGIN  OUTER_SET fa_check = 1  END
+
+  COPY_EXISTING ~d2tec05.itm~  ~override~
+    PATCH_IF (fa_check > 0) BEGIN
+      WRITE_LONG 0x18 THIS | BIT25
+    END ELSE BEGIN
+      WRITE_LONG 0x18 (THIS BAND BNOT BIT25)
+    END
+  BUT_ONLY
+END
+
+//updatebg2 removes restrictions if added
+INCLUDE ~%install%/updatebg2.tph~
+
+
+/*
+*/

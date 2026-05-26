@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-mira~
 AUTHOR ~Dan_P~
-VERSION ~4.19~
+VERSION ~4.20~
 AUTO_EVAL_STRINGS
 
 ALWAYS
@@ -49,8 +49,8 @@ REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~d2-mira.tp2~ 0) OR
                    (MOD_IS_INSTALLED ~d2-mira.tp2~ 1)) ~~
 NO_LOG_RECORD
 LABEL ~D2-MIRA-USABLE~
-INCLUDE ~%install%/updatebg2.tph~
 OUTER_SPRINT miracheck  ~skip~
+INCLUDE ~%install%/updaterm.tph~
 
 
 //

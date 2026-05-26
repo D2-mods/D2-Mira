@@ -99,7 +99,7 @@ Shapeshifts and Big Metal Unit:
 
 --
 
-Modder: Dan_P
+Contact: Dan_P at Beamdog or Gibberlings3 forums
 
 Tools and Resources used:
 - WeiDU (https://github.com/WeiDUorg/weidu)
@@ -118,6 +118,11 @@ Used for older releases (replaced by WeiDU Mod Packager):
 --
 
 Updates:
+
+v4.20
+- bg2ee/eet: compat update with Forgotten Armaments mod. Previously, running the Updater would remove crit immunity from the Big Metal Unit if you installed the related tweak.
+- also, if the above tweak is detected in BG1EE/IWDEE, crit immunity will be added to the Unit. Run the Updater to add it if installed after this mod (the tweak won't add it by itself).
+- bg2ee/eet: Updater has better handling of other mods/tweaks that edit the base-game Big Metal resources. Any such mods should be installed after this mod, and you should run the Updater any time after.
 
 v4.19
 notes for Pulse criticals tweak:
