@@ -4,9 +4,6 @@ Resource: d2#mbag.ITM
 */
 
 
-COPY ~%mbag%/d2#mbag.BAM~  ~override/%mirabag%.BAM~
-
-
 //add files
 ACTION_IF (GAME_IS ~bgee bg2ee eet~) BEGIN
   COPY ~%mbag%/d2hbee1.ITM~  ~override/%mirabag%.ITM~
@@ -37,6 +34,9 @@ ACTION_IF (GAME_IS ~bg2 tob tutu tutu_totsc ca iwd_in_bg2~) BEGIN
   COPY ~%mbag%/d2hbbg2.STO~  ~override/%mirabag%.STO~
     SAY 0xc ~%mirabag_name%~  /* Delivery Bag */
 END
+
+COPY ~%mbag%/%mirabag%.BAM~  ~override~
+
 
 
 
@@ -73,15 +73,21 @@ END
 
 
 //
+ACTION_IF (ee_game > 0) BEGIN
+  OUTER_SPRINT descimage  ~d2dbag~
+  COPY ~%mbag%/eebagdesc.bam~  ~override/%descimage%.bam~
+END
+
 COPY_EXISTING ~%mirabag%.ITM~  ~override~
   SAY NAME1 ~%mirabag_name%~ SAY UNIDENTIFIED_DESC ~%mirabag_desc%~
   SAY NAME2 ~%mirabag_name%~ SAY DESC ~%mirabag_desc%~
-  WRITE_ASCII 0x3a ~%mirabag%~ #8    // set inventory icon
+  WRITE_ASCII 0x3a ~%mirabag%~ #8
+  PATCH_IF (ee_game > 0) BEGIN  WRITE_ASCII 0x58 ~%descimage%~ #8  END
 BUT_ONLY
 
 COPY_EXISTING ~%mirabag%.STO~  ~override/%mirabag%1.STO~    // backup for later tweak
 COPY_EXISTING ~%mirabag%.STO~  ~override~
-  LPF cannot_add_items END    // make it so items cannot be placed in the bag
+  LPF cannot_add_items END
 BUT_ONLY
 
 

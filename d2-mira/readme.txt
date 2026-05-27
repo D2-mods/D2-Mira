@@ -119,6 +119,14 @@ Used for older releases (replaced by WeiDU Mod Packager):
 
 Updates:
 
+v4.22
+- IWDEE: items from this mod will now have description images if using a UI mod that enables them for IWDEE. Mods that do this include Infinity UI++ and the new IWD icons mod from G3. Previously these were removed due to issues with older versions of Infinity UI++.
+
+v4.21
+- changed colors of Pulse ammo variants. The updater component "Check item usability" can be used to update icons.
+- minor fix (Pulse criticals): 2x damage modifier option should no longer (or very rarely) extend to noncritical hits made within a second of the critical, even at 10 apr.
+- EEs/BG2 engine: fixed possible weird interaction if a tweak added the "enemies only" flag to the skull trap projectile (note: this mod's party friendly tweak uses a different method). This is an issue because a trap set to hit enemies only in the .PRO file won't explode if there's no red circle, so it leaves a trap there. This mod now uses a unique resource name for the frag grenade projectile, and it's no longer a trap.
+
 v4.20
 - bg2ee/eet: compat update with Forgotten Armaments mod. Previously, running the Updater would remove crit immunity from the Big Metal Unit if you installed the related tweak.
 - also, if the above tweak is detected in BG1EE/IWDEE, crit immunity will be added to the Unit. Run the Updater to add it if installed after this mod (the tweak won't add it by itself).

@@ -6,6 +6,7 @@
   INCLUDE ~%install%/itemdesc.tph~
   INCLUDE ~%install%/bigmetal.tph~
   INCLUDE ~%install%/iwd1anim.tph~    // make golem form work for classic iwd1
+  INCLUDE ~%install%/copyskull.tph~    // check skull proj
 
   INCLUDE ~%install%/journal.tph~
   INCLUDE ~%install%/addtostore.tph~
@@ -22,7 +23,7 @@
   INCLUDE ~%install%/priceadjust.tph~
   INCLUDE ~%install%/loreadjust.tph~
   INCLUDE ~%install%/silverweapon.tph~
-  INCLUDE ~%install%/iwditempatch.tph~
+//  INCLUDE ~%install%/iwditempatch.tph~
   INCLUDE ~%install%/bg2opcodecheck.tph~
   INCLUDE ~%install%/updatebg2.tph~
   INCLUDE ~%install%/bg1icons.tph~

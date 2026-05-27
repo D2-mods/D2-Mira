@@ -1,0 +1,52 @@
+/*
+ees or bg2 engine, make clone of skull trap proj
+removes trap flags, this is in case a tweak adds "enemies only" flag
+a trap .PRO file with "enemies only" flag won't explode if shooting allies
+
+ees - also clone scorcher just to have unique resource (not possible in older games)
+*/
+
+
+ACTION_IF (ee_game>0 OR bg2_engine>0) BEGIN
+
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~%frag%.pro~) BEGIN
+    COPY_EXISTING - ~spwi313.spl~ ~~  READ_SHORT 0x98 skull_proj
+    LOOKUP_IDS_SYMBOL_OF_INT proj ~projectl~ (skull_proj - 1)    // number is 1 less in projectl.ids
+
+//    OUTER_SPRINT proj  ~trapskul~
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%proj%.pro~) BEGIN
+      LAF d2_cloneproj STR_VAR copy=~%proj%~ proj=~%frag%~ RET projnum END
+
+      COPY_EXISTING ~%frag%.pro~ ~override~
+        WRITE_SHORT 0x200 (THIS BAND BNOT BIT2)
+        WRITE_SHORT 0x200 (THIS BAND BNOT BIT3)
+        PATCH_IF !(MOD_IS_INSTALLED ~d2-mira.tp2~ 40) BEGIN
+          WRITE_SHORT 0x200 (THIS BAND BNOT BIT6)
+        END
+      IF_EXISTS BUT_ONLY
+
+      COPY_EXISTING ~%frag%.itm~ ~override~
+        LPF ALTER_ITEM_HEADER INT_VAR projectile=projnum END
+      BUT_ONLY
+    END
+  END
+
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~%scorcher%.pro~) BEGIN
+    COPY_EXISTING - ~spwi217.spl~ ~~  READ_SHORT 0x98 scorcher_proj
+    LOOKUP_IDS_SYMBOL_OF_INT proj ~projectl~ (scorcher_proj - 1)
+
+//    OUTER_SPRINT proj  ~scorcher~
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%proj%.pro~) BEGIN
+      LAF d2_cloneproj STR_VAR copy=~%proj%~ proj=~%scorcher%~ RET projnum END
+
+      COPY_EXISTING ~%scorcher%.itm~ ~override~
+        LPF ALTER_ITEM_HEADER INT_VAR projectile=projnum END
+      BUT_ONLY
+    END
+  END
+
+END
+
+
+//
+//

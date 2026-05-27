@@ -34,8 +34,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_icons BEGIN    // icon res
   ~%frag%~         => ~%frag%~
   ~%scorcher%~     => ~%scorcher%~
   ~%bigmetalunit%~ => ~%bigmetalunit%~
-  ~%prototype%~    => ~%pulse%~
-  ~%pulseIII%~     => ~%pulse%~
+  ~%prototype%~    => ~%prototype%~
+  ~%pulseIII%~     => ~%pulseIII%~
 END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_ground BEGIN    // icon res
@@ -392,7 +392,7 @@ END
 //
 //extra stuff
 
-//elemental weapons (for Better IWD Pregen scripts)
+//elemental weapons (for d2-script mod)
 LAF d2_elemental_weapon_arrays STR_VAR item=~%frag%~ element=~fire~ RET_ARRAY d2fireweap END
 LAF d2_elemental_weapon_arrays STR_VAR item=~%scorcher%~ element=~fire~ RET_ARRAY d2fireweap END
 

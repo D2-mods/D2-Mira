@@ -30,8 +30,29 @@ ACTION_IF ((FILE_EXISTS ~engine.lua~) && !(FILE_EXISTS_IN_GAME ~secret05.itm~)) 
   BUT_ONLY
 END
 
-//updatebg2 removes restrictions if added
-INCLUDE ~%install%/updatebg2.tph~
+
+//update icons for Pulse variants
+DEFINE_ACTION_FUNCTION pulseicons STR_VAR item=~~ bam=~~ BEGIN
+  COPY ~%icons%/%bam%.bam~  ~override/%item%.bam~
+  COPY_EXISTING ~%item%.itm~  ~override~
+    WRITE_ASCII 0x3a ~%item%~ #8
+    LPF ALTER_ITEM_HEADER STR_VAR icon=~%item%~ END
+  BUT_ONLY
+END
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~%prototype%.bam~) BEGIN
+  LAF pulseicons STR_VAR item=~%prototype%~ bam=prototypeicon END
+  LAF pulseicons STR_VAR item=~%pulseIII%~ bam=pulse3icon END
+  COPY_EXISTING ~%prototype%b.itm~  ~override~
+    WRITE_ASCII 0x3a ~%prototype%~ #8
+    LPF ALTER_ITEM_HEADER STR_VAR icon=~%prototype%~ END
+  IF_EXISTS BUT_ONLY
+END
+
+
+//
+INCLUDE ~%install%/copyskull.tph~    // check skull proj
+INCLUDE ~%install%/updatebg2.tph~    // Update BG2 files
 
 
 /*
