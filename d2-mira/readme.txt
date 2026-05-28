@@ -121,6 +121,7 @@ Updates:
 
 v4.22
 - IWDEE: items from this mod will now have description images if using a UI mod that enables them for IWDEE. Mods that do this include Infinity UI++ and the new IWD icons mod from G3. Previously these were removed due to issues with older versions of Infinity UI++.
+- oBG2 engine: accidently messed up desc images for Pulse variants while doing the last update, so that's fixed now.
 
 v4.21
 - changed colors of Pulse ammo variants. The updater component "Check item usability" can be used to update icons.

@@ -11,7 +11,6 @@ DEFINE_ACTION_FUNCTION d2mira_copy BEGIN
   ACTION_PHP_EACH d2mira_copy AS res => copy BEGIN
     COPY ~%folder%/%copy%.itm~  ~override/%res%.itm~
       LPF d2mira_icons END
-      LPF d2mira_ground END
     COPY ~%icons%/%copy%icon.bam~  ~override/%res%.bam~  IF_EXISTS
     COPY ~%icons%/%copy%desc.bam~  ~override/%res%d.bam~  IF_EXISTS
     COPY ~%icons%/%copy%ground.bam~  ~override/%res%g.bam~  IF_EXISTS
@@ -48,23 +47,36 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_ground BEGIN    // icon res
   ~%pulseIII%~     => GWAND01
 END
 
+ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_desc BEGIN    // icon res
+  ~%bigmetalrod%~  => ~%bigmetalrod%~
+  ~%pulse%~        => ~%pulse%~
+  ~%frag%~         => ~%frag%~
+  ~%scorcher%~     => ~%scorcher%~
+  ~%bigmetalunit%~ => ~%bigmetalunit%~
+  ~%prototype%~    => ~%pulse%~
+  ~%pulseIII%~     => ~%pulse%~
+END
+
 OUTER_SPRINT $d2mira_ground(~%bigmetalrod%~) ~%bigmetalrod%g~
 OUTER_SPRINT $d2mira_ground(~%bigmetalunit%~) ~%bigmetalunit%g~
 
 DEFINE_PATCH_FUNCTION d2mira_icons BEGIN
   PHP_EACH d2mira_icons AS item => icon BEGIN
     PATCH_IF (~%res%~ STR_EQ ~%item%~) BEGIN
-      WRITE_ASCII 0x3a ~%icon%~ #8     // icon
-      WRITE_ASCII 0x58 ~%icon%d~ #8    // bg desc image
+      WRITE_ASCII 0x3a ~%icon%~ #8
       LPF ALTER_ITEM_HEADER STR_VAR icon=~%icon%~ END
     END
   END
-END
 
-DEFINE_PATCH_FUNCTION d2mira_ground BEGIN
   PHP_EACH d2mira_ground AS item => icon BEGIN
     PATCH_IF (~%res%~ STR_EQ ~%item%~) BEGIN
       WRITE_ASCII 0x44 ~%icon%~ #8    // ground icon
+    END
+  END
+
+  PHP_EACH d2mira_desc AS item => icon BEGIN
+    PATCH_IF (~%res%~ STR_EQ ~%item%~) BEGIN
+      WRITE_ASCII 0x58 ~%icon%d~ #8    // bg desc image
     END
   END
 END
