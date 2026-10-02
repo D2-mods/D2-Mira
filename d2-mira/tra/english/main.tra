@@ -697,7 +697,7 @@ Weight: 0 lb.~
 
 //Delivery Bag
 @120 = ~Delivery Bag~
-@220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains 1 Big Metal Unit, 1 Big Metal Rod, 1 Pulse Ammunition, 1 Frag Grenade, and 1 Scorcher Ammunition. However, a magical force prevents the party from placing items into the bag.~
+@220 = ~This bag of holding was delivered to <CHARNAME> by a mysterious benefactor. It contains 1 Big Metal Unit, 1 Big Metal Rod, 1 Pulse Ammunition, 1 Frag Grenade, and 1 Scorcher Ammunition. However, a special mechanism prevents the party from placing items into the bag.~
 @320 = ~STATISTICS:
 
 Weight: 5~

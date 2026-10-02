@@ -20,8 +20,11 @@ COPY_EXISTING ~%metalunit%.itm~  ~override~
   LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=135 parameter2=0 timing=0 STR_VAR resource=golemiro insert=last END
   LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=7 parameter2=3 STR_VAR insert=last END    // color (doesn't work)
   LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=8 parameter2=255 STR_VAR insert=last END    // glow effect
-  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=139 parameter1=note timing=4 duration=2 STR_VAR insert=last END
   LPF CLONE_EFFECT INT_VAR match_opcode=135 opcode=176 parameter1=3 timing=2 END    // normalize movement speed
+
+  // note to save/reload after removing armor (fix animation)
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=139 parameter1=note timing=0 duration=0 STR_VAR insert=last END
+  LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=101 parameter2=139 timing=0 duration=1 STR_VAR insert=last END
 
 /*(doesn't work)
   // removal subspell

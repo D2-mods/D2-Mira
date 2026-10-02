@@ -1,0 +1,43 @@
+/*
+Frag Grenade damage
+
+fire = 0x00080000 (8 in EFF)
+slashing = 0x01000000 (256 in EFF)
+*/
+
+
+OUTER_SET dfire = 0x00080000
+OUTER_SET dslashing = 0x01000000
+ACTION_IF !(IS_AN_INT damagetype) BEGIN  OUTER_SET damagetype = dfire  END
+OUTER_SET stuff = 8
+ACTION_IF (damagetype = dslashing) BEGIN  OUTER_SET stuff = 256  END
+
+
+//edit damage type
+COPY_EXISTING ~%frag%.itm~  ~override~
+  LPF ALTER_EFFECT INT_VAR header_type=2 silent=1 match_opcode=12 parameter2=damagetype END
+BUT_ONLY
+
+
+//remove fire visual for slashing damage (EEs/BG2 engine)
+ACTION_IF (stuff = 256) BEGIN
+  COPY_EXISTING ~%frag%.pro~  ~override~
+    WRITE_BYTE 0x217   ~-1~     // explosion effect
+    WRITE_ASCII 0x21c  ~~ #8    // explosion animation
+    WRITE_SHORT 0x200  (THIS BAND BNOT BIT10)    // draw animation
+  IF_EXISTS BUT_ONLY
+END
+
+
+//for classic BG1 with safe ammo (if this is installed after)
+COPY_EXISTING ~%frag%.eff~  ~override~
+  WRITE_SHORT 0x22 stuff    // 0x22 = damage type
+IF_EXISTS BUT_ONLY
+
+
+//update files
+INCLUDE ~%install%/updatebg2.tph~
+
+
+//
+//

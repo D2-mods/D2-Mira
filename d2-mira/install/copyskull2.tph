@@ -1,0 +1,98 @@
+/*
+ees or bg2 engine
+make copy of skull projectile that's not a trap
+trap type .PRO set to be party friendly doesn't explode if targeting allies
+
+also make custom version scorcher .pro if it exists (easier to edit later)
+*/
+
+
+ACTION_IF (ee_game>0 OR bg2_engine>0) BEGIN
+
+    OUTER_SET d2mira_safeammo = 0
+    ACTION_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 40) BEGIN  OUTER_SET d2mira_safeammo = 1  END
+
+    ACTION_BASH_FOR ~%copyskull%~  ~.*~ BEGIN
+      ACTION_IF !(FILE_EXISTS_IN_GAME ~%BASH_FOR_FILE%~) BEGIN    // add files if missing
+        COPY ~%BASH_FOR_FILESPEC%~  ~override~
+      END
+    END
+
+    // frag grenade
+    COPY_EXISTING - ~SPWI313.SPL~  ~~    // check skull trap
+      READ_SHORT 0x98 projnum
+      SET idsnum = projnum - 1
+      LOOKUP_IDS_SYMBOL_OF_INT proj ~projectl~ ~%idsnum%~
+
+    ACTION_IF (ee_game > 0) BEGIN
+      ACTION_IF !(FILE_EXISTS_IN_GAME ~%proj%.pro~) BEGIN
+        OUTER_SPRINT proj  ~%files%/fragskull.pro~
+      END
+    END
+
+    LAF d2_cloneproj STR_VAR copy=~%proj%~ proj=~%frag%~ RET projnum END
+    COPY_EXISTING ~%frag%.pro~  ~override~
+      WRITE_SHORT 0x204  210    // trap size
+      WRITE_SHORT 0x206  210    // explosion size
+      WRITE_SHORT 0x200  (THIS BAND BNOT BIT2)    // remove triggered by condition
+      WRITE_SHORT 0x200  (THIS BAND BNOT BIT3)    // remove delayed trigger
+
+      // add iwd fire seed hit visual
+      PATCH_IF (ee_game > 0) BEGIN
+        WRITE_BYTE 0x217  ~-2~            // explosion effect
+        WRITE_LONG 0x240  THIS | BIT13    // blend anim
+        WRITE_LONG 0x240  THIS | BIT14    // glow anim
+      END
+      WRITE_SHORT 0x200  THIS | BIT10    // draw animation
+      WRITE_ASCII 0x21c ~%frag%~ #8      // explosion animation
+
+      // party friendly check
+      PATCH_IF (d2mira_safeammo = 1) BEGIN  WRITE_SHORT 0x200 THIS | BIT6  END    // enemies only flag
+//    PATCH_IF (d2mira_safeammo = 0) BEGIN  WRITE_SHORT 0x200 (THIS BAND BNOT BIT6)  END    // remove flag (no flag by default)
+    BUT_ONLY
+
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%frag%.pro~) BEGIN
+      OUTER_SET frag_proj = projnum
+      COPY_EXISTING ~%frag%.itm~ ~override~
+        LPF ALTER_ITEM_HEADER INT_VAR projectile=frag_proj END
+      BUT_ONLY
+    END
+
+    COPY_EXISTING ~FSEEDSX.vvc~  ~override/%frag%.vvc~
+      PATCH_IF (ee_game = 0) BEGIN
+        WRITE_SHORT 0x18  (THIS BAND BNOT BIT9)    // classic bg2: remove 3d blend flag (looks bad)
+        WRITE_LONG  0X2C  0    // y axis (move back 1 position)
+      END
+
+
+    // scorcher proj
+    COPY_EXISTING - ~spwi217.SPL~  ~~    // check scorcher spell
+      READ_SHORT 0x98 projnum
+      SET idsnum = projnum - 1
+      LOOKUP_IDS_SYMBOL_OF_INT proj ~projectl~ ~%idsnum%~
+
+    ACTION_IF (ee_game > 0) BEGIN
+      ACTION_IF !(FILE_EXISTS_IN_GAME ~%proj%.pro~) BEGIN
+        OUTER_SPRINT proj  ~%files%/scorcher.pro~
+      END
+    END
+
+    LAF d2_cloneproj STR_VAR copy=~%proj%~ proj=~%scorcher%~ RET projnum END
+//    COPY_EXISTING ~%scorcher%.pro~  ~override~
+/*
+note: technically single target, so you can't make it party friendly while keeping it a line projectile
+leave it as a line projectile for now (can prevent damage but still registers as hit)
+*/
+
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%scorcher%.pro~) BEGIN
+      OUTER_SET scorcher_proj = projnum
+      COPY_EXISTING ~%scorcher%.itm~ ~override~
+        LPF ALTER_ITEM_HEADER INT_VAR projectile=scorcher_proj END
+      BUT_ONLY
+    END
+
+END
+
+
+//
+//

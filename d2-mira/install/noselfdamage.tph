@@ -1,0 +1,23 @@
+/*
+for EEs, IWD1, IWD2
+area attacks don't hurt user (with or without party friendly tweak)
+*/
+
+
+OUTER_SET safespell = 0
+ACTION_IF (ee_game > 0) BEGIN  OUTER_SET safespell = 1  END
+ACTION_IF (GAME_IS ~iwd how totlm iwd2~) BEGIN  OUTER_SET safespell = 1  END
+
+
+ACTION_IF (safespell > 0) BEGIN
+
+  COPY_EXISTING ~%frag%.itm~  ~override~
+                ~%scorcher%.itm~  ~override~
+    LPF d2_safe_spell INT_VAR source=1 END
+  BUT_ONLY
+
+END
+
+
+//
+//

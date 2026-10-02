@@ -34,12 +34,15 @@ Components:
 #
 
 **Component 4 info (party friendly ammo):**
-- Protects allies from AoE ammo damage (ex. fire from scorcher).
-- Does not block damage from the launcher.
-- It still counts as a hit so it will interrupt spellcasting.
-- EEs/BG2 engine: this works for all AoE ammo.
-- IWD1/IWD2 note: Frag Grenade only, scorcher damage can't be blocked.
-- Neutral NPCs take no damage but may become hostile (depends on AI script).
+- full = blocks damage and does not count as a hit
+- partial = blocks damage but counts as a hit (i.e. can interrupt spellcasting)
+- EEs/BG2 engine: Frag Grenade (full), Scorcher (partial)
+- BG1 engine: All types (partial)
+- IWD1/IWD2 engines: Frag Grenade (partial), Scorcher (not blocked)
+
+- "full" prevents damage from the launcher/crossbow ("partial" does not)
+- Neutrals are also protected but scripting will treat a hit as being attacked.
+- IWD1/IWD2 note: Scorcher damage is hardcoded to the projectile, it's not possible to block it.
 
 --
 

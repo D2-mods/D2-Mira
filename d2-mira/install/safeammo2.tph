@@ -1,0 +1,108 @@
+/*
+Make ammo more party friendly
+
+full = blocks damage and does not count as hit
+damage only = blocks damage but counts as hit
+
+EEs/BG2 engine: Frag Grenade (full), Scorcher (damage only)
+BG1 engine: Frag Grenade (damage only), Scorcher (damage only)
+IWD games: Frag Grenade (damage only), Scorcher (hardcoded damage)
+*/
+
+
+//
+ACTION_IF (ee_game > 0) BEGIN
+  OUTER_SET opcode = 318
+  OUTER_SET cre_type = 52
+  OUTER_SET eff_type = 0
+END
+ELSE ACTION_IF (GAME_IS ~iwd2 iwd how totlm~) BEGIN
+  OUTER_SET opcode = 206
+  OUTER_SET cre_type = 52
+  OUTER_SET eff_type = 0
+END
+ELSE BEGIN
+  OUTER_SET opcode = 177
+  OUTER_SET cre_type = 2
+  OUTER_SET eff_type = 255
+END
+
+
+//
+DEFINE_ACTION_FUNCTION d2mira_safespell
+  INT_VAR opcode=~-1~ parameter1=~-1~ parameter2=~-1~ type=2 target=2
+  STR_VAR ammo_res=~%frag%~
+BEGIN
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%ammo_res%.itm~) BEGIN
+    OUTER_SET patch_item = 1
+
+    // patch area projectile if it exists
+    COPY_EXISTING ~%ammo_res%.pro~  ~override~
+      PATCH_IF (SOURCE_SIZE > 0x226) BEGIN
+        WRITE_SHORT 0x200 THIS | BIT6
+        SET patch_item = 0
+      END
+    IF_EXISTS BUT_ONLY
+
+    // otherwise patch item
+    ACTION_IF (patch_item > 0) BEGIN
+      COPY_EXISTING ~%ammo_res%.itm~  ~override~
+        LPF ADD_ITEM_EFFECT
+          INT_VAR opcode=opcode parameter1=parameter1 parameter2=parameter2 target=target type=type insert_point=0
+          STR_VAR resource=~%ammo_res%~
+        END
+
+        PATCH_IF (opcode = 177) BEGIN
+          LPF DELETE_EFFECT INT_VAR match_opcode=12 END
+          LPF ALTER_EFFECT INT_VAR match_opcode=opcode STR_VAR match_resource=~%ammo_res%~ resource=~%ammo_res%a~ END
+        END
+      BUT_ONLY
+
+      // edits for classic BG1/BG2
+      ACTION_IF (opcode = 177) BEGIN
+        ACTION_IF (~%ammo_res%~ STR_EQ ~%frag%~) BEGIN  OUTER_SET dice=3 OUTER_SET roll=4 END    // frag does 3d4
+        ACTION_IF (~%ammo_res%~ STR_EQ ~%scorcher%~) BEGIN  OUTER_SET dice=1 OUTER_SET roll=12 END    // scorcher does 2d12
+
+        COPY ~%files%/bg2safeammo.eff~  ~override/%ammo_res%a.eff~
+          WRITE_SHORT 0x38 dice
+          WRITE_SHORT 0x3c roll
+      END
+    END
+  END
+END
+
+LAF d2mira_safespell INT_VAR opcode=opcode parameter1=eff_type parameter2=cre_type STR_VAR ammo_res=~%frag%~ END
+LAF d2mira_safespell INT_VAR opcode=opcode parameter1=eff_type parameter2=cre_type STR_VAR ammo_res=~%scorcher%~ END
+
+
+
+//classic BG1/BG2: Scorcher allows save for half 
+ACTION_IF (opcode = 177) BEGIN
+  COPY ~%files%/bg2safescorch.eff~  ~override/%scorcher%b.eff~
+  COPY_EXISTING ~%scorcher%.itm~  ~override~  
+    LPF CLONE_EFFECT STR_VAR match_resource=~%scorcher%a~ resource=~%scorcher%b~ END
+  BUT_ONLY
+END
+
+
+//classic BG1/BG2: check Frag Grenade (damage type and rolls)
+ACTION_IF (opcode = 177) BEGIN
+  COPY_EXISTING ~%frag%a.eff~  ~override~
+    PATCH_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 31) BEGIN    // if slashing damage
+      WRITE_SHORT 0x22 256
+    END
+    PATCH_IF (MOD_IS_INSTALLED ~d2-mira.tp2~ 11) BEGIN    // if vanilla BG2 stats
+      WRITE_SHORT 0x38 1
+      WRITE_SHORT 0x3c 12
+    END
+  IF_EXISTS BUT_ONLY
+END
+
+
+//update files
+INCLUDE ~%install%/updatebg2.tph~
+
+
+//
+//

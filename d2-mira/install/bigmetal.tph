@@ -285,9 +285,10 @@ END
 
 //for IWD2
 DEFINE_ACTION_FUNCTION d2mira_iwd2note BEGIN
-  OUTER_SET note = RESOLVE_STR_REF (@49329276)    // note to reload after removing armor (fix selection sounds)
+  OUTER_SET note = RESOLVE_STR_REF (@49329276)    // note to save/reload after removing armor (fix selection sounds)
   COPY_EXISTING ~%metalunit%.itm~  ~override~
-    LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=139 parameter1=note timing=4 duration=2 STR_VAR insert=last END
+    LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=139 parameter1=note timing=0 duration=0 STR_VAR insert=last END
+    LPF CLONE_EFFECT INT_VAR multi_match=1 opcode=101 parameter2=139 timing=0 duration=1 STR_VAR insert=last END
   BUT_ONLY
 END
 

@@ -2,8 +2,8 @@
 //
 
 
-//bg2: copy base files to mod (account for possible changes NOT added to mod files)
-//this is skipped if for some reason the base files no longer include changes from this mod
+//bg2: copy base files to mod
+//this is skipped if base files no longer include changes from this mod
 ACTION_PHP_EACH update_items AS mod => base BEGIN
   ACTION_IF (RESOURCE_CONTAINS ~%base%.itm~  ~d2tec~) BEGIN
     COPY_EXISTING ~%base%.itm~  ~override/%mod%.itm~
@@ -12,23 +12,19 @@ ACTION_PHP_EACH update_items AS mod => base BEGIN
   END
 END
 
-//bgee/iwdee: check for forgotten armaments crit immunity tweak
-ACTION_IF ((FILE_EXISTS ~engine.lua~) && !(FILE_EXISTS_IN_GAME ~secret05.itm~)) BEGIN
-  OUTER_SET CritImmunity1 = ID_OF_LABEL ~forgotten-armament.tp2~ ~ForgottenArmament-CritImmunity1~
-  OUTER_SET CritImmunity2 = ID_OF_LABEL ~forgotten-armament.tp2~ ~ForgottenArmament-CritImmunity2~
 
-  OUTER_SET fa_check = 0
-  ACTION_IF (MOD_IS_INSTALLED ~forgotten-armament.tp2~ CritImmunity1) BEGIN  OUTER_SET fa_check = 1  END
-  ACTION_IF (MOD_IS_INSTALLED ~forgotten-armament.tp2~ CritImmunity2) BEGIN  OUTER_SET fa_check = 1  END
+//check for forgotten armaments crit immunity
+OUTER_SET CritImmunity1 = ID_OF_LABEL ~forgotten-armament.tp2~ ~ForgottenArmament-CritImmunity1~
+OUTER_SET CritImmunity2 = ID_OF_LABEL ~forgotten-armament.tp2~ ~ForgottenArmament-CritImmunity2~
 
-  COPY_EXISTING ~d2tec05.itm~  ~override~
-    PATCH_IF (fa_check > 0) BEGIN
-      WRITE_LONG 0x18 THIS | BIT25
-    END ELSE BEGIN
-      WRITE_LONG 0x18 (THIS BAND BNOT BIT25)
-    END
-  BUT_ONLY
-END
+OUTER_SET fa_check = 0
+ACTION_IF (MOD_IS_INSTALLED ~forgotten-armament.tp2~ CritImmunity1) BEGIN  OUTER_SET fa_check = 1  END
+ACTION_IF (MOD_IS_INSTALLED ~forgotten-armament.tp2~ CritImmunity2) BEGIN  OUTER_SET fa_check = 1  END
+
+COPY_EXISTING ~d2tec05.itm~  ~override~
+  PATCH_IF (fa_check > 0) BEGIN  WRITE_LONG 0x18 THIS | BIT25  END
+//  PATCH_IF (fa_check = 0) BEGIN  WRITE_LONG 0x18 (THIS BAND BNOT BIT25)  END    // off by default
+BUT_ONLY
 
 
 //update icons for Pulse variants
@@ -50,10 +46,10 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~%prototype%.bam~) BEGIN
 END
 
 
+//update some files
+INCLUDE ~%install%/copyskull2.tph~    // custom projectiles
+INCLUDE ~%install%/updatebg2.tph~    // bg2 files
+
+
 //
-INCLUDE ~%install%/copyskull.tph~    // check skull proj
-INCLUDE ~%install%/updatebg2.tph~    // Update BG2 files
-
-
-/*
-*/
+//
