@@ -28,13 +28,11 @@ Extra patching:
 --
 
 Component 4 info (party friendly ammo):
-- full = blocks damage and does not count as a hit
-- partial = blocks damage but counts as a hit (i.e. can interrupt spellcasting)
 - EEs/BG2 engine: Frag Grenade (full), Scorcher (partial)
 - BG1 engine: All types (partial)
 - IWD1/IWD2 engines: Frag Grenade (partial), Scorcher (not blocked)
-
-- "full" prevents damage from the launcher/crossbow ("partial" does not)
+- full = blocks damage from ammo and launcher, and does not count as a hit
+- partial = blocks damage from ammo only, and counts as a hit (i.e. can interrupt spellcasting)
 - Neutrals are also protected but scripting will treat a hit as being attacked.
 - IWD1/IWD2 note: Scorcher damage is hardcoded to the projectile, it's not possible to block it.
 
