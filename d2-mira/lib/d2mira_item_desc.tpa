@@ -99,6 +99,8 @@ OUTER_SPRINT questbookbg2_desc @255
 
 OUTER_SPRINT goldenpants_name_unidentified @180    // IWD games
 OUTER_SPRINT goldenpants_desc_unidentified @280
+OUTER_SPRINT strangedevice_name @493150
+OUTER_SPRINT strangedevice_desc @493250
 
 OUTER_SPRINT combinedpants_name      @181
 OUTER_SPRINT combinedpants_text_base @281

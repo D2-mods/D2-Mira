@@ -1,0 +1,32 @@
+/*
+IWDEE: descriptions images for gold/silver/bronze pants
+this file was added because some mods now make description images visible on IWDEE.
+separate file because the main install file is complex, and I don't want to touch it.
+*/
+
+
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+
+
+COPY ~%icons%/goldpantsdesc.bam~    ~override/%gold%d.bam~
+COPY ~%icons%/silverpantsdesc.bam~  ~override/%silver%d.bam~
+COPY ~%icons%/bronzepantsdesc.bam~  ~override/%bronze%d.bam~
+
+COPY_EXISTING ~%gold%.itm~  ~override~
+  WRITE_ASCII 0x58 ~%gold%d~ #8
+IF_EXISTS BUT_ONLY
+
+COPY_EXISTING ~%silver%.itm~  ~override~
+  WRITE_ASCII 0x58 ~%silver%d~ #8
+IF_EXISTS BUT_ONLY
+
+COPY_EXISTING ~%bronze%.itm~  ~override~
+  WRITE_ASCII 0x58 ~%bronze%d~ #8
+IF_EXISTS BUT_ONLY
+
+
+END
+
+
+//
+//

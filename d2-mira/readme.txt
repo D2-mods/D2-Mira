@@ -23,7 +23,7 @@ Components:
 7. Animation tweaking (Big Metal Unit)
 
 Extra patching:
-- Check item usability (can re-run at any time, use if a later tweak added restrictions)
+- Check item usability (can rerun at any time, use if a later tweak added restrictions)
 
 --
 
@@ -120,6 +120,12 @@ Used for older releases (replaced by WeiDU Mod Packager):
 
 Updates:
 
+v4.24
+- iwd1/iwdee: the initial Big Metal Rod that you find in the game is changed to a generic item, so it's no longer usable as a weapon. You'll need to get more info on it before it can be used.
+- iwdee: added description images for pantaloons for use with UI mods that show the images. Forgot about these when I updated the other items.
+- iwd1/iwdee: Pantaloon items now have correct header signatures. Previously, they were using IWD2 signatures because the base items are edits of IWD2 items (to prevent crashing IWD2).
+- iwd1/iwd2/iwdee: renamed resource names for pantaloon items (to lower from 8 to 7 characters).
+
 v4.23
 - EEs/BG2 engine: Frag Grenade is now fully party friendly if using the related tweak. Previously it didn't do damage but still registered as a hit. It also has no effect on neutrals as long as you don't target them directly. Also added a fiery visual at the target point (unless changing to slashing damage).
 - EEs/IWD1/IWD2: The user is now always protected from Frag Grenade damage, with or without the party friendly tweak.
@@ -151,7 +157,7 @@ v4.18
 
 v4.17
 - BG2 (all versions): fixed possible conflicts (duplicate items) if using another mod that makes the Golden Pantaloons always added to the starting dungeon (ex. the new Golden Pantaloons/Better SoA Start component from cdtweaks/Tweaks Anthology).
-- added component: Check item usability. Removes item restrictions if added by another mod. Skipped on initial mod install. Can be re-run at any time (does not uninstall other mods). This is automatically checked from other components as well, but the new component can be used if you install a later tweak that added restrictions.
+- added component: Check item usability. Removes item restrictions if added by another mod. Skipped on initial mod install. Can be rerun at any time (does not uninstall other mods). This is automatically checked from other components as well, but the new component can be used if you install a later tweak that added restrictions.
 
 v4.16
 - bg1 (classic): fixed installer error that could occur because I didn't test it without baldurdash and dudleyville fixes. My test setup includes these by default. This mod will now install without error on an unmodded original BG1.

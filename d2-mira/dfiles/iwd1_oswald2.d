@@ -1,0 +1,71 @@
+//for Pulse Ammunition (prototype)
+//Add to Oswald's dialogues
+
+
+EXTEND_BOTTOM ~DOSWALD~ %oswald_states%
+
+IF ~ PartyHasItem("%strangedevice%")
+     Global("d2OswaldBigMetal","GLOBAL",0)
+   ~ REPLY @10101 GOTO OswaldShowDevice
+
+IF ~ PartyHasItem("%bigmetalrod%")
+     !PartyHasItem("%prototype%")
+//   Global("d2OswaldBigMetal","GLOBAL",1)    // used before adding strangedevice
+   ~ REPLY @10102 GOTO OswaldShowRod
+
+IF ~ !PartyHasItem("%strangedevice%")
+     !PartyHasItem("%bigmetalrod%")
+     Global("d2OswaldBigMetal","GLOBAL",0)
+     Global("d2OswaldNoRodTalk","GLOBAL",0)
+   ~ REPLY @10141 GOTO OswaldNoRod
+
+END
+
+
+APPEND ~DOSWALD~
+
+IF ~~ BEGIN OswaldShowDevice
+  SAY @10111  // Oswald says stuff
+    = @10112  // Oswald makes offer
+  IF ~ PartyGoldGT(2999)  // if 3000 gold
+     ~ REPLY @10121 DO ~ SetGlobal("d2OswaldBigMetal","GLOBAL",2)  // accept offer
+                         TakePartyItem("%strangedevice%")
+                         DestroyItem("%strangedevice%")
+                         GiveItemCreate("%bigmetalrod%",LastTalkedToBy,0,0,0)
+                       ~ GOTO OswaldPrototype
+  IF ~
+     ~ REPLY @10122 DO ~ SetGlobal("d2OswaldBigMetal","GLOBAL",1)  // reject offer
+                         TakePartyItem("%strangedevice%")
+                         DestroyItem("%strangedevice%")
+                         GiveItemCreate("%bigmetalrod%",LastTalkedToBy,0,0,0)
+                       ~ EXIT
+END
+
+IF ~~ BEGIN OswaldShowRod
+  SAY @10111  // Oswald says stuff
+    = @10112  // Oswald makes offer
+  IF ~ PartyGoldGT(2999)  // if 3000 gold
+     ~ REPLY @10121 DO ~ SetGlobal("d2OswaldBigMetal","GLOBAL",2)  // accept offer
+                       ~ GOTO OswaldPrototype
+  IF ~
+     ~ REPLY @10122 DO ~ SetGlobal("d2OswaldBigMetal","GLOBAL",1)  // reject offer
+                       ~ EXIT
+END
+
+IF ~~ BEGIN OswaldPrototype
+  SAY @10131  // Oswald says stuff
+  IF ~~ DO ~ TakePartyGold(3000)
+             %destroygold%(3000)
+             GiveItemCreate("%prototype%",LastTalkedToBy,0,0,0)
+             AddJournalEntry(%iwdjour02%)
+           ~ EXIT
+END
+
+IF ~~ BEGIN OswaldNoRod
+  SAY @10151  // Oswald says stuff
+    = @10152
+  IF ~~ DO ~ SetGlobal("d2OswaldNoRodTalk","GLOBAL",1)
+           ~ EXIT
+END
+
+END

@@ -19,9 +19,9 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY update_items BEGIN    // mod => base
   d2tec03 => secret03
   d2tec04 => secret04
   d2tec05 => secret05
-  d2pant01 => MISCCB
-  d2pant02 => MISC5O
-  d2pant03 => MISC47
+  d2pantb => MISCCB
+  d2pants => MISC5O
+  d2pantg => MISC47
 END
 
 END
@@ -126,17 +126,18 @@ END
 //
 //Set item variables
 
-OUTER_TEXT_SPRINT bigmetalrod  ~d2tec01~
-OUTER_TEXT_SPRINT pulse        ~d2tec02~
-OUTER_TEXT_SPRINT frag         ~d2tec03~
-OUTER_TEXT_SPRINT scorcher     ~d2tec04~
-OUTER_TEXT_SPRINT bigmetalunit ~d2tec05~
-OUTER_TEXT_SPRINT prototype    ~d2tec06~
-OUTER_TEXT_SPRINT pulseIII     ~d2tec07~
-OUTER_TEXT_SPRINT metalrodb    ~d2tec01b~    // for BG1 (different text)
-OUTER_TEXT_SPRINT prototypeb   ~d2tec06b~    // for BG1 (different text)
-OUTER_TEXT_SPRINT brokenrod    ~d2tec50~     // for BG2 (malfunctioned rod)
-OUTER_TEXT_SPRINT repairbook   ~d2tec55~     // for BG2 (repair manual)
+OUTER_TEXT_SPRINT bigmetalrod   ~d2tec01~
+OUTER_TEXT_SPRINT pulse         ~d2tec02~
+OUTER_TEXT_SPRINT frag          ~d2tec03~
+OUTER_TEXT_SPRINT scorcher      ~d2tec04~
+OUTER_TEXT_SPRINT bigmetalunit  ~d2tec05~
+OUTER_TEXT_SPRINT prototype     ~d2tec06~
+OUTER_TEXT_SPRINT pulseIII      ~d2tec07~
+OUTER_TEXT_SPRINT metalrodb     ~d2tec01b~    // for BG1 (different text)
+OUTER_TEXT_SPRINT prototypeb    ~d2tec06b~    // for BG1 (different text)
+OUTER_TEXT_SPRINT brokenrod     ~d2tec50~     // for BG2 (malfunctioned rod)
+OUTER_TEXT_SPRINT repairbook    ~d2tec55~     // for BG2 (repair manual)
+OUTER_TEXT_SPRINT strangedevice ~d2tec50~     // iwd unusable rod
 
 /*old iwd2 resource
 ACTION_IF (GAME_IS ~iwd2~) BEGIN
@@ -150,13 +151,13 @@ ACTION_IF (GAME_IS ~iwd2~) BEGIN
 END
 */
 
-OUTER_TEXT_SPRINT bronze  ~d2pant01~
-OUTER_TEXT_SPRINT silver  ~d2pant02~
-OUTER_TEXT_SPRINT gold    ~d2pant03~
-OUTER_TEXT_SPRINT mirabag ~d2#mbag~
-OUTER_TEXT_SPRINT metalrod ~%bigmetalrod%~
-OUTER_TEXT_SPRINT metalunit ~%bigmetalunit%~
+OUTER_TEXT_SPRINT bronze    ~d2pantb~
+OUTER_TEXT_SPRINT silver    ~d2pants~
+OUTER_TEXT_SPRINT gold      ~d2pantg~
+OUTER_TEXT_SPRINT mirabag   ~d2#mbag~
 OUTER_TEXT_SPRINT checkbag  ~%mirabag%t~
+OUTER_TEXT_SPRINT metalrod  ~%bigmetalrod%~    // alt variables
+OUTER_TEXT_SPRINT metalunit ~%bigmetalunit%~
 
 
 /*

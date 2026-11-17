@@ -70,7 +70,7 @@ THEN
 END
 
 IF
-	PartyHasItem("%bigmetalrod%")
+	PartyHasItem("%strangedevice%")
 	Global("AR1016_visited","GLOBAL",1)
 	Global("d2PomabBigMetal","GLOBAL",1)
 THEN

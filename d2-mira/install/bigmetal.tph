@@ -328,6 +328,17 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d2mira_bg1images BEGIN
 END
 
 
+//unusable rod (same res as bg2 brokenrod, but different description)
+DEFINE_ACTION_FUNCTION d2mira_strangedevice_text BEGIN
+  COPY_EXISTING ~%metalrod%.itm~  ~override/%strangedevice%.itm~
+    SAY NAME1 ~%strangedevice_name%~ SAY UNIDENTIFIED_DESC ~%strangedevice_desc%~
+    SAY NAME2 ~%strangedevice_name%~ SAY DESC ~%strangedevice_desc%~
+    LPF DELETE_ITEM_HEADER INT_VAR header_type=~-1~ END
+    WRITE_SHORT 0x1c 0    // change item type
+    WRITE_LONG  0x34 0    // 0 gold
+END
+
+
 
 //
 //Install items
@@ -373,6 +384,7 @@ ACTION_IF (GAME_IS ~iwdee~) BEGIN
   LAF d2mira_pantaloons END
   LAF d2mira_bigmetal_text END
   LAF d2mira_pantaloons_text END
+  LAF d2mira_strangedevice_text END
   LAF d2mira_baseicons END
 END
 
@@ -382,6 +394,7 @@ ACTION_IF (GAME_IS ~iwd how totlm~) BEGIN
   LAF d2mira_iwdopcodes END
   LAF d2mira_bigmetal_text END
   LAF d2mira_pantaloons_text END
+  LAF d2mira_strangedevice_text END
 END
 
 //IWD2
@@ -424,6 +437,7 @@ ACTION_IF (ee_game > 0) BEGIN
   OUTER_SET d2polymorphcheck = stat
 END
 
+
 //big metal unit animation
 COPY_EXISTING ~%bigmetalunit%.itm~  ~override~
   // blocks other op53 effects (animation change)
@@ -440,11 +454,23 @@ COPY_EXISTING ~%bigmetalunit%.itm~  ~override~
     LPF d2_protect_on_castequip INT_VAR match_opcode=anim cre_type=d2polymorphcheck STR_VAR insert=above END
   END
 
+/*
   // npc bump
   PATCH_IF (RESOURCE_CONTAINS ~stats.ids~  ~NPC_BUMP~) BEGIN
     LPF CLONE_EFFECT INT_VAR silent=1 match_opcode=anim opcode=300 parameter2=1 STR_VAR insert=below END
   END
+*/
 BUT_ONLY
+
+
+//fix header signature for pants (no gameplay effect, but avoids being detected as a wrong header signature)
+ACTION_IF !(GAME_IS ~iwd2~) BEGIN
+  COPY_EXISTING ~%gold%.itm~ ~override~
+                ~%silver%.itm~ ~override~
+                ~%bronze%.itm~ ~override~
+    WRITE_ASCII 0x4 ~V1  ~ #4
+  IF_EXISTS BUT_ONLY
+END
 
 
 //

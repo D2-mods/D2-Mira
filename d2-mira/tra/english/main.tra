@@ -65,7 +65,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @10242 = ~Perhaps another time.~
 
 	@10251 = ~Excellent. Here is the Pulse Ammunition. I will ensure the prototype gets back to Oswald once I am finished with it. Before you go, I have some news that may be of interest to you.~
-	@10252 = ~There is another version of this ammo in development, but one of the prototypes has been lost. Perhaps you may come upon it in your travels, some place, far away from Kuldahar.~
+	@10252 = ~There is another variant of this ammo in development, but one of the prototypes has been lost. Perhaps you may come upon it in your travels, some place, far away from Kuldahar.~
 
 
 //
@@ -110,8 +110,8 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 @10601 = ~What's that strange device on the table?~
 @10602 = ~By chance, have you come across any special weapons around here?~
 
-	@10611 = ~A good question, but there's little I can tell you. I found it several moons past, while walking the woods. It has a name inscribed on it, "Big Metal Rod". Why don't you take it with you? Perhaps you may find a use for it.~
-	@10612 = ~Ah yes, I did spot this oddly-shaped bolt while patrolling the forest. The label reads, "Pulse Ammunition". I had intended to sell it to a caravan for 5,000 gold, but since you're here...~
+	@10611 = ~A good question, but there's little I can tell you. I found it several moons past, while walking the woods. It has a name inscribed on it, "Big Metal Rod." Why don't you take it with you? Perhaps you may find a use for it.~
+	@10612 = ~Ah yes, I did spot this oddly-shaped bolt while patrolling the forest. The label reads, "Pulse Ammunition." I had intended to sell it to a caravan for 5,000 gold, but since you're here...~
 
 @10621 = ~I'll take it.~
 @10622 = ~Please hold onto it. I'll come back for it later.~
@@ -370,7 +370,7 @@ If the bag option is installed, then dialogue for items in the bag is skipped
 //Journal entries
 
 //IWD1
-@10001 = ~Today, we found a strange device in the upper room at Pomab's Emporium. It seems to be a crossbow of some sort. Perhaps if we could speak to an inventor, we could learn more about it.~
+@10001 = ~Today, we found a strange device in the upper room at Pomab's Emporium. It seems to be a crossbow of some sort. Perhaps if we could speak to an inventor we could learn more about it.~
 @10002 = ~We acquired the Pulse Ammunition (prototype) from Oswald. He mentioned, as we were leaving, that a more advanced version of the ammo has already been invented.~
 @10003 = ~Orrick has agreed to procure a production version of the Pulse Ammunition for us. It should take some days to arrive, so we should ask about it again in the future.~
 @10004 = ~We finally acquired the Pulse Ammunition from Orrick. He also tells us that another more advanced prototype of the ammo has been lost and that it would likely be found some place, far away from Kuldahar.~
@@ -444,7 +444,7 @@ Hendak mentioned 3 possibilities: the Cowled Wizards, de'Arnise Keep, and the Pl
 Weight: 4~
 
 //BG1 alt text
-@500 = ~The "Big Metal Rod" was designed to be used with the "Big Metal Unit", a one-of-a-kind device, which Lucky Aello happily tells you the details of. A likely tall tale, unless...~
+@500 = ~The "Big Metal Rod" was designed to be used with the "Big Metal Unit," a one-of-a-kind device, which Lucky Aello happily tells you the details of. A likely tall tale, unless...~
 
 //IWD1 alt
 @600 = ~STATISTICS:
@@ -725,7 +725,7 @@ Weight: 5 lb.~
 //
 //Quest items (BG2)
 @150 = ~Big Metal Rod?~
-@250 = ~This seems to be a malfunctioned crossbow. Any attempt to operate it proves unsuccessful. The name, "Big Metal Rod", is inscribed on the weapon.
+@250 = ~This seems to be a malfunctioned crossbow. Any attempt to operate it proves unsuccessful. The name, "Big Metal Rod," is inscribed on the weapon.
 
 STATISTICS:
 
@@ -737,6 +737,10 @@ Weight: 4~
 STATISTICS:
 
 Weight: 2~
+
+//iwd metal rod (before talking to oswald)
+@493150 = @150
+@493250 = ~A strange device bearing the inscription, "Big Metal Rod." Perhaps if we could speak to an inventor we could learn more about it.~
 
 
 

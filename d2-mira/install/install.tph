@@ -25,9 +25,10 @@
   INCLUDE ~%install%/silverweapon.tph~
   INCLUDE ~%install%/noselfdamage.tph~
 //  INCLUDE ~%install%/iwditempatch.tph~
+  INCLUDE ~%install%/pantsdescicons.tph~
   INCLUDE ~%install%/bg2opcodecheck.tph~
-  INCLUDE ~%install%/updatebg2.tph~
   INCLUDE ~%install%/bg1icons.tph~
+  INCLUDE ~%install%/updatebg2.tph~
 
 
 /*

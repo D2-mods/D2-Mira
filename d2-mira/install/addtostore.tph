@@ -10,7 +10,7 @@ ACTION_IF (GAME_IS ~iwdee iwd how totlm iwd_in_bg2~) BEGIN
 ACTION_IF (mira = 1) BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~AR1016.ARE~) BEGIN
     COPY_EXISTING ~AR1016.ARE~ ~override~
-      LPF ADD_AREA_ITEM INT_VAR container_to_add_to=2 STR_VAR item_to_add=~%bigmetalrod%~ END
+      LPF ADD_AREA_ITEM INT_VAR container_to_add_to=2 STR_VAR item_to_add=~%strangedevice%~ END
     BUT_ONLY
   END
 
